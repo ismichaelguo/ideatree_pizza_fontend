@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@mixin ipad() {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin iphone() {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+$Fredericka: "Fredericka the Great", cursive;
+$Abril_Fatface: "Abril Fatface", cursive;
+$yellow: #e4ae26;
+$black: #1a1a1a;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: url("../Images/background2.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.homepage_container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .homepage_slogan {
+    text-align: center;
+    line-height: 5rem;
+    h2 {
+      font-family: $Fredericka;
+      color: white;
+      font-size: 50px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:after {
+        content: "Get it while it's hot!";
+        position: absolute;
+        color: transparent;
+        text-align: center;
+        background: -webkit-linear-gradient(left, #03a9f4, #ffeb3b, #03a9f4);
+        background-clip: text;
+        clip-path: circle(80px at 0% 50%);
+        animation: light 5s infinite;
+
+        @keyframes light {
+          0% {
+            clip-path: circle(80px at 0% 50%);
+          }
+          50% {
+            clip-path: circle(80px at 100% 50%);
+          }
+          100% {
+            clip-path: circle(80px at 0% 50%);
+          }
+        }
+      }
+    }
+    p {
+      font-family: $Abril_Fatface;
+      font-size: 30px;
+      color: $yellow;
+    }
+
+    button {
+      text-decoration: none;
+      padding: 1rem 2rem 1rem 2rem;
+      cursor: pointer;
+      font-family: $Fredericka;
+      color: white;
+      font-size: 20px;
+      background: transparent;
+      text-transform: uppercase;
+      border: 1px solid $yellow;
+      margin-top: 2rem;
+      transition: all 0.5s;
+      &:hover {
+        transform: scale(1.2);
+      }
+      &:active {
+        border: 1px solid $yellow;
+      }
+    }
+  }
+}
