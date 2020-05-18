@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/Homepage.scss";
+import { Link } from 'react-router-dom';
+import "./homepage.scss";
 
 class Homepage extends React.Component {
 
@@ -51,22 +52,22 @@ class Homepage extends React.Component {
   //   }
   // };
 
-  componentDidMount() {
+  componentDidMount () {
     this.typing(0);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     clearInterval(this.addText);
     clearInterval(this.deleteText);
   }
 
-  render() {
+  render () {
     return (
-      <div className="homepage_container">
-        <div className="homepage_slogan">
+      <div className="homepage-container">
+        <div className="homepage__slogan">
           <h2>Get it while it's hot!</h2>
           <p>{this.state.text}</p>
-          <button>Order Online</button>
+          <Link to='/menu'><button>Order Online</button></Link>
         </div>
       </div>
     );
