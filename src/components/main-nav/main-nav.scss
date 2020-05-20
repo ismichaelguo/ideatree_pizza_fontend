@@ -12,11 +12,17 @@
   &__right {
     font-size: 15px;
     cursor: pointer;
+    .login:visited {
+      color: #49515d !important;
+    }
   }
 }
 
 .logo {
   font-size: 2rem;
+  &:visited {
+    color: #49515d !important;
+  }
   &__highlight {
     color: orangered;
   }

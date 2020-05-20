@@ -14,9 +14,7 @@ class MainNav extends React.Component {
       <Fragment>
         <header className="main-nav">
           <div className="main-nav__left">
-            <div className="logo">
-              <Link to='/'> Pizza<span className="logo__highlight"> Hub</span> </Link>
-            </div>
+            <Link to='/' className="logo"> Pizza<span className="logo__highlight"> Hub</span> </Link>
           </div>
           <div className="main-nav__middle">
             <nav className="main-navbar">
@@ -29,10 +27,7 @@ class MainNav extends React.Component {
             </nav>
           </div>
           <div className="main-nav__right">
-            <div className="login">
-              <Link to='/account' ><i className="fa fa-user-circle"></i> My Account</Link>
-
-            </div>
+            <Link to='/account' className="login"><i className="fa fa-user-circle"></i> My Account</Link>
           </div>
         </header>
       </Fragment>
