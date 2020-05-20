@@ -1,0 +1,70 @@
+$footer-fontColor: #454545;
+// $footer-fontColor: white;
+$footer-backgroundColor:white;
+$footer-font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+  .footerContainer {
+    color: $footer-fontColor;
+    display: block;
+    font-size: 100%;
+    background-color:$footer-backgroundColor ;
+  }
+  .footer_links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 30px;
+    max-width: 1024px;
+    margin: 0 auto;
+    font-family: $footer-font-family;
+  }
+  .footer_links_column {
+    width: 200px;
+    display: block;
+    list-style-type: disc;
+    list-style: none;
+  }
+  .footer_links_column_title {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    font-weight: 900;
+    margin-bottom: 5px;
+  }
+  .footer_links_column_item {
+    font-size: 15px;
+    letter-spacing: 0;
+    text-transform: initial;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+  .footer_social {
+    text-align: center;
+    margin-top: 10px;
+    line-height: 28px;
+    font-size: 16px;
+  }
+  .footer_social_item {
+    margin-right: 20px;
+  }
+  .footer_privacy {
+    line-height: 28px;
+    color: $footer-fontColor;
+    text-align: center;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 0;
+    padding: 30px;
+    font-family: $footer-font-family;
+  }
+  .footer_privacy_item {
+    color: $footer-fontColor;
+    font-size: 14px;
+    letter-spacing: 0;
+    text-transform: initial;
+    font-weight: bold;
+}
+  .link {
+    text-decoration: none;
+    color: $footer-fontColor;
+}

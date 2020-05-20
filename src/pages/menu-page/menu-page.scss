@@ -1,0 +1,50 @@
+$subMenuBackgroundColor:#3E2723;
+$titleFont:normal normal  20px/20px Oswald,sans-serif;
+$textColor:white;
+$textSize:28px;
+$ipadPro-ipad-breakPoint:1225px;
+$phones-breakPoint:480px;
+
+.SubMenuContainer{
+background-color:$subMenuBackgroundColor ;
+display:block;
+margin-left:15%;
+width:70%;
+}
+
+.SubMenuContainer_body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.titleBold{
+    font-weight: bold; 
+}
+.title{
+    font:$titleFont;
+    color:$textColor;
+    font-size: $textSize;
+    padding-top: 30px;
+}
+.line{
+    border:1px solid $textColor;
+   margin-bottom: 30px;
+}
+
+@media(max-width:$ipadPro-ipad-breakPoint){
+    .SubMenuContainer{
+        margin-left:5%;
+        width: 90%;
+    }
+    
+    
+}
+@media(max-width:$phones-breakPoint){
+.SubMenuContainer_body{
+        justify-content: space-around;
+    }
+    .title{
+        text-align:center;
+    }
+}
+
