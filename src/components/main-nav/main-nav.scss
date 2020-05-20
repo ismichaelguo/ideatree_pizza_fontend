@@ -1,0 +1,64 @@
+// main navigation
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0;
+  &__left {
+    border: 1px solid orangered;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  &__right {
+    font-size: 15px;
+    cursor: pointer;
+    .login:visited {
+      color: #49515d !important;
+    }
+  }
+}
+
+.logo {
+  font-size: 2rem;
+  &:visited {
+    color: #49515d !important;
+  }
+  &__highlight {
+    color: orangered;
+  }
+}
+
+.main-navbar {
+  display: flex;
+  &__item {
+    text-decoration: none;
+    padding: 0 1rem;
+    color: #49515d;
+    font-size: 15px;
+    display: block; //为了后面加underline
+    opacity: 0.7; //与navbar__item--active呼应，active时为1
+    transition: opacity 0.3s ease-in-out;
+    &::after {
+      // add underlines for navbar
+      content: "";
+      width: 0; // hide underline
+      border-bottom: 2px solid orangered;
+      margin: auto;
+      margin-top: 3px;
+      display: block; // before/after默认都是inline，要改成block才能落到下一行
+      transition: width 0.3s ease-in-out;
+    }
+    &--active,
+    &:hover {
+      opacity: 1;
+      &::after {
+        // show underline after hover and active
+        width: 80%;
+      }
+    }
+    &:last-child {
+      // remove right padding for the last nav item
+      padding-right: 0;
+    }
+  }
+}

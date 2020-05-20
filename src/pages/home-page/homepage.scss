@@ -22,20 +22,22 @@ $black: #1a1a1a;
 }
 
 html {
-  background: url("../Images/background2.jpg") no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+  /* let 1rem=10px */
+  font-size: 10px;
 }
 
-.homepage_container {
+.homepage-container {
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: url("../../asset/images/background2-min.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 
-  .homepage_slogan {
+  .homepage__slogan {
     text-align: center;
     line-height: 5rem;
     h2 {
