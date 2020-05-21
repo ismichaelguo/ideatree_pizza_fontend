@@ -35,7 +35,7 @@ function Footer (props) {
         <ul className='footer__links-column'>
           <a className='link' href='about:blank' target="_blank"><li className='footer__links-column-title'>Corporate</li></a>
           <a className='link' href='about:blank' target="_blank"><li className='footer__links-column-item'>About Us</li></a>
-          <a className='link' href='about:blank' target="_blank"><li className='footer__links-column-item'>Domino’s Jobs</li></a>
+          <a className='link' href='about:blank' target="_blank"><li className='footer__links-column-item'>Jobs</li></a>
           <a className='link' href='about:blank' target="_blank"><li className='footer__links-column-item'>Franchising</li></a>
           <a className='link' href='about:blank' target="_blank"><li className='footer__links-column-item'>Investors Site</li></a>
         </ul>

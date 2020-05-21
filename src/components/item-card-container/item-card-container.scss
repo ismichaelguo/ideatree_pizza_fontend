@@ -1,4 +1,4 @@
-$menuContentBGC: #3e2723;
+$menuContentBGC:transparent;
 $titleFont: normal normal 20px/20px Oswald, sans-serif;
 $textColor: white;
 $textSize: 28px;
@@ -6,10 +6,10 @@ $ipadPro-ipad-breakPoint: 1225px;
 $phones-breakPoint: 480px;
 
 .menu-content {
-  background-color: $menuContentBGC;
+  background-color:$menuContentBGC;
   display: block;
-  // margin-left: 15%;
-  width: 100%;
+  margin-left: 5%;
+  width: 90%;
   &__body {
     display: flex;
     flex-wrap: wrap;
@@ -26,6 +26,7 @@ $phones-breakPoint: 480px;
   }
   &__line {
     border: 1px solid $textColor;
+    margin-top: 20px;
     margin-bottom: 30px;
   }
 }

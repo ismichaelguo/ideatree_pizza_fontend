@@ -5,11 +5,6 @@ $card-color-three:#e41837;
 $ipadPro-breakPoint:1225px;
 $phones-breakPoint:480px;
 
-.testFlexBoxContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
 
 .productContainer {
     font-family: droid_sans, verdana, sans-serif;
@@ -18,7 +13,7 @@ $phones-breakPoint:480px;
     position: relative;
     width: 200px;
     padding: 2px;    
-    font-size: 100%;
+    font-size: 16px;
     height: 300px;
     margin-bottom: 1em;    
     margin-right: 10px;
@@ -205,11 +200,11 @@ $phones-breakPoint:480px;
 }
 @media (max-width:$phones-breakPoint){
     .productContainer {
-        width: 300px;
+        width:90%;
         height: 400px;
-        font-size: 120%;
-        
-        // margin-left: %;
+        font-size: 2rem;
+        margin-left: 5%;
+
     }
 }
 
