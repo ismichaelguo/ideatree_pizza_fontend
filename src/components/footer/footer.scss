@@ -11,7 +11,7 @@ $footer-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helv
   background-color: $footer-backgroundColor;
   &__links {
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 30px;
     max-width: 1024px;
@@ -69,5 +69,11 @@ $footer-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helv
   .link {
     text-decoration: none;
     color: $footer-fontColor;
+  }
+}
+
+@media (max-width: 860px) {
+  .footer__links {
+    justify-content: flex-start;
   }
 }
