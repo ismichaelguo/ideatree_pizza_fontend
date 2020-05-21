@@ -1,4 +1,4 @@
-const FOOD_DATA = [
+const FOOD_TYPE_DATA = [
   {
     title: 'PIZZAS',
     routeName: '#PIZZAS',
@@ -42,4 +42,4 @@ const FOOD_DATA = [
   },
 ];
 
-export default FOOD_DATA;
+export default FOOD_TYPE_DATA;
