@@ -5,7 +5,7 @@ function ItemCard (props) {
   return (
     <div className='productContainer'>
       <div className='product'>
-        <a className='productSelect' href='https://www.baidu.com'>
+        <a className='productSelect' href='/detail'>
           <div className='product_imageContainer'>
             <img alt={props.imgAlt} src={props.imgSrc} className='image'></img>
           </div>
