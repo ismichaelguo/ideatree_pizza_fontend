@@ -4,10 +4,6 @@ import 'font-awesome/css/font-awesome.min.css';
 import './main-nav.scss';
 
 class MainNav extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render () {
     const { pathname } = this.props;
     return (

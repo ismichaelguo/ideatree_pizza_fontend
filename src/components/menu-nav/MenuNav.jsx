@@ -35,7 +35,7 @@ class MenuNav extends React.Component {
             <nav className="menu-sub-navbar">
               {filteredFood[0].items.map((item, idx) => (
                 // iterate over the items in the filteredFood
-                (<a href={`#${hashtag.split("#")[1]}${item.href}`} className="menu-sub-navbar__item">{item.name}</a>)
+                <a key={idx} href={`#${hashtag.split("#")[1]}${item.href}`} className="menu-sub-navbar__item">{item.name}</a>
               ))}
             </nav>}
         </header>
