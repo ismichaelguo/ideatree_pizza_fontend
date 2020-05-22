@@ -1,0 +1,15 @@
+.detail-page {
+    display: flex;
+    flex-direction: column;
+    &__nav {
+      position: sticky;
+      background-color: white;
+      width: 100%;  
+      z-index: 100;
+      top: 0; // convert sticky to fixed
+    }
+    &__content {
+      margin-top: -70px;
+    }
+  }
+  
