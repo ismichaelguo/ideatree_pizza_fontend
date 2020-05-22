@@ -1,22 +1,22 @@
-$footer-fontColor: white;
-// $footer-fontColor: white;
+
 $footer-backgroundColor: transparent;
 $footer-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 .footer {
-  color: $footer-fontColor;
+  
   display: block;
   font-size: 100%;
   background-color: $footer-backgroundColor;
   &__links {
     display: flex;
-    justify-content: space-evenly;
+    justify-content:space-evenly;
     flex-wrap: wrap;
     padding: 30px;
     max-width: 1024px;
     margin: 0 auto;
     font-family: $footer-font-family;
+    
     &-column {
       width: 200px;
       display: block;
@@ -50,7 +50,6 @@ $footer-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helv
   }
   &__privacy {
     line-height: 28px;
-    color: $footer-fontColor;
     text-align: center;
     font-weight: 900;
     font-size: 16px;
@@ -58,7 +57,6 @@ $footer-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helv
     padding: 30px;
     font-family: $footer-font-family;
     &-item {
-      color: $footer-fontColor;
       font-size: 14px;
       letter-spacing: 0;
       text-transform: initial;
@@ -67,13 +65,7 @@ $footer-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helv
   }
 
   .link {
-    text-decoration: none;
-    color: $footer-fontColor;
-  }
-}
-
-@media (max-width: 860px) {
-  .footer__links {
-    justify-content: flex-start;
+    text-decoration:none;
+    
   }
 }

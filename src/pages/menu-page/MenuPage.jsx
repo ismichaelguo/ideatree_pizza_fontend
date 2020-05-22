@@ -12,6 +12,7 @@ const MenuPage = (props) => {
   const foodItemArr = FOOD_ITEM_DATA;
   const pathname = props.location.pathname;
   const hashtag = props.location.hash;
+  const footerColor='white';
   return (
     <div className="menu-page">
       <section className="menu-page__nav">
@@ -28,7 +29,7 @@ const MenuPage = (props) => {
             )
         }
       </section>
-      <Footer />
+      <Footer color={footerColor}/>
     </div>
   );
 }
