@@ -1,0 +1,70 @@
+@import url("https://use.typekit.net/dkq4bqr.css");
+
+
+.order-type-container{
+    font-family: droid-sans,verdana,sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin:0;
+    padding:10px 10px 0 10px;
+    height: 100vh;
+    background: url("../../asset/Images/order-type-page/background-image.jpeg") repeat;
+
+    .banner{
+        width:80%;
+        position:fixed;
+        top:0;
+        display: flex;
+        text-align: left;
+        align-items: center;
+    
+        margin-bottom: 10px;
+        vertical-align: middle;
+        padding-top: 5px;
+        z-index: 12;
+        
+        &_logo-image{
+            background:url("../../asset/Images/order-type-page/domino-logo.svg") no-repeat;
+            width: 110px;
+            margin-right: 10px;
+            height: 110px;
+            background-size: cover; 
+        }
+
+        &_description{
+            display: block;
+            color: white;
+            z-index: 13;
+            flex-grow: 1;
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+
+
+            &:after{
+                content:"";
+                display: block;
+                width:100%;
+                height: 1px;
+                transform:scaleY(1);
+                float:left;
+                border:dotted white 0.2px;
+                
+
+
+            }
+        }
+        
+    
+    }
+
+
+    }
+
+
+
+
+
+

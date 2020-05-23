@@ -1,11 +1,12 @@
 import React from 'react';
 import './item-card.scss';
+import {Link} from 'react-router-dom';
 
 function ItemCard (props) {
   return (
     <div className='productContainer'>
       <div className='product'>
-        <a className='productSelect' href='/detail'>
+        <Link className='productSelect' to='/menu/detail'>
           <div className='product_imageContainer'>
             <img alt={props.imgAlt} src={props.imgSrc} className='image'></img>
           </div>
@@ -23,7 +24,7 @@ function ItemCard (props) {
             <button className='btn_select'>SELECT</button>
           </div>
 
-        </a>
+        </Link>
       </div>
     </div>
 
