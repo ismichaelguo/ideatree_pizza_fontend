@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { FaYoutubeSquare } from 'react-icons/fa';
 import { FaTwitterSquare } from 'react-icons/fa';
