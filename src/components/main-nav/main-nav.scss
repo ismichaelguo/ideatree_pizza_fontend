@@ -1,31 +1,29 @@
+@import "../../style_config/config";
+
 // main navigation
-$mainThemeColor: #e4ae26;
 .main-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  @include menu-nav_type;
   padding: 15px 0;
+  font-weight: 800;
+  font-family: $Abril_Fatface;
+  font-size: 2rem;
+
   &__left {
-    border: 1px solid $mainThemeColor;
-    border-radius: 10px;
     padding: 5px;
-  }
-  &__right {
-    font-size: 15px;
-    cursor: pointer;
-    .login:visited {
-      color: #49515d;
+    .logo {
+      &:visited {
+        color: $grey;
+      }
+      &__highlight {
+        color: $yellow;
+      }
     }
   }
-}
-
-.logo {
-  font-size: 2rem;
-  &:visited {
-    color: #49515d;
-  }
-  &__highlight {
-    color: $mainThemeColor;
+  &__right {
+    cursor: pointer;
+    .login:visited {
+      color: $grey;
+    }
   }
 }
 
@@ -34,7 +32,7 @@ $mainThemeColor: #e4ae26;
   &__item {
     text-decoration: none;
     padding: 0 1rem;
-    color: #49515d;
+    color: $grey;
     font-size: 15px;
     display: block; //为了后面加underline
     opacity: 0.7; //与navbar__item--active呼应，active时为1
@@ -43,7 +41,7 @@ $mainThemeColor: #e4ae26;
       // add underlines for navbar
       content: "";
       width: 0; // hide underline
-      border-bottom: 2px solid $mainThemeColor;
+      border-bottom: 2px solid $yellow;
       margin: auto;
       margin-top: 3px;
       display: block; // before/after默认都是inline，要改成block才能落到下一行
