@@ -14,7 +14,7 @@ function Detail(props) {
       <div className="detail-picture">
         <img
           src="https://www.dominos.com.au/ManagedAssets/AU/product/P378/AU_P378_en_hero_4245.jpg?v-69713102"
-          alt="120"
+          alt="Pizza"
           className="detail-picture-pizza"
         />
         <img src="" alt="" />
@@ -28,9 +28,11 @@ function Detail(props) {
             22 crumbed chicken bites with crispy rasher bacon, creamy mozzarella
             & rich tomato sauce
           </p>
-          <button className="detail-button">ORDER NOW</button>
-          <a href="">Nutritional Info</a>
-          <a href="">Additive&Allergen Info</a>
+          <Link to="/menu/detail/order-type">
+            <button className="detail-button">ORDER NOW</button>
+          </Link>
+          <Link to="">Nutritional Info</Link>
+          <Link to="">Additive&Allergen Info</Link>
         </div>
       </div>
     </div>
