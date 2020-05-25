@@ -1,38 +1,38 @@
 // menu navigation
-$mainThemeColor: #e4ae26;
-.menu-navbar {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 10px 0;
-  background-color: gray;
+@import "../../style_config/config";
+
+.menu-nav {
+  font-family: $Abril_Fatface;
+  font-weight: 500;
   font-size: 1.5rem;
-  &__item {
-    text-decoration: none;
-    color: white;
-    &--active {
-      color: $mainThemeColor;
-      transition: color 0.3s ease-in-out;
+
+  .menu-navbar {
+    @include menu-nav_type;
+    padding: 10px 0;
+    background-color: $grey;
+
+    &__item {
+      text-decoration: none;
+      color: $white;
+      margin: 3px 0;
+      &--active {
+        color: $yellow;
+        transition: color 0.3s ease-in-out;
+      }
     }
   }
-}
 
-// menu sub navigation
-.menu-sub-navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  padding: 5px 0;
-  background-color: $mainThemeColor;
-  font-size: 1.5rem;
-  &__item {
-    text-decoration: none;
-    color: white;
-    margin: 3px 0;
-    &--active {
-      color: $mainThemeColor;
-      transition: color 0.3s ease-in-out;
+  // menu sub navigation
+  .menu-sub-navbar {
+    @include menu-nav_type;
+    padding: 5px 0;
+    background-color: $yellow;
+
+    &__item {
+      @extend .menu-navbar__item;
+      &--active {
+        @extend .menu-navbar__item--active;
+      }
     }
   }
 }

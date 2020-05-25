@@ -1,30 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
-@mixin ipad() {
-  @media (max-width: 768px) {
-    @content;
-  }
-}
-@mixin iphone() {
-  @media (max-width: 375px) {
-    @content;
-  }
-}
-$Fredericka: "Fredericka the Great", cursive;
-$Abril_Fatface: "Abril Fatface", cursive;
-$yellow: #e4ae26;
-$black: #1a1a1a;
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  /* let 1rem=10px */
-  font-size: 10px;
-}
+@import "../../style_config/config";
 
 .homepage-container {
   width: 100%;
@@ -32,18 +6,21 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("../../asset/Images/background2.jpg") no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+  background: url("../../asset/Images/background2.jpg") no-repeat {
+    size: cover;
+    attachment: fixed;
+    position: center;
+  }
 
   .homepage__slogan {
     text-align: center;
     line-height: 5rem;
     h2 {
-      font-family: $Fredericka;
+      font: {
+        size: 50px;
+        family: $Fredericka;
+      }
       color: white;
-      font-size: 50px;
       position: relative;
       display: flex;
       justify-content: center;
@@ -79,7 +56,6 @@ html {
     }
 
     button {
-      text-decoration: none;
       padding: 1rem 2rem 1rem 2rem;
       cursor: pointer;
       font-family: $Fredericka;

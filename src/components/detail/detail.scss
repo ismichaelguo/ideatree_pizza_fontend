@@ -1,141 +1,77 @@
-$detail-header-background-color: #454545; 
-$detail-picture-background-color: black;
-$detail-info-background-color: rgb(242,242,242);
-$detail-button-color: #1fc36a;
-$detail-main-text-color: #000000;
-$detail-other-text-color: #ffffff;
-$detail-special-text-color: #454545;
+@import "../../style_config/config";
 
-@mixin text1 {
-    font: {
-        size: 16px;
-        family: droid_sans, Verdana, Geneva, Tahoma, sans-serif;
-    }
-}
+.detail-header {
+  width: 100%;
+  height: 48px;
+  margin-top: 70px;
+  background-color: $grey;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 15px 0;
+  position: fixed;
 
-@mixin text2 {
-    font: {
-        size: 16px;
-        family: "Oswald",impact,charcoal,sans-serif;
-    }
-}
-
-@mixin text3 {
-    font: {
-        size: 18px;
-        family: "Oswald",impact,charcoal,sans-serif;
-    }
-}
-
-.detail-header{
-    width: 100%;
-    height: 48px;
-    margin-top: 70px;
-    background-color: $detail-header-background-color;  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-}
-
-.detail-menu{
-    @include text1;
-    // width: 1024px;
-    align-items: center;
-    margin: 10px auto;
-    color: $detail-other-text-color;
-    font-weight: normal;
-    line-height: 30px;
-    padding-left: 20px;
-    cursor: pointer; 
-    margin-left: 160px;  
-}
-
-.detail-picture{
-    padding: {
-        top: 5px;
-        bottom: 5px;
-    }
-    background-color: $detail-picture-background-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-
-.detail-picture-pizza{
-    height: 450px;
-    object-fit: contain;
-}
-
-.detail-title{
-    font: {
-        size: 25px;
-        family: "EvelethCleanREgular";
-    }
-    display: block;
-    /* margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px; */
-    vertical-align: baseline;
-    text-decoration: none;
-    padding: 10px 0px;
-    color: $detail-special-text-color;
-    line-height: 42px;
-    border-bottom-style: solid;
-    border-bottom-width: .5px;
-}
-
-.detail-kjs{
-    @include text3;
-    color: $detail-main-text-color;
-    letter-spacing: 0;
-    text-transform: lowercase;
-    float: right;
-}
-
-.detail-description{
-    @include text1;
-    padding: 5px 0px 0px;
-    color: $detail-main-text-color;
-}
-
-.detail-button{
-    @include text2;
-    display: block;
-    margin: 20px auto 60px;
-    text-align: center;
-    padding: 12px;
-    width: 350px;
-    background-color: $detail-button-color;
-    border-color: $detail-button-color;
-    border-radius: 5px;
-    line-height: 20px;
-    color: $detail-other-text-color;
+  .detail-menu {
+    font-size: 16px;
+    font-family: $Abril_Fatface;
     cursor: pointer;
-    z-index: 500;
-    box-sizing: border-box;
+    color: $white;
+  }
 }
 
-.detail-info{
-    display: flex;
-    flex-direction: column;
-    background-color: $detail-info-background-color;
-    &-box{
-        width: 1024px;
-        margin: 0px auto;
+.detail-picture {
+  background: url("../../asset/Images/menuPageBackground.jpeg");
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .detail-picture-pizza {
+    height: 450px;
+    margin-top: 15rem;
+  }
+}
+
+.detail-info {
+  margin: 1.5rem 0 3rem 0;
+  color: $white;
+  font-family: $Abril_Fatface;
+  font-size: 1.5rem;
+  background: url("../../asset/Images/menuPageBackground.jpeg");
+
+  &-box {
+    width: 1024px;
+    margin: 0px auto;
+    width: 45%;
+
+    .detail-title {
+      font-size: 20px;
+      padding: 10px 0px;
+      line-height: 42px;
+      border-bottom: dotted 1px $white;
+      .detail-kjs {
+        float: right;
+      }
     }
-    a{
-        @include text3;
-        display: block;
-        color: $detail-main-text-color;
-        text-align: left;
-        width: initial;
-        border: none;
-        text-transform: none;
-        letter-spacing: 0;
-        line-height: 18px;
-        padding: 10px 0px;
+
+    .detail-description {
+      padding: 5px;
     }
+
+    .detail-button {
+      @include button_type;
+      margin: 30px auto;
+      height: 4rem;
+      width: 50%;
+      transition: all 0.5s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  a {
+    display: block;
+    color: $white;
+    line-height: 18px;
+    padding: 10px 0px;
+  }
 }
