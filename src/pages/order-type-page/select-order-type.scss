@@ -66,13 +66,16 @@
     
     }
 
-    .footer{
+    .page-footer{
         flex-grow: 1;
         // background: url("../../asset/Images/order-type-page/background-image.jpeg") !important;
         background-color: black;
-        width:100% !important;
-        color: white !important;
-        z-index: 20;
+        width:100%;
+        &footer_links:visited{
+            color: white;
+        }
+   
+
     }
 
 

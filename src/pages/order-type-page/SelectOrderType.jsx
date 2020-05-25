@@ -8,6 +8,8 @@ import Footer from '../../components/footer/Footer';
 
 
 export default function SelectOderType (){
+    const footerColor = "#ffffff";
+
     return(
         <section className="order-type-container">
             <header className="banner">
@@ -19,8 +21,8 @@ export default function SelectOderType (){
             </header>
             
             <OderType />
-            <footer className="footer">
-                <Footer />
+            <footer className="page-footer">
+            <Footer color={footerColor} />
             </footer>
         
         </section>
