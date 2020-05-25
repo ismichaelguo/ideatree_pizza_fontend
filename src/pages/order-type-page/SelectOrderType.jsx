@@ -2,11 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './select-order-type.scss'
 import OderType from '../../components/order-type/OrderType';
+import Footer from '../../components/footer/Footer';
 
 
 
 
 export default function SelectOderType (){
+    const footerColor = "#ffffff";
+
     return(
         <section className="order-type-container">
             <header className="banner">
@@ -16,11 +19,12 @@ export default function SelectOderType (){
                     Online Ordering
                 </div>
             </header>
-            <OderType />
-
             
-
-
+            <OderType />
+            <footer className="page-footer">
+            <Footer color={footerColor} />
+            </footer>
+        
         </section>
         
     )
