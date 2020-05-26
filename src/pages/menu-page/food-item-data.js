@@ -91,7 +91,6 @@ const FOOD_ITEM_DATA = [
         category: 'PREMIUM PIZZAS'
 
       },
-
       {
         id: 8,
         imgSrc: imgPizza,
@@ -101,7 +100,122 @@ const FOOD_ITEM_DATA = [
         price: 17.20,
         calories: 4264,
         category: 'PREMIUM PIZZAS'
+      },
+    ]
+  },
+  {
+    itemID: 4,
+    itemFirstName: "D1",
+    itemLastName: "d1",
+    locationID: "DESSERTS#D1",
+    items: [
+      {
+        id: 9,
+        imgSrc: imgPizza,
+        imgAlt: 'BBQ Chicken & Rasher Bacon',
+        name: 'BBQ Chicken & Rasher Bacon',
+        description: 'The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...',
+        price: 16.80,
+        calories: 5080,
+        category: 'PREMIUM PIZZAS'
 
+      },
+      {
+        id: 10,
+        imgSrc: imgPizza,
+        imgAlt: 'Garlic Prawn',
+        name: 'Garlic Prawn',
+        description: 'Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...',
+        price: 17.20,
+        calories: 4264,
+        category: 'PREMIUM PIZZAS'
+      },
+    ]
+  },
+  {
+    itemID: 5,
+    itemFirstName: "D2",
+    itemLastName: "d2",
+    locationID: "DESSERTS#D2",
+    items: [
+      {
+        id: 11,
+        imgSrc: imgPizza,
+        imgAlt: 'BBQ Chicken & Rasher Bacon',
+        name: 'BBQ Chicken & Rasher Bacon',
+        description: 'The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...',
+        price: 16.80,
+        calories: 5080,
+        category: 'PREMIUM PIZZAS'
+
+      },
+      {
+        id: 12,
+        imgSrc: imgPizza,
+        imgAlt: 'Garlic Prawn',
+        name: 'Garlic Prawn',
+        description: 'Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...',
+        price: 17.20,
+        calories: 4264,
+        category: 'PREMIUM PIZZAS'
+      },
+    ]
+  },
+  {
+    itemID: 6,
+    itemFirstName: "D3",
+    itemLastName: "d3",
+    locationID: "DESSERTS#D3",
+    items: [
+      {
+        id: 13,
+        imgSrc: imgPizza,
+        imgAlt: 'BBQ Chicken & Rasher Bacon',
+        name: 'BBQ Chicken & Rasher Bacon',
+        description: 'The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...',
+        price: 16.80,
+        calories: 5080,
+        category: 'PREMIUM PIZZAS'
+
+      },
+      {
+        id: 14,
+        imgSrc: imgPizza,
+        imgAlt: 'Garlic Prawn',
+        name: 'Garlic Prawn',
+        description: 'Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...',
+        price: 17.20,
+        calories: 4264,
+        category: 'PREMIUM PIZZAS'
+      },
+    ]
+  },
+  {
+    itemID: 7,
+    itemFirstName: "coke",
+    itemLastName: "cola",
+    locationID: "DRINKS",
+    items: [
+      {
+        id: 15,
+        imgSrc: imgPizza,
+        imgAlt: 'BBQ Chicken & Rasher Bacon',
+        name: 'BBQ Chicken & Rasher Bacon',
+        description: 'The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...',
+        price: 16.80,
+        calories: 5080,
+        category: 'PREMIUM PIZZAS'
+
+      },
+      {
+        id: 6,
+        imgSrc: imgPizza,
+        imgAlt: 'Garlic Prawn',
+        name: 'Garlic Prawn',
+        description: 'Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...',
+        price: 17.20,
+        calories: 4264,
+        category: 'PREMIUM PIZZAS'
       },
     ]
   },

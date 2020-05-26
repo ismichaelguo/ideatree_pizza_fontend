@@ -27,11 +27,50 @@
     @include menu-nav_type;
     padding: 5px 0;
     background-color: $yellow;
-
+    @include ipad() {
+      display: block;
+      padding: 8px 34px; // padding(5px)+margin(3px)=8px
+    }
     &__item {
       @extend .menu-navbar__item;
+      &.hide {
+        display: none;
+      }
+      &.extended {
+        display: block;
+        padding-top: 10px;
+        font-weight: lighter;
+      }
       &--active {
         @extend .menu-navbar__item--active;
+      }
+    }
+    &__dropdown {
+      @extend .menu-navbar__item;
+      font-weight: bold;
+      font-style: italic;
+      pointer-events: none;
+      &.hide {
+        display: none;
+      }
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        position: fixed;
+        right: 10px;
+        top: 143px;
+        margin-top: -6px;
+        border: 6px solid transparent;
+        border-left: 6px solid #fff;
+        pointer-events: auto;
+      }
+      &.extended {
+        &::after {
+          pointer-events: auto;
+          margin-top: -3px;
+          transform: rotate(90deg);
+        }
       }
     }
   }

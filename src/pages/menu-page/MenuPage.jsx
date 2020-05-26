@@ -11,8 +11,14 @@ const MenuPage = (props) => {
   console.log(props);
   const foodItemArr = FOOD_ITEM_DATA;
   const pathname = props.location.pathname;
-  const hashtag = props.location.hash;
+  const hashtag = props.location.hash || "#PIZZAS"; // if hash is empty, initialize with '#PIZZAS'
   const footerColor = "white";
+  // console.log(hashtag.split("#")); 
+  let filteredFoodArr = foodItemArr.filter((food) =>
+    food.locationID.startsWith(hashtag.split("#")[1])
+    // ["", "PIZZAS", "NEW_PRODUCTS"]
+  );
+  // console.log(filteredFoodArr);
   return (
     <div className="menu-page">
       <section className="menu-page__nav">
@@ -20,17 +26,17 @@ const MenuPage = (props) => {
         <MenuNav hashtag={hashtag} />
       </section>
       <section className="menu-page__content">
-        {foodItemArr.length === 0
+        {filteredFoodArr.length === 0
           ? null
-          : foodItemArr.map((item) => (
-              <ItemCardContainer
-                key={item.itemID}
-                locationID={item.locationID}
-                itemFirstName={item.itemFirstName}
-                itemLastName={item.itemLastName}
-                items={item.items}
-              />
-            ))}
+          : filteredFoodArr.map((item) => (
+            <ItemCardContainer
+              key={item.itemID}
+              locationID={item.locationID}
+              itemFirstName={item.itemFirstName}
+              itemLastName={item.itemLastName}
+              items={item.items}
+            />
+          ))}
       </section>
       <Footer color={footerColor} />
     </div>
