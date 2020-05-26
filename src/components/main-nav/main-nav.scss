@@ -19,27 +19,78 @@
       }
     }
   }
+  &__middle {
+    @include ipad() {
+      order: -1; // set to leftmost place
+    }
+  }
   &__right {
     cursor: pointer;
-    .login:visited {
-      color: $grey;
+    .login {
+      &:link {
+        color: $grey;
+        @include ipad() {
+          span {
+            display: none;
+          }
+        }
+      }
+      &:visited {
+        color: $grey;
+      }
     }
-    .login:link{
-      color: $grey;
+  }
+}
+
+.menu-btn {
+  display: none;
+  @include ipad() {
+    display: block;
+    cursor: pointer;
+    color: $grey;
+    &:hover {
+      opacity: 0.8;
     }
   }
 }
 
 .main-navbar {
   display: flex;
+  @include ipad() {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: $white;
+    opacity: 0.85;
+    transform: translateX(250px);
+    border-left: 1px solid $grey;
+    &.side-show {
+      transform: translateX(0);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
   &__item {
     text-decoration: none;
+    text-align: center;
     padding: 0 1rem;
     color: $grey;
     font-size: 15px;
     display: block; //为了后面加underline
     opacity: 0.7; //与navbar__item--active呼应，active时为1
     transition: opacity 0.3s ease-in-out;
+    @include ipad() {
+      padding: 1rem;
+      margin: 1rem;
+      border-bottom: 1px solid $grey;
+      &:last-child {
+        // remove right padding for the last nav item
+        border-bottom: 0;
+      }
+    }
     &::after {
       // add underlines for navbar
       content: "";
@@ -56,11 +107,18 @@
       &::after {
         // show underline after hover and active
         width: 80%;
+        @include ipad() {
+          width: 25%;
+        }
       }
     }
     &:last-child {
       // remove right padding for the last nav item
       padding-right: 0;
+    }
+    &.side-hide {
+      // hide my account
+      display: none;
     }
   }
 }
