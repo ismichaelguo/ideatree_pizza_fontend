@@ -3,20 +3,27 @@ import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import './delivery-page.scss';
 import DeliveryForm from '../../components/delivery-form/DeliveryForm';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from '../../state/reducers/ReducersIndex';
 
 const DeliveryPage = (props) => {
     const footerColor = "#ffffff";
+    const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
     return (
         <section className='delivery-container'>
             <header className='banner'>
-                <Link to='/' className="banner_logo-image">
+                <Link to='/' className="banner__logo-image">
                 </Link>
-                <div className="banner_description">
-                   Delivery Details
+                <div className="banner__description">
+                    Delivery Details
                 </div>
             </header>
             <section id='body'>
-                <DeliveryForm />
+                <Provider store={store}>
+                    <DeliveryForm />
+                </Provider>
             </section>
             <footer className="page-footer">
                 <Footer color={footerColor} />

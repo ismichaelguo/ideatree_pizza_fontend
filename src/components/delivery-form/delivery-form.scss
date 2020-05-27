@@ -17,7 +17,7 @@
     position: relative;
     line-height: 1.1em;
 
-    &_title {
+    &__title {
         text-align: center;
         display: block;
         font-size: 26px;
@@ -25,22 +25,22 @@
         margin-bottom: 1em;
     }
 
-    &_ordertime-button {
+    &__ordertime-button {
         margin-bottom: 2em;
 
-        &_now-label {
+        &__now-label {
             border-radius: 5px 0 0 5px;
             border-width: 1px 0 1px 1px;
             margin-right: -5px;
             line-height: 39px;
         }
 
-        &_later-label {
+        &__later-label {
             border-radius: 0 5px 5px 0;
             border-width: 1px 1px 1px 0;
             line-height: 39px;
 
-            &_icon {
+            &__icon {
                 font-size: 1.2em;
                 margin-top: 5px;
                 padding-top: 3px;
@@ -79,11 +79,11 @@
         }
     }
 
-    &_line1 {
+    &__line1 {
         position: relative;
         width: 100%;
 
-        &_unit {
+        &__unit {
             float: left;
             width: 50%;
             display: block;
@@ -91,7 +91,7 @@
             position: relative;
         }
 
-        &_street-num {
+        &__street-num {
             float: left;
             width: 50%;
             display: block;
@@ -101,18 +101,18 @@
         }
     }
 
-    &_line2 {
+    &__line2 {
         display: block;
         margin-bottom: 1em;
         position: relative;
         width: 100%;
     }
 
-    &_line3 {
+    &__line3 {
         position: relative;
         width: 100%;
 
-        &_suburb {
+        &__suburb {
             float: left;
             width: 66.66667%;
             display: block;
@@ -120,7 +120,7 @@
             position: relative;
         }
 
-        &_postcode {
+        &__postcode {
             float: left;
             padding-left: 2px;
             width: 33.33333%;
@@ -130,14 +130,12 @@
         }
     }
 
-    &_collapse {
+    &__collapse {
         display: none;
         visibility: hidden;
 
-        // height: auto;
-        // transition: all 1s linear;
 
-        &_tool-tip {
+        &__tool-tip {
             text-transform: none;
             background: $white;
             color: black;
@@ -148,7 +146,7 @@
         }
     }
 
-    &_remember-me {
+    &__remember-me {
         display: block;
         margin-bottom: 1em;
         position: relative;
@@ -166,7 +164,7 @@
             margin-left: 5px;
         }
 
-        &_more-information {
+        &__more-information {
             text-decoration: none;
             color: $white;
             width: 1em;
@@ -177,7 +175,7 @@
                 cursor: pointer;
             }
 
-            &::after {
+            &:after {
                 content: none;
                 left: 67%;
                 width: 0;
@@ -192,7 +190,7 @@
             }
         }
 
-        &_more-informationV2 {
+        &__more-informationV2 {
             text-decoration: none;
             color: $white;
             width: 1em;
@@ -203,7 +201,7 @@
                 cursor: pointer;
             }
 
-            &::after {
+            &:after {
                 content: "";
                 left: 67%;
                 width: 0;
@@ -219,13 +217,13 @@
         }
     }
 
-    &_buttons {
+    &__buttons {
         margin-bottom: 1em;
         margin-top: 1em;
         position: relative;
         width: 100%;
 
-        &_back {
+        &__back {
             font-size: 120%;
             color: $white;
             background-color: $greyV2;
@@ -249,7 +247,7 @@
                 border-color: $greyV3;
             }
 
-            &::after {
+            &:after {
                 content: " ";
                 width: 0;
                 height: 0;
@@ -264,7 +262,7 @@
             }
         }
 
-        &_next {
+        &__next {
             font-family: $Fredericka;
             font-weight: bolder;
             font-size: 120%;
@@ -273,7 +271,7 @@
             background-color: $red;
             border-color: $red;
             position: relative;
-            padding: 3.5px 16px 3.5px 10px;
+            padding: 6px 14.5px 6px 9.5px;
             border-radius: 3px;
             white-space: normal;
             text-align: center;
@@ -288,7 +286,7 @@
             user-select: none;
             float: right;
 
-            &::after {
+            &:after {
                 content: "";
                 width: 0;
                 height: 0;
@@ -298,6 +296,11 @@
                 margin-top: -6px;
                 border: 6px solid transparent;
                 border-left: 6px solid $white;
+            }
+            &:hover{
+                color: $white;
+                background-color: $redV2;
+                border-color: $redV2;
             }
         }
     }
