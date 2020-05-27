@@ -7,32 +7,8 @@ class MenuNav extends React.Component {
     super(props);
     this.state = {
       foods: FOOD_TYPE_DATA,
-      browserWidth: document.body.clientWidth,
-      hide: (() => (document.body.clientWidth <= 768 ? false : true))(),
       extended: false,
     };
-  }
-
-  componentDidMount () {
-    // monitor the browser size change, 
-    // and then trigger handleSize
-    window.addEventListener('resize', this.handleSize);
-  }
-
-  componentWillUnmount () {
-    // remove listener
-    window.removeEventListener('resize', this.handleSize);
-  }
-
-  handleSize = () => {
-    // once size changed, update the browserWidth and 
-    // then update the hide state
-    this.setState({
-      browserWidth: document.body.clientWidth,
-    });
-    this.setState({
-      hide: (() => (document.body.clientWidth <= 768 ? false : true))(),
-    });
   }
 
   handleAfterClick = () => {
@@ -103,7 +79,7 @@ class MenuNav extends React.Component {
                 href={`#${hashtag.split("#")[1]}${filteredFood[0].items[0].href}`}
                 // we might need to comment out this href, otherwise it will
                 // always route to the first item anchor when click the `after` element
-                className={`menu-sub-navbar__dropdown ${this.state.hide ? 'hide' : ''} ${this.state.extended ? 'extended' : ''}`}
+                className={`menu-sub-navbar__dropdown ${this.state.extended ? 'extended' : ''}`}
                 onClick={this.handleAfterClick}
               >
                 {filteredFood[0].items[0].name}
@@ -113,7 +89,7 @@ class MenuNav extends React.Component {
                 <a
                   key={idx}
                   href={`#${hashtag.split("#")[1]}${item.href}`}
-                  className={`menu-sub-navbar__item ${this.state.hide ? '' : 'hide'} ${this.state.extended ? 'extended' : ''}`}
+                  className={`menu-sub-navbar__item ${this.state.extended ? 'extended' : ''}`}
                   onClick={this.handleDishClick}
                 >
                   {item.name}
