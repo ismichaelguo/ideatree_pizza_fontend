@@ -10,15 +10,9 @@ class DeliveryForm extends React.Component {
 
     constructor() {
         super();
-        // this.state = {
-        //     unit:'',
-        //     streetNum:'',
-        //     streetName:'',
-        //     suburb:'',
-        //     postcode:'',
-        //     deliverNow:true,
-        //     rememberAddress:false,        
-        // }
+    }
+    componentDidMount(){
+        console.log(this.props); 
     }
     displayInfo = () => {
 
@@ -41,58 +35,66 @@ class DeliveryForm extends React.Component {
 
     handleDeliveryTime=(e)=>{
         if(e.target.value==='later'){
-            this.setState({deliverNow:false});
+            const{changeDeliveryNow}=this.props;
+            changeDeliveryNow({deliverNow:false});
         }else{
-            this.setState({deliverNow:true});
+            changeDeliveryNow({deliverNow:true});
         }
     }
 
     handleUnitChange = (e) => {
-        if (e.target.value.length > 5) {
-            const unit = document.getElementById('customer-unit');
-            unit.value = unit.value.slice(0, 5);
-            this.setState({unit:unit.value});
-        }else{
-            this.setState({unit:e.target.value});
-        }
-        
+        // if (e.target.value.length > 5) {
+        //     const unit = document.getElementById('customer-unit');
+        //     unit.value = unit.value.slice(0, 5);
+            
+        // }else{
+        //     changeUnit({unit:e.target.value});
+        // }
+        const{changeUnit}=this.props;
+            changeUnit({unit:e.target.value});
     }
 
     handleStreetNumChange = (e) => {
-        if (e.target.value.length > 5) {
-            const streetNum = document.getElementById('customer-street-num');
-            streetNum.value = streetNum.value.slice(0, 5);
-            this.setState({streetNum:streetNum.value});
-        }else{
-            this.setState({streetNum:e.target.value});
-        }
+        // if (e.target.value.length > 5) {
+        //     const streetNum = document.getElementById('customer-street-num');
+        //     streetNum.value = streetNum.value.slice(0, 5);
             
-
+        // }else{
+        //     changeStreetNum({streetNum:e.target.value});
+        // }
+            
+            const {changeStreetNum}=this.props;
+            changeStreetNum({streetNum:e.target.value});
     }
 
     handleStreetNameChange = (e) => {
-        this.setState({streetName:e.target.value});
-
+        const{changeStreetName}=this.props;
+        changeStreetName({streetName:e.target.value});
     }
 
     handleSuburbChange = (e) => {
-        this.setState({suburb:e.target.value});
+        const{changeSuburb}=this.props;
+        changeSuburb({suburb:e.target.value});
 
     }
 
     handlePostcodeChange = (e) => {
-        if (e.target.value.length > 4) {
-            const postcode = document.getElementById('customer-postcode');
-            postcode.value = postcode.value.slice(0, 4);
-            this.setState({postcode:postcode.value});
-        }else{
-            this.setState({postcode:e.target.value});
-        }
+        // if (e.target.value.length > 4) {
+        //     const postcode = document.getElementById('customer-postcode');
+        //     postcode.value = postcode.value.slice(0, 4);
 
+            
+        //     changePostcode({postcode:e.target.value});
+        // }else{
+            
+        // }
+        const{changePostcode}=this.props;
+        changePostcode({postcode:e.target.value});
     }
 
     handleRememberMe=(e)=>{
-       this.setState({rememberAddress:e.target.checked});
+        const {changeRememberAddress}=this.props;
+        changeRememberAddress({rememberAddress:e.target.checked});
     }
 
     handleSubmit=(e)=>{
@@ -101,29 +103,27 @@ class DeliveryForm extends React.Component {
         const streetNameError=document.getElementById('customer-street-name-error');
         const streetSurburbError=document.getElementById('customer-suburb-error');
 
-         
-
-        
-        if(this.state.streetNum===''){
+        const {streetNum,streetName,suburb}=this.props;     
+        if(streetNum===''){
             streetNumError.style.display="block";
             e.preventDefault();
         }
 
-        if(this.state.streetName===''){
+        if(streetName===''){
             streetNameError.style.display="block";
             e.preventDefault();
         }
 
-        if(this.state.suburb===''){
+        if(suburb===''){
             streetSurburbError.style.display="block";
             e.preventDefault();
         }
 
-        if(this.state.streetNum&&this.state.streetName&&this.state.suburb){
+        if(streetNum&&streetName&&suburb){
             streetNumError.style.display="none";
             streetNameError.style.display="none";
             streetSurburbError.style.display="none";
-            console.log(this.state); 
+            console.log(this.props); 
             
            
 
@@ -152,7 +152,7 @@ class DeliveryForm extends React.Component {
                 <section className='delivery-form__line1'>
                     <div className='delivery-form__line1__unit'>
                         <label className="form-label" >Unit Number</label>
-                        <input id="customer-unit" name='unit' className="form-control" type="number" autoFocus="autoFocus" onChange={this.handleUnitChange}></input>
+                        <input id="customer-unit" name='unit' className="form-control" type="number" autoFocus="autoFocus" maxLength='2' onChange={this.handleUnitChange}></input>
                     </div>
                     <div className='delivery-form__line1__street-num'>
                         <label className="form-label">Street Number</label>

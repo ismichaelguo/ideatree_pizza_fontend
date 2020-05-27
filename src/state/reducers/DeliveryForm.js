@@ -1,9 +1,9 @@
 const initialState = {
-    unit: '',
-    streetNum: '',
-    streetName: '',
-    suburb: '',
-    postcode: '',
+    unit:'',
+    streetNum:'',
+    streetName:'',
+    suburb:'',
+    postcode:'',
     deliverNow: true,
     rememberAddress: false,
 }
@@ -33,7 +33,7 @@ const DeliveryForm = (state = initialState, action) => {
         case "CHANGE_POSTCODE":
             return {
                 ...state,
-                postcode: action.postcode
+                postcode:action.postcode
             };
         case "CHANGE_DELIVERNOW":
             return {
