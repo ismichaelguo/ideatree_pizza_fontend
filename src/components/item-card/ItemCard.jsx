@@ -3,10 +3,11 @@ import './item-card.scss';
 import {Link} from 'react-router-dom';
 
 function ItemCard (props) {
+  console.log("id",props.id)
   return (
     <div className='productContainer'>
       <div className='product'>
-        <Link className='productSelect' to='/menu/detail'>
+        <Link className='productSelect' to={`/menu/detail/${props.id}`}>
           <div className='product_imageContainer'>
             <img alt={props.imgAlt} src={props.imgSrc} className='image'></img>
           </div>

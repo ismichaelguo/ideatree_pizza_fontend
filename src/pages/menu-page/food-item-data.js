@@ -1,4 +1,26 @@
-import imgPizza from '../../asset/Images/pizzaCard.jpeg';
+
+// import pizza cover photos
+import gcbrCover from '../../asset/Images/pizza cover/GARLIC_CHICKEN&BACON_RANCH.png';
+import cbaCover from '../../asset/Images/pizza cover/CHICKEN_BACON&AVOCADO.png';
+import lsCover from '../../asset/Images/pizza cover/LOADED_SUPREME.png';
+import mmcover from '../../asset/Images/pizza cover/MEGA_MEATLOVERS.png';
+import ccCover from '../../asset/Images/pizza cover/CHICKEN_CAMEMBERT.png';
+import ppcCover from '../../asset/Images/pizza cover/PERI PERI CHICKEN.png';
+import bcrbCover from '../../asset/Images/pizza cover/BBQ CHICKEN & RASHER BACON.png';
+import gpCover from '../../asset/Images/pizza cover/GARLIC PRAWN.png';
+
+// import pizza detail photos
+
+import gcbrDetail from '../../asset/Images/pizza detail/GARLIC_CHICKEN&BACON_RANCH .png';
+import cbaDetail from '../../asset/Images/pizza detail/CHICKEN_BACON&AVOCADO.png';
+import lsDetail from '../../asset/Images/pizza detail/LOADED_SUPREME.png';
+import mmDetail from '../../asset/Images/pizza detail/MEGA_MEATLOVERS.png';
+import ccDetail from '../../asset/Images/pizza detail/CHICKEN_CAMEMBERT.png';
+import ppcDetail from '../../asset/Images/pizza detail/PERI PERI CHICKEN.png';
+import bcrbDetail from '../../asset/Images/pizza detail/BBQ CHICKEN & RASHER BACON.png';
+import gpDetail from '../../asset/Images/pizza detail/GARLIC PRAWN.png';
+
+
 
 const FOOD_ITEM_DATA = [
   {
@@ -8,7 +30,8 @@ const FOOD_ITEM_DATA = [
     locationID: "PIZZAS#NEW_PRODUCTS",
     items: [{
       id: 1,
-      imgSrc: imgPizza,
+      imgSrc: gcbrCover,
+      imgDetail:gcbrDetail,
       imgAlt: 'Garlic Chicken & Bacon Ranch',
       name: 'Garlic Chicken & Bacon Ranch',
       description: 'Succulent chicken, crispy rasher bacon, spinach and red onion, topped with a creamy ranch sauce and...',
@@ -18,7 +41,8 @@ const FOOD_ITEM_DATA = [
     },
     {
       id: 2,
-      imgSrc: imgPizza,
+      imgSrc: cbaCover,
+      imgDetail:cbaDetail,
       imgAlt: 'Chicken, Bacon & Avocado',
       name: 'Chicken, Bacon & Avocado',
       description: 'Succulent seasoned chicken, creamy avocado, crispy rasher bacon & red onion, topped with hollandais...',
@@ -28,7 +52,8 @@ const FOOD_ITEM_DATA = [
     },
     {
       id: 3,
-      imgSrc: imgPizza,
+      imgSrc: lsCover,
+      imgDetail:lsDetail,
       imgAlt: 'Loaded Supreme',
       name: 'Loaded Supreme',
       description: 'Ground beef, crispy rasher bacon, mushroom, pepperoni, Italian sausage, fresh baby spinach,  smoked...',
@@ -44,7 +69,8 @@ const FOOD_ITEM_DATA = [
     locationID: "PIZZAS#PREMIUM_PIZZAS",
     items: [{
       id: 4,
-      imgSrc: imgPizza,
+      imgSrc: mmcover,
+      imgDetail:mmDetail,
       imgAlt: 'Mega Meatlovers',
       name: 'Mega Meatlovers',
       description: 'Mega loaded, mega tasty. Featuring seasoned chicken, pork & fennel sausage, crumbled beef, pepperon...',
@@ -54,7 +80,8 @@ const FOOD_ITEM_DATA = [
     },
     {
       id: 5,
-      imgSrc: imgPizza,
+      imgSrc: ccCover,
+      imgDetail:ccDetail,
       imgAlt: 'Chicken & Camembert',
       name: 'Chicken & Camembert',
       description: 'Succulent chicken, melted camembert, crispy rasher bacon, Italian cherry tomatoes, baby spinach & s...',
@@ -64,7 +91,8 @@ const FOOD_ITEM_DATA = [
     },
     {
       id: 6,
-      imgSrc: imgPizza,
+      imgSrc: ppcCover,
+      imgDetail:ppcDetail,
       imgAlt: 'Peri Peri Chicken',
       name: 'Peri Peri Chicken',
       description: 'A flavoursome pairing of seasoned chicken pieces, Italian cherry tomatoes, sliced red onion & baby ...',
@@ -82,7 +110,8 @@ const FOOD_ITEM_DATA = [
     items: [
       {
         id: 7,
-        imgSrc: imgPizza,
+        imgSrc: bcrbCover,
+        imgDetail:bcrbDetail,
         imgAlt: 'BBQ Chicken & Rasher Bacon',
         name: 'BBQ Chicken & Rasher Bacon',
         description: 'The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...',
@@ -93,7 +122,8 @@ const FOOD_ITEM_DATA = [
       },
       {
         id: 8,
-        imgSrc: imgPizza,
+        imgSrc: gpCover,
+        imgDetail:gpDetail,
         imgAlt: 'Garlic Prawn',
         name: 'Garlic Prawn',
         description: 'Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...',
@@ -111,7 +141,8 @@ const FOOD_ITEM_DATA = [
     items: [
       {
         id: 9,
-        imgSrc: imgPizza,
+        imgSrc: bcrbCover,
+        imgDetail:bcrbDetail,
         imgAlt: 'BBQ Chicken & Rasher Bacon',
         name: 'BBQ Chicken & Rasher Bacon',
         description: 'The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...',
@@ -122,7 +153,8 @@ const FOOD_ITEM_DATA = [
       },
       {
         id: 10,
-        imgSrc: imgPizza,
+        imgSrc: gpCover,
+        imgDetail:gpDetail,
         imgAlt: 'Garlic Prawn',
         name: 'Garlic Prawn',
         description: 'Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...',
@@ -140,7 +172,8 @@ const FOOD_ITEM_DATA = [
     items: [
       {
         id: 11,
-        imgSrc: imgPizza,
+        imgSrc: bcrbCover,
+        imgDetail:bcrbDetail,
         imgAlt: 'BBQ Chicken & Rasher Bacon',
         name: 'BBQ Chicken & Rasher Bacon',
         description: 'The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...',
@@ -151,7 +184,8 @@ const FOOD_ITEM_DATA = [
       },
       {
         id: 12,
-        imgSrc: imgPizza,
+        imgSrc: gpCover,
+        imgDetail:gpDetail,
         imgAlt: 'Garlic Prawn',
         name: 'Garlic Prawn',
         description: 'Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...',
@@ -169,7 +203,8 @@ const FOOD_ITEM_DATA = [
     items: [
       {
         id: 13,
-        imgSrc: imgPizza,
+        imgSrc: bcrbCover,
+        imgDetail:bcrbDetail,
         imgAlt: 'BBQ Chicken & Rasher Bacon',
         name: 'BBQ Chicken & Rasher Bacon',
         description: 'The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...',
@@ -180,7 +215,8 @@ const FOOD_ITEM_DATA = [
       },
       {
         id: 14,
-        imgSrc: imgPizza,
+        imgSrc: gpCover,
+        imgDetail:gpDetail,
         imgAlt: 'Garlic Prawn',
         name: 'Garlic Prawn',
         description: 'Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...',
@@ -198,7 +234,8 @@ const FOOD_ITEM_DATA = [
     items: [
       {
         id: 15,
-        imgSrc: imgPizza,
+        imgSrc: bcrbCover,
+        imgDetail:bcrbDetail,
         imgAlt: 'BBQ Chicken & Rasher Bacon',
         name: 'BBQ Chicken & Rasher Bacon',
         description: 'The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...',
@@ -209,7 +246,8 @@ const FOOD_ITEM_DATA = [
       },
       {
         id: 6,
-        imgSrc: imgPizza,
+        imgSrc: gpCover,
+        imgDetail:gpDetail,
         imgAlt: 'Garlic Prawn',
         name: 'Garlic Prawn',
         description: 'Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...',
