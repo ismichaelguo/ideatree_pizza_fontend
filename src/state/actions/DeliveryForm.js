@@ -52,3 +52,10 @@ export function changeRememberAddress({rememberAddress}){
     };
     
 }
+
+export function changeTime({time}){
+    return{
+        type:"CHANGE_TIME",
+        time
+    };
+}

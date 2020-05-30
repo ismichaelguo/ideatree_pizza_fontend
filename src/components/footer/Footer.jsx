@@ -6,63 +6,63 @@ import { FaInstagramSquare } from 'react-icons/fa';
 import './footer.scss';
 
 
-function Footer (props) {
+function Footer(props) {
   return (
     <div className='footer' >
       <div className='footer__links'>
         <ul className='footer__links-column'>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-title'>Pizza</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"> <li className='footer__links-column-item'>Order Online</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Nutritional Information</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Our Menu</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Student Discounts</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>InstaGift</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Join the VIP Club</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-title'>Pizza</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"> <li className='footer__links-column-item'>Order Online</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Nutritional Information</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Our Menu</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Student Discounts</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>InstaGift</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Join the VIP Club</li></a>
         </ul>
         <ul className='footer__links-column'>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-title'>Contact Us</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Call 131 888</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Contact Details</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Feedback</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-title'>Contact Us</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Call 131 888</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Contact Details</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Feedback</li></a>
         </ul>
         <ul className='footer__links-column'>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-title'>Help</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Store Finder</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Site Map</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Zero Contact Delivery</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-title'>Help</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Store Finder</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Site Map</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Zero Contact Delivery</li></a>
         </ul>
         <ul className='footer__links-column'>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-title'>Corporate</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>About Us</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Jobs</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Franchising</li></a>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><li className='footer__links-column-item'>Investors Site</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-title'>Corporate</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>About Us</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Jobs</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Franchising</li></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><li className='footer__links-column-item'>Investors Site</li></a>
         </ul>
       </div>
       <p>&nbsp;</p>
-      <div className='footer__social' style={{color:props.color}}>
+      <div className='footer__social' style={{ color: props.color }}>
         <span className='footer__social-item'>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><FaFacebookSquare size='2rem' /></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><FaFacebookSquare size='2rem' /></a>
         </span>
         <span className='footer__social-item'>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><FaYoutubeSquare size='2rem' /></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><FaYoutubeSquare size='2rem' /></a>
         </span>
         <span className='footer__social-item'>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><FaTwitterSquare size='2rem' /></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><FaTwitterSquare size='2rem' /></a>
         </span>
         <span className='footer__social-item'>
-          <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><FaInstagramSquare size='2rem' /></a>
+          <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><FaInstagramSquare size='2rem' /></a>
         </span>
 
       </div>
-      <div className='footer__privacy' style={{color:props.color}}>
-        <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><span className='footer__privacy-item'>
+      <div className='footer__privacy' style={{ color: props.color }}>
+        <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><span className='footer__privacy-item'>
           PRIVACY&nbsp;&nbsp;
                   </span></a>
-        <span className='footer_privacy_item' style={{color:props.color}}>
+        <span className='footer__privacy-item' style={{ color: props.color }}>
           |
                   </span>
-        <a className='link' href='about:blank' target="_blank" style={{color:props.color}} rel="noopener noreferrer"><span className='footer__privacy-item'>
+        <a className='link' href='about:blank' target="_blank" style={{ color: props.color }} rel="noopener noreferrer"><span className='footer__privacy-item'>
           &nbsp;&nbsp;ONLINE&nbsp;TERMS&nbsp;AND&nbsp;CONDITIONS
                   </span></a>
       </div>

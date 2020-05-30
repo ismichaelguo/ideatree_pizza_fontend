@@ -6,6 +6,7 @@ const initialState = {
     postcode:'',
     deliverNow: true,
     rememberAddress: false,
+    time:'',
 }
 
 const DeliveryForm = (state = initialState, action) => {
@@ -45,6 +46,12 @@ const DeliveryForm = (state = initialState, action) => {
                 ...state,
                 rememberAddress: action.rememberAddress
             };
+
+        case "CHANGE_TIME":
+            return{
+                ...state,
+                time:action.time
+            }
         default:
             return state;
     }
