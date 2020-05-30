@@ -3,6 +3,7 @@
 .footer {
   font-size: 16px;
   background: rgba(0, 0, 0, 0.8);
+  color: $white;
   
   &__links {
     display: flex;
@@ -12,7 +13,8 @@
     max-width: 1024px;
     margin: 0 auto;
     font-family: $footer-font-family;
-
+    color: $white;
+   
     &-column {
       width: 200px;
       display: block;
@@ -48,5 +50,8 @@
       font-size: 14px;
       
     }
+  }
+  & a{
+    color: $white;
   }
 }

@@ -8,7 +8,7 @@ import './detail-page.scss';
 const DetailPage = (props) => {
   console.log(props);
   const pathname = props.location.pathname;
-  const footerColor = "#ffffff";
+  
   return (
     <div className="detail-page">
       <section className="detail-page__nav">
@@ -17,7 +17,7 @@ const DetailPage = (props) => {
       <section className="detail-page__content">
         <Detail />
       </section>
-      <Footer color={footerColor} />
+      <Footer />
     </div>
   );
 };

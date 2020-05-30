@@ -8,7 +8,7 @@ import { createStore } from 'redux';
 import rootReducer from '../../state/reducers/ReducersIndex';
 
 const DeliveryPage = (props) => {
-    const footerColor = "#ffffff";
+    
     const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
     return (
@@ -26,7 +26,7 @@ const DeliveryPage = (props) => {
                 </Provider>
             </section>
             <footer className="page-footer">
-                <Footer color={footerColor} />
+                <Footer  />
             </footer>
         </section>
     );
