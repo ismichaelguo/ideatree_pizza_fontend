@@ -13,6 +13,7 @@ class DeliveryForm extends React.Component {
         super();
     }
 
+    
     displayInfo = () => {
 
         const info = document.getElementsByClassName('delivery-form__collapse')[0];
@@ -115,6 +116,11 @@ class DeliveryForm extends React.Component {
         changeRememberAddress({ rememberAddress: e.target.checked });
     }
 
+    handleBack=(e)=>{
+        e.preventDefault();
+        this.props.props.history.goBack();
+    }
+
     handleSubmit = (e) => {
 
         const streetNumError = document.getElementById('customer-street-num-error');
@@ -155,6 +161,8 @@ class DeliveryForm extends React.Component {
 
 
     render() {
+
+        console.log("eeeee",this.props);
         return (
 
 
@@ -220,8 +228,8 @@ class DeliveryForm extends React.Component {
                 </section>
 
                 <section className="delivery-form__buttons">
-                    <Link to='/menu/detail/order-type' className="delivery-form__buttons__back" >Back</Link>
-                    <Link to='/menu/detail/order-type' className="delivery-form__buttons__next" onClick={this.handleSubmit}>Next</Link>
+                    <Link className="delivery-form__buttons__back" onClick={this.handleBack} >Back</Link>
+                    <Link to='/' className="delivery-form__buttons__next" onClick={this.handleSubmit}>Next</Link>
                 </section>
 
                 <Link to='/' className="log-in">

@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './order-type.scss';
 
-export default function OderType(){
+export default function OderType(props){
     return(
         <div className="order-type">
                 <h1 className="order-type_title">Select An Order Type</h1>

@@ -14,7 +14,7 @@ const DeliveryPage = (props) => {
     return (
         <section className='delivery-container'>
             <header className='banner'>
-                <Link to='/' className="banner__logo-image">
+                <Link to='' className="banner__logo-image">
                 </Link>
                 <div className="banner__description">
                     Delivery Details
@@ -22,7 +22,7 @@ const DeliveryPage = (props) => {
             </header>
             <section id='body'>
                 <Provider store={store}>
-                    <DeliveryForm />
+                    <DeliveryForm props={props}/>
                 </Provider>
             </section>
             <footer className="page-footer">
