@@ -8,16 +8,16 @@
 
   .menu-navbar {
     @include menu-nav_type;
-    padding: 10px 0;
+    padding: 1rem 0;
     background-color: $grey;
-
+    transition: color 0.2s ease-in-out;
     &__item {
       text-decoration: none;
       color: $white;
-      margin: 3px 0;
+      margin: 0.3rem 0;
       &--active {
         color: $yellow;
-        transition: color 0.3s ease-in-out;
+        transition: color 0.2s ease-in-out;
       }
     }
   }
@@ -25,13 +25,52 @@
   // menu sub navigation
   .menu-sub-navbar {
     @include menu-nav_type;
-    padding: 5px 0;
+    padding: 0.5rem 0;
     background-color: $yellow;
-
+    @include ipad() {
+      display: block;
+      padding: 0.8rem 3rem; // padding(0.5rem)+margin(0.3rem)=0.8rem
+    }
     &__item {
       @extend .menu-navbar__item;
+      @include ipad() {
+        display: none;
+      }
+      &.extended {
+        display: block;
+        padding-top: 1rem;
+        font-weight: lighter;
+      }
       &--active {
         @extend .menu-navbar__item--active;
+      }
+    }
+    &__dropdown {
+      @extend .menu-navbar__item;
+      font-weight: bold;
+      font-style: italic;
+      pointer-events: none;
+      display: none;
+      @include ipad() {
+        display: block;
+      }
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        position: fixed;
+        right: 1rem;
+        top: 12.4rem;
+        border: 0.5rem solid transparent;
+        border-left: 0.5rem solid #fff;
+        pointer-events: auto;
+      }
+      &.extended {
+        &::after {
+          pointer-events: auto;
+          margin-top: -0.25rem;
+          transform: rotate(90deg);
+        }
       }
     }
   }

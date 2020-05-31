@@ -7,6 +7,9 @@ import './detail-page.scss';
 
 const DetailPage = (props) => {
   console.log(props);
+
+  // const {id} = props.match.params;
+  // console.log("id",id);
   const pathname = props.location.pathname;
   
   return (
@@ -15,7 +18,7 @@ const DetailPage = (props) => {
         <MainNav pathname={pathname} />
       </section>
       <section className="detail-page__content">
-        <Detail />
+        <Detail props={props} />
       </section>
       <Footer />
     </div>
