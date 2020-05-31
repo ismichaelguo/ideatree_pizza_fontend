@@ -8,8 +8,8 @@ import './detail-page.scss';
 const DetailPage = (props) => {
   console.log(props);
 
-  const {id} = props.match.params;
-  console.log("id",id);
+  // const {id} = props.match.params;
+  // console.log("id",id);
   const pathname = props.location.pathname;
   const footerColor = "#ffffff";
   return (
@@ -18,7 +18,7 @@ const DetailPage = (props) => {
         <MainNav pathname={pathname} />
       </section>
       <section className="detail-page__content">
-        <Detail id={id} />
+        <Detail props={props} />
       </section>
       <Footer color={footerColor} />
     </div>
