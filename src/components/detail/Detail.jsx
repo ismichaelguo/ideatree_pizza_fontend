@@ -38,7 +38,7 @@ function Detail(props) {
     <div className="detail">
       <div className="detail-header">
         <Link to="/menu" className="detail-menu">
-          BACK TO MENU
+          MENU
         </Link>
       </div>
       <div className="detail-picture">
