@@ -12,13 +12,12 @@ const MenuPage = (props) => {
   const foodItemArr = FOOD_ITEM_DATA;
   const pathname = props.location.pathname;
   const hashtag = props.location.hash || "#PIZZAS"; // if hash is empty, initialize with '#PIZZAS'
-  const footerColor = "white";
-  // console.log("222",hashtag.split("#")); 
+
   let filteredFoodArr = foodItemArr.filter((food) =>
     food.locationID.startsWith(hashtag.split("#")[1])
-    // ["", "PIZZAS", "NEW_PRODUCTS"]
+   
   );
-  // console.log("111",filteredFoodArr);
+
   return (
     <div className="menu-page">
       <section className="menu-page__nav">
@@ -38,7 +37,7 @@ const MenuPage = (props) => {
             />
           ))}
       </section>
-      <Footer color={footerColor} />
+      <Footer />
     </div>
   );
 };

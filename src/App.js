@@ -6,6 +6,7 @@ import AboutPage from "./pages/about-page/AboutPage";
 import StorePage from "./pages/stores-page/StoresPage";
 import AccountPage from "./pages/account-page/AccountPage";
 import DetailPage from "./pages/detail-page/DetailPage";
+import DeliveryPage from "./pages/delivery-page/DeliveryPage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SelectOrderType from './pages/order-type-page/SelectOrderType'
 import "./App.css";
@@ -24,6 +25,8 @@ function App() {
           <Route exact={true} path='/about' component={AboutPage} />
           <Route exact={true} path='/stores' component={StorePage} />
           <Route exact={true} path='/account' component={AccountPage} />
+          <Route exact={true} path='/menu/detail' component={DetailPage} />
+          <Route exact={true} path='/menu/detail/order-type/delivery' component={DeliveryPage}/>
           <Route exact={true} path='/menu/detail/:id' component={DetailPage} />
           <Route exact={true} path='/menu/detail/:id/order-type' component={SelectOrderType} />
         </Switch>

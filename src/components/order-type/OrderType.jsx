@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './order-type.scss';
 
-export default function OderType(){
+export default function OderType(props){
     return(
         <div className="order-type">
                 <h1 className="order-type_title">Select An Order Type</h1>
@@ -16,7 +16,7 @@ export default function OderType(){
                             your saved Orders</p>
                         </div>
                     </Link>
-                    <Link to='' className="order-method type-delivery">
+                    <Link to='/menu/detail/order-type/delivery' className="order-method type-delivery">
                         <div className="type-icon"></div>
                         <div className="type-text">
                             <h1 className="type-text_title">Delivery</h1>

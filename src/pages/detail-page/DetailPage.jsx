@@ -11,7 +11,7 @@ const DetailPage = (props) => {
   // const {id} = props.match.params;
   // console.log("id",id);
   const pathname = props.location.pathname;
-  const footerColor = "#ffffff";
+  
   return (
     <div className="detail-page">
       <section className="detail-page__nav">
@@ -20,7 +20,7 @@ const DetailPage = (props) => {
       <section className="detail-page__content">
         <Detail props={props} />
       </section>
-      <Footer color={footerColor} />
+      <Footer />
     </div>
   );
 };
