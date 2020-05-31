@@ -4,9 +4,9 @@ import "./detail.scss";
 import { Link } from "react-router-dom";
 // import PIZZA_DATA from "./pizza-data";
 import FOOD_ITEM_DATA from '../../pages/menu-page/food-item-data';
-import PIZZA_DATA from './pizza-data';
 function Detail(props) {
-
+  console.log("1111",props)
+  const {id}=props.props.match.params
 
   // const pizzaItemArr = PIZZA_DATA;
 
@@ -24,7 +24,7 @@ function Detail(props) {
   FOOD_ITEM_DATA.forEach(item => {
     for (let food of item.items) {
       // console.log(food.id, +props.foodId)
-      if (food.id === +props.id) {
+      if (food.id === +id) {
         foodName = food.name;
         foodDes = food.description;
         foodCal = food.calories;
@@ -57,7 +57,7 @@ function Detail(props) {
           <p className="detail-description">
           {foodDes}
           </p>
-          <Link to="/menu/detail/order-type">
+          <Link to={`/menu/detail/${id}/order-type`}>
             <button className="detail-button">ORDER NOW</button>
           </Link>
           <Link to="">Nutritional Info</Link>
