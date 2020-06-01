@@ -4,15 +4,10 @@ import './delivery-form.scss';
 import { BsClockHistory } from 'react-icons/bs';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { connect } from 'react-redux';
-import { changeUnit, changeStreetNum, changeStreetName, changeSuburb, changePostcode, changeRememberAddress, changeDeliveryNow, changeTime } from '../../state/actions/ActionsIndex';
+import { changeUnit, changeStreetNum, changeStreetName, changeSuburb, changePostcode, changeRememberAddress, changeDeliveryNow, changeTime } from '../../redux/actions/index';
 
 
 class DeliveryForm extends React.Component {
-
-    constructor() {
-        super();
-    }
-
     
     displayInfo = () => {
 
@@ -162,7 +157,7 @@ class DeliveryForm extends React.Component {
 
     render() {
 
-        console.log("eeeee",this.props);
+       
         return (
 
 
@@ -208,7 +203,7 @@ class DeliveryForm extends React.Component {
                 </section>
 
                 <section className='delivery-form__line4'>
-                    <label className="form-label">Order&nbsp;Time</label>
+                    <label className="form-label">Delivery&nbsp;Time</label>
                     <div className='delivery-form__line4__orderTime'>
                         <select className='form-control'  name='timeDrapDownList' onChange={this.handleTime}>
                         </select>
@@ -228,7 +223,7 @@ class DeliveryForm extends React.Component {
                 </section>
 
                 <section className="delivery-form__buttons">
-                    <Link className="delivery-form__buttons__back" onClick={this.handleBack} >Back</Link>
+                    <Link to='/' className="delivery-form__buttons__back" onClick={this.handleBack} >Back</Link>
                     <Link to='/' className="delivery-form__buttons__next" onClick={this.handleSubmit}>Next</Link>
                 </section>
 

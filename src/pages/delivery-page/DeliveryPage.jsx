@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import './delivery-page.scss';
 import DeliveryForm from '../../components/delivery-form/DeliveryForm';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from '../../state/reducers/ReducersIndex';
+
 
 const DeliveryPage = (props) => {
     
-    const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+    
 
     return (
         <section className='delivery-container'>
@@ -21,9 +19,9 @@ const DeliveryPage = (props) => {
                 </div>
             </header>
             <section id='body'>
-                <Provider store={store}>
+                
                     <DeliveryForm props={props}/>
-                </Provider>
+                
             </section>
             <footer className="page-footer">
                 <Footer  />
