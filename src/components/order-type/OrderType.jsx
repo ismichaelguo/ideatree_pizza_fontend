@@ -3,7 +3,10 @@ import {Link} from 'react-router-dom';
 import './order-type.scss';
 
 export default function OderType(props){
+    console.log("match.id",props.match)
+    const {id} =props.match.params;
     return(
+        
         <div className="order-type">
                 <h1 className="order-type_title">Select An Order Type</h1>
                 <div className="order-type_container">
@@ -16,7 +19,7 @@ export default function OderType(props){
                             your saved Orders</p>
                         </div>
                     </Link>
-                    <Link to='/menu/detail/order-type/delivery' className="order-method type-delivery">
+                    <Link to={`/menu/detail/${id}/order-type/delivery`} className="order-method type-delivery">
                         <div className="type-icon"></div>
                         <div className="type-text">
                             <h1 className="type-text_title">Delivery</h1>

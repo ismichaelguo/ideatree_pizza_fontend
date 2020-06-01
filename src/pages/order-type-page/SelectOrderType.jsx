@@ -7,7 +7,10 @@ import Footer from '../../components/footer/Footer';
 
 
 
-export default function SelectOderType (){
+export default function SelectOderType (props){
+
+    const MATCH = props.match;
+    console.log("match",props.match);
     
 
     return(
@@ -20,7 +23,7 @@ export default function SelectOderType (){
                 </div>
             </header>
             
-            <OderType />
+            <OderType match = {MATCH}/>
             <footer className="page-footer">
             <Footer  />
             </footer>
