@@ -28,7 +28,7 @@ function App () {
           <Route exact={true} path='/stores' component={StorePage} />
           <Route exact={true} path='/account' component={AccountPage} />
           <Route exact={true} path='/menu/detail' component={DetailPage} />
-          <Route exact={true} path='/menu/detail/order-type/delivery' component={DeliveryPage} />
+          <Route exact={true} path='/menu/detail/:id/order-type/delivery' component={DeliveryPage}/>
           <Route exact={true} path='/menu/detail/:id' component={DetailPage} />
           <Route exact={true} path='/menu/detail/:id/order-type' component={SelectOrderType} />
           <Route exact={true} path='/checkout' component={CheckoutPage} />

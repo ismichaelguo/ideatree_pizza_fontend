@@ -17,8 +17,10 @@ function Detail (props) {
 
   // console.log("Detail props", this.props)
   const { id } = props.props.match.params
+  console.log("pizza-data",props.pizzaData)
+
   let foodName, foodDes, foodPrice, foodCal, imgDetail, imgAlt;
-  FOOD_ITEM_DATA.forEach(item => {
+  props.pizzaData.forEach(item => {
     for (let food of item.items) {
       // console.log(food.id, +props.foodId)
       if (food.id === +id) {
@@ -68,6 +70,12 @@ function Detail (props) {
   )
 }
 
+const mapStateToProps=(state)=>{
+  
+  return{
+    pizzaData:state.pizzaData.pizzaData
+  }
+}
 const mapAction = { addItem }
 
-export default connect(null, mapAction)(Detail);
+export default connect(mapStateToProps, mapAction)(Detail);
