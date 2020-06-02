@@ -4,42 +4,85 @@ import MenuNav from "../../components/menu-nav/MenuNav";
 import ItemCardContainer from "../../components/item-card-container/ItemCardContainer";
 import Footer from "../../components/footer/Footer";
 import FOOD_ITEM_DATA from "./food-item-data";
+import {connect} from 'react-redux';
+import {loadPizzaData} from '../../redux/actions/index';
+
 
 import "./menu-page.scss";
 
-const MenuPage = (props) => {
-  console.log(props);
-  const foodItemArr = FOOD_ITEM_DATA;
-  const pathname = props.location.pathname;
-  const hashtag = props.location.hash || "#PIZZAS"; // if hash is empty, initialize with '#PIZZAS'
+class MenuPage extends React.Component{
 
-  let filteredFoodArr = foodItemArr.filter((food) =>
-    food.locationID.startsWith(hashtag.split("#")[1])
-   
-  );
+  componentDidMount(){
+    console.log("data",this.props.pizzaData);
+    console.log("data2",FOOD_ITEM_DATA);
+    const { loadPizzaData } = this.props;
+    loadPizzaData();
+    // this.getPizzaData();
+  
+  }
 
-  return (
-    <div className="menu-page">
-      <section className="menu-page__nav">
-        <MainNav pathname={pathname} />
-        <MenuNav hashtag={hashtag} />
-      </section>
-      <section className="menu-page__content">
-        {filteredFoodArr.length === 0
-          ? null
-          : filteredFoodArr.map((item) => (
-            <ItemCardContainer
-              key={item.itemID}
-              locationID={item.locationID}
-              itemFirstName={item.itemFirstName}
-              itemLastName={item.itemLastName}
-              items={item.items}
-            />
-          ))}
-      </section>
-      <Footer />
-    </div>
-  );
+  getPizzaData=()=>{
+    console.log("data3333",this.props.pizzaData);
+
+    const foodItemArr = this.props.pizzaData;
+
+    console.log("item",foodItemArr)
+    const hashtag = this.props.location.hash || "#PIZZAS"; 
+  
+    let filteredFoodArr = foodItemArr.filter((food) =>
+      food.locationID.startsWith(hashtag.split("#")[1])
+     
+    );
+    console.log("pizza",filteredFoodArr)
+    if (filteredFoodArr.length === 0){
+      return null;
+    }else {
+      return (
+        filteredFoodArr.map((item) => (
+        <ItemCardContainer
+          key={item.itemID}
+          locationID={item.locationID}
+          itemFirstName={item.itemFirstName}
+          itemLastName={item.itemLastName}
+          items={item.items}
+        />
+      )))
+    }
+  }
+    
+    
+    
+
+  
+
+  render(){
+    return (
+      <div className="menu-page">
+        <section className="menu-page__nav">
+          <MainNav pathname={this.props.location.pathname} />
+          <MenuNav hashtag={this.props.location.hash} />
+        </section>
+        <section className="menu-page__content">
+          {this.getPizzaData()}
+        </section>
+        <Footer />
+      </div>
+    );
+
+  }
+  
 };
 
-export default MenuPage;
+const mapStateToProps=(state)=>{
+  return{
+    pizzaData:state.pizzaData.pizzaData
+  }
+}
+
+const mapActionsToProps={
+  loadPizzaData,
+  
+}
+
+
+export default connect(mapStateToProps, mapActionsToProps)(MenuPage);
