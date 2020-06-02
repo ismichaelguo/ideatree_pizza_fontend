@@ -1,0 +1,13 @@
+@import "../../style_config/config";
+
+.thanks-page {
+  background: url(../../asset/Images/menuPageBackground.jpeg);
+  min-height: 90vh;
+  font-family: $Fredericka;
+  color: white;
+  font-size: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

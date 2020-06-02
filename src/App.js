@@ -7,12 +7,14 @@ import StorePage from "./pages/stores-page/StoresPage";
 import AccountPage from "./pages/account-page/AccountPage";
 import DetailPage from "./pages/detail-page/DetailPage";
 import DeliveryPage from "./pages/delivery-page/DeliveryPage";
+import CheckoutPage from './pages/checkout-page/CheckoutPage';
+import ThanksPage from './pages/thanks-page/ThanksPage';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SelectOrderType from './pages/order-type-page/SelectOrderType'
 import "./App.css";
 
 
-function App() {
+function App () {
   return (
     <BrowserRouter>
       <div className="App">
@@ -26,9 +28,12 @@ function App() {
           <Route exact={true} path='/stores' component={StorePage} />
           <Route exact={true} path='/account' component={AccountPage} />
           <Route exact={true} path='/menu/detail' component={DetailPage} />
-          <Route exact={true} path='/menu/detail/order-type/delivery' component={DeliveryPage}/>
+          <Route exact={true} path='/menu/detail/order-type/delivery' component={DeliveryPage} />
           <Route exact={true} path='/menu/detail/:id' component={DetailPage} />
           <Route exact={true} path='/menu/detail/:id/order-type' component={SelectOrderType} />
+          <Route exact={true} path='/checkout' component={CheckoutPage} />
+          <Route exact={true} path='/thanks' component={ThanksPage} />
+
         </Switch>
       </div>
     </BrowserRouter>
