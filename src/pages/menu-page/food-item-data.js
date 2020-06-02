@@ -31,7 +31,7 @@ const FOOD_ITEM_DATA = [
     items: [{
       id: 1,
       imgSrc: gcbrCover,
-      imgDetail:gcbrDetail,
+      imgDetail:"https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
       imgAlt: 'Garlic Chicken & Bacon Ranch',
       name: 'Garlic Chicken & Bacon Ranch',
       description: 'Succulent chicken, crispy rasher bacon, spinach and red onion, topped with a creamy ranch sauce and...',

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "./home-page.scss";
+import {loadPizzaData} from '../../redux/actions/index';
+import { connect } from 'react-redux';
 
 class Homepage extends React.Component {
 
@@ -35,6 +37,8 @@ class Homepage extends React.Component {
     }
   };
 
+
+
   // deleteTyping = (index, charCount) => {
   //   const waitToType = this.state.waitToType;
   //   if (charCount >= 0) {
@@ -52,8 +56,15 @@ class Homepage extends React.Component {
   //   }
   // };
 
-  componentDidMount () {
+    componentDidMount () {
     this.typing(0);
+    const { loadPizzaData } = this.props;
+    loadPizzaData();
+    // const res = await fetch('http://www.mocky.io/v2/5ed5ab493400006e0006d3a0');
+    // const response = await res.json();
+    // console.log("response",response)
+  
+    
   }
 
   componentWillUnmount () {
@@ -62,6 +73,7 @@ class Homepage extends React.Component {
   }
 
   render () {
+    // console.log("pizzaData",this.props.pizzaData);
     return (
       <div className="homepage-container">
         <div className="homepage__slogan">
@@ -74,4 +86,16 @@ class Homepage extends React.Component {
   }
 }
 
-export default Homepage;
+const mapStateToProps=(state)=>{
+  
+  return{
+    pizzaData:state.pizzaData.pizzaData
+  }
+}
+
+const mapActionsToProps={
+  loadPizzaData,
+}
+
+
+export default connect(mapStateToProps, mapActionsToProps)(Homepage);
