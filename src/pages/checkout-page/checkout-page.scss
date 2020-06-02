@@ -1,0 +1,65 @@
+@import "../../style_config/config";
+
+.checkout-page {
+  background: url(../../asset/Images/menuPageBackground.jpeg);
+  min-height: 90vh;
+  &__container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    font-family: $Fredericka;
+    font-size: 1.5rem;
+    color: $white;
+    @include iphone() {
+      font-size: 1rem;
+    }
+  }
+  &__header {
+    width: 100%;
+    padding: 1.5rem 0 1rem 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-bottom: 1px solid darkgrey;
+
+    &-item {
+      text-transform: capitalize;
+      width: 22%;
+      text-align: center;
+
+      &:last-child {
+        width: 12%;
+      }
+    }
+  }
+
+  &__items {
+    overflow-y: scroll;
+  }
+
+  &__total-info {
+    margin-top: 2rem;
+    margin-right: auto;
+  }
+
+  &__pay-btn {
+    margin-top: 1rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: $white;
+    background-color: $red;
+    border-color: $red;
+    padding: 0.5rem 1.2rem 0.5rem 0.9rem;
+    border-radius: 3px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    &:hover {
+      color: $white;
+      background-color: $redV2;
+      border-color: $redV2;
+    }
+  }
+}

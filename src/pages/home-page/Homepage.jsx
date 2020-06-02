@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "./home-page.scss";
-import {loadPizzaData} from '../../redux/actions/index';
-import { connect } from 'react-redux';
+// import {loadPizzaData} from '../../redux/actions/index';
+// import { connect } from 'react-redux';
 
 class Homepage extends React.Component {
 
@@ -58,8 +58,8 @@ class Homepage extends React.Component {
 
     componentDidMount () {
     this.typing(0);
-    const { loadPizzaData } = this.props;
-    loadPizzaData();
+    // const { loadPizzaData } = this.props;
+    // loadPizzaData();
     // const res = await fetch('http://www.mocky.io/v2/5ed5ab493400006e0006d3a0');
     // const response = await res.json();
     // console.log("response",response)
@@ -86,16 +86,17 @@ class Homepage extends React.Component {
   }
 }
 
-const mapStateToProps=(state)=>{
+// const mapStateToProps=(state)=>{
   
-  return{
-    pizzaData:state.pizzaData.pizzaData
-  }
-}
+//   return{
+//     pizzaData:state.pizzaData.pizzaData
+//   }
+// }
 
-const mapActionsToProps={
-  loadPizzaData,
-}
+// const mapActionsToProps={
+//   loadPizzaData,
+// }
 
 
-export default connect(mapStateToProps, mapActionsToProps)(Homepage);
+// export default connect(mapStateToProps, mapActionsToProps)(Homepage);
+export default Homepage;

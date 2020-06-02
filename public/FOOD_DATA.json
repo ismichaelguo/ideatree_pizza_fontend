@@ -2,8 +2,8 @@
 [
   {
     "itemID": 1,
-    "itemFirstname": "NEW",
-    "itemLastname": "PRODUCTS",
+    "itemFirstName": "NEW",
+    "itemLastName": "PRODUCTS",
     "locationID": "PIZZAS#NEW_PRODUCTS",
     "items": [{
       "id": 1,
@@ -29,7 +29,7 @@
     },
     {
       "id": 3,
-      "imgSrc": "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.pn",
+      "imgSrc": "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
       "imgDetail":"https://i.ibb.co/0FNn8qT/LOADED-SUPREME.png",
       "imgAlt": "Loaded Supreme",
       "name": "Loaded Supreme",
@@ -41,8 +41,8 @@
   },
   {
     "itemID": 2,
-    "itemFirstname": "PREMIUM",
-    "itemLastname": "PIZZAS",
+    "itemFirstName": "PREMIUM",
+    "itemLastName": "PIZZAS",
     "locationID": "PIZZAS#PREMIUM_PIZZAS",
     "items": [{
       "id": 4,
@@ -81,8 +81,8 @@
   },
   {
     "itemID": 3,
-    "itemFirstname": "TRADITIONAL",
-    "itemLastname": "PIZZAS",
+    "itemFirstName": "TRADITIONAL",
+    "itemLastName": "PIZZAS",
     "locationID": "PIZZAS#TRADITIONAL_PIZZAS",
     "items": [
       {
@@ -112,8 +112,8 @@
   },
   {
     "itemID": 4,
-    "itemFirstname": "D1",
-    "itemLastname": "d1",
+    "itemFirstName": "D1",
+    "itemLastName": "d1",
     "locationID": "DESSERTS#D1",
     "items": [
       {
@@ -143,8 +143,8 @@
   },
   {
     "itemID": 5,
-    "itemFirstname": "D2",
-    "itemLastname": "d2",
+    "itemFirstName": "D2",
+    "itemLastName": "d2",
     "locationID": "DESSERTS#D2",
     "items": [
       {
@@ -174,8 +174,8 @@
   },
   {
     "itemID": 6,
-    "itemFirstname": "D3",
-    "itemLastname": "d3",
+    "itemFirstName": "D3",
+    "itemLastName": "d3",
     "locationID": "DESSERTS#D3",
     "items": [
       {
@@ -205,8 +205,8 @@
   },
   {
     "itemID": 7,
-    "itemFirstname": "coke",
-    "itemLastname": "cola",
+    "itemFirstName": "coke",
+    "itemLastName": "cola",
     "locationID": "DRINKS",
     "items": [
       {
