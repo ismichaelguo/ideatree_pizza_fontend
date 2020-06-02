@@ -1,0 +1,46 @@
+@import "../../style_config/config";
+
+.checkout-item {
+  width: 100%;
+  display: flex;
+  min-height: 100px;
+  border-bottom: 1px solid darkgrey;
+  font-size: 1.4rem;
+  align-items: center;
+  @include iphone() {
+    font-size: 1rem;
+  }
+
+  .item {
+    &__img {
+      width: 22%;
+      margin-right: 0.8rem;
+
+      img {
+        width: 95%;
+        height: 95%;
+      }
+    }
+    &__name,
+    &__quantity,
+    &__price {
+      width: 22%;
+      text-align: center;
+    }
+
+    &__quantity {
+      display: flex;
+      justify-content: center;
+    }
+    &__arrow {
+      cursor: pointer;
+    }
+    &__value {
+      margin: 0 0.5rem;
+    }
+    &__remove-btn {
+      padding-left: 5%;
+      cursor: pointer;
+    }
+  }
+}

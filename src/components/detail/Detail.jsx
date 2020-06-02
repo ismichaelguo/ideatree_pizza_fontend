@@ -2,38 +2,37 @@ import React from "react";
 import "./detail.scss";
 import "./detail.scss";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import { addItem } from '../../redux/actions/cart/cartActions';
+
 // import PIZZA_DATA from "./pizza-data";
 import FOOD_ITEM_DATA from '../../pages/menu-page/food-item-data';
-function Detail(props) {
-  console.log("1111",props)
-  const {id}=props.props.match.params
 
-  // const pizzaItemArr = PIZZA_DATA;
+function Detail (props) {
 
-//   let filteredPizzaArr = pizzaItemArr.filter((food) =>
-//   food.locationID.startsWith("PIZZAS")
-//   // ["", "PIZZAS", "NEW_PRODUCTS"]
-// );
 
-// const response = pizzaItemArr.find((res)=>res.id=props.id);
-// console.log(response);
+  // handleOrder = (curItem) => {
+  //   this.props.addItem({ item: curItem });
+  // }
 
-  // console.log("pizza",response);
-
-  let foodName,foodDes,foodCal,imgDetail,imgAlt;
+  // console.log("Detail props", this.props)
+  const { id } = props.props.match.params
+  let foodName, foodDes, foodPrice, foodCal, imgDetail, imgAlt;
   FOOD_ITEM_DATA.forEach(item => {
     for (let food of item.items) {
       // console.log(food.id, +props.foodId)
       if (food.id === +id) {
         foodName = food.name;
         foodDes = food.description;
+        foodPrice = food.price;
         foodCal = food.calories;
         imgDetail = food.imgDetail;
         imgAlt = food.imgAlt;
       }
     }
   })
- 
+  let curItem = { id, foodName, foodPrice, imgDetail, imgAlt };
+
   return (
     <div className="detail">
       <div className="detail-header">
@@ -52,20 +51,23 @@ function Detail(props) {
       <div className="detail-info">
         <div className="detail-info-box">
           <h1 className="detail-title">
-          {foodName}<span className="detail-kjs">{foodCal}kj^</span>
+            {foodName}<span className="detail-kjs">{foodCal}kj^</span>
           </h1>
           <p className="detail-description">
-          {foodDes}
+            {foodDes}
           </p>
           <Link to={`/menu/detail/${id}/order-type`}>
-            <button className="detail-button">ORDER NOW</button>
+            <button className="detail-button" onClick={() => props.addItem({ item: curItem })}>
+              ORDER NOW</button>
           </Link>
           <Link to="">Nutritional Info</Link>
           <Link to="">Additive&Allergen Info</Link>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Detail;
+const mapAction = { addItem }
+
+export default connect(null, mapAction)(Detail);
