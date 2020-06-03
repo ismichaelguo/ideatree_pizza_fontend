@@ -21,14 +21,11 @@ class DeliveryForm extends React.Component {
     }
   }
 
-  timePlus (date, hour) {
-    return new Date(new Date(date).valueOf() + hour * 60 * 60 * 1000)
-  }
 
   handleDeliveryTime = (e) => {
     const orderTime = document.getElementsByClassName('delivery-form__line4')[0];
     const { changeTime } = this.props;
-    console.log('handleDeliveryTime', e.target.target);
+   
     if (e.target.value === 'later') {
       const { changeDeliveryNow } = this.props;
       changeDeliveryNow({ deliverNow: false });
@@ -134,7 +131,7 @@ class DeliveryForm extends React.Component {
       streetNumError.style.display = "none";
       streetNameError.style.display = "none";
       streetSurburbError.style.display = "none";
-      // console.log(this.props);
+      console.log(this.props);
     }
   }
 
@@ -143,16 +140,24 @@ class DeliveryForm extends React.Component {
       <form className='delivery-form' name='form' >
         <h3 className='delivery-form__title'>Delivery Time</h3>
         <section className='delivery-form__ordertime-button'>
-          <input type="radio" id="btn-now" name="radioBox" value="now" className="delivery-form__ordertime-button__now-button" defaultChecked onChange={this.handleDeliveryTime}></input>
+          <input type="radio" id="btn-now" name="radioBox" value="now"  defaultChecked onChange={this.handleDeliveryTime}></input>
           <label className="delivery-form__ordertime-button__now-label" htmlFor='btn-now'>Now</label>
           <input type="radio" id="btn-later" name="radioBox" value="later" onChange={this.handleDeliveryTime}></input>
           <label className="delivery-form__ordertime-button__later-label" htmlFor='btn-later'><BsClockHistory className='delivery-form__ordertime-button__later-label__icon' />&nbsp;Later</label>
         </section>
 
+        <section className='delivery-form__line4'>
+          <label className="form-label">Time</label>
+          <div >
+            <select className='form-control' name='timeDrapDownList' onChange={this.handleTime}>
+            </select>
+          </div>
+        </section>
+        
         <section className='delivery-form__line1'>
           <div className='delivery-form__line1__unit'>
             <label className="form-label" >Unit Number</label>
-            <input id="customer-unit" className="form-control" type="number" placeholder="Optional" onChange={this.handleUnitChange}></input>
+            <input id="customer-unit" className="form-control" type="text" placeholder="Optional" onChange={this.handleUnitChange}></input>
           </div>
           <div className='delivery-form__line1__street-num'>
             <label className="form-label">Street Number</label>
@@ -175,17 +180,11 @@ class DeliveryForm extends React.Component {
           </div>
           <div className='delivery-form__line3__postcode'>
             <label className="form-label">Postcode</label>
-            <input id="customer-postcode" type="number" className="form-control" placeholder="Optional" onChange={this.handlePostcodeChange}></input>
+            <input id="customer-postcode" type="text" className="form-control" placeholder="Optional" onChange={this.handlePostcodeChange}></input>
           </div>
         </section>
 
-        <section className='delivery-form__line4'>
-          <label className="form-label">Delivery&nbsp;Time</label>
-          <div className='delivery-form__line4__orderTime'>
-            <select className='form-control' name='timeDrapDownList' onChange={this.handleTime}>
-            </select>
-          </div>
-        </section>
+       
 
         <section className="delivery-form__collapse"  >
           <div className="delivery-form__collapse__tool-tip" >By checking 'Remember My Delivery Details' you are agreeing to the storage that contains personal details for the best experience on our site</div>
