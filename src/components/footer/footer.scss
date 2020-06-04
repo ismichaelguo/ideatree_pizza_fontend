@@ -1,7 +1,6 @@
 @import "../../style_config/config";
 
 .footer {
-  font-size: 16px;
   background: rgba(0, 0, 0, 0.8);
   color: $white;
   
@@ -14,28 +13,50 @@
     margin: 0 auto;
     font-family: $footer-font-family;
     color: $white;
+
    
     &-column {
       width: 200px;
       display: block;
       list-style: none;
       margin-top: 20px;
+      margin-bottom: 20px;
+
+      @include iphone(){
+        width: 130px;
+      }
       &-title {
-        font-size: 18px;
+        font-size: 1.5rem;
         text-transform: uppercase;
         font-weight: 700;
         margin-bottom: 5px;
-     
+        @include ipad(){
+          font-size: 1.3rem;
+        }
+        @include iphone(){
+          font-size: 1.0rem;
+        }
+        
       }
       &-item {
+        font-size: 1.3rem;
         font-weight: 400;
         margin-top: 5px;
+        @include ipad(){
+          font-size: 1.0rem;
+        }
+        @include iphone(){
+          font-size: 0.8rem;
+        }
+        
+
       }
     }
   }
   &__social {
     text-align: center;
     line-height: 28px;
+    
     &-item {
       margin-right: 20px;
     }
@@ -47,7 +68,14 @@
     font-weight: 500;
     padding: 30px;
     &-item {
-      font-size: 14px;
+      font-size: 1rem;
+      @include ipad(){
+        font-size: 0.9rem;
+      }
+      @include iphone(){
+        font-size: 0.7rem;
+      }
+
       
     }
   }

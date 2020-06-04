@@ -1,0 +1,49 @@
+@import "../../style_config/config";
+
+.receipt-table {
+  display: flex;
+  flex-direction: column;
+  max-height: 180px;
+  overflow-y: scroll;
+  @include iphone() {
+    max-height: 95px;
+  }
+  &__title {
+    display: flex;
+    justify-content: space-evenly;
+    background: $white;
+  }
+  &__item {
+    border-bottom: 1px dotted lightgray;
+    line-height: 1.6rem;
+    &:last-child {
+      border-bottom: none;
+    }
+    &-name {
+      font-size: 1rem;
+    }
+    &-price {
+      float: right;
+    }
+    &-quantity {
+      .minus,
+      .plus {
+        cursor: pointer;
+      }
+    }
+    &-remove {
+      color: #fff;
+      background-color: #006991;
+      border: none;
+      outline: none;
+      border-radius: 3px;
+      padding: 0.2rem 0.5rem;
+      margin-bottom: 0.2rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      &:hover {
+        background-color: darken(#006991, 8);
+      }
+    }
+  }
+}

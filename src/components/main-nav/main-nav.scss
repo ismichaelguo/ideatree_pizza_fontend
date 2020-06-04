@@ -27,8 +27,8 @@
   &__right {
     cursor: pointer;
     .login {
-      color:$grey;
-      
+      color: $grey;
+
       &:link {
         color: $grey;
         @include ipad() {
@@ -50,6 +50,9 @@
     display: block;
     cursor: pointer;
     color: $grey;
+    &.side-show {
+      transform: rotate(90deg);
+    }
     &:hover {
       opacity: 0.8;
     }
