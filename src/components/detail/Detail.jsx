@@ -45,6 +45,7 @@ class Detail extends React.Component {
 
 
   render(){
+    
     const { id } = this.props.props.match.params
     console.log("pizza-data",this.props.pizzaData)
   
