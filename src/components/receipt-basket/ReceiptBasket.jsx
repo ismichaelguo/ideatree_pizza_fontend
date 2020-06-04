@@ -8,13 +8,13 @@ const ReceiptBasket = (props) => {
     <div className="receipt-table">
       <div className="receipt-table__content">
         {props.cartItems.length === 0 ?
-          (<p class="item__name">empty basket</p>)
+          (<p className="receipt-table__item-name">empty basket</p>)
           :
           (props.cartItems.map((cartItem) => (
-            <div className="receipt-table__item">
-              <span class="receipt-table__item-name">{cartItem.foodName}</span>
-              <span class="receipt-table__item-price">${parseFloat((cartItem.quantity * cartItem.foodPrice).toFixed(2))}</span>
-              <p class="receipt-table__item-quantity">
+            <div className="receipt-table__item" key={cartItem.id}>
+              <span className="receipt-table__item-name">{cartItem.foodName}</span>
+              <span className="receipt-table__item-price">${parseFloat((cartItem.quantity * cartItem.foodPrice).toFixed(2))}</span>
+              <p className="receipt-table__item-quantity">
                 Qty : <span className="minus" onClick={() => props.removeItem({ item: cartItem })}>- </span>
                 {cartItem.quantity}
                 <span className="plus" onClick={() => props.addItem({ item: cartItem })}> +</span>

@@ -4,50 +4,21 @@ import "./detail.scss";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { addItem } from '../../redux/actions/cart/cartActions';
-import {loadPizzaData} from '../../redux/actions/index';
-// import { render } from "node-sass";
-
-
-// import PIZZA_DATA from "./pizza-data";
+import { loadPizzaData } from '../../redux/actions/index';
 
 class Detail extends React.Component {
 
-
-  // handleOrder = (curItem) => {
-  //   this.props.addItem({ item: curItem });
-  // }
-
-  // console.log("Detail props", this.props)
-
-
-  // if (props.pizzaData.length!==0){
-  //   sessionStorage.setItem('foodName', foodName);
-  //   sessionStorage.setItem('foodDes', foodDes);
-  //   sessionStorage.setItem('foodPrice', foodPrice);
-  //   sessionStorage.setItem('foodCal', foodCal);
-  //   sessionStorage.setItem('imgDetail', imgDetail);
-  //   sessionStorage.setItem('imgAlt', imgAlt);
-  // }
-
-  // const foodNameAlt = sessionStorage.getItem('foodName');
-  // const foodDesAlt = sessionStorage.getItem('foodDes');
-  // const imgDetailAlt = sessionStorage.getItem('imgDetail');
-  // const imgAltAlt = sessionStorage.getItem('imgAlt');
-  // const foodCalAlt = sessionStorage.getItem('foodCal');
-
-  componentDidMount(){
-    const {loadPizzaData} = this.props
+  componentDidMount () {
+    const { loadPizzaData } = this.props
     loadPizzaData();
 
   }
-    
 
+  render () {
+    const { id } = this.props.props.match.params // this is a string type `id`
+    // console.log('this.props.props.match.params.id', typeof this.props.props.match.params.id)
+    // console.log("pizza-data", this.props.pizzaData)
 
-
-  render(){
-    const { id } = this.props.props.match.params
-    console.log("pizza-data",this.props.pizzaData)
-  
     let foodName, foodDes, foodPrice, foodCal, imgDetail, imgAlt;
     this.props.pizzaData.forEach(item => {
       for (let food of item.items) {
@@ -62,7 +33,10 @@ class Detail extends React.Component {
         }
       }
     })
-    let curItem = { id, foodName, foodPrice, imgDetail, imgAlt };
+    let curItem = {
+      id: parseInt(id),
+      foodName, foodPrice, imgDetail, imgAlt
+    };
 
     return (
       <div className="detail">
@@ -97,22 +71,19 @@ class Detail extends React.Component {
         </div>
       </div>
     )
-
   }
-
-
 }
 const mapAction = { addItem }
 
-const mapStateToProps=(state)=>{
-  
-  return{
-    pizzaData:state.pizzaData.pizzaData
+const mapStateToProps = (state) => {
+  return {
+    pizzaData: state.pizzaData.pizzaData
   }
 }
-const mapActionsToProps={
+
+const mapActionsToProps = {
   loadPizzaData,
   addItem,
-  
 }
+
 export default connect(mapStateToProps, mapActionsToProps)(Detail);

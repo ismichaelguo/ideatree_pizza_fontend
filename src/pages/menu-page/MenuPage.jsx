@@ -17,16 +17,10 @@ class MenuPage extends React.Component {
     // console.log("data2",FOOD_ITEM_DATA);
     const { loadPizzaData } = this.props;
     loadPizzaData();
-    // this.getPizzaData();
-
   }
 
   getPizzaData = () => {
-    // console.log("data3333",this.props.pizzaData);
-
     const foodItemArr = this.props.pizzaData;
-
-    // console.log("item",foodItemArr)
     const pathname = this.props.location.pathname;
     const hashtag = this.props.location.hash || "#PIZZAS";
 
@@ -51,11 +45,6 @@ class MenuPage extends React.Component {
         )))
     }
   }
-
-
-
-
-
 
   render () {
     return (
@@ -84,7 +73,6 @@ const mapStateToProps = (state) => {
 
 const mapActionsToProps = {
   loadPizzaData,
-
 }
 
 

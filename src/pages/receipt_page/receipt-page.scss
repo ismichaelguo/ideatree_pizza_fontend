@@ -11,6 +11,9 @@
   &__nav {
     @include main-nav_type;
   }
+  @include iphone() {
+    width: 100%;
+  }
 }
 
 .receipt-container {
@@ -18,6 +21,11 @@
   position: fixed;
   top: 14rem;
   left: 70%;
+  @include iphone() {
+    width: 100%;
+    left: 0%;
+    z-index: 1000;
+  }
 
   .receipt {
     padding: 0.8rem;
@@ -30,6 +38,8 @@
       width: 90%;
     }
     @include iphone() {
+      position: fixed;
+      top: 40rem;
       width: 100%;
     }
 

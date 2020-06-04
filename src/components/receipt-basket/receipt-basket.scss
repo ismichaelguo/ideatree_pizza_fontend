@@ -5,6 +5,9 @@
   flex-direction: column;
   max-height: 180px;
   overflow-y: scroll;
+  @include iphone() {
+    max-height: 95px;
+  }
   &__title {
     display: flex;
     justify-content: space-evenly;

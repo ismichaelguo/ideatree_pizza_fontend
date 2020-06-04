@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import 'font-awesome/css/font-awesome.min.css';
 import './main-nav.scss';
-import {getLoginInf} from '../../redux/actions/index';
+import { getLoginInf } from '../../redux/actions/index';
 
 
 class MainNav extends React.Component {
@@ -20,33 +20,19 @@ class MainNav extends React.Component {
     })
   }
 
-  logOut=()=>{
+  logOut = () => {
 
     this.props.getLoginInf({
-      status:false,
+      status: false,
     })
-
     // sessionStorage.removeItem('Login Status');
     // sessionStorage.setItem('Login Status',false);
-
   }
 
-
-
-
-  
-
   render () {
-    let {status} = this.props;
-
-
-    // if(status===null){
-    //   status = this.props.status;
-    // }
-    console.log("status",status)
+    let { status } = this.props;
+    console.log("status", status)
     const { pathname } = this.props;
-
-
 
     return (
       <Fragment>
@@ -55,7 +41,7 @@ class MainNav extends React.Component {
             <Link to='/' className="logo"> Pizza<span className="logo__highlight"> Hub</span> </Link>
           </div>
           <div className="main-nav__middle">
-            <div className="menu-btn">
+            <div className={`menu-btn ${this.state.sideShow ? "side-show" : ""}`}>
               <i className="fa fa-bars" onClick={this.handleBtnClick}></i>
             </div>
             <nav className={`main-navbar ${this.state.sideShow ? "side-show" : ""}`}>
@@ -70,50 +56,35 @@ class MainNav extends React.Component {
                 onClick={this.logOut}
                 className={`main-navbar__item ${pathname === '/stores' ? "main-navbar__item--active" : ""} ${this.state.sideShow ? "side-show" : "side-hide"}`}
               ><i className="fa fa-user-circle"></i><span> Log out</span></div>
-                } 
-              {!status && <Link 
+              }
+              {!status && <Link
                 to="./account"
                 className={`main-navbar__item ${pathname === '/stores' ? "main-navbar__item--active" : ""} ${this.state.sideShow ? "side-show" : "side-hide"}`}
               ><i className="fa fa-user-circle"></i><span> My Account</span></Link>}
-              
-
-
             </nav>
           </div>
           <div className="main-nav__right">
-          {status ? <div onClick={this.logOut} className="login"><i className="fa fa-user-circle">
-          </i><span> Log out</span></div> : <Link to='/account' className="login"><i className="fa fa-user-circle"></i><span> My Account</span></Link>
-
-
-
-          }
-
-
+            {status ? <div onClick={this.logOut} className="login"><i className="fa fa-user-circle">
+            </i><span> Log out</span></div> : <Link to='/account' className="login"><i className="fa fa-user-circle"></i><span> My Account</span></Link>
+            }
           </div>
         </header>
       </Fragment>
     )
   }
 }
-function mapStateToProps(state){
-  const {loginInf} = state;
-  // console.log("3333",loginInf);
+function mapStateToProps (state) {
+  const { loginInf } = state;
 
   return {
-      userName:loginInf.userName,
-      password:loginInf.password,
-      status:loginInf.status,
-     
+    userName: loginInf.userName,
+    password: loginInf.password,
+    status: loginInf.status,
   }
-
 }
 
 const mapActionsToProps = {
   getLoginInf,
-
-  
 }
 
-
-
-export default connect(mapStateToProps,mapActionsToProps)(MainNav);
+export default connect(mapStateToProps, mapActionsToProps)(MainNav);
