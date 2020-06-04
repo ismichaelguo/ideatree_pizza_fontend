@@ -3,7 +3,6 @@ export const initialState= {
 }
 
 const pizzaData = (state = initialState,action)=>{
-    
 
     switch(action.type){
      case 'REQUESTED':
