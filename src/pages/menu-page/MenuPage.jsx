@@ -4,58 +4,60 @@ import MenuNav from "../../components/menu-nav/MenuNav";
 import ItemCardContainer from "../../components/item-card-container/ItemCardContainer";
 import Footer from "../../components/footer/Footer";
 import FOOD_ITEM_DATA from "./food-item-data";
-import {connect} from 'react-redux';
-import {loadPizzaData} from '../../redux/actions/index';
+import { connect } from 'react-redux';
+import { loadPizzaData } from '../../redux/actions/index';
 
 
 import "./menu-page.scss";
 
-class MenuPage extends React.Component{
+class MenuPage extends React.Component {
 
-  componentDidMount(){
+  componentDidMount () {
     // console.log("data",this.props.pizzaData);
     // console.log("data2",FOOD_ITEM_DATA);
     const { loadPizzaData } = this.props;
     loadPizzaData();
     // this.getPizzaData();
-  
+
   }
 
-  getPizzaData=()=>{
+  getPizzaData = () => {
     // console.log("data3333",this.props.pizzaData);
 
     const foodItemArr = this.props.pizzaData;
 
     // console.log("item",foodItemArr)
-    const hashtag = this.props.location.hash || "#PIZZAS"; 
-  
+    const pathname = this.props.location.pathname;
+    const hashtag = this.props.location.hash || "#PIZZAS";
+
     let filteredFoodArr = foodItemArr.filter((food) =>
       food.locationID.startsWith(hashtag.split("#")[1])
-     
+
     );
-    console.log("pizza",filteredFoodArr)
-    if (filteredFoodArr.length === 0){
+    console.log("pizza", filteredFoodArr)
+    if (filteredFoodArr.length === 0) {
       return null;
-    }else {
+    } else {
       return (
         filteredFoodArr.map((item) => (
-        <ItemCardContainer
-          key={item.itemID}
-          locationID={item.locationID}
-          itemFirstName={item.itemFirstName}
-          itemLastName={item.itemLastName}
-          items={item.items}
-        />
-      )))
+          <ItemCardContainer
+            key={item.itemID}
+            locationID={item.locationID}
+            itemFirstName={item.itemFirstName}
+            itemLastName={item.itemLastName}
+            items={item.items}
+            pathname={pathname}
+          />
+        )))
     }
   }
-    
-    
-    
 
-  
 
-  render(){
+
+
+
+
+  render () {
     return (
       <div className="menu-page">
         <section className="menu-page__nav">
@@ -70,19 +72,19 @@ class MenuPage extends React.Component{
     );
 
   }
-  
+
 };
 
-const mapStateToProps=(state)=>{
-  
-  return{
-    pizzaData:state.pizzaData.pizzaData
+const mapStateToProps = (state) => {
+
+  return {
+    pizzaData: state.pizzaData.pizzaData
   }
 }
 
-const mapActionsToProps={
+const mapActionsToProps = {
   loadPizzaData,
-  
+
 }
 
 

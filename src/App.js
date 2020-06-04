@@ -10,6 +10,7 @@ import DeliveryPage from "./pages/delivery-page/DeliveryPage";
 import PickUpPage from "./pages/pick-up-page/PickUpPage";
 import CheckoutPage from './pages/checkout-page/CheckoutPage';
 import ThanksPage from './pages/thanks-page/ThanksPage';
+import ReceiptPage from './pages/receipt_page/ReceiptPage';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SelectOrderType from './pages/order-type-page/SelectOrderType'
 import "./App.css";
@@ -28,12 +29,14 @@ function App () {
           <Route exact={true} path='/about' component={AboutPage} />
           <Route exact={true} path='/stores' component={StorePage} />
           <Route exact={true} path='/account' component={AccountPage} />
-          <Route exact={true} path='/menu/detail/:id/order-type/delivery' component={DeliveryPage}/>
-          <Route exact={true} path='/menu/detail/:id/order-type/pick-up' component={PickUpPage}/>
+          <Route exact={true} path='/menu/detail/:id/order-type/delivery' component={DeliveryPage} />
+          <Route exact={true} path='/menu/detail/:id/order-type/pick-up' component={PickUpPage} />
+          <Route exact={true} path='/menu/detail' component={DetailPage} />
           <Route exact={true} path='/menu/detail/:id' component={DetailPage} />
           <Route exact={true} path='/menu/detail/:id/order-type' component={SelectOrderType} />
           <Route exact={true} path='/checkout' component={CheckoutPage} />
           <Route exact={true} path='/thanks' component={ThanksPage} />
+          <Route exact={true} path='/receipt' component={ReceiptPage} />
         </Switch>
       </div>
     </BrowserRouter>

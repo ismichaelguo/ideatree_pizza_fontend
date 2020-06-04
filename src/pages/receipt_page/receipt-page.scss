@@ -1,0 +1,75 @@
+@import "../../style_config/config";
+
+.receipt-page-container {
+  display: flex;
+  background: url(../../asset/Images/menuPageBackground.jpeg);
+  background-size: auto;
+}
+
+.receipt-page {
+  width: 70%;
+  &__nav {
+    @include main-nav_type;
+  }
+}
+
+.receipt-container {
+  width: 30%;
+  position: fixed;
+  top: 14rem;
+  left: 70%;
+
+  .receipt {
+    padding: 0.8rem;
+    margin: 3rem auto;
+    width: 60%;
+    background: $white;
+    color: $black;
+    font-weight: bold;
+    @include ipad() {
+      width: 90%;
+    }
+    @include iphone() {
+      width: 100%;
+    }
+
+    &__top,
+    &__mid,
+    &__bottom {
+      border-bottom: 1px solid #eee;
+      min-height: 90px;
+    }
+
+    &__top--logo {
+      height: 60px;
+      width: 60px;
+      background: url("../../asset/Images/order-type-page/domino-logo.svg") no-repeat;
+    }
+
+    &__bottom {
+      p {
+        font-size: 0.85rem;
+        line-height: 1.3rem;
+      }
+
+      .checkout-btn {
+        display: block;
+        margin: 0.6rem auto;
+        font-weight: bolder;
+        text-transform: uppercase;
+        color: $white;
+        background-color: $red;
+        border-color: $red;
+        padding: 0.5rem;
+        border-radius: 3px;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+          color: $white;
+          background-color: $redV2;
+          border-color: $redV2;
+        }
+      }
+    }
+  }
+}
