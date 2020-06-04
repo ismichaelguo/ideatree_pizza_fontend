@@ -27,6 +27,8 @@
   &__right {
     cursor: pointer;
     .login {
+      color:$grey;
+      
       &:link {
         color: $grey;
         @include ipad() {

@@ -1,0 +1,168 @@
+@import '../../style_config/config';
+
+body{
+    background-image:url('menuPageBackground.jpeg');
+    // color: black;
+    font-family: $Fredericka;
+    // margin: 0;
+    // padding: 0;
+    // border: 0;
+    // font-size: 100%;
+    // vertical-align: baseline;
+    // overflow-x: hidden;
+    // min-height: 100%;
+    // position: relative;
+}
+
+.form-header {
+    margin-left: 15px;
+    text-align: left;
+    color: white;
+}
+.row-1 {
+    font-size: 40px;
+    line-height: 34px;
+    letter-spacing: 2px;
+    font-family: "Segoe UI Symbol";
+}
+.row-2 {
+    font-size: 12px;
+    margin-top: 5px;
+    font-family: "Segoe UI Symbol";
+}
+.thin {
+    font-family: EvelethCleanThin;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+}
+.link {
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+.form-section {
+    border-radius: 15px;
+    border: solid 1px #979797;
+    background-color: #fff;
+    color: #000;
+    padding: 12px 10px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+.left {
+    float: left;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    margin: 5% auto;
+}
+
+.inner-container.show {
+    visibility: visible;
+}
+#login-form{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+.label-container {
+    padding: 0 5px;
+}
+.field-container {
+    padding: 0 15px;
+    margin-bottom: 7px;
+    font-family: "Abril Fatface", cursive;
+    text-align: left;
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    text-align: left;
+}
+
+//Label
+.form-label {
+    font-family: $Abril_Fatface;
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 5px;
+}
+label {
+    cursor: default;
+}
+//Input
+.login-input {
+    height: 1em;
+    border-radius: 5px;
+    border: 1px solid;
+    transition: border 0.4s ease-out;
+    padding: 13px;
+    font-family: $Abril_Fatface;
+    font-size: 20px;
+    color: #000;
+}
+
+.login-input:hover {
+    border: 2px solid;
+}
+
+.login-input:focus {
+    border: 2px solid #6565e7;
+    box-shadow: 0px 0px 20px rgba(15, 15, 15, 0.2);
+}
+
+
+.login-btn {
+    font-family: $Abril_Fatface;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    background-color: #1fc36a;
+    color: #fff;
+    width: 100%;
+    border-radius: 15px;
+    font-size: 20px;
+    height: 45px;
+    padding-top: 3px;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+    background-color: #e41837;
+    color: black;
+}
+
+.form-divider
+{   
+    font-family: $Abril_Fatface;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 160px;
+    width: 40px;
+    height: 40px;
+    background: #efefef;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    line-height: 40px;
+    text-align: center;
+
+}
+
