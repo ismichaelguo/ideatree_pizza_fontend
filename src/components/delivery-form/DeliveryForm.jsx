@@ -200,7 +200,7 @@ class DeliveryForm extends React.Component {
 
         <section className="delivery-form__buttons">
           <Link to='/' className="delivery-form__buttons__back" onClick={this.handleBack} >Back</Link>
-          <Link to='/checkout' className="delivery-form__buttons__next" onClick={this.handleSubmit}>Next</Link>
+          <Link to='/receipt' className="delivery-form__buttons__next" onClick={this.handleSubmit}>Next</Link>
         </section>
 
         <Link to='/' className="log-in">

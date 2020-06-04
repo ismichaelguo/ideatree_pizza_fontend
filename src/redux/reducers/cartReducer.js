@@ -28,6 +28,7 @@ const INITIAL_STATE = {
     //   quantity: 1
     // },
   ],
+  pastOrders: [],
 };
 
 
@@ -52,6 +53,16 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: state.cartItems.filter(cartItem => cartItem.id !== action.payload.id)
+      }
+
+    case CartActionTypes.GENERATE_PAST_ORDER:
+      let _pastOrders = state.pastOrders.concat({
+        orderTime: (new Date()).getTime(),
+        orderItems: { ...state.cartItems }
+      }); // concat does not change the original array, but return an new array
+      return {
+        cartItems: [],
+        pastOrders: _pastOrders,
       }
     default:
       return state;

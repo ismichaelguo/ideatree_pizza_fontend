@@ -10,14 +10,13 @@
   height: 300px;
   margin-top: 2rem;
   margin-right: 2rem;
-  @include iphone(){
+  @include iphone() {
     width: 48%;
     font-size: 2rem;
     margin-left: 1%;
     margin-right: 0;
     margin-top: 0;
     height: 300px;
-      
   }
 
   .productSelect {
@@ -29,7 +28,7 @@
     position: relative;
     border-radius: 3px 3px 0 0;
 
-    @include iphone(){
+    @include iphone() {
       padding-bottom: 120px;
     }
 
@@ -84,7 +83,6 @@
   text-align: left;
   font-size: 0.8em;
 
-
   &::after {
     content: "";
     position: absolute;
@@ -107,7 +105,7 @@
     text-transform: uppercase;
     font-weight: 700;
     position: relative;
-    @include iphone(){
+    @include iphone() {
       height: 3em;
       font-size: 1rem;
       margin-top: 1rem;
@@ -126,7 +124,7 @@
   color: $lightgrey;
   border-radius: 3px;
   min-width: 100%;
-  @include iphone(){
+  @include iphone() {
     max-height: 6rem;
     margin-top: 0.4rem;
   }
@@ -134,14 +132,14 @@
 
 .product_details_priceCaloriesContainer {
   height: 2rem;
-  @include iphone(){
+  @include iphone() {
     height: 1em;
   }
   .price {
     line-height: 1.5;
-    font-size:bolder;
+    font-size: bolder;
 
-    @include iphone(){
+    @include iphone() {
       //height: 1em;
       line-height: 1rem;
       font-size: 1rem;
@@ -152,10 +150,10 @@
     color: $lightgrey;
     float: right;
     line-height: 1.5;
-    @include iphone(){
+    @include iphone() {
       //height: 1em;
       line-height: 1rem;
-      font-size:1rem;
+      font-size: 1rem;
       float: none;
       margin-left: 3rem;
     }
@@ -170,6 +168,9 @@
 
   .btn_select {
     @include button_type;
+    outline: none;
+    &:hover {
+      background-color: $redV2;
+    }
   }
 }
-

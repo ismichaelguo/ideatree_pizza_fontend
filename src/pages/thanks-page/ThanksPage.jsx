@@ -1,14 +1,19 @@
 import React from 'react';
-import MainNav from "../../components/main-nav/MainNav";
-
+import { Link } from 'react-router-dom';
 import './thanks-page.scss';
 
 const ThanksPage = (props) => {
   return (
     <>
-      <MainNav />
       <div className='thanks-page'>
-        Thanks for your ordering!
+        <header className="banner">
+          <Link to='/' className="banner_logo-image">
+          </Link>
+          <div className="banner_description">
+            Thanks
+        </div>
+        </header>
+        <p>Thanks for your ordering!</p>
       </div>
     </>
   );

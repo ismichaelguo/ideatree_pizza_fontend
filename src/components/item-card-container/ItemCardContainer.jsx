@@ -4,7 +4,7 @@ import './item-card-container.scss';
 
 const ItemCardContainer = (props) => {
 
-  const { locationID, itemFirstName, itemLastName, items } = props;
+  const { locationID, itemFirstName, itemLastName, items, pathname } = props;
   // console.log("name",itemFirstName)
   return (
     <div className='menu-content'>
@@ -15,7 +15,8 @@ const ItemCardContainer = (props) => {
         <section className='menu-content__body'>
           {items.length === 0 ? null :
             items.map((item) => (
-              <ItemCard key={item.id} id={item.id} imgAlt={item.imgAlt} imgSrc={item.imgSrc} name={item.name} description={item.description} price={item.price} calories={item.calories} />
+              <ItemCard key={item.id} id={item.id} imgAlt={item.imgAlt} imgSrc={item.imgSrc}
+                name={item.name} pathname={pathname} description={item.description} price={item.price} calories={item.calories} />
             ))
           }
         </section>
