@@ -217,6 +217,7 @@
                 margin: 0;
                 padding: 0;
                 font-weight: bold;
+                pointer-events: none;
             }
         }
     }
@@ -328,6 +329,8 @@
         }
     }
 }
+
+
 
 .form-label {
     font-size: 18px;

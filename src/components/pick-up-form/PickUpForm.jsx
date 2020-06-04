@@ -3,55 +3,63 @@ import {Link} from 'react-router-dom';
 import './pick-up-form.scss';
 import { BsClockHistory } from 'react-icons/bs';
 import { FaQuestionCircle } from 'react-icons/fa';
-
+import { connect } from 'react-redux';
+import {changePickUpTime, changeStoresData, changeInputType, changeStore} from '../../redux/actions/index';
 import STORE_DATA from '../store/store-data';
 
 class PickUpForm extends React.Component {
 
-    constructor(props) {
+    constructor(props){
         super(props);
-        this.state = {
-            data: '',
-            inputType: 'postcode',
-            time:'',
-        }
+        const{changeInputType,changePickUpTime}=this.props;
+        changeInputType({inputType: 'postcode'});
+        changePickUpTime({pickUpTime:''});
+        // const {changeStoresData,}=this.props;
+        // const storeData = [];
+        // for (let i = 0; i < STORE_DATA.length; i++) {
+        //     for (let j = 0; j < STORE_DATA[i].cities.length; j++) {
+        //         for (let k = 0; k < STORE_DATA[i].cities[j].stores.length; k++) {
+        //             storeData.push(STORE_DATA[i].cities[j].stores[k]);
+        //         }
+        //     }
+        // }
 
-    }
-
-    componentWillMount = () => {
-
-        const storeData = [];
-        for (let i = 0; i < STORE_DATA.length; i++) {
-            for (let j = 0; j < STORE_DATA[i].cities.length; j++) {
-                for (let k = 0; k < STORE_DATA[i].cities[j].stores.length; k++) {
-                    storeData.push(STORE_DATA[i].cities[j].stores[k]);
-                }
-            }
-        }
-
-        
-        this.setState({ data: storeData });
+        // changeStoresData({storesData:storeData});
     }
 
     setUp = () => {
-        console.log(this.state.data);
+
+        const {storesData}=this.props;
+        console.log(storesData);
+        if(storesData.length===0){
+            console.log('null');
+            return null;
+           
+        }
+       else{
         return (
-            this.state.data.map(item => {
-                return (
-                    <li key={item.id}><Link to='/checkout' className="pick-up-form__line2__results__item" id={item.id} onClick={this.handleLink}>
+        storesData.map(item => (
+                
+                    <li key={item.id} ><Link to='/checkout' className="pick-up-form__line2__results__item" id={item.id} onClick={this.handleLink}>
                         <h6>{item.storeName} - {item.suburb}</h6>
                         {item.address} - {item.postcode}
                     </Link></li>
-                )
-            })
+                
+        )))
 
-        )
+        }
     }
 
     handleLink=(e)=>{
-        console.log(this.state.data[e.target.id]);
-        if(this.state.time===''){
+        const {storesData,pickUpTime,changePickUpTime,changeStore}=this.props;
 
+        for(let i=0;i<storesData.length;i++){
+            if(storesData[i].id.toString()===e.target.id){
+                changeStore(storesData[i]);
+            }
+        }   
+        if(pickUpTime===''){
+            changePickUpTime({ pickUpTime: (new Date()).toLocaleString('English', { hours12: false }) });
         }
     }
 
@@ -61,7 +69,7 @@ class PickUpForm extends React.Component {
 
         if (info.style.display === 'none') {
             info.style.display = 'block';
-            info.style.animation = "displayInfo 1.5s";
+            info.style.animation = "displayInfo 1s";
         }
         else {
             info.style.animation = "hideInfo 1s";
@@ -71,13 +79,13 @@ class PickUpForm extends React.Component {
 
     handlePickUpTime = (e) => {
         const orderTime = document.getElementsByClassName('pick-up-form__line1')[0];
-        //const { changeTime } = this.props;
+        const { changePickUpTime } = this.props;
 
         if (e.target.value === 'later') {
             //const { changeDeliveryNow } = this.props;
             //changeDeliveryNow({ deliverNow: false });
             orderTime.style.display = 'block';
-            orderTime.style.animation = "displayOrderTime 1.5s";
+            orderTime.style.animation = "displayOrderTime 1s";
 
             for (let i = 1; i < 6; i++) {
                 const item = document.createElement('option');
@@ -87,7 +95,7 @@ class PickUpForm extends React.Component {
                 item.value = time.toLocaleString('English', { hours12: false });
                 document.form.timeDrapDownList.add(item, undefined);
             }
-            //changeTime({ time: document.form.timeDrapDownList.value });
+            changePickUpTime({ pickUpTime: document.form.timeDrapDownList.value });
         }
         else {
             //changeDeliveryNow({ deliverNow: true });
@@ -95,10 +103,13 @@ class PickUpForm extends React.Component {
             orderTime.style.animation = "hideOrderTime 1s";
             setTimeout(() => { orderTime.style.display = 'none'; }, 800);
             //changeTime({ time: (new Date()).toLocaleString('English', { hours12: false }) });
+            changePickUpTime({ pickUpTime: (new Date()).toLocaleString('English', { hours12: false }) });
         }
     }
 
-    handleTime = () => {
+    handleTime = (e) => {
+        const {changePickUpTime}=this.props;
+        changePickUpTime({ pickUpTime: e.target.value });
 
     }
 
@@ -113,15 +124,17 @@ class PickUpForm extends React.Component {
     handleInput = (e) => {
         const input = document.getElementById('customer-input');
         this.clearSearchResults();
-        switch (this.state.inputType) {
+        const {inputType,storesData}=this.props;
+        switch (inputType) {
             case 'postcode':
                 input.value = input.value.replace(/[^\d]/g, '');
                 input.maxLength=4;
                  if(e.target.value.length>2){
-                     for(let i=0;i<this.state.data.length;i++){
-                         if(this.state.data[i].postcode.includes(e.target.value)){
-                            document.getElementById(this.state.data[i].id).style.display='block';  
-                            document.getElementById(this.state.data[i].id).style.animation='showResults 1.5s';
+                     for(let i=0;i<storesData.length;i++){
+                         if(storesData[i].postcode.includes(e.target.value)){
+                            
+                            document.getElementById(storesData[i].id).style.display='block';  
+                            document.getElementById(storesData[i].id).style.animation='showResults 1.5s';
                          }
                      }
 
@@ -130,10 +143,11 @@ class PickUpForm extends React.Component {
             case 'suburb':
                 input.maxLength=20;
                 if(e.target.value.length>2){
-                    for(let i=0;i<this.state.data.length;i++){
-                        if(this.state.data[i].suburb.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())){
-                           document.getElementById(this.state.data[i].id).style.display='block';   
-                           document.getElementById(this.state.data[i].id).style.animation='showResults 1.5s';
+                    for(let i=0;i<storesData.length;i++){
+                        if(storesData[i].suburb.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())){
+                            
+                           document.getElementById(storesData[i].id).style.display='block';   
+                           document.getElementById(storesData[i].id).style.animation='showResults 1.5s';
                         }
                     }
                 }
@@ -143,10 +157,10 @@ class PickUpForm extends React.Component {
                 input.maxLength=20;
 
                 if(e.target.value.length>2){
-                    for(let i=0;i<this.state.data.length;i++){
-                        if(this.state.data[i].storeName.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())){
-                           document.getElementById(this.state.data[i].id).style.display='block';   
-                           document.getElementById(this.state.data[i].id).style.animation='showResults 1.5s';
+                    for(let i=0;i<storesData.length;i++){
+                        if(storesData[i].storeName.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())){
+                           document.getElementById(storesData[i].id).style.display='block';   
+                           document.getElementById(storesData[i].id).style.animation='showResults 0.8s';
                         }
                     }
                 }
@@ -162,15 +176,17 @@ class PickUpForm extends React.Component {
         const input = document.getElementById('customer-input');
         input.value = '';
         this.clearSearchResults();
+        const {changeInputType}=this.props;
         switch (e.target.value) {
             case 'postcode':
-                this.setState({ inputType: 'postcode' });
+                changeInputType({inputType: 'postcode'});
+                //this.setState({ inputType: 'postcode' });
                 break;
             case 'suburb':
-                this.setState({ inputType: 'suburb' });
+                changeInputType({inputType: 'suburb'});
                 break;
             case 'store':
-                this.setState({ inputType: 'store' });
+                changeInputType({inputType: 'store'});
                 break;
             default:
                 break;
@@ -182,10 +198,14 @@ class PickUpForm extends React.Component {
         this.props.props.history.goBack();
     }
 
+    handleSummit=(e)=>{
+        e.preventDefault();
+    }
+
     render() {
 
         return (
-            <form className='pick-up-form' name='form' >
+            <form className='pick-up-form' name='form' onSubmit={this.handleSummit}>
                 <h3 className='pick-up-form__title'>Pick Up Time</h3>
                 <section className='pick-up-form__ordertime-button'>
                     <input type="radio" id="btn-now" name="radioBox" value="now" defaultChecked onChange={this.handlePickUpTime}></input>
@@ -235,4 +255,15 @@ class PickUpForm extends React.Component {
     }
 }
 
-export default PickUpForm;
+function mapStateToProps(state){
+    return{
+        storesData:state.PickUpForm.storesData,
+        inputType:state.PickUpForm.inputType,
+        pickUpTime:state.PickUpForm.pickUpTime,
+        store:state.PickUpForm.store,
+    }
+}
+
+const mapActionsToProps={changePickUpTime, changeStoresData, changeInputType, changeStore};
+
+export default connect(mapStateToProps, mapActionsToProps)(PickUpForm);
