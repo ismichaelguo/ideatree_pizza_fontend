@@ -5,7 +5,7 @@ import { BsClockHistory } from 'react-icons/bs';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import {changePickUpTime, changeStoresData, changeInputType, changeStore} from '../../redux/actions/index';
-import STORE_DATA from '../store/store-data';
+
 
 class PickUpForm extends React.Component {
 
@@ -14,17 +14,6 @@ class PickUpForm extends React.Component {
         const{changeInputType,changePickUpTime}=this.props;
         changeInputType({inputType: 'postcode'});
         changePickUpTime({pickUpTime:''});
-        // const {changeStoresData,}=this.props;
-        // const storeData = [];
-        // for (let i = 0; i < STORE_DATA.length; i++) {
-        //     for (let j = 0; j < STORE_DATA[i].cities.length; j++) {
-        //         for (let k = 0; k < STORE_DATA[i].cities[j].stores.length; k++) {
-        //             storeData.push(STORE_DATA[i].cities[j].stores[k]);
-        //         }
-        //     }
-        // }
-
-        // changeStoresData({storesData:storeData});
     }
 
     setUp = () => {
@@ -98,11 +87,10 @@ class PickUpForm extends React.Component {
             changePickUpTime({ pickUpTime: document.form.timeDrapDownList.value });
         }
         else {
-            //changeDeliveryNow({ deliverNow: true });
+            
             document.form.timeDrapDownList.length = 0;
             orderTime.style.animation = "hideOrderTime 1s";
             setTimeout(() => { orderTime.style.display = 'none'; }, 800);
-            //changeTime({ time: (new Date()).toLocaleString('English', { hours12: false }) });
             changePickUpTime({ pickUpTime: (new Date()).toLocaleString('English', { hours12: false }) });
         }
     }

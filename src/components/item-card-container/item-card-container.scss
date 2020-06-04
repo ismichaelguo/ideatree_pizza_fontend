@@ -1,14 +1,16 @@
 @import "../../style_config/config";
 
-$textSize: 2.5rem;
-$ipadPro-ipad-breakPoint: 1225px;
-$phones-breakPoint: 480px;
-
 .menu-content {
   background-color: transparent;
   margin-left: 5%;
   width: 90%;
-  font: $Abril_Fatface;
+  font-family: $Abril_Fatface;
+  @include iphone(){
+    margin-left: 3%;
+    width: 94%;
+      
+  }
+
   &__body {
     display: flex;
     flex-wrap: wrap;
@@ -17,10 +19,13 @@ $phones-breakPoint: 480px;
   }
   &__title {
     color: $white;
-    font-size: $textSize;
+    font-size: 2.5rem;
     padding-top: 30px;
     padding-bottom: 1.5rem;
     border-bottom: dotted 1px $white;
+    @include iphone(){
+      font-size: 2.0rem;
+    }
   }
 }
 
@@ -28,20 +33,4 @@ $phones-breakPoint: 480px;
   height: 1.5rem;
   position: relative;
   top: -140px; // 这里可以设任意高度 对应锚点最后离窗口顶端的距离
-}
-
-@media (max-width: $ipadPro-ipad-breakPoint) {
-  .menu-content {
-    margin-left: 5%;
-    width: 90%;
-  }
-}
-
-@media (max-width: $phones-breakPoint) {
-  .menu-content {
-    justify-content: space-around;
-  }
-  .title {
-    text-align: center;
-  }
 }
