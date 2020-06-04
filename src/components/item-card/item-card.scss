@@ -1,10 +1,7 @@
 @import "../../style_config/config";
 
-$ipadPro-breakPoint: 1225px;
-$phones-breakPoint: 480px;
-
 .productContainer {
-  font-family: droid_sans, verdana, sans-serif;
+  font-family: $Abril_Fatface;
   display: block;
   position: relative;
   width: 200px;
@@ -13,6 +10,15 @@ $phones-breakPoint: 480px;
   height: 300px;
   margin-top: 2rem;
   margin-right: 2rem;
+  @include iphone(){
+    width: 48%;
+    font-size: 2rem;
+    margin-left: 1%;
+    margin-right: 0;
+    margin-top: 0;
+    height: 300px;
+      
+  }
 
   .productSelect {
     text-align: center;
@@ -22,6 +28,10 @@ $phones-breakPoint: 480px;
     padding-bottom: 90px;
     position: relative;
     border-radius: 3px 3px 0 0;
+
+    @include iphone(){
+      padding-bottom: 120px;
+    }
 
     &:hover {
       background: 0 0;
@@ -74,6 +84,7 @@ $phones-breakPoint: 480px;
   text-align: left;
   font-size: 0.8em;
 
+
   &::after {
     content: "";
     position: absolute;
@@ -96,6 +107,11 @@ $phones-breakPoint: 480px;
     text-transform: uppercase;
     font-weight: 700;
     position: relative;
+    @include iphone(){
+      height: 3em;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
   }
 }
 
@@ -110,18 +126,39 @@ $phones-breakPoint: 480px;
   color: $lightgrey;
   border-radius: 3px;
   min-width: 100%;
+  @include iphone(){
+    max-height: 6rem;
+    margin-top: 0.4rem;
+  }
 }
 
 .product_details_priceCaloriesContainer {
   height: 2rem;
+  @include iphone(){
+    height: 1em;
+  }
   .price {
     line-height: 1.5;
+    font-size:bolder;
+
+    @include iphone(){
+      //height: 1em;
+      line-height: 1rem;
+      font-size: 1rem;
+    }
   }
 
   .calories {
     color: $lightgrey;
     float: right;
     line-height: 1.5;
+    @include iphone(){
+      //height: 1em;
+      line-height: 1rem;
+      font-size:1rem;
+      float: none;
+      margin-left: 3rem;
+    }
   }
 }
 
@@ -136,11 +173,3 @@ $phones-breakPoint: 480px;
   }
 }
 
-@media (max-width: $phones-breakPoint) {
-  .productContainer {
-    width: 90%;
-    height: 400px;
-    font-size: 2rem;
-    margin-left: 5%;
-  }
-}

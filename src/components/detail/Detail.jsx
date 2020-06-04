@@ -102,6 +102,7 @@ class Detail extends React.Component {
 
 
 }
+const mapAction = { addItem }
 
 const mapStateToProps=(state)=>{
   

@@ -27,7 +27,7 @@ export default function OderType (props) {
                             directly to you</p>
           </div>
         </Link>
-        <Link to='' className="order-method type-pickup">
+        <Link to={`/menu/detail/${id}/order-type/pick-up`} className="order-method type-pickup">
           <div className="type-icon"></div>
           <div className="type-text">
             <h1 className="type-text_title">Pick up</h1>
