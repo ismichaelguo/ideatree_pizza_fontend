@@ -33,7 +33,6 @@ function App () {
           <Route exact={true} path='/menu/detail/:id/order-type' component={SelectOrderType} />
           <Route exact={true} path='/checkout' component={CheckoutPage} />
           <Route exact={true} path='/thanks' component={ThanksPage} />
-
         </Switch>
       </div>
     </BrowserRouter>

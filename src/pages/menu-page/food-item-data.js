@@ -11,7 +11,7 @@ import gpCover from '../../asset/Images/pizza cover/GARLIC PRAWN.png';
 
 // import pizza detail photos
 
-import gcbrDetail from '../../asset/Images/pizza detail/GARLIC_CHICKEN&BACON_RANCH .png';
+// import gcbrDetail from '../../asset/Images/pizza detail/GARLIC_CHICKEN&BACON_RANCH .png';
 import cbaDetail from '../../asset/Images/pizza detail/CHICKEN_BACON&AVOCADO.png';
 import lsDetail from '../../asset/Images/pizza detail/LOADED_SUPREME.png';
 import mmDetail from '../../asset/Images/pizza detail/MEGA_MEATLOVERS.png';

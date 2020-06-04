@@ -13,8 +13,8 @@ import "./menu-page.scss";
 class MenuPage extends React.Component{
 
   componentDidMount(){
-    console.log("data",this.props.pizzaData);
-    console.log("data2",FOOD_ITEM_DATA);
+    // console.log("data",this.props.pizzaData);
+    // console.log("data2",FOOD_ITEM_DATA);
     const { loadPizzaData } = this.props;
     loadPizzaData();
     // this.getPizzaData();
@@ -22,11 +22,11 @@ class MenuPage extends React.Component{
   }
 
   getPizzaData=()=>{
-    console.log("data3333",this.props.pizzaData);
+    // console.log("data3333",this.props.pizzaData);
 
     const foodItemArr = this.props.pizzaData;
 
-    console.log("item",foodItemArr)
+    // console.log("item",foodItemArr)
     const hashtag = this.props.location.hash || "#PIZZAS"; 
   
     let filteredFoodArr = foodItemArr.filter((food) =>
@@ -74,6 +74,7 @@ class MenuPage extends React.Component{
 };
 
 const mapStateToProps=(state)=>{
+  
   return{
     pizzaData:state.pizzaData.pizzaData
   }

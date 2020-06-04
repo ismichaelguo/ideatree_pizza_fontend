@@ -5,7 +5,7 @@ import './item-card-container.scss';
 const ItemCardContainer = (props) => {
 
   const { locationID, itemFirstName, itemLastName, items } = props;
-  console.log("name",itemFirstName)
+  // console.log("name",itemFirstName)
   return (
     <div className='menu-content'>
       <div>
