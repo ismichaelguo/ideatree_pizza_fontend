@@ -18,7 +18,8 @@ class LoginForm extends Component {
         })
     }
 
-    getLoginInf=(props)=>{
+    getLoginInf=(e,props)=>{
+        e.preventDefault();
         const userInf = {
             userName:"123",
             password:"123",
@@ -28,6 +29,9 @@ class LoginForm extends Component {
                 status:!this.props.status,
             })
             // sessionStorage.setItem('Login Status',!this.props.status)
+            const HISTORY = this.props.history;
+            console.log("1111",HISTORY)
+            HISTORY.replace('/menu')
 
         }else{
             alert("Invalid username or password!")
@@ -41,10 +45,7 @@ class LoginForm extends Component {
 
     
     render(){ 
-        // const HISTORY = this.props.history
-        console.log("his",this.props.status)
-        let {status} = this.props 
-        if(status === false){
+
             return (
                 <Fragment> 
 
@@ -134,22 +135,11 @@ class LoginForm extends Component {
                     </div>
             </Fragment>   
             )
-        }else {
-            alert("Log in successful!")
-            return <Redirect to='menu' />
-            
-        
-            // HISTORY.replace('/menu')
-            // HISTORY.go(0)
-                
-            
-
-
-        }
-
-        
     }
+
+        
 }
+
 
 function mapStateToProps(state){
     const {loginInf} = state;
