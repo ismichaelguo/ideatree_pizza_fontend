@@ -34,14 +34,14 @@ function OderType (props) {
       
 
         {status ? <Link to={hasHistory ? "/menu" : `/menu/detail/${id}/order-type/saved-order-none`} className="order-method type-save">
-          <div className="type-icon"></div>
+          <div className="type-icon"><FiStar className="type-icon__content"/></div>
           <div className="type-text">
             <h1 className="type-text_title">Saved Orders</h1>
             <p className="type-text_description">Quickly reorder one of
             <br />your saved Orders</p>
         </div>
         </Link> : <Link to='/account' className="order-method type-save">
-        <div className="type-icon"></div>
+        <div className="type-icon"><FiStar className="type-icon__content"/></div>
         <div className="type-text">
           <h1 className="type-text_title">Saved Orders</h1>
           <p className="type-text_description">Quickly reorder one of
@@ -54,7 +54,7 @@ function OderType (props) {
 
 
         <Link to={`/menu/detail/${id}/order-type/delivery`} className="order-method type-delivery">
-          <div className="type-icon"></div>
+          <div className="type-icon"><MdMotorcycle className="type-icon__content"/></div>
               <div className="type-text">
                   <h1 className="type-text_title">Delivery</h1>
                   <p className="type-text_description">Have your order delivered 
