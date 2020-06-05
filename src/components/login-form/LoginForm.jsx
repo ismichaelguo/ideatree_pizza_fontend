@@ -45,6 +45,7 @@ class LoginForm extends Component {
 
     
     render(){ 
+        console.log("match",this.props.match)
 
             return (
                 <Fragment> 
@@ -104,9 +105,9 @@ class LoginForm extends Component {
                                     </div>
                                     </section>
 
-                                    <Link to={this.props.status ? "./menu" : "./account"} className="button-row">
+                                    <div className="button-row">
                                         <button id="login-button" onClick={this.getLoginInf} className="login-btn">LOG IN</button>
-                                    </Link>
+                                    </div>
 
                                 </div>
                             </div>

@@ -13,6 +13,7 @@ import ThanksPage from './pages/thanks-page/ThanksPage';
 import ReceiptPage from './pages/receipt_page/ReceiptPage';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SelectOrderType from './pages/order-type-page/SelectOrderType'
+import SavedOrderNone from './pages/save-order-page/SavedOrderNone';
 import "./App.css";
 
 
@@ -36,6 +37,10 @@ function App () {
           <Route exact={true} path='/menu/detail/:id/order-type' component={SelectOrderType} />
           <Route exact={true} path='/checkout' component={CheckoutPage} />
           <Route exact={true} path='/thanks' component={ThanksPage} />
+          <Route exact path='/menu/detail/:id/order-type/saved-order-none' component={SavedOrderNone} />
+
+
+
           <Route exact={true} path='/receipt' component={ReceiptPage} />
         </Switch>
       </div>

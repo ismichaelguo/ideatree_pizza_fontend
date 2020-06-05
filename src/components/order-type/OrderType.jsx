@@ -1,33 +1,64 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
 import './order-type.scss';
 import {FiStar} from 'react-icons/fi';
 import {MdMotorcycle} from 'react-icons/md';
 import {FaStore} from 'react-icons/fa';
 
-export default function OderType (props) {
-    const {id}=props.match.params
-    console.log("match",id)
+function OderType (props) {
+    const {id}=props.match.params;
+    const {status} = props;
+    const {pastOrders} = props;
+    console.log("props",pastOrders.length)
+    // const newStatus = parseInt(status)
+    let hasHistory = false;
+    if(status===true && pastOrders.length!==0){
+      hasHistory = true;
+    }
+    console.log("status",status)
+    console.log("pastOrder",pastOrders.length)
+
+
+    console.log("has",hasHistory)
+
+
+
   return (
     <div className="order-type">
       <h1 className="order-type_title">Select An Order Type</h1>
       <div className="order-type_container">
-        <Link to='/menu' className="order-method type-save">
+     
+
+
+      
+
+        {status ? <Link to={hasHistory ? "/menu" : `/menu/detail/${id}/order-type/saved-order-none`} className="order-method type-save">
           <div className="type-icon"><FiStar className="type-icon__content"/></div>
           <div className="type-text">
             <h1 className="type-text_title">Saved Orders</h1>
             <p className="type-text_description">Quickly reorder one of
-                                <br />
-                            your saved Orders</p>
-                        </div>
-                    </Link>
-                    <Link to={`/menu/detail/${id}/order-type/delivery`} className="order-method type-delivery">
-                        <div className="type-icon"><MdMotorcycle className="type-icon__content"/></div>
-                        <div className="type-text">
-                            <h1 className="type-text_title">Delivery</h1>
-                            <p className="type-text_description">Have your order delivered 
-                                <br />
-                            directly to you</p>
+            <br />your saved Orders</p>
+        </div>
+        </Link> : <Link to='/account' className="order-method type-save">
+        <div className="type-icon"><FiStar className="type-icon__content"/></div>
+        <div className="type-text">
+          <h1 className="type-text_title">Saved Orders</h1>
+          <p className="type-text_description">Quickly reorder one of
+          <br />your saved Orders</p>
+        </div>
+        </Link>
+        }   
+        
+
+
+
+        <Link to={`/menu/detail/${id}/order-type/delivery`} className="order-method type-delivery">
+          <div className="type-icon"><MdMotorcycle className="type-icon__content"/></div>
+              <div className="type-text">
+                  <h1 className="type-text_title">Delivery</h1>
+                  <p className="type-text_description">Have your order delivered 
+                  <br />directly to you</p>
           </div>
         </Link>
         <Link to={`/menu/detail/${id}/order-type/pick-up`} className="order-method type-pickup">
@@ -40,9 +71,23 @@ export default function OderType (props) {
           </div>
         </Link>
       </div>
-      <Link to='' className="log-in">
+      <Link to='account' className="log-in">
         Registered Member? Log in / Sign up
             </Link>
     </div>
   )
 }
+
+function mapStateToProps(state){
+  const {loginInf} = state;
+  const {cartReducer}=state
+  console.log("state",loginInf)
+
+
+  return {
+      status:loginInf.status,   
+      pastOrders:cartReducer.pastOrders,
+  }
+}
+
+export default connect(mapStateToProps,null)(OderType);
