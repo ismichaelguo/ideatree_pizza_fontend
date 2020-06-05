@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './order-type.scss';
+import {FiStar} from 'react-icons/fi';
+import {MdMotorcycle} from 'react-icons/md';
+import {FaStore} from 'react-icons/fa';
 
 export default function OderType (props) {
     const {id}=props.match.params
@@ -10,7 +13,7 @@ export default function OderType (props) {
       <h1 className="order-type_title">Select An Order Type</h1>
       <div className="order-type_container">
         <Link to='/menu' className="order-method type-save">
-          <div className="type-icon"></div>
+          <div className="type-icon"><FiStar className="type-icon__content"/></div>
           <div className="type-text">
             <h1 className="type-text_title">Saved Orders</h1>
             <p className="type-text_description">Quickly reorder one of
@@ -19,7 +22,7 @@ export default function OderType (props) {
                         </div>
                     </Link>
                     <Link to={`/menu/detail/${id}/order-type/delivery`} className="order-method type-delivery">
-                        <div className="type-icon"></div>
+                        <div className="type-icon"><MdMotorcycle className="type-icon__content"/></div>
                         <div className="type-text">
                             <h1 className="type-text_title">Delivery</h1>
                             <p className="type-text_description">Have your order delivered 
@@ -28,7 +31,7 @@ export default function OderType (props) {
           </div>
         </Link>
         <Link to={`/menu/detail/${id}/order-type/pick-up`} className="order-method type-pickup">
-          <div className="type-icon"></div>
+          <div className="type-icon"><FaStore className="type-icon__content"/></div>
           <div className="type-text">
             <h1 className="type-text_title">Pick up</h1>
             <p className="type-text_description">Pick up your order at

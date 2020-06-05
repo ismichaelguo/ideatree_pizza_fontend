@@ -58,14 +58,9 @@
       }
     }
   }
-
-  .page-footer {
-    flex-grow: 1;
-    // background: url("../../asset/Images/order-type-page/background-image.jpeg") !important;
-    background-color: black;
+  .page-footer{
     width: 100%;
-    &footer_links:visited {
-      color: white;
-    }
-  }
+       
+}
+  
 }
