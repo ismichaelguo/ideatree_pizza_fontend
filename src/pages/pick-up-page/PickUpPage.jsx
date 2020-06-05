@@ -9,7 +9,7 @@ const PickUpPage = (props) => {
     
 
     return (
-        <section className='delivery-container'>
+        <section className='pick-up-container'>
             <header className='banner'>
                 <Link to='' className="banner__logo-image">
                 </Link>

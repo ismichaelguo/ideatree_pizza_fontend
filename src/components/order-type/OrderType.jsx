@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import './order-type.scss';
+import {FiStar} from 'react-icons/fi';
+import {MdMotorcycle} from 'react-icons/md';
+import {FaStore} from 'react-icons/fa';
 
 function OderType (props) {
     const {id}=props.match.params;
@@ -30,22 +33,22 @@ function OderType (props) {
 
       
 
-      {status ? <Link to={hasHistory ? "/menu" : `/menu/detail/${id}/order-type/saved-order-none`} className="order-method type-save">
+        {status ? <Link to={hasHistory ? "/menu" : `/menu/detail/${id}/order-type/saved-order-none`} className="order-method type-save">
+          <div className="type-icon"></div>
+          <div className="type-text">
+            <h1 className="type-text_title">Saved Orders</h1>
+            <p className="type-text_description">Quickly reorder one of
+            <br />your saved Orders</p>
+        </div>
+        </Link> : <Link to='/account' className="order-method type-save">
         <div className="type-icon"></div>
         <div className="type-text">
           <h1 className="type-text_title">Saved Orders</h1>
           <p className="type-text_description">Quickly reorder one of
           <br />your saved Orders</p>
-      </div>
-      </Link> : <Link to='/account' className="order-method type-save">
-      <div className="type-icon"></div>
-      <div className="type-text">
-        <h1 className="type-text_title">Saved Orders</h1>
-        <p className="type-text_description">Quickly reorder one of
-        <br />your saved Orders</p>
-      </div>
-      </Link>
-      }   
+        </div>
+        </Link>
+        }   
         
 
 
@@ -59,7 +62,7 @@ function OderType (props) {
           </div>
         </Link>
         <Link to={`/menu/detail/${id}/order-type/pick-up`} className="order-method type-pickup">
-          <div className="type-icon"></div>
+          <div className="type-icon"><FaStore className="type-icon__content"/></div>
           <div className="type-text">
             <h1 className="type-text_title">Pick up</h1>
             <p className="type-text_description">Pick up your order at
