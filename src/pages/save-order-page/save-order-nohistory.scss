@@ -62,18 +62,20 @@
 
   .type-container{
       width: 90%;
+      height: 70vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: middle;
       align-items: center;
       text-align: center;
       font-size: 1.1rem;
 
       &__message{
-          color:$white;
-        //   font-family: $Abril_Fatface;
+        color:$white;
+        font-family: $Abril_Fatface;
         font-size: 1.1rem;
         padding-bottom:1rem;
+        
       }
 
       &__type{
@@ -81,6 +83,9 @@
           padding:1.5rem;
           font-size: 2rem;
           margin-bottom: 3rem;
+          @include iphone(){
+              width:90%;
+          }
 
 
       }
@@ -109,15 +114,42 @@
     }
 
     .btn-container{
+        font-size: 120%;
+        color: #ffffff;
         background-color: #595959;
-        width:100px;
-        margin-bottom: 2rem;
-        color:$white;
-        text-transform: uppercase;
+        border-color: #595959;
+        padding: 6px 10px 6px 15px;
+        position: relative;
         border-radius: 3px;
-        font-size: 1.3rem;
-        padding:0.6rem;
-        transition: all 50ms ease;
+        border: 1px solid transparent;
+        white-space: normal;
+        display: inline-block;
+        margin-bottom: 0;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        text-transform:uppercase ;
+        font-family: $Abril_Fatface;
+
+
+
+        &::after{
+            content: " ";
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 0px;
+            top: 50%;
+            margin-top: -6px;
+            border: 6px solid transparent;
+            border-right: 6px solid #ffffff;
+            box-sizing: border-box;
+            display: table;
+            }
+
+
+
 
 
         &:hover{

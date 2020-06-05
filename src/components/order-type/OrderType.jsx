@@ -4,20 +4,51 @@ import {connect} from 'react-redux';
 import './order-type.scss';
 
 function OderType (props) {
-    const {id}=props.match.params
-    // const {status} = this.props
+    const {id}=props.match.params;
+    const {status} = props;
+    const {pastOrders} = props;
+    console.log("props",pastOrders.length)
+    // const newStatus = parseInt(status)
+    let hasHistory = false;
+    if(status===true && pastOrders.length!==0){
+      hasHistory = true;
+    }
+    console.log("status",status)
+    console.log("pastOrder",pastOrders.length)
+
+
+    console.log("has",hasHistory)
+
+
+
   return (
     <div className="order-type">
       <h1 className="order-type_title">Select An Order Type</h1>
       <div className="order-type_container">
-        <Link to={`/menu/detail/${id}/order-type/saved-order`} className="order-method type-save">
-          <div className="type-icon"></div>
-          <div className="type-text">
-            <h1 className="type-text_title">Saved Orders</h1>
-            <p className="type-text_description">Quickly reorder one of
-            <br />your saved Orders</p>
-          </div>
-        </Link>
+     
+
+
+      
+
+      {status ? <Link to={hasHistory ? "/menu" : `/menu/detail/${id}/order-type/saved-order-none`} className="order-method type-save">
+        <div className="type-icon"></div>
+        <div className="type-text">
+          <h1 className="type-text_title">Saved Orders</h1>
+          <p className="type-text_description">Quickly reorder one of
+          <br />your saved Orders</p>
+      </div>
+      </Link> : <Link to='/account' className="order-method type-save">
+      <div className="type-icon"></div>
+      <div className="type-text">
+        <h1 className="type-text_title">Saved Orders</h1>
+        <p className="type-text_description">Quickly reorder one of
+        <br />your saved Orders</p>
+      </div>
+      </Link>
+      }   
+        
+
+
 
         <Link to={`/menu/detail/${id}/order-type/delivery`} className="order-method type-delivery">
           <div className="type-icon"></div>
@@ -46,9 +77,13 @@ function OderType (props) {
 
 function mapStateToProps(state){
   const {loginInf} = state;
+  const {cartReducer}=state
+  console.log("state",loginInf)
+
 
   return {
       status:loginInf.status,   
+      pastOrders:cartReducer.pastOrders,
   }
 }
 

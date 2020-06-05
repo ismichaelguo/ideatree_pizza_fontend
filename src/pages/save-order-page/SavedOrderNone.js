@@ -7,6 +7,7 @@ import Footer from '../../components/footer/Footer';
 
 
 export default function SavedOrderNone (props){
+  const {id}=props.match.params;
 
 
   return (
@@ -23,12 +24,12 @@ export default function SavedOrderNone (props){
         <p className="type-container__message">Sorry! We can't find any previous orders.<br/>
         Place a new order and we will remember it for Quick Ordering next time.<br/> 
         For even faster ordering, save your favorite order.</p>
-        <div className="type-container__type delivery">
+        <Link to={`/menu/detail/${id}/order-type/delivery`} className="type-container__type delivery">
           Delivery
-        </div>
-        <div className="type-container__type pick-up">
+        </Link>
+        <Link to={`/menu/detail/${id}/order-type/pick-up`}  className="type-container__type pick-up">
           Pick&nbsp;up
-        </div>
+        </Link>
         <Link className="btn-container">
         previous
         </Link>

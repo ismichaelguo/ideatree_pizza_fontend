@@ -37,7 +37,9 @@ function App () {
           <Route exact={true} path='/menu/detail/:id/order-type' component={SelectOrderType} />
           <Route exact={true} path='/checkout' component={CheckoutPage} />
           <Route exact={true} path='/thanks' component={ThanksPage} />
-          <Route exact path='/menu/detail/:id/order-type/saved-order' component={SavedOrderNone} />
+          <Route exact path='/menu/detail/:id/order-type/saved-order-none' component={SavedOrderNone} />
+
+
 
           <Route exact={true} path='/receipt' component={ReceiptPage} />
         </Switch>
