@@ -4,7 +4,7 @@
 
 
 
-.delivery-container{
+.pick-up-container{
     font-family: $Fredericka;
     display: flex;
     flex-direction: column;
@@ -67,13 +67,8 @@
     }
 
     .page-footer{
-        flex-grow: 1;
-        // background: url("../../asset/Images/order-type-page/background-image.jpeg") !important;
-        background-color: black;
-        width:100%;
-        &footer_links:visited{
-            color: white;
-        }
+        margin-top: 50px;
+        width: 100%;
    
 
     }
