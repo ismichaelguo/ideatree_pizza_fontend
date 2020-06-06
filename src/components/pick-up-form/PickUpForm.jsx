@@ -29,7 +29,7 @@ class PickUpForm extends React.Component {
         return (
         storesData.map(item => (
                 
-                    <li key={item.id} ><Link to='/checkout' className="pick-up-form__line2__results__item" id={item.id} onClick={this.handleLink}>
+                    <li key={item.id} ><Link to='/receipt' className="pick-up-form__line2__results__item" id={item.id} onClick={this.handleLink}>
                         <h6>{item.storeName} - {item.suburb}</h6>
                         {item.address} - {item.postcode}
                     </Link></li>

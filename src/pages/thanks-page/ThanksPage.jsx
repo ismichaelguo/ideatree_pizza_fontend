@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './thanks-page.scss';
+import Footer from '../../components/footer/Footer';
 
 const ThanksPage = (props) => {
   return (
@@ -14,6 +15,7 @@ const ThanksPage = (props) => {
         </div>
         </header>
         <p>Thanks for your ordering!</p>
+        <Footer />
       </div>
     </>
   );

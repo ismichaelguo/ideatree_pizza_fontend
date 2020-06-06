@@ -14,13 +14,11 @@ const AccountPage = (props) => {
                 <Link to='./menu' className="banner__logo-image">
                 </Link> 
                 <div className="banner__description">
-                    LOGIN PAGE
+                    My Account
                 </div>
             </header>
             <section id='body'>
-                
                     <LoginForm />
-                
             </section>
             <footer className="page-footer">
                 <Footer  />
