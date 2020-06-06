@@ -19,7 +19,7 @@
 .receipt-container {
   width: 30%;
   position: fixed;
-  top: 14rem;
+  top: 13rem;
   left: 70%;
   @include iphone() {
     width: 100%;
@@ -47,7 +47,7 @@
     &__mid,
     &__bottom {
       border-bottom: 1px solid #eee;
-      min-height: 90px;
+      min-height: 85px;
     }
 
     &__top--logo {

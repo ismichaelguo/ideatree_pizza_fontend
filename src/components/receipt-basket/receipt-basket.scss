@@ -3,7 +3,7 @@
 .receipt-table {
   display: flex;
   flex-direction: column;
-  max-height: 180px;
+  max-height: 150px;
   overflow-y: scroll;
   @include iphone() {
     max-height: 95px;
