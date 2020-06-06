@@ -12,6 +12,7 @@ import CheckoutPage from './pages/checkout-page/CheckoutPage';
 import ThanksPage from './pages/thanks-page/ThanksPage';
 import ReceiptPage from './pages/receipt_page/ReceiptPage';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import DIYPizzaPage from "./pages/diy-pizza-page/DIYPizzaPage"
 import SelectOrderType from './pages/order-type-page/SelectOrderType'
 import SavedOrderNone from './pages/saved-order-page/SavedOrderNone';
 import SavedOrder from './pages/saved-order-page/SavedOrder'
