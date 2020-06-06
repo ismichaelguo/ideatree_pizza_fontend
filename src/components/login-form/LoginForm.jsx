@@ -1,10 +1,66 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './login-form.scss';
 import GoogleBtn from './GoogleBtn';
 import {Link, withRouter} from "react-router-dom";
 // import FacebookBtn from './FacebookBtn';
+// import GoogleBtn from './GoogleBtn';
 import {getUsername,getPassword,getLoginInf} from '../../redux/actions/index';
 import {connect} from 'react-redux';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    @media only screen and (max-width : 399px) {
+        width: 10%
+    }
+`
+
+const BtnFacebook = styled.button`
+    width: 300px;
+    height:40px;  
+    border-radius: 15px;
+    background: #3b5998;
+    color:white;
+    border:0px transparent;  
+    text-align: center;
+    margin:10px;
+    display: inline-block;
+
+    &:hover{
+        background: #3b5998;
+        opacity: 0.6;
+    }
+`
+const BtnGoogle = styled.button`
+    margin:10px;
+    width: 300px;
+    height:40px;
+    border-radius: 15px;
+    background: #db3236;
+    color:white;
+    border:0px transparent;
+    text-align: center;
+
+    &:hover{
+        background: #3b5998;
+        opacity: 0.6;
+    }
+`
+const BtnPaypal = styled.button`
+    margin:10px;
+    width: 300px;
+    height:40px;
+    border-radius: 15px;
+    background: #1B9EF5;
+    color:white;
+    border:0px transparent;
+    text-align: center;
+
+    &:hover{
+        background: #3b5998;
+        opacity: 0.6;
+    }
+`
+
 class LoginForm extends Component {
     getUsername=(e)=>{
         this.props.getUsername({
@@ -48,97 +104,103 @@ class LoginForm extends Component {
         console.log("match",this.props.match)
 
             return (
-                <Fragment> 
 
-                    <div className="form-container">
+                    <div className="login-form">
 
-                        {/* header部分  */}
                         <div className="form-header">
-                            <div className="row-1">LOG IN</div>
-                            <div className="row-2">
-                                <span className="thin">DON'T HAVE A DOMINO'S ACCOUNT?</span>
-                                <span className="link"><Link to="">SIGN UP</Link></span>
+                            <div className="form-header_row-1">LOG IN</div>
+                            <div className="form-header_row-2">
+                                <span className="form-header_row-2_thin">DON'T HAVE A DOMINO'S ACCOUNT?</span>
+                                <span><Link className="form-header_row-2_link" to="">SIGN UP</Link></span>
                             </div>
                         </div>
 
 
-                        <div className="inner-container">
+                        <div className="form-container">
 
-                            {/* 左边的登陆提交表格  */}
                             <div className="form-section left">
 
-                                <div id="login-form" >
+                                <div className="field-container">
+                                    <h2><span className="field-container_thin">LOG IN </span>WITH EMAIL</h2>
+                                </div>
+
+
                                     <section>
 
-                                    <div className="field-container label-container">
-                                        <h2><span className="thin">LOG IN </span>WITH EMAIL</h2>
-                                    </div>
-
-                                    <div className="field-container input-group" id="email-container">
-                                        <label htmlFor="email" className="form-label">EMAIL</label>
+                                    <div className="field-container input-group">
+                                        <label htmlFor="email" className="field-container_form-label">EMAIL</label>
                                         <input 
                                             type="email"
                                             name="email" 
-                                            className="login-input"
+                                            className="field-container_login-input"
                                             // value="username"
                                             onChange={this.getUsername}/>
                                     </div>
 
-                                    <div className="field-container input-group" id="email-container">
-                                        <label htmlFor="password" className="form-label">PASSWORD</label>
+                                    <div className="field-container input-group">
+                                        <label htmlFor="password" className="field-container_form-label">PASSWORD</label>
                                         <Link id="forgot-password-link" to=''>Forgot password?</Link>
                                         <input 
                                             type="password"
                                             name="password" 
-                                            className="login-input"
+                                            className="field-container_login-input"
                                             // value="password"
                                             onChange={this.getPassword}/>
                                     </div>
 
                                     <div className="field-container">
-                                        {/* <div className="input-group checkbox-container"> */}
+
                                             <input 
                                                 type="checkbox"
                                                 name="checkbox" />
                                                 <label htmlFor="checkbox">Keep me logged in</label>
-                                        {/* </div> */}
+
                                     </div>
                                     </section>
+                                    <br/>
 
-                                    <div className="button-row">
-                                        <button id="login-button" onClick={this.getLoginInf} className="login-btn">LOG IN</button>
+                                    <div>
+                                        <button onClick={this.getLoginInf} className="login-btn">LOG IN</button>
                                     </div>
 
-                                </div>
                             </div>
-                            {/* 左边的登陆提交表格完结  */}
                             
                             <div className="form-divider">
                                 <div>OR</div>
                             </div>
                             
-                            {/* 右边的登陆提交表格  */}
-                            <div className="form-section right">
-                                <div className="field-container label-container">
-                                    <h2><span className="thin">LOG IN </span>WITH</h2>
-                                </div>
 
-                                <div>
-                                    <GoogleBtn/>
+                            <div className="form-section right">
+                                <div className="field-container">
+                                    <h2><span className="field-container_thin">LOG IN </span>WITH SOCIAL MEDIA</h2>
                                 </div>
 
                                 {/* <div>
-                                    <FacebookBtn/>
+                                    <GoogleBtn/>
                                 </div> */}
+                                <br/>
+
+                                <div style={{ display: 'flex', flexWrap: 'wrap' }} >
+                                    <Wrapper>
+                                        <BtnFacebook >
+                                            &nbsp;&nbsp;Sign In with Facebook
+                                        </BtnFacebook >
+                                        <br/>
+                                        <BtnGoogle>
+                                            &nbsp;&nbsp;Sign In with Google
+                                        </BtnGoogle >
+                                        <br/>
+                                        <BtnPaypal>
+                                            &nbsp;&nbsp;Sign In with Paypal
+                                        </BtnPaypal >
+                                    </Wrapper>
+                                </div>
 
                             </div>
                         </div>
                     </div>
-            </Fragment>   
             )
-    }
-
-        
+    }     
 }
 
 
