@@ -3,7 +3,7 @@ import MainNav from "../../components/main-nav/MainNav";
 import MenuNav from "../../components/menu-nav/MenuNav";
 import ItemCardContainer from "../../components/item-card-container/ItemCardContainer";
 import Footer from "../../components/footer/Footer";
-import FOOD_ITEM_DATA from "./food-item-data";
+// import FOOD_ITEM_DATA from "./food-item-data";
 import { connect } from 'react-redux';
 import { loadPizzaData } from '../../redux/actions/index';
 

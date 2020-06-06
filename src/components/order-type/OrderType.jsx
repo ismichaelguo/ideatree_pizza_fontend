@@ -33,7 +33,7 @@ function OderType (props) {
 
       
 
-        {status ? <Link to={hasHistory ? "/menu" : `/menu/detail/${id}/order-type/saved-order-none`} className="order-method type-save">
+        {status ? <Link to={hasHistory ? `/menu/detail/${id}/order-type/saved-order` : `/menu/detail/${id}/order-type/saved-order-none`} className="order-method type-save">
           <div className="type-icon"><FiStar className="type-icon__content"/></div>
           <div className="type-text">
             <h1 className="type-text_title">Saved Orders</h1>

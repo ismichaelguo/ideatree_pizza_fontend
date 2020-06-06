@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './login-form.scss';
 import GoogleBtn from './GoogleBtn';
-import {Link, withRouter,Redirect} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 // import FacebookBtn from './FacebookBtn';
 import {getUsername,getPassword,getLoginInf} from '../../redux/actions/index';
 import {connect} from 'react-redux';

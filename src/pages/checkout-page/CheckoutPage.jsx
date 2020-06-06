@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import MainNav from "../../components/main-nav/MainNav";
+// import MainNav from "../../components/main-nav/MainNav";
 import CheckoutItem from '../../components/checkout-item/CheckoutItem';
 import { genPastOrder } from '../../redux/actions/cart/cartActions';
 import './checkout-page.scss';
@@ -12,6 +12,7 @@ const CheckOutPage = ({ cartItems, totalPrice, unit, streetNum,
     <div className="checkout-page">
       <div className="checkout-page__container">
         <header className='banner'>
+
           <Link to='' className="banner__logo-image">
           </Link>
           <div className="banner__description">
@@ -21,6 +22,7 @@ const CheckOutPage = ({ cartItems, totalPrice, unit, streetNum,
         <div className="checkout-page__header">
           <div className="checkout-page__header-item">
             <span>Product</span>
+
           </div>
           <div className="checkout-page__header-item">
             <span>Name</span>
@@ -71,6 +73,7 @@ const mapState = (state) => ({
   suburb: state.DeliveryForm.suburb,
   postcode: state.DeliveryForm.postcode,
   time: state.DeliveryForm.time,
+  pastOrders:state.cartReducer.pastOrders,
 });
 
 const mapAction = { genPastOrder }
