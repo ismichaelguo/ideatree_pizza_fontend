@@ -15,6 +15,7 @@ class SavedOrder extends React.Component{
 
     render(){
         const {pastOrders} = this.props;
+        console.log("price",this.props)
 
         return (
             <section className="order-type-container">
@@ -32,6 +33,7 @@ class SavedOrder extends React.Component{
                             order={item.orderItems}
                             time={item.orderTime}
                             pastOrder = {item}
+                            price = {item.totalPrice}
                             />
                         )))}
                 </div>
