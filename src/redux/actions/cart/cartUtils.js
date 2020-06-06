@@ -35,3 +35,10 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
       : cartItem
   );
 }
+
+
+export const sumPrice = (cartItems) => {
+  return cartItems.reduce(
+    (accumulatedPrice, cartItem) => accumulatedPrice + cartItem.quantity * cartItem.foodPrice
+    , 0);
+}

@@ -7,6 +7,7 @@ import ReceiptBasket from '../../components/receipt-basket/ReceiptBasket';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loadPizzaData } from '../../redux/actions/index';
+import { sumPrice } from '../../redux/actions/cart/cartUtils';
 import "./receipt-page.scss";
 
 class ReceiptPage extends React.Component {
@@ -19,13 +20,18 @@ class ReceiptPage extends React.Component {
 
   // sessionTest
   // componentDidUpdate (prevProps) {
-  //   console.log('prevProps', prevProps);
+  //   // console.log('prevProps', prevProps);
+  //   console.log('did update')
   //   // set sessionStorage when cartItems changed
   //   if (prevProps.cartItems !== this.props.cartItems) {
-  //     if (prevProps.cartItems !== 0) {
-  //       sessionStorage.setItem('cartItems', JSON.stringify(this.props.cartItems));
-  //     }
+  //     console.log('did update if1')
+  //     // if (this.props.cartItems !== 0) {
+  //     //   console.log('did update if2')
+  //     //   sessionStorage.setItem('cartItems', JSON.stringify(this.props.cartItems));
+  //     // }
+  //     // sessionStorage.setItem('cartItems', JSON.stringify(this.props.cartItems));
   //   }
+  //   sessionStorage.setItem('cartItems', JSON.stringify(this.props.cartItems));
   // }
 
   getPizzaData = () => {
@@ -36,7 +42,7 @@ class ReceiptPage extends React.Component {
     let filteredFoodArr = foodItemArr.filter((food) =>
       food.locationID.startsWith(hashtag.split("#")[1])
     );
-    console.log("pizza", filteredFoodArr)
+    // console.log("pizza", filteredFoodArr)
     if (filteredFoodArr.length === 0) {
       return null;
     } else {
@@ -54,23 +60,37 @@ class ReceiptPage extends React.Component {
     }
   }
 
-  sumPrice = (cartItems) => {
-    return cartItems.reduce(
-      (accumulatedPrice, cartItem) => accumulatedPrice + cartItem.quantity * cartItem.foodPrice
-      , 0);
+  readSessionData = (paraName) => {
+    if (this.props[paraName].length === 0 && sessionStorage.getItem(paraName) !== "[]") {
+      // page refresh
+      return JSON.parse(sessionStorage.getItem(paraName));
+    } else {
+      return this.props[paraName];
+    }
   }
 
   render () {
-    const { cartItems, unit, streetNum,
-      streetName, suburb, postcode, time, } = this.props;
+    const { cartItems, unit, streetNum, streetName, suburb, postcode, deliveryTime, pickUpTime,
+      pickUpAddress, pickUpSuburb, pickUpPCode, } = this.props;
 
     // sessionTest
-    // const { unit, streetNum,
-    //   streetName, suburb, postcode, time, } = this.props;
-    // const cartItems = this.props.cartItems.length !== 0 ?
-    //   this.props.cartItems
-    //   :
-    //   JSON.parse(sessionStorage.getItem('cartItems'));
+    // const { unit, streetNum, streetName, suburb, postcode, deliveryTime, pickUpTime,
+    //   pickUpAddress, pickUpSuburb, pickUpPCode, } = this.props;
+    // sessionStorage.setItem('cartItems', JSON.stringify(this.props.cartItems));
+    // sessionStorage.setItem('unit', JSON.stringify(this.props.unit));
+    // sessionStorage.setItem('streetNum', JSON.stringify(this.props.streetNum));
+    // sessionStorage.setItem('streetName', JSON.stringify(this.props.streetName));
+    // sessionStorage.setItem('suburb', JSON.stringify(this.props.suburb));
+    // sessionStorage.setItem('postcode', JSON.stringify(this.props.postcode));
+    // sessionStorage.setItem('time', JSON.stringify(this.props.time));
+
+    // const cartItems = this.readSessionData('cartItems');
+    // const unit = this.readSessionData('unit');
+    // const streetNum = this.readSessionData('streetNum');
+    // const streetName = this.readSessionData('streetName');
+    // const suburb = this.readSessionData('suburb');
+    // const postcode = this.readSessionData('postcode');
+    // const time = this.readSessionData('time');
 
     const pathname = this.props.location.pathname;
     const hashtag = this.props.location.hash || "#PIZZAS"; // if hash is empty, initialize with '#PIZZAS'
@@ -98,8 +118,9 @@ class ReceiptPage extends React.Component {
               <div className="receipt__bottom">
                 <h4>Total: ${parseFloat(sumPrice(cartItems).toFixed(2))}</h4>
                 <p>Delivery Info</p>
-                <p>{`Address: ${unit} ${streetNum} ${streetName} ${suburb} ${postcode}`}</p>
-                <p>{`Time: ${time}`}</p>
+                <p>{`Address: ${deliveryTime ? `${unit} ${streetNum} ${streetName} ${suburb} ${postcode}`
+                  : `${pickUpAddress} ${pickUpSuburb} ${pickUpPCode}`}`}</p>
+                <p>{`Time: ${deliveryTime ? `${deliveryTime}` : `${pickUpTime}`}`}</p>
                 <Link to='/checkout' className="checkout-btn">Check Out</Link>
               </div>
             </div>
@@ -113,13 +134,7 @@ class ReceiptPage extends React.Component {
   };
 }
 
-
-const sumPrice = (cartItems) => {
-  return cartItems.reduce(
-    (accumulatedPrice, cartItem) => accumulatedPrice + cartItem.quantity * cartItem.foodPrice
-    , 0);
-}
-
+//TODO: obtain pickupTime and make a determination
 const mapState = (state) => ({
   pizzaData: state.pizzaData.pizzaData,
   cartItems: state.cartReducer.cartItems,
@@ -129,7 +144,11 @@ const mapState = (state) => ({
   streetName: state.DeliveryForm.streetName,
   suburb: state.DeliveryForm.suburb,
   postcode: state.DeliveryForm.postcode,
-  time: state.DeliveryForm.time,
+  deliveryTime: state.DeliveryForm.time,
+  pickUpTime: state.PickUpForm.pickUpTime,
+  pickUpAddress: state.PickUpForm.store.address,
+  pickUpSuburb: state.PickUpForm.store.suburb,
+  pickUpPCode: state.PickUpForm.store.postcode,
 });
 
 const mapActions = {

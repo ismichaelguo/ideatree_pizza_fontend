@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom';
 // import MainNav from "../../components/main-nav/MainNav";
 import CheckoutItem from '../../components/checkout-item/CheckoutItem';
 import { genPastOrder } from '../../redux/actions/cart/cartActions';
+import { clearDeliveryForm } from '../../redux/actions/DeliveryForm';
+import { clearStoreHistory } from '../../redux/actions/PickUpForm';
+import { sumPrice } from '../../redux/actions/cart/cartUtils';
 import './checkout-page.scss';
 import Footer from '../../components/footer/Footer';
 
-const CheckOutPage = ({ cartItems, totalPrice, unit, streetNum,
-  streetName, suburb, postcode, time, genPastOrder }) => {
+const CheckOutPage = (props) => {
+  const { cartItems, totalPrice, unit, streetNum,
+    streetName, suburb, postcode, time, } = props;
   return (
     <div className="checkout-page">
       <div className="checkout-page__container">
@@ -53,17 +57,19 @@ const CheckOutPage = ({ cartItems, totalPrice, unit, streetNum,
           )}
           {console.log('time', time)}
         </div>
-        <Link to='/thanks' className="checkout-page__pay-btn" onClick={genPastOrder}>Pay Now</Link>
+        <Link to='/thanks' className="checkout-page__pay-btn" onClick={() => handlePay(props)}>Pay Now</Link>
       </div>
       <Footer />
     </div>
   );
 }
 
-const sumPrice = (cartItems) => {
-  return cartItems.reduce(
-    (accumulatedPrice, cartItem) => accumulatedPrice + cartItem.quantity * cartItem.foodPrice
-    , 0);
+const handlePay = (props) => {
+  const { genPastOrder, clearStoreHistory, clearDeliveryForm } = props;
+  console.log('handlePay');
+  genPastOrder();
+  clearStoreHistory();
+  clearDeliveryForm();
 }
 
 const mapState = (state) => ({
@@ -75,9 +81,9 @@ const mapState = (state) => ({
   suburb: state.DeliveryForm.suburb,
   postcode: state.DeliveryForm.postcode,
   time: state.DeliveryForm.time,
-  pastOrders:state.cartReducer.pastOrders,
+  pastOrders: state.cartReducer.pastOrders,
 });
 
-const mapAction = { genPastOrder }
+const mapAction = { genPastOrder, clearStoreHistory, clearDeliveryForm }
 
 export default connect(mapState, mapAction)(CheckOutPage);

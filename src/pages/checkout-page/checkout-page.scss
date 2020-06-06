@@ -86,6 +86,7 @@
   &__items {
     max-height: 52vh;
     overflow-y: scroll;
+    min-width: 100%;
   }
 
   &__total-info {

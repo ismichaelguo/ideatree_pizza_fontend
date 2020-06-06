@@ -1,5 +1,5 @@
 import { CartActionTypes } from '../actions/cart/cartActionTypes';
-import { addItemToCart, removeItemFromCart } from '../actions/cart/cartUtils';
+import { addItemToCart, removeItemFromCart, sumPrice } from '../actions/cart/cartUtils';
 
 const INITIAL_STATE = {
   cartItems: [
@@ -29,157 +29,162 @@ const INITIAL_STATE = {
     // },
   ],
   pastOrders: [
-    {orderTime:"06/06/2020",
-    orderId:1591399396234,
-    orderItems:[
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:2,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:1,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },      
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:3,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },
-      
-    ]
+    {
+      orderTime: "06/06/2020",
+      orderId: 1591399396234,
+      orderItems: [
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 2,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 1,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 3,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+
+      ]
     },
-    {orderTime:"06/06/2020",
-    orderId:159139939345,
-    orderItems:[
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:1,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:2,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },      
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:3,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },
-      
-    ]
+    {
+      orderTime: "06/06/2020",
+      orderId: 159139939345,
+      orderItems: [
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 1,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 2,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 3,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+
+      ]
     },
-    {orderTime:"06/06/2020",
-    orderId:15913993962134,
-    orderItems:[
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:1,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:2,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },      
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:3,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },
-      
-    ]
+    {
+      orderTime: "06/06/2020",
+      orderId: 15913993962134,
+      orderItems: [
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 1,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 2,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 3,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+
+      ]
     },
-    {orderTime:"06/06/2020",
-    orderId:1591399396677,
-    orderItems:[
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:1,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:2,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },      
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:3,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },
-      
-    ]
+    {
+      orderTime: "06/06/2020",
+      orderId: 1591399396677,
+      orderItems: [
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 1,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 2,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 3,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+
+      ]
     },
-    {orderTime:"06/06/2020",
-    orderId:1591399396556,
-    orderItems:[
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:1,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:2,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },      
-      {
-        foodName:"Loaded Supreme",
-        foodPrice:19.2,
-        id:3,
-        imgAlt: "Loaded Supreme",
-        imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-        quantity:2
-      },
-      
-    ]
+    {
+      orderTime: "06/06/2020",
+      orderId: 1591399396556,
+      orderItems: [
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 1,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 2,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+        {
+          foodName: "Loaded Supreme",
+          foodPrice: 19.2,
+          id: 3,
+          imgAlt: "Loaded Supreme",
+          imgDetail: "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+          quantity: 2
+        },
+
+      ]
     },
-    
+
   ],
 };
 
@@ -210,8 +215,9 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case CartActionTypes.GENERATE_PAST_ORDER:
       let _pastOrders = state.pastOrders.concat({
         orderTime: (new Date()).toLocaleDateString(),
-        orderId:(new Date()).getTime(),
-        orderItems: [ ...state.cartItems ]
+        orderId: (new Date()).getTime(),
+        orderItems: [...state.cartItems],
+        totalPrice: parseFloat(sumPrice(state.cartItems).toFixed(2)),
       }); // concat does not change the original array, but return an new array
       return {
         cartItems: [],
