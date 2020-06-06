@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './login-form.scss';
+import GoogleBtn from './GoogleBtn';
+import {Link, withRouter} from "react-router-dom";
+// import FacebookBtn from './FacebookBtn';
 // import GoogleBtn from './GoogleBtn';
-import {Link, withRouter,Redirect} from "react-router-dom";
 import {getUsername,getPassword,getLoginInf} from '../../redux/actions/index';
 import {connect} from 'react-redux';
 import styled from 'styled-components';

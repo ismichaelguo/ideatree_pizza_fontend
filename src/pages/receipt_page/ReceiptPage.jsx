@@ -10,9 +10,7 @@ import { loadPizzaData } from '../../redux/actions/index';
 import "./receipt-page.scss";
 
 class ReceiptPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   componentDidMount () {
     const { loadPizzaData } = this.props;
@@ -107,7 +105,9 @@ class ReceiptPage extends React.Component {
             </div>
           </div>
         </div>
-        <Footer />
+        <div className="page-footer">
+          <Footer />
+        </div>
       </>
     );
   };

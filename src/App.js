@@ -13,7 +13,8 @@ import ThanksPage from './pages/thanks-page/ThanksPage';
 import ReceiptPage from './pages/receipt_page/ReceiptPage';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SelectOrderType from './pages/order-type-page/SelectOrderType'
-import SavedOrderNone from './pages/save-order-page/SavedOrderNone';
+import SavedOrderNone from './pages/saved-order-page/SavedOrderNone';
+import SavedOrder from './pages/saved-order-page/SavedOrder'
 import "./App.css";
 
 
@@ -38,6 +39,8 @@ function App () {
           <Route exact={true} path='/checkout' component={CheckoutPage} />
           <Route exact={true} path='/thanks' component={ThanksPage} />
           <Route exact path='/menu/detail/:id/order-type/saved-order-none' component={SavedOrderNone} />
+          <Route exact path='/menu/detail/:id/order-type/saved-order' component={SavedOrder} />
+
 
 
 
