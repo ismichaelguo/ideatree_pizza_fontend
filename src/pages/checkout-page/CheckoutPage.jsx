@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import CheckoutItem from '../../components/checkout-item/CheckoutItem';
 import { genPastOrder } from '../../redux/actions/cart/cartActions';
 import './checkout-page.scss';
+import Footer from '../../components/footer/Footer';
 
 const CheckOutPage = ({ cartItems, totalPrice, unit, streetNum,
   streetName, suburb, postcode, time, genPastOrder }) => {
@@ -54,6 +55,7 @@ const CheckOutPage = ({ cartItems, totalPrice, unit, streetNum,
         </div>
         <Link to='/thanks' className="checkout-page__pay-btn" onClick={genPastOrder}>Pay Now</Link>
       </div>
+      <Footer />
     </div>
   );
 }

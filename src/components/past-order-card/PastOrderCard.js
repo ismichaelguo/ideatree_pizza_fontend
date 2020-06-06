@@ -7,25 +7,30 @@ import { Link } from 'react-router-dom';
 
 class PastOrderCard extends React.Component{
     handleOrderAgain = (e,props)=>{
-        e.preventDefault();
         const order = this.props.pastOrder.orderItems
         console.log("order",this.props.cartItems)
         console.log("new-order",order)
 
-
-
         for(let i=0;i<order.length;i++){
-        console.log(i)
-        console.log("previous",this.props.cartItems)
-        let CurrentOrder = this.props.cartItems;
-        let UpdatedOrder= [...CurrentOrder].concat(order[i])
-        this.props.addItem({
-            item:UpdatedOrder,
-        })   
-        console.log("add-item",order[i])
-        console.log("update-item",this.props.cartItems)
-    
+            this.props.addItem({
+                item:order[i],
+            })   
         }
+
+
+
+        // for(let i=0;i<order.length;i++){
+        // console.log(i)
+        // console.log("previous",this.props.cartItems)
+        // let CurrentOrder = this.props.cartItems;
+        // let UpdatedOrder= [...CurrentOrder].concat(order[i])
+        // this.props.addItem({
+        //     item:UpdatedOrder,
+        // })   
+        // console.log("add-item",order[i])
+        // console.log("update-item",this.props.cartItems)
+    
+        // }
 
 
 
@@ -35,6 +40,7 @@ class PastOrderCard extends React.Component{
     
     render(){
         const {order}=this.props;
+    
 
 
         return(

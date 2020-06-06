@@ -18,9 +18,7 @@ const AccountPage = (props) => {
                 </div>
             </header>
             <section id='body'>
-                
                     <LoginForm />
-                
             </section>
             <footer className="page-footer">
                 <Footer  />
