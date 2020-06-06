@@ -54,7 +54,7 @@ class PastOrderCard extends React.Component{
                             ))}
                         </div>
                         <p>ORDER TIME : {this.props.time}</p>
-                        <p>ORDER TIME : {this.props.time}</p>
+                        <p>PRICE : {this.props.price}</p>
                         <Link to='/receipt'>
                             <button onClick={this.handleOrderAgain}>Order now</button>
                         </Link>
