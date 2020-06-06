@@ -64,7 +64,7 @@ class Detail extends React.Component {
             <Link to={`/menu/detail/${id}/order-type`}>
               <button className="detail-button" onClick={() => this.props.addItem({ item: curItem })}>
                 ORDER NOW</button>
-            </Link>
+            </Link> 
             <Link to="">Nutritional Info</Link>
             <Link to="">Additive&Allergen Info</Link>
           </div>

@@ -1,83 +1,85 @@
-
 [
   {
     "itemID": 1,
     "itemFirstName": "NEW",
     "itemLastName": "PRODUCTS",
     "locationID": "PIZZAS#NEW_PRODUCTS",
-    "items": [{
-      "id": 1,
-      "imgSrc": "https://i.ibb.co/w7DXyvB/GARLIC-CHICKEN-BACON-RANCH.png",
-      "imgDetail":"https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
-      "imgAlt": "Garlic Chicken & Bacon Ranch",
-      "name": "Garlic Chicken & Bacon Ranch",
-      "description": "Succulent chicken, crispy rasher bacon, spinach and red onion, topped with a creamy ranch sauce and...",
-      "price": 16.80,
-      "calories": 5312,
-      "category": "PREMIUM PIZZAS"
-    },
-    {
-      "id": 2,
-      "imgSrc": "https://i.ibb.co/9Z41qnH/CHICKEN-BACON-AVOCADO.png",
-      "imgDetail":"https://i.ibb.co/6byPXjS/CHICKEN-BACON-AVOCADO.png",
-      "imgAlt": "Chicken, Bacon & Avocado",
-      "name": "Chicken, Bacon & Avocado",
-      "description": "Succulent seasoned chicken, creamy avocado, crispy rasher bacon & red onion, topped with hollandais...",
-      "price": 16.90,
-      "calories": 5688,
-      "category": "PREMIUM PIZZAS"
-    },
-    {
-      "id": 3,
-      "imgSrc": "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
-      "imgDetail":"https://i.ibb.co/0FNn8qT/LOADED-SUPREME.png",
-      "imgAlt": "Loaded Supreme",
-      "name": "Loaded Supreme",
-      "description": "Ground beef, crispy rasher bacon, mushroom, pepperoni, Italian sausage, fresh baby spinach,  smoked...",
-      "price": 17.20,
-      "calories": 5488,
-      "category": "PREMIUM PIZZAS"
-    }]
+    "items": [
+      {
+        "id": 1,
+        "imgSrc": "https://i.ibb.co/w7DXyvB/GARLIC-CHICKEN-BACON-RANCH.png",
+        "imgDetail": "https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
+        "imgAlt": "Garlic Chicken & Bacon Ranch",
+        "name": "Garlic Chicken & Bacon Ranch",
+        "description": "Succulent chicken, crispy rasher bacon, spinach and red onion, topped with a creamy ranch sauce and...",
+        "price": 16.8,
+        "calories": 5312,
+        "category": "PREMIUM PIZZAS"
+      },
+      {
+        "id": 2,
+        "imgSrc": "https://i.ibb.co/9Z41qnH/CHICKEN-BACON-AVOCADO.png",
+        "imgDetail": "https://i.ibb.co/6byPXjS/CHICKEN-BACON-AVOCADO.png",
+        "imgAlt": "Chicken, Bacon & Avocado",
+        "name": "Chicken, Bacon & Avocado",
+        "description": "Succulent seasoned chicken, creamy avocado, crispy rasher bacon & red onion, topped with hollandais...",
+        "price": 16.9,
+        "calories": 5688,
+        "category": "PREMIUM PIZZAS"
+      },
+      {
+        "id": 3,
+        "imgSrc": "https://i.ibb.co/2tn7Cd8/LOADED-SUPREME.png",
+        "imgDetail": "https://i.ibb.co/0FNn8qT/LOADED-SUPREME.png",
+        "imgAlt": "Loaded Supreme",
+        "name": "Loaded Supreme",
+        "description": "Ground beef, crispy rasher bacon, mushroom, pepperoni, Italian sausage, fresh baby spinach,  smoked...",
+        "price": 17.2,
+        "calories": 5488,
+        "category": "PREMIUM PIZZAS"
+      }
+    ]
   },
   {
     "itemID": 2,
     "itemFirstName": "PREMIUM",
     "itemLastName": "PIZZAS",
     "locationID": "PIZZAS#PREMIUM_PIZZAS",
-    "items": [{
-      "id": 4,
-      "imgSrc": "https://i.ibb.co/YQVzXjQ/MEGA-MEATLOVERS.png",
-      "imgDetail":"https://i.ibb.co/n6YpMGG/MEGA-MEATLOVERS.png",
-      "imgAlt": "Mega Meatlovers",
-      "name": "Mega Meatlovers",
-      "description": "Mega loaded, mega tasty. Featuring seasoned chicken, pork & fennel sausage, crumbled beef, pepperon...",
-      "price": 16.80,
-      "calories": 5832,
-      "category": "PREMIUM PIZZAS"
-    },
-    {
-      "id": 5,
-      "imgSrc": "https://i.ibb.co/kKrSbs1/CHICKEN-CAMEMBERT.png",
-      "imgDetail":"https://i.ibb.co/mc2xvrQ/CHICKEN-CAMEMBERT.png",
-      "imgAlt": "Chicken & Camembert",
-      "name": "Chicken & Camembert",
-      "description": "Succulent chicken, melted camembert, crispy rasher bacon, Italian cherry tomatoes, baby spinach & s...",
-      "price": 17.20,
-      "calories": 5848,
-      "category": "PREMIUM PIZZAS"
-    },
-    {
-      "id": 6,
-      "imgSrc": "https://i.ibb.co/BTCTZsQ/PERI-PERI-CHICKEN.png",
-      "imgDetail":"https://i.ibb.co/YZxH93V/PERI-PERI-CHICKEN.png",
-      "imgAlt": "Peri Peri Chicken",
-      "name": "Peri Peri Chicken",
-      "description": "A flavoursome pairing of seasoned chicken pieces, Italian cherry tomatoes, sliced red onion & baby ...",
-      "price": 16.20,
-      "calories": 4752,
-      "category": "PREMIUM PIZZAS"
-
-    }]
+    "items": [
+      {
+        "id": 4,
+        "imgSrc": "https://i.ibb.co/YQVzXjQ/MEGA-MEATLOVERS.png",
+        "imgDetail": "https://i.ibb.co/n6YpMGG/MEGA-MEATLOVERS.png",
+        "imgAlt": "Mega Meatlovers",
+        "name": "Mega Meatlovers",
+        "description": "Mega loaded, mega tasty. Featuring seasoned chicken, pork & fennel sausage, crumbled beef, pepperon...",
+        "price": 16.8,
+        "calories": 5832,
+        "category": "PREMIUM PIZZAS"
+      },
+      {
+        "id": 5,
+        "imgSrc": "https://i.ibb.co/kKrSbs1/CHICKEN-CAMEMBERT.png",
+        "imgDetail": "https://i.ibb.co/mc2xvrQ/CHICKEN-CAMEMBERT.png",
+        "imgAlt": "Chicken & Camembert",
+        "name": "Chicken & Camembert",
+        "description": "Succulent chicken, melted camembert, crispy rasher bacon, Italian cherry tomatoes, baby spinach & s...",
+        "price": 17.2,
+        "calories": 5848,
+        "category": "PREMIUM PIZZAS"
+      },
+      {
+        "id": 6,
+        "imgSrc": "https://i.ibb.co/BTCTZsQ/PERI-PERI-CHICKEN.png",
+        "imgDetail": "https://i.ibb.co/YZxH93V/PERI-PERI-CHICKEN.png",
+        "imgAlt": "Peri Peri Chicken",
+        "name": "Peri Peri Chicken",
+        "description": "A flavoursome pairing of seasoned chicken pieces, Italian cherry tomatoes, sliced red onion & baby ...",
+        "price": 16.2,
+        "calories": 4752,
+        "category": "PREMIUM PIZZAS"
+      }
+    ]
   },
   {
     "itemID": 3,
@@ -88,23 +90,22 @@
       {
         "id": 7,
         "imgSrc": "https://i.ibb.co/k2YMQYK/BBQ-CHICKEN-RASHER-BACON.png",
-        "imgDetail":"https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
+        "imgDetail": "https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
         "imgAlt": "BBQ Chicken & Rasher Bacon",
         "name": "BBQ Chicken & Rasher Bacon",
         "description": "The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...",
-        "price": 16.80,
+        "price": 16.8,
         "calories": 5080,
         "category": "PREMIUM PIZZAS"
-
       },
       {
         "id": 8,
         "imgSrc": "https://i.ibb.co/NWFJJwb/GARLIC-PRAWN.png",
-        "imgDetail":"https://i.ibb.co/KL2kQSX/GARLIC-PRAWN.png",
+        "imgDetail": "https://i.ibb.co/KL2kQSX/GARLIC-PRAWN.png",
         "imgAlt": "Garlic Prawn",
         "name": "Garlic Prawn",
         "description": "Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...",
-        "price": 17.20,
+        "price": 17.2,
         "calories": 4264,
         "category": "PREMIUM PIZZAS"
       }
@@ -119,23 +120,22 @@
       {
         "id": 9,
         "imgSrc": "bcrbCover",
-        "imgDetail":"https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
+        "imgDetail": "https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
         "imgAlt": "BBQ Chicken & Rasher Bacon",
         "name": "BBQ Chicken & Rasher Bacon",
         "description": "The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...",
-        "price": 16.80,
+        "price": 16.8,
         "calories": 5080,
         "category": "PREMIUM PIZZAS"
-
       },
       {
         "id": 10,
         "imgSrc": "gpCover",
-        "imgDetail":"https://i.ibb.co/KL2kQSX/GARLIC-PRAWN.png",
+        "imgDetail": "https://i.ibb.co/KL2kQSX/GARLIC-PRAWN.png",
         "imgAlt": "Garlic Prawn",
         "name": "Garlic Prawn",
         "description": "Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...",
-        "price": 17.20,
+        "price": 17.2,
         "calories": 4264,
         "category": "PREMIUM PIZZAS"
       }
@@ -150,23 +150,22 @@
       {
         "id": 11,
         "imgSrc": "bcrbCover",
-        "imgDetail":"https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
+        "imgDetail": "https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
         "imgAlt": "BBQ Chicken & Rasher Bacon",
         "name": "BBQ Chicken & Rasher Bacon",
         "description": "The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...",
-        "price": 16.80,
+        "price": 16.8,
         "calories": 5080,
         "category": "PREMIUM PIZZAS"
-
       },
       {
         "id": 12,
         "imgSrc": "gpCover",
-        "imgDetail":"https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
+        "imgDetail": "https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
         "imgAlt": "Garlic Prawn",
         "name": "Garlic Prawn",
         "description": "Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...",
-        "price": 17.20,
+        "price": 17.2,
         "calories": 4264,
         "category": "PREMIUM PIZZAS"
       }
@@ -181,23 +180,22 @@
       {
         "id": 13,
         "imgSrc": "bcrbCover",
-        "imgDetail":"https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
+        "imgDetail": "https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
         "imgAlt": "BBQ Chicken & Rasher Bacon",
         "name": "BBQ Chicken & Rasher Bacon",
         "description": "The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...",
-        "price": 16.80,
+        "price": 16.8,
         "calories": 5080,
         "category": "PREMIUM PIZZAS"
-
       },
       {
         "id": 14,
         "imgSrc": "gpCover",
-        "imgDetail":"gpDetail",
+        "imgDetail": "gpDetail",
         "imgAlt": "Garlic Prawn",
         "name": "Garlic Prawn",
         "description": "Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...",
-        "price": 17.20,
+        "price": 17.2,
         "calories": 4264,
         "category": "PREMIUM PIZZAS"
       }
@@ -212,25 +210,43 @@
       {
         "id": 15,
         "imgSrc": "bcrbCover",
-        "imgDetail":"bcrbDetail",
+        "imgDetail": "bcrbDetail",
         "imgAlt": "BBQ Chicken & Rasher Bacon",
         "name": "BBQ Chicken & Rasher Bacon",
         "description": "The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...",
-        "price": 16.80,
+        "price": 16.8,
         "calories": 5080,
         "category": "PREMIUM PIZZAS"
-
       },
       {
         "id": 6,
         "imgSrc": "gpCover",
-        "imgDetail":"gpDetail",
+        "imgDetail": "gpDetail",
         "imgAlt": "Garlic Prawn",
         "name": "Garlic Prawn",
         "description": "Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...",
-        "price": 17.20,
+        "price": 17.2,
         "calories": 4264,
         "category": "PREMIUM PIZZAS"
+      }
+    ]
+  },
+  {
+    "itemID": 8,
+    "itemFirstName": "DIY",
+    "itemLastName": "PIZZAS",
+    "locationID": "PIZZAS#DIY_PIZZAS",
+    "items": [
+      {
+        "id": 17,
+        "imgSrc": "https://i.ibb.co/tDwCzPG/build-own-pizza.png",
+        "imgDetail": "Build Own Pizza",
+        "imgAlt": "Build Own Pizza",
+        "name": "Build Your Own Pizza",
+        "description": "You can select at least five toppings on your pizza with your favorite pizza sauce and cheese",
+        "price": 14.95,
+        "calories": 5080,
+        "category": "DIY PIZZAS"
       }
     ]
   }
