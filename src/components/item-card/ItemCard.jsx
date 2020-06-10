@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function ItemCard(props) {
   // console.log('itemcard props', props);
   function getLink() {
-    if (props.pathname.startsWith("/menu")) {
+    if (props.pathname.startsWith("/menu" || "/receipt")) {
       if (props.id === 17) {
         return `/menu/detail/${props.id}/diy-pizza`;
       } else {
@@ -18,7 +18,7 @@ function ItemCard(props) {
       if (props.id === 17) {
         return `/menu/detail/${props.id}/diy-pizza`;
       } else {
-        return `/receipt`;
+        return `/menu/detail/${props.id}`;
       }
     }
   }

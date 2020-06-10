@@ -112,122 +112,92 @@
     ]
   },
   {
-    "itemID": 4,
-    "itemFirstName": "D1",
-    "itemLastName": "d1",
+    "itemID": 5,
+    "itemFirstName": "COLD",
+    "itemLastName": "DESSERTS",
     "locationID": "DESSERTS#D1",
     "items": [
       {
-        "id": 9,
-        "imgSrc": "bcrbCover",
-        "imgDetail": "https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
-        "imgAlt": "BBQ Chicken & Rasher Bacon",
-        "name": "BBQ Chicken & Rasher Bacon",
-        "description": "The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...",
-        "price": 16.8,
-        "calories": 5080,
-        "category": "PREMIUM PIZZAS"
-      },
-      {
-        "id": 10,
-        "imgSrc": "gpCover",
-        "imgDetail": "https://i.ibb.co/KL2kQSX/GARLIC-PRAWN.png",
-        "imgAlt": "Garlic Prawn",
-        "name": "Garlic Prawn",
-        "description": "Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...",
-        "price": 17.2,
-        "calories": 4264,
-        "category": "PREMIUM PIZZAS"
-      }
-    ]
-  },
-  {
-    "itemID": 5,
-    "itemFirstName": "D2",
-    "itemLastName": "d2",
-    "locationID": "DESSERTS#D2",
-    "items": [
-      {
         "id": 11,
-        "imgSrc": "bcrbCover",
-        "imgDetail": "https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
-        "imgAlt": "BBQ Chicken & Rasher Bacon",
-        "name": "BBQ Chicken & Rasher Bacon",
-        "description": "The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...",
+        "imgSrc": "https://i.ibb.co/xzzpNc8/SALTED-CARAMEL-SUNDAE-4-PACK.png",
+        "imgDetail": "https://i.ibb.co/0fVVBF0/SALTED-CARAMEL-SUNDAE-4-PACK.png",
+        "imgAlt": "SALTED CARAMEL SUNDAE 4 PACK",
+        "name": "SALTED CARAMEL SUNDAE 4 PACK",
+        "description": "4 individual serves of vanilla ice cream with salted caramel sauce",
         "price": 16.8,
-        "calories": 5080,
-        "category": "PREMIUM PIZZAS"
+        "calories": 5360,
+        "category": "COLD DESSERTS"
       },
       {
         "id": 12,
-        "imgSrc": "gpCover",
-        "imgDetail": "https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
-        "imgAlt": "Garlic Prawn",
-        "name": "Garlic Prawn",
-        "description": "Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...",
+        "imgSrc": "https://i.ibb.co/DKfNWMJ/SALTED-CARAMEL-SUNDAE.png",
+        "imgDetail": "https://i.ibb.co/93vxqDv/SALTED-CARAMEL-SUNDAE.png",
+        "imgAlt": "2 CHOC SUNDAES",
+        "name": "2 CHOC SUNDAES",
+        "description": "Classic vanilla ice-cream with a decadent chocolate sauce. The perfect additions to your favourite dessert.",
         "price": 17.2,
-        "calories": 4264,
-        "category": "PREMIUM PIZZAS"
+        "calories": 2680,
+        "category": "COLD DESSERTS"
       }
     ]
   },
   {
     "itemID": 6,
-    "itemFirstName": "D3",
-    "itemLastName": "d3",
-    "locationID": "DESSERTS#D3",
+    "itemFirstName": "DESSERTS",
+    "itemLastName": "",
+    "locationID": "DESSERTS#D2",
     "items": [
       {
         "id": 13,
-        "imgSrc": "bcrbCover",
-        "imgDetail": "https://i.ibb.co/8bs8jsw/BBQ-CHICKEN-RASHER-BACON.png",
-        "imgAlt": "BBQ Chicken & Rasher Bacon",
-        "name": "BBQ Chicken & Rasher Bacon",
-        "description": "The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...",
-        "price": 16.8,
-        "calories": 5080,
-        "category": "PREMIUM PIZZAS"
+        "imgSrc": "https://i.ibb.co/ctj5kYv/CHOC-LAVA-CAKE.png",
+        "imgDetail": "https://i.ibb.co/q72x2M5/HOT-CHOC-FUDGE-BROWNIES.png",
+        "imgAlt": "HOT CHOC FUDGE BROWNIES",
+        "name": "HOT CHOC FUDGE BROWNIES",
+        "description": "6 pieces of delicious Hot Choc Fudge Brownies with a decadent chocolate dipping sauce",
+        "price": 10.8,
+        "calories": 1930,
+        "category": "BAKERY DESSERTS"
       },
       {
         "id": 14,
-        "imgSrc": "gpCover",
-        "imgDetail": "gpDetail",
-        "imgAlt": "Garlic Prawn",
-        "name": "Garlic Prawn",
-        "description": "Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...",
+        "imgSrc": "https://i.ibb.co/qdbjT9S/CHOC-LAVA-CAKE.png",
+        "imgDetail": "https://i.ibb.co/q72x2M5/HOT-CHOC-FUDGE-BROWNIES.png",
+        "imgAlt": "CHOC LAVA CAKE",
+        "name": "CHOC LAVA CAKE",
+        "description": "The luscious gooey middle oozes with rich chocolate. Each one is lovingly baked fresh in store",
         "price": 17.2,
-        "calories": 4264,
-        "category": "PREMIUM PIZZAS"
+        "calories": 1711,
+        "category": "DESSERTS"
       }
     ]
   },
   {
     "itemID": 7,
-    "itemFirstName": "coke",
-    "itemLastName": "cola",
+    "itemFirstName": "DRINKS",
+    "itemLastName": "",
     "locationID": "DRINKS",
     "items": [
       {
         "id": 15,
-        "imgSrc": "bcrbCover",
-        "imgDetail": "bcrbDetail",
-        "imgAlt": "BBQ Chicken & Rasher Bacon",
-        "name": "BBQ Chicken & Rasher Bacon",
-        "description": "The perfect combination of succulent chicken pieces, crispy rasher bacon & slices of red onion on a...",
+        "imgSrc": "https://i.ibb.co/JCFgRVM/ALTED-VANILLA-THICKSHAKE-WITH-CREAM-MALT-SYRUP.png",
+        "imgDetail": "https://i.ibb.co/DDJprvT/ALTED-VANILLA-THICKSHAKE-WITH-CREAM-MALT-SYRUP.png",
+        "imgAlt": "MALTED VANILLA THICKSHAKE WITH CREAM & MALT SYRUP",
+        "name": "MALTED VANILLA THICKSHAKE WITH CREAM & MALT SYRUP",
+        "description": "Handcrafted Traditional Malted Vanilla Thickshake made with real ice cream, not soft serve and topped with whipped cream and a malt syrup swirl. Made at -14 degrees for the thickest thickshake ever!",
         "price": 16.8,
-        "calories": 5080,
-        "category": "PREMIUM PIZZAS"
+        "calories": 3260,
+        "category": "DRINKS"
       },
       {
         "id": 6,
-        "imgSrc": "gpCover",
-        "imgDetail": "gpDetail",
-        "imgAlt": "Garlic Prawn",
-        "name": "Garlic Prawn",
-        "description": "Juicy prawns, paired with fresh baby spinach & diced tomato on a crème fraiche & zesty garlic sauce...",
-        "price": 17.2,
-        "calories": 4264,
-        "category": "PREMIUM PIZZAS"
+        "imgSrc": "https://i.ibb.co/44ppgHJ/MALTED-VANILLA-THICKSHAKE.png",
+        "imgDetail": "https://i.ibb.co/0jz8rKK/MALTED-VANILLA-THICKSHAKE.png",
+        "imgAlt": "MALTED VANILLA THICKSHAKE",
+        "name": "MALTED VANILLA THICKSHAKE",
+        "description": "Handcrafted Traditional Malted Vanilla Thickshake made with real ice cream, not soft serve. Made at -14 degrees for the thickest thickshake ever!",
+        "price": 10.2,
+        "calories": 2780,
+        "category": "DRINKS"
       }
     ]
   },

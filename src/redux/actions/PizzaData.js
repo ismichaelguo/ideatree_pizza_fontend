@@ -1,6 +1,6 @@
 export const loadPizzaData = () => (dispatch) => {
   dispatch(handlePizzaDataRequested());
-  fetch("http://www.mocky.io/v2/5ed9cf2c3300003a0079e624")
+  fetch("https://run.mocky.io/v3/1d8eec6f-e40a-4228-9f31-7d18b36255d5")
     .then((res) => res.json())
     .then((res) => dispatch(handlePizzaDataSucceeded(res)))
     .catch((err) => dispatch(handlePizzaDataFailed(err)));
