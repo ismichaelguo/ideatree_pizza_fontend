@@ -60,7 +60,7 @@
             }
 
 
-            &:visited{
+            &:visited :link :active :hover{
                 text-decoration: none;
                 color:white;
             }
@@ -73,12 +73,21 @@
                 height:60px;
                 margin-top: 50px;
                 margin-bottom: 35px;
+                color: white;
+
                 @include iphone(){
                     margin:1.5rem 0;
                 }
+
+
                 &__content{
                     text-align: center;
                     font-size: 5em;
+
+                    &:visited :active :link{
+                        color:white;
+                    }
+                        
                 
                 }
 

@@ -2,8 +2,7 @@ import React, { Fragment } from 'react';
 import {connect} from 'react-redux';
 import './past-order-card.scss'
 import {addItem} from '../../redux/actions/cart/cartActions';
-import { Link } from 'react-router-dom';
-
+import { Link,withRouter } from 'react-router-dom';
 
 class PastOrderCard extends React.Component{
     handleOrderAgain = (e,props)=>{
@@ -17,31 +16,12 @@ class PastOrderCard extends React.Component{
             })   
         }
 
-
-
-        // for(let i=0;i<order.length;i++){
-        // console.log(i)
-        // console.log("previous",this.props.cartItems)
-        // let CurrentOrder = this.props.cartItems;
-        // let UpdatedOrder= [...CurrentOrder].concat(order[i])
-        // this.props.addItem({
-        //     item:UpdatedOrder,
-        // })   
-        // console.log("add-item",order[i])
-        // console.log("update-item",this.props.cartItems)
-    
-        // }
-
-
-
     }
-
-
     
     render(){
         const {order}=this.props;
-    
-
+        console.log("qqqqq",this.props);
+        const {id} = this.props.match.params;
 
         return(
             <Fragment>
@@ -55,7 +35,7 @@ class PastOrderCard extends React.Component{
                         </div>
                         <p>ORDER TIME : {this.props.time}</p>
                         <p>PRICE : {this.props.price}</p>
-                        <Link to='/receipt'>
+                        <Link to={`/menu/detail/${id}/order-type`}>
                             <button onClick={this.handleOrderAgain}>Order now</button>
                         </Link>
                         <p className="card-container__body__text">You can enter a voucher and confirm <br/>
@@ -63,11 +43,7 @@ class PastOrderCard extends React.Component{
                         NOW</p>
                     </div>
                     <div className="card-container__bottom"></div>
-    
-                
                 </div>
-            
-            
             </Fragment>
         )
 
@@ -86,8 +62,7 @@ function mapStateToProps(state){
   }
 
   const mapActionsToProps = {
-    addItem,
-   
+    addItem,  
 }
   
-export default connect(mapStateToProps,mapActionsToProps)(PastOrderCard);
+export default connect(mapStateToProps,mapActionsToProps)(withRouter(PastOrderCard));
