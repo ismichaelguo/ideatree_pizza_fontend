@@ -6,11 +6,7 @@ import { connect } from "react-redux";
 import PastOrderCard from '../../components/past-order-card/PastOrderCard'
 
 
-
-
 class SavedOrder extends React.Component{
-    
-
     
 
     render(){
@@ -40,7 +36,6 @@ class SavedOrder extends React.Component{
                 <footer className="page-footer">
                     <Footer  />
                 </footer>
-                
             </section>
                 
         )
@@ -50,17 +45,12 @@ class SavedOrder extends React.Component{
 
 function mapStateToProps(state){
     const {cartReducer}=state
-  
-  
+   
     return {
         pastOrders:cartReducer.pastOrders,
     }
   }
-
-
-
-
-  
+ 
   export default connect(mapStateToProps,null)(SavedOrder);
 
 

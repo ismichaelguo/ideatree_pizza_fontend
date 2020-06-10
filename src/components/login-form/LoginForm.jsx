@@ -80,14 +80,27 @@ class LoginForm extends Component {
             userName:"123",
             password:"123",
         }
+
+
+
+
         if(this.props.userName === userInf.userName && this.props.password === userInf.password ){
              this.props.getLoginInf({
                 status:!this.props.status,
             })
-            // sessionStorage.setItem('Login Status',!this.props.status)
-            const HISTORY = this.props.history;
-            console.log("1111",HISTORY)
-            HISTORY.replace('/menu')
+            const {cartItems} = this.props
+
+            if(cartItems.length!==0){
+                const HISTORY = this.props.history;
+                alert("Log in successful!")
+                HISTORY.replace('/menu/detail/:id/order-type')
+            }else{
+                const HISTORY = this.props.history;
+                alert("Log in successful!")
+                console.log("1111",HISTORY)
+                HISTORY.replace('/menu')
+
+            }
 
         }else{
             alert("Invalid username or password!")
@@ -101,7 +114,7 @@ class LoginForm extends Component {
 
     
     render(){ 
-        console.log("match",this.props.match)
+        console.log("match",this.props)
 
             return (
 
@@ -211,6 +224,7 @@ function mapStateToProps(state){
         userName:loginInf.userName,
         password:loginInf.password,
         status:loginInf.status,
+        cartItems: state.cartReducer.cartItems,
        
     }
 

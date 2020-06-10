@@ -4,16 +4,11 @@ import './select-order-type.scss'
 import OderType from '../../components/order-type/OrderType';
 import Footer from '../../components/footer/Footer';
 
-
-
-
 export default function SelectOderType (props){
 
     const MATCH = props.match;
     console.log("match",props.match);
     
-
-
   return (
     <section className="order-type-container">
       <header className="banner">
@@ -21,15 +16,15 @@ export default function SelectOderType (props){
         </Link>
         <div className="banner_description">
           Online Ordering
-                </div>
-            </header>
+        </div>
+      </header>
             
-            <OderType match = {MATCH}/>
-            <footer className="page-footer">
-            <Footer  />
-            </footer>
+      <OderType match = {MATCH}/>
+      <footer className="page-footer">
+        <Footer  />
+      </footer>
         
-        </section>
+    </section>
         
     )
 }

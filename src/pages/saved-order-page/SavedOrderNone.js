@@ -3,12 +3,8 @@ import { Link } from 'react-router-dom';
 import './save-order-nohistory.scss';
 import Footer from '../../components/footer/Footer';
 
-
-
-
 export default function SavedOrderNone (props){
   const {id}=props.match.params;
-
 
   return (
     <section className="order-type-container">
@@ -28,18 +24,15 @@ export default function SavedOrderNone (props){
           Delivery
         </Link>
         <Link to={`/menu/detail/${id}/order-type/pick-up`}  className="type-container__type pick-up">
-          Pick&nbsp;up
+          Pick up
         </Link>
         <Link className="btn-container">
         previous
         </Link>
-      </div>
-
-            
+      </div>       
       <footer className="page-footer">
         <Footer  />
       </footer>
-        
         </section>
         
     )

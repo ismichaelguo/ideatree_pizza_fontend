@@ -16,23 +16,15 @@ function OderType (props) {
     if(status===true && pastOrders.length!==0){
       hasHistory = true;
     }
-    console.log("status",status)
-    console.log("pastOrder",pastOrders.length)
-
-
-    console.log("has",hasHistory)
-
-
+    // console.log("status",status)
+    // console.log("pastOrder",pastOrders.length)
+    // console.log("has",hasHistory)
 
   return (
     <div className="order-type">
       <h1 className="order-type_title">Select An Order Type</h1>
       <div className="order-type_container">
-     
-
-
       
-
         {status ? <Link to={hasHistory ? `/menu/detail/${id}/order-type/saved-order` : `/menu/detail/${id}/order-type/saved-order-none`} className="order-method type-save">
           <div className="type-icon"><FiStar className="type-icon__content"/></div>
           <div className="type-text">
@@ -50,11 +42,9 @@ function OderType (props) {
         </Link>
         }   
         
-
-
-
         <Link to={`/menu/detail/${id}/order-type/delivery`} className="order-method type-delivery">
-          <div className="type-icon"><MdMotorcycle className="type-icon__content"/></div>
+          <div className="type-icon">
+              <MdMotorcycle className="type-icon__content"/></div>
               <div className="type-text">
                   <h1 className="type-text_title">Delivery</h1>
                   <p className="type-text_description">Have your order delivered 
@@ -65,9 +55,8 @@ function OderType (props) {
           <div className="type-icon"><FaStore className="type-icon__content"/></div>
           <div className="type-text">
             <h1 className="type-text_title">Pick up</h1>
-            <p className="type-text_description">Pick up your order at
-                                <br />
-                            a store</p>
+            <p className="type-text_description">Pick up your order at<br />
+            a store</p>
           </div>
         </Link>
       </div>
