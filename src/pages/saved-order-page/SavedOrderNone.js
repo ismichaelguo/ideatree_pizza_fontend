@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './save-order-nohistory.scss';
-import Footer from '../../components/footer/Footer';
 
 export default function SavedOrderNone (props){
   const {id}=props.match.params;
@@ -30,9 +29,6 @@ export default function SavedOrderNone (props){
         previous
         </Link>
       </div>       
-      <footer className="page-footer">
-        <Footer  />
-      </footer>
         </section>
         
     )

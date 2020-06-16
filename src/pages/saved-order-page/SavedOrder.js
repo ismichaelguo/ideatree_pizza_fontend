@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './saved-order.scss'
-import Footer from '../../components/footer/Footer';
 import { connect } from "react-redux";
 import PastOrderCard from '../../components/past-order-card/PastOrderCard'
 
@@ -33,9 +32,7 @@ class SavedOrder extends React.Component{
                             />
                         )))}
                 </div>
-                <footer className="page-footer">
-                    <Footer  />
-                </footer>
+
             </section>
                 
         )

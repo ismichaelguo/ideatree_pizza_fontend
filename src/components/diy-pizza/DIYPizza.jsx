@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./DIYPizza.scss";
 import Combination from "./Combination";
 import remove from "../../asset/Images/Build-Own-Pizza/remove.png";
@@ -30,15 +30,13 @@ class DIYPizza extends React.Component {
     // console.log(currentSelection);
     // const id = pizzaData.itemID;
 const pageId = DIYPageData.match.params.id
-  let foodName, foodDes, foodPrice, foodCal, imgDetail, imgAlt;
+  let foodName, foodPrice, imgDetail, imgAlt;
     pizzaData.forEach(item => {
       for (let food of item.items) {
         // console.log(food.id)
         if (food.id === 17) {
           foodName = food.name;
-          foodDes = food.description;
           foodPrice = food.price;
-          foodCal = food.calories;
           imgDetail = food.imgDetail;
           imgAlt = food.imgAlt;
         }

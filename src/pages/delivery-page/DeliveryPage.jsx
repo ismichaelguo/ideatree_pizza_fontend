@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../../components/footer/Footer';
 import './delivery-page.scss';
 import DeliveryForm from '../../components/delivery-form/DeliveryForm';
 
@@ -19,13 +18,8 @@ const DeliveryPage = (props) => {
                 </div>
             </header>
             <section id='body'>
-                
-                    <DeliveryForm props={props}/>
-                
+                <DeliveryForm props={props}/>
             </section>
-            <footer className="page-footer">
-                <Footer  />
-            </footer>
         </section>
     );
 }

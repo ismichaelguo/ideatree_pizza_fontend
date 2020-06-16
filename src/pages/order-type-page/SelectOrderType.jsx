@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './select-order-type.scss'
 import OderType from '../../components/order-type/OrderType';
-import Footer from '../../components/footer/Footer';
 
 export default function SelectOderType (props){
 
@@ -21,7 +20,6 @@ export default function SelectOderType (props){
             
       <OderType match = {MATCH}/>
       <footer className="page-footer">
-        <Footer  />
       </footer>
         
     </section>

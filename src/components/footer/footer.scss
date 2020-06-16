@@ -1,10 +1,10 @@
 @import "../../style_config/config";
 
 .footer {
-  background: rgba(0, 0, 0, 0.8);
+  background:black;
   color: $white;
   width: 100%;
-  margin-top: 300px;
+  // margin-top: 300px;
   &__links {
     display: flex;
     justify-content: space-between;

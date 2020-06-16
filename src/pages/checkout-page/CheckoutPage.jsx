@@ -8,7 +8,6 @@ import { clearDeliveryForm } from '../../redux/actions/DeliveryForm';
 import { clearStoreHistory } from '../../redux/actions/PickUpForm';
 import { sumPrice } from '../../redux/actions/cart/cartUtils';
 import './checkout-page.scss';
-import Footer from '../../components/footer/Footer';
 
 const CheckOutPage = (props) => {
   const { cartItems, totalPrice, unit, streetNum,
@@ -59,7 +58,6 @@ const CheckOutPage = (props) => {
         </div>
         <Link to='/thanks' className="checkout-page__pay-btn" onClick={() => handlePay(props)}>Pay Now</Link>
       </div>
-      <Footer />
     </div>
   );
 }
