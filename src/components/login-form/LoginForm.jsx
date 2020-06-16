@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './login-form.scss';
-import GoogleBtn from './GoogleBtn';
 import {Link, withRouter} from "react-router-dom";
-// import FacebookBtn from './FacebookBtn';
-// import GoogleBtn from './GoogleBtn';
 import {getUsername,getPassword,getLoginInf} from '../../redux/actions/index';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
@@ -107,11 +104,6 @@ class LoginForm extends Component {
         }
         
     }
-
-
-
-
-
     
     render(){ 
         console.log("match",this.props)
@@ -124,7 +116,7 @@ class LoginForm extends Component {
                             <div className="form-header_row-1">LOG IN</div>
                             <div className="form-header_row-2">
                                 <span className="form-header_row-2_thin">DON'T HAVE A DOMINO'S ACCOUNT?</span>
-                                <span><Link className="form-header_row-2_link" to="">SIGN UP</Link></span>
+                                <span><Link className="form-header_row-2_link" to="/account/sign-up">SIGN UP</Link></span>
                             </div>
                         </div>
 
@@ -195,15 +187,15 @@ class LoginForm extends Component {
 
                                 <div style={{ display: 'flex', flexWrap: 'wrap' }} >
                                     <Wrapper>
-                                        <BtnFacebook >
+                                        <BtnFacebook style={{ width:"400px" ,height:"60px",fontSize:"1.5rem" }}>
                                             &nbsp;&nbsp;Sign In with Facebook
-                                        </BtnFacebook >
+                                        </BtnFacebook>
                                         <br/>
-                                        <BtnGoogle>
+                                        <BtnGoogle style={{ width:"400px" ,height:"60px",fontSize:"1.5rem" }}>
                                             &nbsp;&nbsp;Sign In with Google
                                         </BtnGoogle >
                                         <br/>
-                                        <BtnPaypal>
+                                        <BtnPaypal style={{ width:"400px" ,height:"60px",fontSize:"1.5rem" }}>
                                             &nbsp;&nbsp;Sign In with Paypal
                                         </BtnPaypal >
                                     </Wrapper>

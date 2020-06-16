@@ -1,5 +1,4 @@
 import React from "react";
-
 import Homepage from "./pages/home-page/Homepage";
 import MenuPage from "./pages/menu-page/MenuPage";
 import AboutPage from "./pages/about-page/AboutPage";
@@ -15,7 +14,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import DIYPizzaPage from "./pages/diy-pizza-page/DIYPizzaPage"
 import SelectOrderType from './pages/order-type-page/SelectOrderType'
 import SavedOrderNone from './pages/saved-order-page/SavedOrderNone';
-import SavedOrder from './pages/saved-order-page/SavedOrder'
+import SavedOrder from './pages/saved-order-page/SavedOrder';
+import Footer from './components/footer/Footer';
+import SignUp from './pages/sign-up-page/SignUp';
 import "./App.css";
 
 
@@ -42,13 +43,12 @@ function App () {
           <Route exact={true} path='/thanks' component={ThanksPage} />
           <Route exact path='/menu/detail/:id/order-type/saved-order-none' component={SavedOrderNone} />
           <Route exact path='/menu/detail/:id/order-type/saved-order' component={SavedOrder} />
-
-
-
-
           <Route exact={true} path='/receipt' component={ReceiptPage} />
+          <Route exact={true} path='/account/sign-up' component={SignUp} />
+
         </Switch>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }

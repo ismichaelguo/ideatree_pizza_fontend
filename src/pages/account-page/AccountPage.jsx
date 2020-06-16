@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../../components/footer/Footer';
 import './account-page.scss';
 import LoginForm from '../../components/login-form/LoginForm';
 
@@ -18,11 +17,8 @@ const AccountPage = (props) => {
                 </div>
             </header>
             <section id='body'>
-                    <LoginForm />
+                <LoginForm />
             </section>
-            <footer className="page-footer">
-                <Footer  />
-            </footer>
         </section>
     );
 }

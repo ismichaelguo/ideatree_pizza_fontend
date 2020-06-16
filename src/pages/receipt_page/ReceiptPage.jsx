@@ -117,7 +117,7 @@ class ReceiptPage extends React.Component {
               </div>
               <div className="receipt__bottom">
                 <h4>Total: ${parseFloat(sumPrice(cartItems).toFixed(2))}</h4>
-                <p>Delivery Info</p>
+                <p>{deliveryTime ? "Delivery Info" : "Pickup Info"}</p>
                 <p>{`Address: ${deliveryTime ? `${unit} ${streetNum} ${streetName} ${suburb} ${postcode}`
                   : `${pickUpAddress} ${pickUpSuburb} ${pickUpPCode}`}`}</p>
                 <p>{`Time: ${deliveryTime ? `${deliveryTime}` : `${pickUpTime}`}`}</p>
@@ -125,9 +125,6 @@ class ReceiptPage extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className="page-footer">
-          <Footer />
         </div>
       </>
     );

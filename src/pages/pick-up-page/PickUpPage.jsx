@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../../components/footer/Footer';
 import './pick-up-page.scss';
 import PickUpForm from '../../components/pick-up-form/PickUpForm';
 
@@ -22,9 +21,6 @@ const PickUpPage = (props) => {
                     <PickUpForm props={props}/>
                 
             </section>
-            <footer className="page-footer">
-                <Footer  />
-            </footer>
         </section>
     );
 }

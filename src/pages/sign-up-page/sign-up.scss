@@ -3,7 +3,7 @@
 
 
 
-.login-container{
+.signUp-container{
     font-family: $Fredericka;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
     margin:0;
     background: url("../../asset/Images/order-type-page/background-image.jpeg") repeat;
 
-    .banner{
+    &__banner{
         width:80%;
         display: flex;
         flex-grow:1;
@@ -24,7 +24,7 @@
         padding-top: 5px;
         z-index: 12;
         
-        &__logo-image{
+        & a{
             background:url("../../asset/Images/order-type-page/domino-logo.svg") no-repeat;
             width: 110px;
             margin-right: 10px;
@@ -36,7 +36,7 @@
             }
         }
 
-        &__description{
+        & div{
             display: block;
             color: white;
             z-index: 13;
@@ -63,6 +63,12 @@
         }
         
     
+    }
+
+    &__body{
+        width: 100%;
+
+
     }
 
 
