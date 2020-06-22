@@ -183,12 +183,13 @@
     background: $red;
     color: $white;
     padding: 5px 10px;
-    font-size: .8em;
+    font-size: 1em;
     border-radius: 0 0 3px 3px;
     position: relative;
     top: -2px;
-    text-transform: none;
     display: none;
+    box-shadow: 2px 2px 2px;
+    padding-top: 0.5rem;
 }
 
 

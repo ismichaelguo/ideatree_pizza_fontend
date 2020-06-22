@@ -17,9 +17,7 @@ function ItemCard(props) {
     if (props.pathname.startsWith("/receipt")) {
       if (props.id === 17) {
         return `/menu/detail/${props.id}/diy-pizza`;
-      } else {
-        return `/menu/detail/${props.id}`;
-      }
+      } 
     }
   }
   return (

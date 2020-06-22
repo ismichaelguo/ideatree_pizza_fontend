@@ -103,7 +103,7 @@ class SignUpForm extends Component {
         }
 
         if(isName===false){
-            nameError.style.display = "block";
+            nameError.style.disslay = "block";
         }
 
         if(isPhoneNumber===false){
@@ -130,16 +130,9 @@ class SignUpForm extends Component {
 
         }
         
-
-
-
-
-
-
     }
 
    
-    
     render(){ 
         console.log("match",this.props)
 
@@ -201,7 +194,7 @@ class SignUpForm extends Component {
                                             className="field-container_login-input"
                                                 // value="password"
                                             onChange={this.setPassword}/>
-                                        <div className="inline-error" id='customer-password-error'>Password not Valid!</div>
+                                        <div className="inline-error" id='customer-password-error'>Password must include number, lowercase, uppercase and special characters</div>
 
 
                                         <label className="field-container_form-label">CONFIRM PASSWORD</label>
