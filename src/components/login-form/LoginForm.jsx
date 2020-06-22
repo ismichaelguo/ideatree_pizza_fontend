@@ -79,8 +79,6 @@ class LoginForm extends Component {
         }
 
 
-
-
         if(this.props.userName === userInf.userName && this.props.password === userInf.password ){
              this.props.getLoginInf({
                 status:!this.props.status,
