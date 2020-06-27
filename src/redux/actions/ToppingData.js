@@ -5,16 +5,16 @@ export const getToppingData = (value) => {
   };
 };
 
-export const addTopping = (item) => {
+export const addTopping = (item,id) => {
   return {
     type: "ADD_TOPPING",
-    item,
+    item,id
   };
 };
 
-export const deleteTopping = (index) => {
+export const deleteTopping = (id) => {
   return {
     type: "DELETE_TOPPING",
-    index,
+    id,
   };
 };

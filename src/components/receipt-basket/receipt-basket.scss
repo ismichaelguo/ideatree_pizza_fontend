@@ -46,4 +46,25 @@
       }
     }
   }
+
+  &__DIYToppings {
+    span {
+      margin-right: 0.5rem;
+    }
+    .activeTrigger {
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+
+    .showToppings {
+      transition: all 0.5s;
+      height: 0;
+      overflow: hidden;
+      margin-left:1rem;
+    }
+    .active {
+      height: 20vh;
+      transition: all 0.5s;
+    }
+  }
 }

@@ -4,22 +4,49 @@ const initialState = {
 };
 
 const toppingData = (state = initialState, action) => {
-  if (action.type === "GET_TOPPING_DATA") {
-    const newState = JSON.parse(JSON.stringify(state));
-    newState.toppingData = action.value;
-    return newState;
+  switch (action.type) {
+    case "GET_TOPPING_DATA":
+      return {
+        ...state,
+        toppingData: action.value,
+      };
+    case "ADD_TOPPING":
+      return lengthCheck(state, action);
+    // return {
+    //   ...state,
+    //   currentSelection: [...state.currentSelection, action.item],
+    // };
+
+    case "DELETE_TOPPING":
+      return {
+        ...state,
+        currentSelection: state.currentSelection.filter((items) => {
+          return items.id !== action.id;
+        }),
+      };
+    default:
+      return state;
   }
-  if (action.type === "ADD_TOPPING") {
-    const newState = JSON.parse(JSON.stringify(state));
-    newState.currentSelection.push(action.item);
-    return newState;
+};
+
+const lengthCheck = (state, action) => {
+  state.currentSelection = [...state.currentSelection, action.item];
+  let crust = state.currentSelection.filter((item) => {
+    return item.type === "crust";
+  });
+  if (crust.length > 1) {
+    alert("only one curst is allowed");
+    return {
+      ...state,
+      currentSelection: state.currentSelection.filter((items) => {
+        return items.id !== action.id;
+      }),
+    };
   }
-  if (action.type === "DELETE_TOPPING") {
-    const newState = JSON.parse(JSON.stringify(state));
-    newState.currentSelection.splice(action.index, 1);
-    return newState;
-  }
-  return state;
+  return {
+    ...state,
+    currentSelection: state.currentSelection,
+  };
 };
 
 export default toppingData;
