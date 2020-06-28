@@ -25,6 +25,7 @@ class DIYPizza extends React.Component {
       deleteTopping,
       pizzaData,
       DIYPageData,
+      DeliveryForm,
     } = this.props;
 
     const pageId = DIYPageData.match.params.id;
@@ -90,7 +91,7 @@ class DIYPizza extends React.Component {
             ))}
           </div>
         </div>
-        <Link to={`/menu/detail/${pageId}/order-type`}>
+        <Link to={getLink(DeliveryForm, pageId)}>
           <button
             className="add-to-order"
             onClick={() => this.props.addItem({ item: curItem })}
@@ -103,11 +104,20 @@ class DIYPizza extends React.Component {
   }
 }
 
+const getLink = (DeliveryForm, pageId) => {
+  if (DeliveryForm.streetNum) {
+    return `/receipt`;
+  } else {
+    return `/menu/detail/${pageId}/order-type`;
+  }
+};
+
 const mapStateToProps = (state) => {
   return {
     toppingData: state.toppingData.toppingData,
     currentSelection: state.toppingData.currentSelection,
     pizzaData: state.pizzaData.pizzaData,
+    DeliveryForm: state.DeliveryForm,
   };
 };
 
