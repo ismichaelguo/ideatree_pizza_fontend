@@ -16,10 +16,19 @@
     border-bottom: 1px dotted $white;
     padding-bottom: 1rem;
     margin-bottom: 3rem;
+
+    @include iphone() {
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
   }
   .image {
     height: 30%;
     width: 30%;
+    @include iphone() {
+      width: 50%;
+    }
   }
   .heading {
     display: flex;
@@ -27,6 +36,9 @@
     margin: 2rem 0 1rem 0;
     font-size: 3rem;
     width: 70%;
+    @include iphone() {
+      font-size: 1.5rem;
+    }
   }
   .customize-toppings {
     width: 70%;
@@ -36,6 +48,9 @@
 
     h4 {
       padding: 1.5rem;
+      @include iphone() {
+        font-size: 1.1rem;
+      }
     }
     .current-toppings {
       display: flex;
@@ -82,6 +97,9 @@
           color: $yellow;
           text-align: left;
           margin-left: 2rem;
+          @include iphone() {
+            font-size: 1.1rem;
+          }
         }
 
         .circle {
@@ -96,12 +114,19 @@
 
           img {
             height: 4.5rem;
+            @include iphone() {
+              height: 2.5rem;
+            }
           }
           svg {
             color: white;
             font-size: 2rem;
             position: absolute;
             right: 30%;
+            @include iphone() {
+              right: 22%;
+              font-size: 1.5rem;
+            }
           }
         }
 
@@ -130,12 +155,8 @@
         }
       }
       .active {
-        height: 40vh;
-        @include ipad() {
-          height: 65vh;
-        }
         .selectionDetail {
-          height: 30vh;
+          height: 35vh;
           opacity: 1;
           transition: all 0.5s;
           @include ipad() {
@@ -145,18 +166,33 @@
         .expandDetail {
           display: flex;
           flex-wrap: wrap;
-          height: 28vh;
+          height: 35vh;
           font-size: 1.2rem;
           transition: all 0.5s;
           @include ipad() {
             height: 45vh;
           }
+          @include iphone() {
+            flex-wrap: wrap;
+            font-size: 1rem;
+          }
+
           .imgBox {
             display: flex;
             flex-direction: column;
+            @include iphone() {
+              margin: 0.3rem;
+            }
             img {
               margin: 1.3rem;
               cursor: pointer;
+              &:hover {
+                transform: scale(1.2);
+                transition: all 0.5s;
+              }
+              @include iphone() {
+                margin: 0;
+              }
             }
           }
         }

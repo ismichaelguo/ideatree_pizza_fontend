@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "./DIYPizza.scss";
 import Combination from "./Combination";
 import remove from "../../asset/Images/Build-Own-Pizza/remove.png";
@@ -19,42 +19,50 @@ class DIYPizza extends React.Component {
   }
 
   render() {
-    // const selectionDetail = this.props.toppingData;
-    
     const {
       toppingData,
       currentSelection,
       deleteTopping,
-      pizzaData,DIYPageData
+      pizzaData,
+      DIYPageData,
+      DeliveryForm,
     } = this.props;
-    // console.log(currentSelection);
-    // const id = pizzaData.itemID;
-const pageId = DIYPageData.match.params.id
-  let foodName, foodPrice, imgDetail, imgAlt;
-    pizzaData.forEach(item => {
+
+    const pageId = DIYPageData.match.params.id;
+    let foodName, foodPrice, imgDetail, imgAlt;
+    pizzaData.forEach((item) => {
       for (let food of item.items) {
         // console.log(food.id)
         if (food.id === 17) {
           foodName = food.name;
-          foodPrice = food.price;
-          imgDetail = food.imgDetail;
+          imgDetail = food.imgSrc;
           imgAlt = food.imgAlt;
         }
       }
-    })
+    });
+
+    //calculate the price of custom pizza
+    let toppingPrice = 0;
+    let toppingDes = [];
+    for (let i = 0; i < currentSelection.length; i++) {
+      toppingPrice = toppingPrice + currentSelection[i].price;
+      toppingDes.push(currentSelection[i].name);
+    }
+    foodPrice = toppingPrice;
 
     let curItem = {
       id: parseInt(pageId),
-      foodName, foodPrice, imgDetail, imgAlt
+      foodName,
+      foodPrice,
+      imgDetail,
+      imgAlt,
+      toppingDes,
     };
-    
-    console.log("111",DIYPageData)
 
     return (
       <div className="diy-pizza-container">
         <div className="diy-pizza-title">
           <h2>Build Your Own Pizza</h2>
-          <h2>$14.95*</h2>
         </div>
         <div className="diy-pizza-box1"></div>
         <img src={diyImage} alt="diyPizza" className="image" />
@@ -62,13 +70,13 @@ const pageId = DIYPageData.match.params.id
         <div className="customize-toppings">
           <h4>Current Toppings</h4>
           <div className="current-toppings">
-            {currentSelection.map((item, index) => (
-              <div className="current-toppings-container" key={index}>
+            {currentSelection.map((item) => (
+              <div className="current-toppings-container" key={item.id}>
                 <img
                   className="remove"
                   src={remove}
                   alt="remove"
-                  onClick={() => deleteTopping(index)}
+                  onClick={() => deleteTopping(item.id)}
                 />
                 <img src={item.imgSrc} alt={item.imgAlt} />
                 <p>{item.name}</p>
@@ -83,26 +91,33 @@ const pageId = DIYPageData.match.params.id
             ))}
           </div>
         </div>
-        <Link to={`/menu/detail/${pageId}/order-type`}>
+        <Link to={getLink(DeliveryForm, pageId)}>
           <button
-          className="add-to-order"
-         onClick={() => this.props.addItem({ item: curItem })}
-        >
-          Add To Order
-        </button>
+            className="add-to-order"
+            onClick={() => this.props.addItem({ item: curItem })}
+          >
+            Add To Order
+          </button>
         </Link>
-        
       </div>
     );
   }
 }
 
+const getLink = (DeliveryForm, pageId) => {
+  if (DeliveryForm.streetNum) {
+    return `/receipt`;
+  } else {
+    return `/menu/detail/${pageId}/order-type`;
+  }
+};
 
 const mapStateToProps = (state) => {
   return {
     toppingData: state.toppingData.toppingData,
     currentSelection: state.toppingData.currentSelection,
     pizzaData: state.pizzaData.pizzaData,
+    DeliveryForm: state.DeliveryForm,
   };
 };
 
@@ -112,5 +127,7 @@ const mapActionsToProps = {
   addItem,
 };
 
-
-export default connect(mapStateToProps, mapActionsToProps)(withRouter(DIYPizza));
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withRouter(DIYPizza));
