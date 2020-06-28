@@ -15,7 +15,7 @@ export default function ShowTopping(props) {
     if (id === 1) {
       return (
         <div className="expandDetail">
-          {selection.crust.map((crust) => (
+          {selection.item.map((crust) => (
             <div className="imgBox" key={crust.id}>
               <img
                 src={crust.imgSrc}
@@ -31,7 +31,7 @@ export default function ShowTopping(props) {
     } else if (id === 2) {
       return (
         <div className="expandDetail">
-          {selection.sauce.map((sauce, index) => (
+          {selection.item.map((sauce, index) => (
             <div className="imgBox" key={index}>
               <img
                 src={sauce.imgSrc}
@@ -47,7 +47,7 @@ export default function ShowTopping(props) {
     } else if (id === 3) {
       return (
         <div className="expandDetail">
-          {selection.cheese.map((cheese, index) => (
+          {selection.item.map((cheese, index) => (
             <div className="imgBox" key={index}>
               <img
                 src={cheese.imgSrc}
@@ -63,7 +63,7 @@ export default function ShowTopping(props) {
     } else {
       return (
         <div className="expandDetail">
-          {selection.toppings.map((toppings, index) => (
+          {selection.item.map((toppings, index) => (
             <div className="imgBox" key={index}>
               <img
                 src={toppings.imgSrc}

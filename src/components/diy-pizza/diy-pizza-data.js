@@ -2,7 +2,7 @@ const PIZZA_SELECTION_DATA = [
   {
     selectionId: 1,
     header: "Choose Your Crust",
-    crust: [
+    item: [
       {
         id: 1,
         type: "crust",
@@ -40,7 +40,7 @@ const PIZZA_SELECTION_DATA = [
   {
     selectionId: 2,
     header: "Select Your Sauce",
-    sauce: [
+    item: [
       {
         id: 5,
         type: "sauce",
@@ -86,7 +86,7 @@ const PIZZA_SELECTION_DATA = [
   {
     selectionId: 3,
     header: "Add Cheese",
-    cheese: [
+    item: [
       {
         id: 10,
         type: "cheese",
@@ -125,7 +125,7 @@ const PIZZA_SELECTION_DATA = [
   {
     selectionId: 4,
     header: "Choose Your Toppings",
-    toppings: [
+    item: [
       {
         id: 14,
         type: "topping",
