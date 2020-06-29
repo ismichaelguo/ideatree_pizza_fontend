@@ -1,11 +1,11 @@
 const initialState = {
     userName:'',
-    password:'',
+    logPassword:'',
     status:false,
 }
 
 const loginInf =(state = initialState,action)=>{
-    // console.log("action",action)
+    console.log("action",action)
 
     switch(action.type){
         case "Get_Username":
@@ -17,7 +17,7 @@ const loginInf =(state = initialState,action)=>{
         case "Get_Password":
             return{
                 ...state,
-                password:action.password.password,
+                logPassword:action.logPassword.logPassword,
             }
 
         case "Get_Login_Information":

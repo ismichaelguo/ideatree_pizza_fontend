@@ -2,7 +2,7 @@ const initialState = {
     email:"",
     name:"",
     phoneNumber:"",
-    password:"",
+    signPassword:"",
 }
 
 const SignUpForm =(state = initialState,action)=>{
@@ -15,7 +15,7 @@ const SignUpForm =(state = initialState,action)=>{
                 email:action.signUpForm.email,
                 name:action.signUpForm.name,
                 phoneNumber:action.signUpForm.phoneNumber,
-                password:action.signUpForm.password,
+                signPassword:action.signUpForm.signPassword,
             }
         default:
             return state;

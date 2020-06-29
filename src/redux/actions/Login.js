@@ -5,10 +5,10 @@ export function getUsername (userName){
     }
 }
 
-export function getPassword (password){
+export function getPassword (logPassword){
     return{
         type:"Get_Password",
-        password,
+        logPassword,
     }
 }
 
