@@ -19,9 +19,12 @@ class MenuPage extends React.Component {
   }
 
   getPizzaData = () => {
+    console.log("pizza0000000",this.props.pizzaData)
+
     const foodItemArr = this.props.pizzaData;
     const pathname = this.props.location.pathname;
     const hashtag = this.props.location.hash || "#PIZZAS";
+    console.log("pizza!!!!!!!",foodItemArr)
 
     let filteredFoodArr = foodItemArr.filter((food) =>
       food.locationID.startsWith(hashtag.split("#")[1])

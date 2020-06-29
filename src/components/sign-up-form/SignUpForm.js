@@ -4,6 +4,9 @@ import {Link, withRouter} from "react-router-dom";
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {getSignUpInf} from '../../redux/actions/index';
+import axios from 'axios';
+
+
 
 const Wrapper = styled.div`
     @media only screen and (max-width : 399px) {
@@ -63,7 +66,6 @@ class SignUpForm extends Component {
 
     getSignUpInf=(e)=>{
         e.preventDefault();
-        console.log("element",e)
         const email = e.target.elements[0].value;
         const name = e.target.elements[1].value;
         const phoneNumber = e.target.elements[2].value;
@@ -77,8 +79,6 @@ class SignUpForm extends Component {
 
         let isEmail = emailTest.test(email);
         let isName = nameTest.test(name);
-        console.log("name",name)
-        console.log("rightname",isName)
         let isPhoneNumber = phoneNumberTest.test(phoneNumber)
 
         const emailError = document.getElementById('customer-email-error');
@@ -117,14 +117,14 @@ class SignUpForm extends Component {
 
         if(isEmail && isName && isPhoneNumber && isPassword){
             const History = this.props.history;
-            console.log("password",History)
-
             this.props.getSignUpInf({
                 email:email,
                 name:name,
                 phoneNumber:phoneNumber,
-                password:firstPassword,
+                signPassword:firstPassword,
             })
+            console.log("name",this.props.email)
+
             alert("Sign up successful! Please log in!")
             History.replace('/account');
 
@@ -132,9 +132,13 @@ class SignUpForm extends Component {
         
     }
 
+
+
+
+
    
     render(){ 
-        console.log("match",this.props)
+        console.log("!!!!!!",this.props.email)
 
             return (
                     <div className="login-form">
@@ -258,13 +262,13 @@ class SignUpForm extends Component {
 
 
 function mapStateToProps(state){
-    const {loginInf} = state;
+    const {SignUpForm} = state;
 
     return {
-        userName:loginInf.userName,
-        password:loginInf.password,
-        status:loginInf.status,
-        cartItems: state.cartReducer.cartItems,
+        email:SignUpForm.email,
+        name:SignUpForm.name,
+        phoneNumber:SignUpForm.phoneNumber,
+        password: SignUpForm.password,
        
     }
 
