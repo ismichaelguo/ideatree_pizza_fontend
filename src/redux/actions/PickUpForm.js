@@ -6,6 +6,7 @@ export function changePickUpTime ({ pickUpTime }) {
 }
 
 export function changeInputType ({ inputType }) {
+  
   return {
     type: "CHANGE_INPUT_TYPE",
     inputType
@@ -13,6 +14,8 @@ export function changeInputType ({ inputType }) {
 }
 
 export function changeStoresData ({ storesData }) {
+
+  
 
   return {
     type: "CHANGE_STORES_DATA",

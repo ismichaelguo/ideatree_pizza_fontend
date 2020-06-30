@@ -1,53 +1,72 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './pick-up-form.scss';
 import { BsClockHistory } from 'react-icons/bs';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { connect } from 'react-redux';
-import {changePickUpTime, changeStoresData, changeInputType, changeStore} from '../../redux/actions/index';
-
+import { changePickUpTime, changeStoresData, changeInputType, changeStore } from '../../redux/actions/index';
+import axios from 'axios';
 
 class PickUpForm extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        const{changeInputType,changePickUpTime}=this.props;
-        changeInputType({inputType: 'postcode'});
-        changePickUpTime({pickUpTime:''});
+        const { changeInputType, changePickUpTime,changeStoresData} = this.props;
+        changeInputType({ inputType: 'postcode' });
+        changePickUpTime({ pickUpTime: '' });
+
+        let tempStoresData = [];
+        axios({
+        'method': 'GET',
+        'url': 'http://localhost:8080/stores',
+        }).then(
+        res => {
+               let tempStoresData = [];
+                for (let i = 0; i < res.data.length; i++) {
+                    for (let j = 0; j < res.data[i].cities.length; j++) {
+                        for (let k = 0; k < res.data[i].cities[j].stores.length; k++) {
+                            tempStoresData.push(res.data[i].cities[j].stores[k]);
+                            
+                        }
+                    }
+                }   
+            changeStoresData({storesData:tempStoresData});
+        }).catch(err => console.log("err", err));
+
+       
     }
 
     setUp = () => {
-
-        const {storesData}=this.props;
-        console.log(storesData);
-        if(storesData.length===0){
+        const { storesData } = this.props;
+        console.log('storesData:',storesData);
+        if (storesData.length === 0) {
             console.log('null');
             return null;
-           
+
         }
-       else{
-        return (
-        storesData.map(item => (
-                
+        else {
+            return (
+                storesData.map(item => (
+
                     <li key={item.id} ><Link to='/receipt' className="pick-up-form__line2__results__item" id={item.id} onClick={this.handleLink}>
                         <h6>{item.storeName} - {item.suburb}</h6>
                         {item.address} - {item.postcode}
                     </Link></li>
-                
-        )))
+
+                )))
 
         }
     }
 
-    handleLink=(e)=>{
-        const {storesData,pickUpTime,changePickUpTime,changeStore}=this.props;
+    handleLink = (e) => {
+        const { storesData, pickUpTime, changePickUpTime, changeStore } = this.props;
 
-        for(let i=0;i<storesData.length;i++){
-            if(storesData[i].id.toString()===e.target.id){
+        for (let i = 0; i < storesData.length; i++) {
+            if (storesData[i].id.toString() === e.target.id) {
                 changeStore(storesData[i]);
             }
-        }   
-        if(pickUpTime===''){
+        }
+        if (pickUpTime === '') {
             changePickUpTime({ pickUpTime: (new Date()).toLocaleString('English', { hours12: false }) });
         }
     }
@@ -87,7 +106,7 @@ class PickUpForm extends React.Component {
             changePickUpTime({ pickUpTime: document.form.timeDrapDownList.value });
         }
         else {
-            
+
             document.form.timeDrapDownList.length = 0;
             orderTime.style.animation = "hideOrderTime 1s";
             setTimeout(() => { orderTime.style.display = 'none'; }, 800);
@@ -96,59 +115,59 @@ class PickUpForm extends React.Component {
     }
 
     handleTime = (e) => {
-        const {changePickUpTime}=this.props;
+        const { changePickUpTime } = this.props;
         changePickUpTime({ pickUpTime: e.target.value });
 
     }
 
-    clearSearchResults=()=>{
-        const stores=document.getElementsByClassName('pick-up-form__line2__results__item');
-            for(let i=0;i<stores.length;i++){
-                    stores[i].style.display='none'
-            }
-       
+    clearSearchResults = () => {
+        const stores = document.getElementsByClassName('pick-up-form__line2__results__item');
+        for (let i = 0; i < stores.length; i++) {
+            stores[i].style.display = 'none'
+        }
+
     }
 
     handleInput = (e) => {
         const input = document.getElementById('customer-input');
         this.clearSearchResults();
-        const {inputType,storesData}=this.props;
+        const { inputType, storesData } = this.props;
         switch (inputType) {
             case 'postcode':
                 input.value = input.value.replace(/[^\d]/g, '');
-                input.maxLength=4;
-                 if(e.target.value.length>2){
-                     for(let i=0;i<storesData.length;i++){
-                         if(storesData[i].postcode.includes(e.target.value)){
-                            
-                            document.getElementById(storesData[i].id).style.display='block';  
-                            document.getElementById(storesData[i].id).style.animation='showResults 1.5s';
-                         }
-                     }
+                input.maxLength = 4;
+                if (e.target.value.length > 2) {
+                    for (let i = 0; i < storesData.length; i++) {
+                        if (storesData[i].postcode.includes(e.target.value)) {
 
-                }   
+                            document.getElementById(storesData[i].id).style.display = 'block';
+                            document.getElementById(storesData[i].id).style.animation = 'showResults 1.5s';
+                        }
+                    }
+
+                }
                 break;
             case 'suburb':
-                input.maxLength=20;
-                if(e.target.value.length>2){
-                    for(let i=0;i<storesData.length;i++){
-                        if(storesData[i].suburb.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())){
-                            
-                           document.getElementById(storesData[i].id).style.display='block';   
-                           document.getElementById(storesData[i].id).style.animation='showResults 1.5s';
+                input.maxLength = 20;
+                if (e.target.value.length > 2) {
+                    for (let i = 0; i < storesData.length; i++) {
+                        if (storesData[i].suburb.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())) {
+
+                            document.getElementById(storesData[i].id).style.display = 'block';
+                            document.getElementById(storesData[i].id).style.animation = 'showResults 1.5s';
                         }
                     }
                 }
                 break;
 
             case 'store':
-                input.maxLength=20;
+                input.maxLength = 20;
 
-                if(e.target.value.length>2){
-                    for(let i=0;i<storesData.length;i++){
-                        if(storesData[i].storeName.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())){
-                           document.getElementById(storesData[i].id).style.display='block';   
-                           document.getElementById(storesData[i].id).style.animation='showResults 0.8s';
+                if (e.target.value.length > 2) {
+                    for (let i = 0; i < storesData.length; i++) {
+                        if (storesData[i].storeName.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())) {
+                            document.getElementById(storesData[i].id).style.display = 'block';
+                            document.getElementById(storesData[i].id).style.animation = 'showResults 0.8s';
                         }
                     }
                 }
@@ -156,7 +175,7 @@ class PickUpForm extends React.Component {
             default:
                 break;
         }
-        
+
 
     }
 
@@ -164,17 +183,17 @@ class PickUpForm extends React.Component {
         const input = document.getElementById('customer-input');
         input.value = '';
         this.clearSearchResults();
-        const {changeInputType}=this.props;
+        const { changeInputType } = this.props;
         switch (e.target.value) {
             case 'postcode':
-                changeInputType({inputType: 'postcode'});
+                changeInputType({ inputType: 'postcode' });
                 //this.setState({ inputType: 'postcode' });
                 break;
             case 'suburb':
-                changeInputType({inputType: 'suburb'});
+                changeInputType({ inputType: 'suburb' });
                 break;
             case 'store':
-                changeInputType({inputType: 'store'});
+                changeInputType({ inputType: 'store' });
                 break;
             default:
                 break;
@@ -186,7 +205,7 @@ class PickUpForm extends React.Component {
         this.props.props.history.goBack();
     }
 
-    handleSummit=(e)=>{
+    handleSummit = (e) => {
         e.preventDefault();
     }
 
@@ -243,15 +262,15 @@ class PickUpForm extends React.Component {
     }
 }
 
-function mapStateToProps(state){
-    return{
-        storesData:state.PickUpForm.storesData,
-        inputType:state.PickUpForm.inputType,
-        pickUpTime:state.PickUpForm.pickUpTime,
-        store:state.PickUpForm.store,
+function mapStateToProps(state) {
+    return {
+        storesData: state.PickUpForm.storesData,
+        inputType: state.PickUpForm.inputType,
+        pickUpTime: state.PickUpForm.pickUpTime,
+        store: state.PickUpForm.store,
     }
 }
 
-const mapActionsToProps={changePickUpTime, changeStoresData, changeInputType, changeStore};
+const mapActionsToProps = { changePickUpTime, changeStoresData, changeInputType, changeStore };
 
 export default connect(mapStateToProps, mapActionsToProps)(PickUpForm);

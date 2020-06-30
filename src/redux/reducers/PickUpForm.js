@@ -1,16 +1,7 @@
-import STORE_DATA from '../../components/store/store-data';
 
-const tempStoresData = [];
-for (let i = 0; i < STORE_DATA.length; i++) {
-  for (let j = 0; j < STORE_DATA[i].cities.length; j++) {
-    for (let k = 0; k < STORE_DATA[i].cities[j].stores.length; k++) {
-      tempStoresData.push(STORE_DATA[i].cities[j].stores[k]);
-    }
-  }
-}
 
 const initialState = {
-  storesData: tempStoresData,
+  storesData: [],
   inputType: 'postcode',
   pickUpTime: '',
   store: {},
@@ -32,7 +23,7 @@ const PickUpForm = (state = initialState, action) => {
       };
 
     case 'CHANGE_STORES_DATA':
-
+      
       return {
         ...state,
         storesData: action.storesData
