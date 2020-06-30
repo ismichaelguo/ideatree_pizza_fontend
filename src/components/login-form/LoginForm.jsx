@@ -9,6 +9,7 @@ import {
 import axios from 'axios';
 import { connect } from "react-redux";
 import styled from "styled-components";
+import axiosInstance from '../../api/server';
 
 const Wrapper = styled.div`
   @media only screen and (max-width: 399px) {
@@ -78,15 +79,15 @@ class LoginForm extends Component {
 
   getLoginInf = (e, props) => {
     e.preventDefault();
+    console.log("ax",axiosInstance)
     if(this.props.userName!==undefined && this.props.logPassword!==undefined){
-        axios({
-            "method":"POST",
-            "url":"http://localhost:8080/user/login",
-            "header":{'Content-type':'application/json'},
-            "data":{
-                "email":this.props.userName,
-                "password":this.props.logPassword,
-            }
+        axiosInstance({
+            url:'/user/login',
+            method:"POST",
+            headers:{'Content-type':'application/json'},
+            data:{                
+            "email":this.props.userName,
+            "password":this.props.logPassword,}
         }).then(res=>res.data.token)
         .then((data)=>{
             localStorage.setItem('Authorization',`Bearer ${data}`);
@@ -114,25 +115,47 @@ class LoginForm extends Component {
             alert("Invalid username or password!");
 
         })
+
+        // axios({
+        //     "method":"POST",
+        //     "url":"http://localhost:8080/user/login",
+        //     "header":{'Content-type':'application/json',"withCredentials": "true"},
+        //     "data":{
+        //         "email":this.props.userName,
+        //         "password":this.props.logPassword,
+        //     }
+        // })
     }
   };
 
   componentDidMount(){
       console.log("name!!!",this.props.signPassword)
       if(this.props.name){
-        axios({
-            "method":"POST",
-            "url":"http://localhost:8080/user/signup",
-            "header":{'Content-Type':'application/json'},
-            "data":{
-                "email":this.props.email,
-                "name":this.props.name,
-                "password":this.props.signPassword,
-                "phone":this.props.phoneNumber,
-            }
+        axiosInstance({
+            url:'/user/signup',
+            method:"POST",
+            headers:{'Content-type':'application/json'},
+            data:{                
+            "email":this.props.email,
+            "name":this.props.name,
+            "phone":this.props.phoneNumber,
+            "password":this.props.signPassword,}
         }).then(res=>console.log("respond",res))
         .catch(err=>console.log("err",err))
       }
+
+    //   axiosInstance({
+    //     url:'/user',
+    //     method:"POST",
+    //     headers:{'Content-Type':'application/json'},
+    //     data:{
+    //         "email":this.props.email,
+    //         "name":this.props.name,
+    //         "password":this.props.signPassword,
+    //         "phone":this.props.phoneNumber,
+    //     }
+    // }).then(res=>console.log("respond",res))
+    // .catch(err=>console.log("err",err))
   }
 
   render() {
