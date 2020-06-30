@@ -1,3 +1,4 @@
+const axios = require('axios');
 
 export const loadPizzaData = () => (dispatch) => {
   dispatch(handlePizzaDataRequested());
