@@ -15,7 +15,6 @@ class PickUpForm extends React.Component {
         changeInputType({ inputType: 'postcode' });
         changePickUpTime({ pickUpTime: '' });
 
-        let tempStoresData = [];
         axios({
         'method': 'GET',
         'url': 'http://localhost:8080/stores',

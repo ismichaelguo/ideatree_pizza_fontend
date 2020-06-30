@@ -9,8 +9,37 @@ import axios from 'axios';
 
 class DeliveryForm extends React.Component {
 
-  constructor(props){
-    super(props);
+  componentDidMount(){
+    const unit = document.getElementById('customer-unit');
+    const streetNum = document.getElementById('customer-street-num');
+    const streetName = document.getElementById('customer-street-name');
+    const suburb = document.getElementById('customer-suburb');
+    const postcode = document.getElementById('customer-postcode');
+    const id='5efad7882dfd166425d705b8';
+    axios({
+      'method': 'GET',
+      'url': `http://localhost:8080/address/${id}`
+    }).then(res=>{
+      console.log(res.data);
+
+      if(res.data[res.data.length-1].unit){
+        unit.value=res.data[res.data.length-1].unit;
+      }
+      if(res.data[res.data.length-1].streetNum){
+        streetNum.value=res.data[res.data.length-1].streetNum;
+      }
+      if(res.data[res.data.length-1].streetName){
+        streetName.value=res.data[res.data.length-1].streetName;
+      }
+      if(res.data[res.data.length-1].suburb){
+        suburb.value=res.data[res.data.length-1].suburb;
+      }
+      if(res.data[res.data.length-1].postcode){
+        postcode.value=res.data[res.data.length-1].postcode;
+      }
+      
+    }).catch(err => console.log("err", err));
+
 
   }
   displayInfo = () => {
