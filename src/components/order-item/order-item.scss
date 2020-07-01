@@ -1,0 +1,67 @@
+@import "../../style_config/config";
+
+.order-item {
+  &-container {
+    border-bottom: 1px solid $lightgrey;
+  }
+  display: flex;
+  min-width: 100%;
+  min-height: 70px;
+
+  font-size: 1.3rem;
+  align-items: center;
+  @include iphone() {
+    font-size: 1rem;
+  }
+  &__id,
+  &__order-time,
+  &__details,
+  &__price,
+  &__type {
+    width: 16%;
+    text-align: center;
+  }
+  &__operators {
+    display: flex;
+    justify-content: space-evenly;
+    width: 19%;
+    text-align: center;
+  }
+  &__details,
+  &__edit,
+  &__remove {
+    cursor: pointer;
+  }
+}
+
+.details-dropdown {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+
+.details-update {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -10rem;
+  margin-left: -14rem;
+  z-index: 1000;
+  background-color: $blue;
+  p,
+  button {
+    margin: 1rem 0.5rem;
+  }
+  button {
+    font-family: $Abril_Fatface;
+    padding: 0.5rem 1rem;
+    border: 1px solid $blue;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: $lightgrey;
+    }
+  }
+  input {
+    margin-left: 0.5rem;
+  }
+}

@@ -33,7 +33,7 @@
     }
     &-remove {
       color: #fff;
-      background-color: #006991;
+      background-color: $blue;
       border: none;
       outline: none;
       border-radius: 3px;
@@ -60,7 +60,7 @@
       transition: all 0.5s;
       height: 0;
       overflow: hidden;
-      margin-left:1rem;
+      margin-left: 1rem;
     }
     .active {
       height: 20vh;

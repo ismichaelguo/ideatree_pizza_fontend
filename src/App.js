@@ -10,13 +10,14 @@ import PickUpPage from "./pages/pick-up-page/PickUpPage";
 import CheckoutPage from './pages/checkout-page/CheckoutPage';
 import ThanksPage from './pages/thanks-page/ThanksPage';
 import ReceiptPage from './pages/receipt_page/ReceiptPage';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Router } from "react-router-dom";
 import DIYPizzaPage from "./pages/diy-pizza-page/DIYPizzaPage"
 import SelectOrderType from './pages/order-type-page/SelectOrderType'
 import SavedOrderNone from './pages/saved-order-page/SavedOrderNone';
 import SavedOrder from './pages/saved-order-page/SavedOrder';
 import Footer from './components/footer/Footer';
 import SignUp from './pages/sign-up-page/SignUp';
+import AdminOrderPage from './pages/admin-order-page/AdminOrderPage';
 import "./App.css";
 
 
@@ -45,6 +46,7 @@ function App () {
           <Route exact path='/menu/detail/:id/order-type/saved-order' component={SavedOrder} />
           <Route exact={true} path='/receipt' component={ReceiptPage} />
           <Route exact={true} path='/account/sign-up' component={SignUp} />
+          <Route exact path='/admin/order' component={AdminOrderPage} />
 
         </Switch>
       </div>

@@ -2,7 +2,6 @@ import React from "react";
 import MainNav from "../../components/main-nav/MainNav";
 import MenuNav from "../../components/menu-nav/MenuNav";
 import ItemCardContainer from "../../components/item-card-container/ItemCardContainer";
-import Footer from "../../components/footer/Footer";
 import ReceiptBasket from '../../components/receipt-basket/ReceiptBasket';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';

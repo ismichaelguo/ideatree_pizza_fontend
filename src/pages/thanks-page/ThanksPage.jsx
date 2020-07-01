@@ -13,9 +13,9 @@ const ThanksPage = (props) => {
             Thanks
         </div>
         </header>
-        <body className="thanks-page__content">
+        <div className="thanks-page__content">
           <p>Thanks for your ordering!</p>
-        </body>
+        </div>
       </div>
     </>
   );

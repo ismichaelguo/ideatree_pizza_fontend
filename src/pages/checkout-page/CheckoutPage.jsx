@@ -7,11 +7,13 @@ import { genPastOrder } from '../../redux/actions/cart/cartActions';
 import { clearDeliveryForm } from '../../redux/actions/DeliveryForm';
 import { clearStoreHistory } from '../../redux/actions/PickUpForm';
 import { sumPrice } from '../../redux/actions/cart/cartUtils';
+import axiosInstance from "../../api/server";
 import './checkout-page.scss';
 
 const CheckOutPage = (props) => {
   const { cartItems, totalPrice, unit, streetNum,
-    streetName, suburb, postcode, time, } = props;
+    streetName, suburb, postcode, deliveryTime, pickUpTime,
+    pickUpAddress, pickUpSuburb, pickUpPCode, } = props;
   return (
     <div className="checkout-page">
       <div className="checkout-page__container">
@@ -50,11 +52,12 @@ const CheckOutPage = (props) => {
           <p>Total Price: ${parseFloat(totalPrice.toFixed(2))}</p>
           {cartItems.length === 0 ? null : (
             <>
-              <p>{`Address: ${unit} ${streetNum} ${streetName} ${suburb} ${postcode}`}</p>
-              <p>{`Time: ${time}`}</p>
+              <p>{deliveryTime ? "Delivery Info" : "Pickup Info"}</p>
+              <p>{`Address: ${deliveryTime ? `${unit} ${streetNum} ${streetName} ${suburb} ${postcode}`
+                : `${pickUpAddress} ${pickUpSuburb} ${pickUpPCode}`}`}</p>
+              <p>{`Time: ${deliveryTime ? `${deliveryTime}` : `${pickUpTime}`}`}</p>
             </>
           )}
-          {console.log('time', time)}
         </div>
         <Link to='/thanks' className="checkout-page__pay-btn" onClick={() => handlePay(props)}>Pay Now</Link>
       </div>
@@ -63,8 +66,28 @@ const CheckOutPage = (props) => {
 }
 
 const handlePay = (props) => {
-  const { genPastOrder, clearStoreHistory, clearDeliveryForm } = props;
-  console.log('handlePay');
+  const { cartItems, totalPrice, unit, streetNum,
+    streetName, suburb, postcode, deliveryTime, pickUpTime,
+    pickUpAddress, pickUpSuburb, pickUpPCode, genPastOrder,
+    clearStoreHistory, clearDeliveryForm } = props;
+  console.log('==handlePay==');
+  // console.log('props.cartItems', props.cartItems)
+  axiosInstance({
+    method: "POST",
+    url: `/order`,
+    header: { 'Content-type': 'application/json' },
+    data: {
+      "orderTime": (new Date()).toLocaleString(),
+      "DeliverPickupTime": deliveryTime ? deliveryTime : pickUpTime,
+      "orderItems": cartItems,
+      "totalPrice": parseFloat(totalPrice.toFixed(2)),
+      "address": deliveryTime ? `${unit} ${streetNum} ${streetName} ${suburb} ${postcode}`
+        : `${pickUpAddress} ${pickUpSuburb} ${pickUpPCode}`,
+      "type": deliveryTime ? "Delivery" : "Pickup",
+    }
+  }).then(res => console.log('order generated.'))
+    .catch(err => console.log('failed to generate order.', err))
+
   genPastOrder();
   clearStoreHistory();
   clearDeliveryForm();
@@ -80,6 +103,11 @@ const mapState = (state) => ({
   postcode: state.DeliveryForm.postcode,
   time: state.DeliveryForm.time,
   pastOrders: state.cartReducer.pastOrders,
+  deliveryTime: state.DeliveryForm.time,
+  pickUpTime: state.PickUpForm.pickUpTime,
+  pickUpAddress: state.PickUpForm.store.address,
+  pickUpSuburb: state.PickUpForm.store.suburb,
+  pickUpPCode: state.PickUpForm.store.postcode,
 });
 
 const mapAction = { genPastOrder, clearStoreHistory, clearDeliveryForm }
