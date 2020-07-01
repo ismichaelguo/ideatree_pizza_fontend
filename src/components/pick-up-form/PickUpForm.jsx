@@ -37,7 +37,7 @@ class PickUpForm extends React.Component {
 
     setUp = () => {
         const { storesData } = this.props;
-        console.log('storesData:',storesData);
+
         if (storesData.length === 0) {
             console.log('null');
             return null;
