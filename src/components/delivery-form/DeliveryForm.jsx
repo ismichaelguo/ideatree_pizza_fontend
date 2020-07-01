@@ -5,9 +5,54 @@ import { BsClockHistory } from 'react-icons/bs';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { changeUnit, changeStreetNum, changeStreetName, changeSuburb, changePostcode, changeRememberAddress, changeDeliveryNow, changeTime } from '../../redux/actions/index';
-
+import axios from 'axios';
 
 class DeliveryForm extends React.Component {
+
+
+  componentDidMount() {
+    const { userName, changeUnit, changeStreetNum, changeStreetName, changeSuburb, changePostcode } = this.props;
+    const userId = sessionStorage.getItem(userName);
+    const unit = document.getElementById('customer-unit');
+    const streetNum = document.getElementById('customer-street-num');
+    const streetName = document.getElementById('customer-street-name');
+    const suburb = document.getElementById('customer-suburb');
+    const postcode = document.getElementById('customer-postcode');
+
+    if (userId!=null) {
+      axios({
+        'method': 'GET',
+        'url': `http://localhost:8080/address/${userId}`
+      }).then(res => {
+        console.log(res.data);
+
+        if (res.data[res.data.length - 1].unit) {
+          unit.value = res.data[res.data.length - 1].unit;
+          changeUnit({ unit: res.data[res.data.length - 1].unit });
+        }
+        if (res.data[res.data.length - 1].streetNum) {
+          streetNum.value = res.data[res.data.length - 1].streetNum;
+          changeStreetNum({streetNum:res.data[res.data.length - 1].streetNum});
+        }
+        if (res.data[res.data.length - 1].streetName) {
+          streetName.value = res.data[res.data.length - 1].streetName;
+          changeStreetName({streetName:res.data[res.data.length - 1].streetName});
+        }
+        if (res.data[res.data.length - 1].suburb) {
+          suburb.value = res.data[res.data.length - 1].suburb;
+          changeSuburb({suburb:res.data[res.data.length - 1].suburb});
+        }
+        if (res.data[res.data.length - 1].postcode) {
+          postcode.value = res.data[res.data.length - 1].postcode;
+          changePostcode({postcode:res.data[res.data.length - 1].postcode});
+        }
+
+      }).catch(err => {
+        console.log("err", err);
+      });
+    }
+
+  }
   displayInfo = () => {
     const info = document.getElementsByClassName('delivery-form__collapse')[0];
 
@@ -25,7 +70,7 @@ class DeliveryForm extends React.Component {
   handleDeliveryTime = (e) => {
     const orderTime = document.getElementsByClassName('delivery-form__line4')[0];
     const { changeTime } = this.props;
-   
+
     if (e.target.value === 'later') {
       const { changeDeliveryNow } = this.props;
       changeDeliveryNow({ deliverNow: false });
@@ -103,11 +148,12 @@ class DeliveryForm extends React.Component {
   }
 
   handleSubmit = (e) => {
-
+    
     const streetNumError = document.getElementById('customer-street-num-error');
     const streetNameError = document.getElementById('customer-street-name-error');
     const streetSurburbError = document.getElementById('customer-suburb-error');
-    const { streetNum, streetName, suburb, time } = this.props;
+    const { streetNum, streetName, suburb, time, rememberAddress,userName } = this.props;
+    const userId = sessionStorage.getItem(userName);
     if (streetNum === '') {
       streetNumError.style.display = "block";
       e.preventDefault();
@@ -132,15 +178,32 @@ class DeliveryForm extends React.Component {
       streetNameError.style.display = "none";
       streetSurburbError.style.display = "none";
       console.log(this.props);
+      if (rememberAddress) {
+        axios({
+          'method': 'POST',
+          'url': 'http://localhost:8080/address',
+          'header': { 'Content-type': 'application/json' },
+          'data': {
+            "userId": userId,
+            "unit": parseInt(this.props.unit, 10),
+            "streetNum": parseInt(this.props.streetNum, 10),
+            "streetName": this.props.streetName,
+            "suburb": this.props.suburb,
+            "postcode": parseInt(this.props.postcode, 10),
+          },
+        }).then(res => console.log(res.data)).catch(err => console.log("err", err));
+      }
+
     }
+
   }
 
-  render () {
+  render() {
     return (
       <form className='delivery-form' name='form' >
         <h3 className='delivery-form__title'>Delivery Time</h3>
         <section className='delivery-form__ordertime-button'>
-          <input type="radio" id="btn-now" name="radioBox" value="now"  defaultChecked onChange={this.handleDeliveryTime}></input>
+          <input type="radio" id="btn-now" name="radioBox" value="now" defaultChecked onChange={this.handleDeliveryTime}></input>
           <label className="delivery-form__ordertime-button__now-label" htmlFor='btn-now'>Now</label>
           <input type="radio" id="btn-later" name="radioBox" value="later" onChange={this.handleDeliveryTime}></input>
           <label className="delivery-form__ordertime-button__later-label" htmlFor='btn-later'><BsClockHistory className='delivery-form__ordertime-button__later-label__icon' />&nbsp;Later</label>
@@ -153,7 +216,7 @@ class DeliveryForm extends React.Component {
             </select>
           </div>
         </section>
-        
+
         <section className='delivery-form__line1'>
           <div className='delivery-form__line1__unit'>
             <label className="form-label" >Unit Number</label>
@@ -161,7 +224,7 @@ class DeliveryForm extends React.Component {
           </div>
           <div className='delivery-form__line1__street-num'>
             <label className="form-label">Street Number</label>
-            <input id="customer-street-num" className="form-control" type="number" onChange={this.handleStreetNumChange}></input>
+            <input id="customer-street-num" className="form-control" type="text" onChange={this.handleStreetNumChange}></input>
             <div className="inline-error" id='customer-street-num-error'>Please enter your street number</div>
           </div>
         </section>
@@ -184,10 +247,10 @@ class DeliveryForm extends React.Component {
           </div>
         </section>
 
-       
+
 
         <section className="delivery-form__collapse"  >
-          <div className="delivery-form__collapse__tool-tip" >By checking 'Remember My Delivery Details' you are agreeing to the storage that contains personal details for the best experience on our site</div>
+          <div className="delivery-form__collapse__tool-tip" >By checking 'Remember My Delivery Details' you are agreeing to the storage that contains personal details for the best experience on our site if you have already login</div>
         </section>
 
         <section className="delivery-form__remember-me">
@@ -210,7 +273,7 @@ class DeliveryForm extends React.Component {
     )
   }
 }
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     unit: state.DeliveryForm.unit,
     streetNum: state.DeliveryForm.streetNum,
@@ -220,6 +283,7 @@ function mapStateToProps (state) {
     deliverNow: state.DeliveryForm.deliverNow,
     rememberAddress: state.DeliveryForm.rememberAddress,
     time: state.DeliveryForm.time,
+    userName: state.loginInf.userName,
   }
 }
 const mapActionsToProps = {
