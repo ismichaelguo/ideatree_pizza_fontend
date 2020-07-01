@@ -215,7 +215,6 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case CartActionTypes.GENERATE_PAST_ORDER:
       let _pastOrders = state.pastOrders.concat({
         orderTime: (new Date()).toLocaleDateString(),
-        orderId: (new Date()).getTime(),
         orderItems: [...state.cartItems],
         totalPrice: parseFloat(sumPrice(state.cartItems).toFixed(2)),
       }); // concat does not change the original array, but return an new array

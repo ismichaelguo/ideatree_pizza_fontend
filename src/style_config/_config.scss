@@ -4,25 +4,21 @@
 /*font family*/
 $Fredericka: "Fredericka the Great", cursive;
 $Abril_Fatface: "Abril Fatface", cursive;
-$footer-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-  "Segoe UI Symbol";
+$footer-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 /*colors*/
 $yellow: #e4ae26;
 $black: #1a1a1a;
 $white: #ffffff;
 $grey: #49515d;
-$greyV2:#595959;
-$greyV3:#404040;
+$greyV2: #595959;
+$greyV3: #404040;
 $lightgrey: #cccccc;
 $red: #e41837;
-$redV2:#b6132c;
-$details-background: linear-gradient(
-  to bottom,
-  rgba(0, 0, 0, 0.65) 0,
-  rgba(0, 0, 0, 0) 100%
-);
+$redV2: #b6132c;
+$blue: #006991;
+$details-background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0, rgba(0, 0, 0, 0) 100%);
 
 /*media query*/
 // Small tablets and large smartphones (landscape view)
