@@ -6,10 +6,10 @@ import {
   getPassword,
   getLoginInf,
 } from "../../redux/actions/index";
-import axios from 'axios';
+import axios from "axios";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import axiosInstance from '../../api/server';
+import axiosInstance from "../../api/server";
 
 const Wrapper = styled.div`
   @media only screen and (max-width: 399px) {
@@ -79,83 +79,66 @@ class LoginForm extends Component {
 
   getLoginInf = (e, props) => {
     e.preventDefault();
-    console.log("ax",axiosInstance)
-    if(this.props.userName!==undefined && this.props.logPassword!==undefined){
-        axiosInstance({
-            url:'/user/login',
-            method:"POST",
-            headers:{'Content-type':'application/json'},
-            data:{                
-            "email":this.props.userName,
-            "password":this.props.logPassword,}
-        }).then(res=>res.data.token)
-        .then((data)=>{
-            localStorage.setItem('Authorization',`Bearer ${data}`);
-            if (data !== null) {
-                this.props.getLoginInf({
-                  status: !this.props.status,
-                });
-                const { cartItems } = this.props;
-          
-                if (cartItems.length !== 0) {
-                  const HISTORY = this.props.history;
-                  alert("Log in successful!");
-                  HISTORY.replace("/menu/detail/:id/order-type");
-                } else {
-                  const HISTORY = this.props.history;
-                  alert("Log in successful!");
-                  HISTORY.replace("/menu");
-                }
-              } else {
-                alert("Invalid username or password!");
-              }
-            
-        }).catch(err=>{
-            console.log("err",err)
+    console.log("ax", axiosInstance);
+    if (
+      this.props.userName !== undefined &&
+      this.props.logPassword !== undefined
+    ) {
+      axiosInstance({
+        url: "/user/login",
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        data: {
+          email: this.props.userName,
+          password: this.props.logPassword,
+        },
+      })
+        .then((res) => res.data)
+        .then((data) => {
+          sessionStorage.setItem(data.user, data.id);
+          localStorage.setItem("Authorization", `Bearer ${data.token}`);
+          if (data !== null) {
+            this.props.getLoginInf({
+              status: !this.props.status,
+            });
+            const { cartItems } = this.props;
+
+            if (cartItems.length !== 0) {
+              const HISTORY = this.props.history;
+              alert("Log in successful!");
+              HISTORY.replace("/menu/detail/:id/order-type");
+            } else {
+              const HISTORY = this.props.history;
+              alert("Log in successful!");
+              HISTORY.replace("/menu");
+            }
+          } else {
             alert("Invalid username or password!");
-
+          }
         })
-
-        // axios({
-        //     "method":"POST",
-        //     "url":"http://localhost:8080/user/login",
-        //     "header":{'Content-type':'application/json',"withCredentials": "true"},
-        //     "data":{
-        //         "email":this.props.userName,
-        //         "password":this.props.logPassword,
-        //     }
-        // })
+        .catch((err) => {
+          console.log("err", err);
+          alert("Invalid username or password!");
+        });
     }
   };
 
-  componentDidMount(){
-      console.log("name!!!",this.props.signPassword)
-      if(this.props.name){
-        axiosInstance({
-            url:'/user/signup',
-            method:"POST",
-            headers:{'Content-type':'application/json'},
-            data:{                
-            "email":this.props.email,
-            "name":this.props.name,
-            "phone":this.props.phoneNumber,
-            "password":this.props.signPassword,}
-        }).then(res=>console.log("respond",res))
-        .catch(err=>console.log("err",err))
-      }
-
-    //   axiosInstance({
-    //     url:'/user',
-    //     method:"POST",
-    //     headers:{'Content-Type':'application/json'},
-    //     data:{
-    //         "email":this.props.email,
-    //         "name":this.props.name,
-    //         "password":this.props.signPassword,
-    //         "phone":this.props.phoneNumber,
-    //     }
-    // }).then(res=>console.log("respond",res))
-    // .catch(err=>console.log("err",err))
+  componentDidMount() {
+    if (this.props.name) {
+      axiosInstance({
+        url: "/user/signup",
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        data: {
+          email: this.props.email,
+          name: this.props.name,
+          phone: this.props.phoneNumber,
+          password: this.props.signPassword,
+        },
+      })
+        .then((res) => console.log("respond", res))
+        .catch((err) => console.log("err", err));
+    }
   }
 
   render() {
@@ -279,19 +262,17 @@ function mapStateToProps(state) {
   const { loginInf } = state;
   const { SignUpForm } = state;
 
-
   return {
     userName: loginInf.userName,
     logPassword: loginInf.logPassword,
     status: loginInf.status,
     cartItems: state.cartReducer.cartItems,
-    email:SignUpForm.email,
-    name:SignUpForm.name,
-    phoneNumber:SignUpForm.phoneNumber,
+    email: SignUpForm.email,
+    name: SignUpForm.name,
+    phoneNumber: SignUpForm.phoneNumber,
     signPassword: SignUpForm.signPassword,
   };
 }
-
 
 const mapActionsToProps = {
   getLoginInf,
