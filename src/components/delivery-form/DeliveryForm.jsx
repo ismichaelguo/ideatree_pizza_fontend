@@ -178,7 +178,7 @@ class DeliveryForm extends React.Component {
       streetNameError.style.display = "none";
       streetSurburbError.style.display = "none";
       console.log(this.props);
-      if (rememberAddress) {
+      if (rememberAddress&&userId) {
         axios({
           'method': 'POST',
           'url': 'http://localhost:8080/address',
