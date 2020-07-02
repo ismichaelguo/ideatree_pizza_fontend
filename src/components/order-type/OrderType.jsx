@@ -42,7 +42,7 @@ function OderType (props) {
         </Link>
         }   
         
-        <Link to={`/menu/detail/${id}/order-type/delivery`} className="order-method type-delivery">
+        <Link to={status ? `/menu/detail/${id}/order-type/delivery`:"/account"} className="order-method type-delivery">
           <div className="type-icon">
               <MdMotorcycle className="type-icon__content"/></div>
               <div className="type-text">
@@ -51,7 +51,7 @@ function OderType (props) {
                   <br />directly to you</p>
           </div>
         </Link>
-        <Link to={`/menu/detail/${id}/order-type/pick-up`} className="order-method type-pickup">
+        <Link to={status? `/menu/detail/${id}/order-type/pick-up` : "/account"} className="order-method type-pickup">
           <div className="type-icon"><FaStore className="type-icon__content"/></div>
           <div className="type-text">
             <h1 className="type-text_title">Pick up</h1>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
 import OrderItem from '../../components/order-item/OrderItem';
 import { sumPrice } from '../../redux/actions/cart/cartUtils';
-import axiosInstance from "../../api/server";
+import axiosInstance from "../../api/axiosInstance";
 import './admin-order-page.scss';
 
 class AdminOrderPage extends React.Component {
