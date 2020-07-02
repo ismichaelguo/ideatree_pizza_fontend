@@ -6,10 +6,9 @@ import {
   getPassword,
   getLoginInf,
 } from "../../redux/actions/index";
-import axios from "axios";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import axiosInstance from "../../api/server";
+import axiosInstance from "../../api/axiosInstance";
 
 const Wrapper = styled.div`
   @media only screen and (max-width: 399px) {
@@ -77,7 +76,7 @@ class LoginForm extends Component {
     });
   };
 
-  getLoginInf = (e, props) => {
+  getLoginInf = (e) => {
     e.preventDefault();
     console.log("ax", axiosInstance);
     if (
@@ -91,11 +90,12 @@ class LoginForm extends Component {
         data: {
           email: this.props.userName,
           password: this.props.logPassword,
+
         },
       })
         .then((res) => res.data)
         .then((data) => {
-          sessionStorage.setItem(data.user, data.id);
+          window.sessionStorage.setItem("Username", data.id);
           localStorage.setItem("Authorization", `Bearer ${data.token}`);
           if (data !== null) {
             this.props.getLoginInf({
@@ -103,15 +103,18 @@ class LoginForm extends Component {
             });
             const { cartItems } = this.props;
 
-            if (cartItems.length !== 0) {
-              const HISTORY = this.props.history;
-              alert("Log in successful!");
+            const HISTORY = this.props.history;
+            alert("Log in successful!");
               HISTORY.replace("/menu/detail/:id/order-type");
-            } else {
-              const HISTORY = this.props.history;
-              alert("Log in successful!");
-              HISTORY.replace("/menu");
-            }
+            // if (cartItems.length !== 0) {
+            //   const HISTORY = this.props.history;
+            //   alert("Log in successful!");
+            //   HISTORY.replace("/menu/detail/:id/order-type");
+            // } else {
+            //   const HISTORY = this.props.history;
+            //   alert("Log in successful!");
+            //   HISTORY.replace("/menu");
+            // }
           } else {
             alert("Invalid username or password!");
           }

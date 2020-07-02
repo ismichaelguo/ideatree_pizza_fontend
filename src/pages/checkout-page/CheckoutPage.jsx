@@ -7,7 +7,7 @@ import { genPastOrder } from '../../redux/actions/cart/cartActions';
 import { clearDeliveryForm } from '../../redux/actions/DeliveryForm';
 import { clearStoreHistory } from '../../redux/actions/PickUpForm';
 import { sumPrice } from '../../redux/actions/cart/cartUtils';
-import axiosInstance from "../../api/server";
+import axiosInstance from "../../api/axiosInstance";
 import './checkout-page.scss';
 
 const CheckOutPage = (props) => {
@@ -85,8 +85,22 @@ const handlePay = (props) => {
         : `${pickUpAddress} ${pickUpSuburb} ${pickUpPCode}`,
       "type": deliveryTime ? "Delivery" : "Pickup",
     }
-  }).then(res => console.log('order generated.'))
+  }).then(res => {
+    console.log('order generated.');
+    console.log("order-id",res)
+    window.sessionStorage.setItem("OrderId",res.data.id)
+  })
     .catch(err => console.log('failed to generate order.', err))
+  const userId = window.sessionStorage.getItem('Username');
+  axiosInstance({
+    method:"PUT",
+    url:`/user/${userId}`,
+    header: { 'Content-type': 'application/json' },
+    data:{
+      "order":window.sessionStorage.getItem("OrderId")
+    }
+  }).then(res=>console.log(res))
+  .catch(err=>console.log(err));
 
   genPastOrder();
   clearStoreHistory();

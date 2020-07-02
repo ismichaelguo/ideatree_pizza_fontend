@@ -20,7 +20,6 @@ class PastOrderCard extends React.Component{
     
     render(){
         const {order}=this.props;
-        console.log("qqqqq",this.props);
         const {id} = this.props.match.params;
 
         return(
