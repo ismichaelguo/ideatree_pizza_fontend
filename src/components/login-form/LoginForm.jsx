@@ -101,7 +101,6 @@ class LoginForm extends Component {
             this.props.getLoginInf({
               status: !this.props.status,
             });
-            const { cartItems } = this.props;
 
             const HISTORY = this.props.history;
             alert("Log in successful!");

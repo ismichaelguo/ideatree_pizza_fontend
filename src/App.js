@@ -18,6 +18,7 @@ import SavedOrder from './pages/saved-order-page/SavedOrder';
 import Footer from './components/footer/Footer';
 import SignUp from './pages/sign-up-page/SignUp';
 import AdminOrderPage from './pages/admin-order-page/AdminOrderPage';
+import AdminPage from './pages/admin-page/AdminPage';
 import "./App.css";
 
 
@@ -47,6 +48,7 @@ function App () {
           <Route exact={true} path='/receipt' component={ReceiptPage} />
           <Route exact={true} path='/account/sign-up' component={SignUp} />
           <Route exact path='/admin/order' component={AdminOrderPage} />
+          <Route exact path='/admin' component={AdminPage} />
 
         </Switch>
       </div>
