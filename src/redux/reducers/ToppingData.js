@@ -5,11 +5,20 @@ const initialState = {
 
 const toppingData = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_TOPPING_DATA":
+    case "TOPPING_DATA_REQUESTED":
       return {
         ...state,
-        toppingData: action.value,
       };
+    case "TOPPING_DATA_SUCCEEDED":
+      return {
+        ...state,
+        toppingData: action.toppingData.toppingData,
+      };
+    case "TOPPING_DATA_FAILED":
+      return {
+        ...state,
+      };
+
     case "ADD_TOPPING":
       return lengthCheck(state, action);
     // return {
