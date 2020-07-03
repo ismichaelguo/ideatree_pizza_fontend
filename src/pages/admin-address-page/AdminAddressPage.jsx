@@ -26,17 +26,30 @@ class AdminAddressPage extends React.Component {
             url: `/address/${currentPage}/${pageSize}`,
             method: "GET",
         }).then(res => {
-            console.log('res.data', res.data)
+            console.log('res.data', res.data);
+            const newTotalPages = Math.ceil(res.data.totalItems / pageSize);
+            //totalPages less than pageInterval
+            if (newTotalPages < this.state.pageInterval) {
+                this.setState({
+                    pageInterval: newTotalPages,
+                    upperPageBound: newTotalPages,
+                    lowerPageBound: 1,
+                }, () => {
+                    console.log("Reset pageInterval and upperPageBound to:", this.state.pageInterval);
+                });
+            }
+
             this.setState({
                 addresses: res.data.res,
                 totalItems: res.data.totalItems,
-                totalPages: Math.ceil(res.data.totalItems / pageSize),
-            })
+                totalPages: newTotalPages,
+            });
         }).catch(err => console.log('err', err))
     }
 
     componentWillMount() {
-        this.fetchData(this.state.currentPage, this.state.PAGE_SIZE)
+        this.fetchData(this.state.currentPage, this.state.PAGE_SIZE);
+
     }
 
     changeDirectionBtnStatus = () => {
@@ -69,14 +82,14 @@ class AdminAddressPage extends React.Component {
         }
 
     }
-    changeBound = (operation) => {
-        const{pageInterval,totalPages,upperPageBound,lowerPageBound,currentPage}=this.state
-        let gap = Math.floor(pageInterval/ 2);
+    changePageBound = (operation) => {
+        const { pageInterval, totalPages, upperPageBound, lowerPageBound, currentPage } = this.state
+        let gap = Math.floor(pageInterval / 2);
         switch (operation) {
             case "Next":
-                if (upperPageBound !== totalPages && currentPage> upperPageBound- gap) {
+                if (upperPageBound !== totalPages && currentPage > upperPageBound - gap) {
                     this.setState({
-                        upperPageBound: upperPageBound+ 1,
+                        upperPageBound: upperPageBound + 1,
                         lowerPageBound: upperPageBound + 1 - pageInterval + 1,
                     }, () => {
                         console.log("upperPageBound:", this.state.upperPageBound);
@@ -99,9 +112,9 @@ class AdminAddressPage extends React.Component {
                 break;
             case "First":
                 this.setState({
-                    lowerPageBound:1,
-                    upperPageBound:1+pageInterval-1,
-                },()=>{
+                    lowerPageBound: 1,
+                    upperPageBound: 1 + pageInterval - 1,
+                }, () => {
                     console.log("upperPageBound:", this.state.upperPageBound);
                     console.log("Currentpage:", this.state.currentPage);
                     console.log("lowerPageBound:", this.state.lowerPageBound);
@@ -109,69 +122,131 @@ class AdminAddressPage extends React.Component {
                 break;
             case "Last":
                 this.setState({
-                    upperPageBound:totalPages,
-                    lowerPageBound:totalPages-pageInterval+1,
-                },()=>{
+                    upperPageBound: totalPages,
+                    lowerPageBound: totalPages - pageInterval + 1,
+                }, () => {
                     console.log("upperPageBound:", this.state.upperPageBound);
                     console.log("Currentpage:", this.state.currentPage);
                     console.log("lowerPageBound:", this.state.lowerPageBound);
                 });
                 break;
+
             default:
                 break;
         }
     }
     btnPrevClick = () => {
-        const{currentPage,PAGE_SIZE}=this.state;
+        const { currentPage, PAGE_SIZE } = this.state;
         this.fetchData(currentPage - 1, PAGE_SIZE);
         this.setState({ currentPage: currentPage - 1 }, () => {
             this.changeDirectionBtnStatus();
             console.log("Currentpage:", this.state.currentPage);
             const operation = "Prev";
-            this.changeBound(operation);
+            this.changePageBound(operation);
         });
 
 
     }
     btnNextClick = () => {
-        const{currentPage,PAGE_SIZE}=this.state;
+        const { currentPage, PAGE_SIZE } = this.state;
         this.fetchData(currentPage + 1, PAGE_SIZE);
         this.setState({ currentPage: currentPage + 1 }, () => {
             this.changeDirectionBtnStatus();
             console.log("Currentpage:", this.state.currentPage);
             const operation = "Next";
-            this.changeBound(operation);
+            this.changePageBound(operation);
         });
     }
     btnFirstClick = () => {
-        const{PAGE_SIZE}=this.state;
+        const { PAGE_SIZE } = this.state;
         this.fetchData(1, PAGE_SIZE);
-        this.setState({ currentPage: 1}, () => {
+        this.setState({ currentPage: 1 }, () => {
             this.changeDirectionBtnStatus();
             const operation = "First";
-            this.changeBound(operation);
+            this.changePageBound(operation);
         });
 
 
     }
     btnLastClick = () => {
-        const{totalPages,PAGE_SIZE}=this.state;
+        const { totalPages, PAGE_SIZE } = this.state;
         this.fetchData(totalPages, PAGE_SIZE);
-        this.setState({ currentPage: totalPages}, () => {
+        this.setState({ currentPage: totalPages }, () => {
             this.changeDirectionBtnStatus();
             const operation = "Last";
-            this.changeBound(operation);
+            this.changePageBound(operation);
         });
 
     }
+    btnNumberClick = (e) => {
+        const { PAGE_SIZE,pageInterval,totalPages } = this.state;
+        const number = parseInt(e.target.id, 10);
+        let gap = Math.floor(pageInterval / 2);
+        this.fetchData(number, PAGE_SIZE);
+        switch (number) {
+            //case for first page
+            case 1:
+                this.setState({ currentPage: 1 }, () => {
+                    this.changeDirectionBtnStatus();
+                    const operation = "First";
+                    this.changePageBound(operation);
+                });
+                
+                break;
+            // last page
+            case totalPages:
+                this.setState({ currentPage: totalPages }, () => {
+                    this.changeDirectionBtnStatus();
+                    const operation = "Last";
+                    this.changePageBound(operation);
+                });
+                
+                break;
+            //Second page or last second page
+            case 2:
+            case totalPages-1:
+                this.setState({ currentPage: number }, () => {
+                    console.log("Currentpage:", this.state.currentPage);
+                    this.changeDirectionBtnStatus();
+                });
+                
+                break;
+            //other pages
+            default:
+                this.setState({ 
+                    currentPage: number,
+                    upperPageBound:number+gap,
+                    lowerPageBound:number-gap,      
+                 }, () => {
+                    console.log("Currentpage:", this.state.currentPage);
+                    this.changeDirectionBtnStatus();
+                });
+
+                break;
+        }
+        
+
+    }
+
     render() {
         const { currentPage, upperPageBound, lowerPageBound, isPrevBtnActive, isNextBtnActive, isFirstBtnActive, isLastBtnActive } = this.state;
         const pageNumbers = [];
         for (let i = 1; i <= this.state.totalPages; i++) {
             pageNumbers.push(i);
         }
-        const renderPageNumbers=pageNumbers.map(number=>{
-           
+        const renderPageNumbers = pageNumbers.map(number => {
+            if (number >= lowerPageBound && number <= upperPageBound) {
+                if (number === currentPage) {
+                    return (
+                        <li key={number} id={number} className='chosen'><a href='#' id={number} onClick={this.btnNumberClick}>{number}</a></li>
+                    )
+
+                } else {
+                    return (
+                        <li key={number} id={number}><a href='#' id={number} onClick={this.btnNumberClick}>{number}</a></li>
+                    )
+                }
+            }
         });
 
         const renderPrevBtn = <li className={isPrevBtnActive}><a href='#' id="btnPrev" onClick={this.btnPrevClick}>Prev</a></li>;
@@ -223,6 +298,7 @@ class AdminAddressPage extends React.Component {
                 <ul className="admin-address-page__pagination">
                     {renderFirstBtn}
                     {renderPrevBtn}
+                    {renderPageNumbers}
                     {renderNextBtn}
                     {renderLastBtn}
 
