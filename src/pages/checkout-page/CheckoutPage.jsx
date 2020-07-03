@@ -91,7 +91,7 @@ const handlePay = (props) => {
     window.sessionStorage.setItem("OrderId",res.data.id)
   })
     .catch(err => console.log('failed to generate order.', err))
-  const userId = window.sessionStorage.getItem('Username');
+  const userId = window.sessionStorage.getItem(this.props.logPassword);
   axiosInstance({
     method:"PUT",
     url:`/user/${userId}`,
@@ -122,6 +122,8 @@ const mapState = (state) => ({
   pickUpAddress: state.PickUpForm.store.address,
   pickUpSuburb: state.PickUpForm.store.suburb,
   pickUpPCode: state.PickUpForm.store.postcode,
+  logPassword: state.loginInf.logPassword,
+
 });
 
 const mapAction = { genPastOrder, clearStoreHistory, clearDeliveryForm }
