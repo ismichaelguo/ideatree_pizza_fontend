@@ -95,7 +95,9 @@ class LoginForm extends Component {
       })
         .then((res) => res.data)
         .then((data) => {
-          window.sessionStorage.setItem("Username", data.id);
+            console.log("login data",data)
+            window.sessionStorage.setItem('OrderHistory', data.order);
+          window.sessionStorage.setItem(data.user, data.id);
           localStorage.setItem("Authorization", `Bearer ${data.token}`);
           if (data !== null) {
             this.props.getLoginInf({
@@ -105,15 +107,6 @@ class LoginForm extends Component {
             const HISTORY = this.props.history;
             alert("Log in successful!");
               HISTORY.replace("/menu/detail/:id/order-type");
-            // if (cartItems.length !== 0) {
-            //   const HISTORY = this.props.history;
-            //   alert("Log in successful!");
-            //   HISTORY.replace("/menu/detail/:id/order-type");
-            // } else {
-            //   const HISTORY = this.props.history;
-            //   alert("Log in successful!");
-            //   HISTORY.replace("/menu");
-            // }
           } else {
             alert("Invalid username or password!");
           }

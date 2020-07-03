@@ -13,7 +13,9 @@ function OderType (props) {
     console.log("props",pastOrders.length)
     // const newStatus = parseInt(status)
     let hasHistory = false;
-    if(status===true && pastOrders.length!==0){
+    let orderHistory = window.sessionStorage.getItem('OrderHistory');
+    console.log("orderHistory",orderHistory);
+    if(status===true && orderHistory!==undefined){
       hasHistory = true;
     }
     // console.log("status",status)

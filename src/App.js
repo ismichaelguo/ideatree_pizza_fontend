@@ -10,7 +10,7 @@ import PickUpPage from "./pages/pick-up-page/PickUpPage";
 import CheckoutPage from './pages/checkout-page/CheckoutPage';
 import ThanksPage from './pages/thanks-page/ThanksPage';
 import ReceiptPage from './pages/receipt_page/ReceiptPage';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import DIYPizzaPage from "./pages/diy-pizza-page/DIYPizzaPage"
 import SelectOrderType from './pages/order-type-page/SelectOrderType'
 import SavedOrderNone from './pages/saved-order-page/SavedOrderNone';
@@ -49,6 +49,7 @@ function App () {
           <Route exact={true} path='/account/sign-up' component={SignUp} />
           <Route exact path='/admin/order' component={AdminOrderPage} />
           <Route exact path='/admin' component={AdminPage} />
+          <Redirect to='/admin' />
 
         </Switch>
       </div>
