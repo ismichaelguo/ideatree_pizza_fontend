@@ -10,21 +10,24 @@ import PickUpPage from "./pages/pick-up-page/PickUpPage";
 import CheckoutPage from './pages/checkout-page/CheckoutPage';
 import ThanksPage from './pages/thanks-page/ThanksPage';
 import ReceiptPage from './pages/receipt_page/ReceiptPage';
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect, withRouter } from "react-router-dom";
 import DIYPizzaPage from "./pages/diy-pizza-page/DIYPizzaPage"
 import SelectOrderType from './pages/order-type-page/SelectOrderType'
 import SavedOrderNone from './pages/saved-order-page/SavedOrderNone';
 import SavedOrder from './pages/saved-order-page/SavedOrder';
 import Footer from './components/footer/Footer';
 import SignUp from './pages/sign-up-page/SignUp';
-import AdminOrderPage from './pages/admin-order-page/AdminOrderPage';
+// import AdminOrderPage from './pages/admin-order-page/AdminOrderPage';
 import AdminPage from './pages/admin-page/AdminPage';
+import AdminProducts from "./components/admin-products/AdminProducts";
+import AdminUser from "./components/admin-user/AdminUser";
+import AdminOrder from "./components/admin-order/AdminOrder";
 import "./App.css";
 
 
-function App () {
+function App (props) {
   return (
-    <BrowserRouter>
+    <>
       <div className="App">
         <Switch>
           {/* Switch: Once find a matched path, will stop finding and only render the matched page. 
@@ -47,15 +50,16 @@ function App () {
           <Route exact path='/menu/detail/:id/order-type/saved-order' component={SavedOrder} />
           <Route exact={true} path='/receipt' component={ReceiptPage} />
           <Route exact={true} path='/account/sign-up' component={SignUp} />
-          <Route exact path='/admin/order' component={AdminOrderPage} />
-          <Route exact path='/admin' component={AdminPage} />
-          <Redirect to='/admin' />
-
+          {/* TODO: change admin homepage */}
+          <Route exact path='/admin' component={AdminUser} />
+          <Route path="/admin/product" component={AdminProducts} />
+          <Route path="/admin/orders" component={AdminOrder} />
+          <Route path="/admin/user" component={AdminUser} />
         </Switch>
       </div>
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 
-export default App;
+export default withRouter(App);
