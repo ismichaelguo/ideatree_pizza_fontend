@@ -1,8 +1,67 @@
-import React from 'react';
+@import "../../style_config/config";
 
+.table-wrap {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: $Abril_Fatface;
+  h3 {
+    margin-top: 3rem;
+  }
+  .table-title {
+    display: flex;
+    width: 100%;
+    border-bottom: solid 1px $white;
+    margin: 2rem 0 1rem 0;
+    span {
+      width: 40%;
+    }
+  }
+  .table-content {
+    display: flex;
+    width: 100%;
+    border-bottom: solid 1px $white;
+    padding: 1rem 0 1rem 0;
+    span {
+      width: 40%;
+    }
+    .icon {
+      cursor: pointer;
+      font-size: 2rem;
+    }
+  }
 
-class AdminUser extends React.Component{
+  .table-pagination {
+    width: 50%;
+    margin: 1.5rem auto 0;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    li {
+      border: 0.5px solid grey;
+      background-color: $white;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: black;
+      cursor: pointer;
+      &:first-child {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+      }
+      &:last-child {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+      &:hover {
+        background-color: $lightgrey;
+      }
+    }
+    .active {
+      background-color: $lightgrey;
+    }
 
+  }
 }
-
-export default AdminUser;
