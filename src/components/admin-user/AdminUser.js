@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Fragment } from "react";
 import axiosInstance from "../../api/axiosInstance";
 import Title from "./Title";
@@ -15,7 +16,14 @@ class AdminUser extends React.Component {
       totalPages: 0,
     };
   }
+||||||| 0641bc6
+import React, { Fragment } from 'react';
+=======
+import React, { Fragment } from 'react';
+import AdminNav from '../admin-nav/AdminNav'
+>>>>>>> 3dae87ede828c93a40ac5a1d502a7bcb5768bdba
 
+<<<<<<< HEAD
   fetchData(currentPage, pageSize) {
     axiosInstance({
       url: `/user/${currentPage}/${pageSize}`,
@@ -57,6 +65,27 @@ class AdminUser extends React.Component {
       </div>
     );
   }
+||||||| 0641bc6
+
+class AdminUser extends React.Component{
+    render(){
+        return(
+            <Fragment>
+                <h3>AdminOrder</h3>
+            </Fragment>
+        )
+    }
+=======
+class AdminUser extends React.Component {
+  render () {
+    return (
+      <Fragment>
+        <AdminNav />
+        <h3>AdminOrder</h3>
+      </Fragment>
+    )
+  }
+>>>>>>> 3dae87ede828c93a40ac5a1d502a7bcb5768bdba
 }
 
 export default AdminUser;

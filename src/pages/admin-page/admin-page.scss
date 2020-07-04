@@ -28,8 +28,7 @@
       z-index: 12;
 
       &__logo-image {
-        background: url("../../asset/Images/order-type-page/domino-logo.svg")
-          no-repeat;
+        background: url("../../asset/Images/order-type-page/domino-logo.svg") no-repeat;
         width: 110px;
         margin-right: 10px;
         height: 110px;
@@ -63,7 +62,7 @@
       }
     }
 
-    & nav {
+    nav {
       width: 100%;
       background-color: #42362e;
       height: 3.5rem;
@@ -71,7 +70,7 @@
       display: flex;
       align-items: center;
       text-align: center;
-      box-shadow: 3px 3px 3px 3px rgba(0, 0, 0,0.5);
+      box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
 
       .menu-link {
         flex: 1;
@@ -106,5 +105,9 @@
         line-height: 3.5rem;
       }
     }
+  }
+
+  &__item {
+    width: 100%;
   }
 }
