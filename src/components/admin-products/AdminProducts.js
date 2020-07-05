@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import React, { Fragment } from "react";
 import Pagination from "../../components/pagination/Pagination";
 import axiosInstance from "../../api/axiosInstance";
 import AdminProductCard from "../../components/admin-product-card/AdminProductCard";
+||||||| merged common ancestors
+import React, { Fragment } from 'react';
+=======
+import React, { Fragment } from 'react';
+import AdminNav from '../admin-nav/AdminNav'
+>>>>>>> 3dae87ede828c93a40ac5a1d502a7bcb5768bdba
 
+<<<<<<< HEAD
 class AdminProducts extends React.Component {
   constructor() {
     super();
@@ -15,13 +23,38 @@ class AdminProducts extends React.Component {
       showEditor: false,
     };
   }
+||||||| merged common ancestors
+=======
+class AdminProducts extends React.Component {
+>>>>>>> 3dae87ede828c93a40ac5a1d502a7bcb5768bdba
 
+<<<<<<< HEAD
   getPrevPage = (prevPage) => {
     this.getCurrentPage(prevPage);
   };
 
   getCurrentPage = (currentPage) => {
     console.log("1++++++++=======");
+||||||| merged common ancestors
+class AdminProducts extends React.Component{
+
+    render(){
+        return(
+            <Fragment>
+                <h3>AdminProducts</h3>
+            </Fragment>
+        )
+    }
+=======
+  render () {
+    return (
+      <Fragment>
+        <AdminNav />
+        <h3>AdminProducts</h3>
+      </Fragment>
+    )
+  }
+>>>>>>> 3dae87ede828c93a40ac5a1d502a7bcb5768bdba
 
     console.log("page", this.state.pageNumber);
     this.setState({ pageNumber: currentPage }, () => {
