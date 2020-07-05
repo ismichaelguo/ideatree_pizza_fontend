@@ -1,9 +1,9 @@
-<<<<<<< HEAD
-import React, { Fragment } from "react";
+import React from "react";
 import axiosInstance from "../../api/axiosInstance";
 import Title from "./Title";
 import UserInfo from "./UserInfo";
 import Pagination from "./Pagination";
+import AdminNav from "../admin-nav/AdminNav";
 import "./admin-user.scss";
 class AdminUser extends React.Component {
   constructor(props) {
@@ -16,14 +16,7 @@ class AdminUser extends React.Component {
       totalPages: 0,
     };
   }
-||||||| 0641bc6
-import React, { Fragment } from 'react';
-=======
-import React, { Fragment } from 'react';
-import AdminNav from '../admin-nav/AdminNav'
->>>>>>> 3dae87ede828c93a40ac5a1d502a7bcb5768bdba
 
-<<<<<<< HEAD
   fetchData(currentPage, pageSize) {
     axiosInstance({
       url: `/user/${currentPage}/${pageSize}`,
@@ -53,39 +46,26 @@ import AdminNav from '../admin-nav/AdminNav'
   render() {
     const { users, currentPage, pageSize, totalPages } = this.state;
     return (
-      <div className="table-wrap">
-        <Title />
-        <UserInfo users={users} />
-        <Pagination
-          pageUpdate={this.pageUpdate}
-          currentPage={currentPage}
-          pageSize={pageSize}
-          totalPages={totalPages}
-        />
+      <div className="admin-user-page">
+        <AdminNav />
+        <div className="table-wrap">
+          <Title />
+          <UserInfo
+            users={users}
+            pageUpdate={this.pageUpdate}
+            currentPage={currentPage}
+            pageSize={pageSize}
+          />
+          <Pagination
+            pageUpdate={this.pageUpdate}
+            currentPage={currentPage}
+            pageSize={pageSize}
+            totalPages={totalPages}
+          />
+        </div>
       </div>
     );
   }
-||||||| 0641bc6
-
-class AdminUser extends React.Component{
-    render(){
-        return(
-            <Fragment>
-                <h3>AdminOrder</h3>
-            </Fragment>
-        )
-    }
-=======
-class AdminUser extends React.Component {
-  render () {
-    return (
-      <Fragment>
-        <AdminNav />
-        <h3>AdminOrder</h3>
-      </Fragment>
-    )
-  }
->>>>>>> 3dae87ede828c93a40ac5a1d502a7bcb5768bdba
 }
 
 export default AdminUser;

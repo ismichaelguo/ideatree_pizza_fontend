@@ -6,10 +6,10 @@ export default function UserInfo() {
     <>
       <h3>Admin User</h3>
       <div className="table-title">
-        <span>name</span>
-        <span>email</span>
-        <span>phone</span>
-        <span>operation</span>
+        <span>Name</span>
+        <span>Email</span>
+        <span>Phone</span>
+        <span>Operation</span>
       </div>
     </>
   );

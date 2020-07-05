@@ -1,9 +1,14 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./admin-user.scss";
 
 export default function Pagination(props) {
   const { pageUpdate, currentPage, pageSize, totalPages } = props;
-  const classActive = useRef();
+
+  let pageArray = [];
+  for (let i = 0; i < totalPages; i++) {
+    pageArray.push(i + 1);
+  }
+
   const handleNextPage = () => {
     pageUpdate(currentPage + 1, pageSize);
   };
@@ -11,24 +16,42 @@ export default function Pagination(props) {
     pageUpdate(currentPage - 1, pageSize);
   };
   const handleUniqPage = (index) => {
-    // classActive.current.classList.toggle("active");
-    pageUpdate(index + 1, pageSize);
+    pageUpdate(index, pageSize);
   };
 
-  let pageArray = [];
-  for (let i = 0; i < totalPages; i++) {
-    pageArray.push(i + 1);
-  }
+  const checkFirstPage = (currentPage) => {
+    return currentPage === 1 ? (
+      <li className="cursor-disabled">Pre</li>
+    ) : (
+      <li onClick={handlePrevPage}>Pre</li>
+    );
+  };
+
+  const checkLastPage = (currentPage) => {
+    return currentPage === pageArray.length ? (
+      <li className="cursor-disabled">Next</li>
+    ) : (
+      <li onClick={handleNextPage}>Next</li>
+    );
+  };
+
+  const checkUniqPage = pageArray.map((page) => {
+    return page === currentPage ? (
+      <li key={page} className="active" onClick={() => handleUniqPage(page)}>
+        {page}
+      </li>
+    ) : (
+      <li key={page} onClick={() => handleUniqPage(page)}>
+        {page}
+      </li>
+    );
+  });
 
   return (
     <div className="table-pagination">
-      <li onClick={handlePrevPage}>pre</li>
-      {pageArray.map((page, index) => (
-        <li key={index} onClick={() => handleUniqPage(index)}>
-          {page}
-        </li>
-      ))}
-      <li onClick={handleNextPage}>Next</li>
+      {checkFirstPage(currentPage)}
+      {checkUniqPage}
+      {checkLastPage(currentPage)}
     </div>
   );
 }
