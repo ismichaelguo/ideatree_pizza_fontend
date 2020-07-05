@@ -45,7 +45,7 @@ class AdminPage extends React.Component {
                 Order
               </NavLink>
             </nav>
-            <div>
+            <div className="admin-option">
               <Switch>
                 <Route  path="/admin/product" component={AdminProducts} />
                 <Route  path="/admin/orders" component={AdminOrder} />

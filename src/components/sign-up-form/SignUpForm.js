@@ -1,69 +1,65 @@
-import React, { Component } from 'react';
-import './sign-up-form.scss';
+import React, { Component } from "react";
+import "./sign-up-form.scss";
 import { Link, withRouter } from "react-router-dom";
-import { connect } from 'react-redux';
-import styled from 'styled-components';
-import { getSignUpInf } from '../../redux/actions/index';
-import axios from 'axios';
-
-
+import { connect } from "react-redux";
+import styled from "styled-components";
+import { getSignUpInf } from "../../redux/actions/index";
+import axios from "axios";
 
 const Wrapper = styled.div`
-    @media only screen and (max-width : 399px) {
-        width: 10%
-    }
-`
+  @media only screen and (max-width: 399px) {
+    width: 10%;
+  }
+`;
 
 const BtnFacebook = styled.button`
-    width: 300px;
-    height:40px;  
-    border-radius: 15px;
+  width: 300px;
+  height: 40px;
+  border-radius: 15px;
+  background: #3b5998;
+  color: white;
+  border: 0px transparent;
+  text-align: center;
+  margin: 10px;
+  display: inline-block;
+
+  &:hover {
     background: #3b5998;
-    color:white;
-    border:0px transparent;  
-    text-align: center;
-    margin:10px;
-    display: inline-block;
-
-    &:hover{
-        background: #3b5998;
-        opacity: 0.6;
-    }
-`
+    opacity: 0.6;
+  }
+`;
 const BtnGoogle = styled.button`
-    margin:10px;
-    width: 300px;
-    height:40px;
-    border-radius: 15px;
-    background: #db3236;
-    color:white;
-    border:0px transparent;
-    text-align: center;
+  margin: 10px;
+  width: 300px;
+  height: 40px;
+  border-radius: 15px;
+  background: #db3236;
+  color: white;
+  border: 0px transparent;
+  text-align: center;
 
-    &:hover{
-        background: #3b5998;
-        opacity: 0.6;
-    }
-`
+  &:hover {
+    background: #3b5998;
+    opacity: 0.6;
+  }
+`;
 const BtnPaypal = styled.button`
-    margin:10px;
-    width: 300px;
-    height:40px;
-    border-radius: 15px;
-    background: #1B9EF5;
-    color:white;
-    border:0px transparent;
-    text-align: center;
+  margin: 10px;
+  width: 300px;
+  height: 40px;
+  border-radius: 15px;
+  background: #1b9ef5;
+  color: white;
+  border: 0px transparent;
+  text-align: center;
 
-    &:hover{
-        background: #3b5998;
-        opacity: 0.6;
-    }
-`
+  &:hover {
+    background: #3b5998;
+    opacity: 0.6;
+  }
+`;
 
 class SignUpForm extends Component {
-
-
   getSignUpInf = (e) => {
     e.preventDefault();
     const email = e.target.elements[0].value;
@@ -79,20 +75,24 @@ class SignUpForm extends Component {
 
     let isEmail = emailTest.test(email);
     let isName = nameTest.test(name);
-    let isPhoneNumber = phoneNumberTest.test(phoneNumber)
+    let isPhoneNumber = phoneNumberTest.test(phoneNumber);
 
-    const emailError = document.getElementById('customer-email-error');
-    const nameError = document.getElementById('customer-name-error');
-    const phoneError = document.getElementById('customer-phone-error');
-    const firstPasswordError = document.getElementById('customer-password-error');
-    const secondPasswordError = document.getElementById('customer-re-password-error');
-
+    const emailError = document.getElementById("customer-email-error");
+    const nameError = document.getElementById("customer-name-error");
+    const phoneError = document.getElementById("customer-phone-error");
+    const firstPasswordError = document.getElementById(
+      "customer-password-error"
+    );
+    const secondPasswordError = document.getElementById(
+      "customer-re-password-error"
+    );
 
     let isPassword = false;
     if (
       firstPassword === secondPassword &&
       PasswordTest.test(firstPassword) === true &&
-      PasswordTest.test(secondPassword) === true) {
+      PasswordTest.test(secondPassword) === true
+    ) {
       isPassword = true;
     }
 
@@ -117,48 +117,44 @@ class SignUpForm extends Component {
 
     if (isEmail && isName && isPhoneNumber && isPassword) {
       const History = this.props.history;
-      console.log('getSignUpInf')
       this.props.getSignUpInf({
         email: email,
         name: name,
         phoneNumber: phoneNumber,
         signPassword: firstPassword,
-      })
-      console.log("name", this.props.email)
+      });
+      console.log("name", this.props.email);
 
-      alert("Sign up successful! Please log in!")
-      History.replace('/account');
-
+      alert("Sign up successful! Please log in!");
+      History.replace("/account");
     }
+  };
 
-  }
-
-
-
-
-
-
-  render () {
-    console.log("!!!!!!", this.props.email)
+  render() {
 
     return (
       <div className="login-form">
         <div className="form-header">
-
           <div className="form-header_row-1">Account</div>
           <div className="form-header_row-2">
-            <span className="form-header_row-2_thin">Already got an account?</span>
-            <span><Link className="form-header_row-2_link" to="/account">Log in</Link></span>
+            <span className="form-header_row-2_thin">
+              Already got an account?
+            </span>
+            <span>
+              <Link className="form-header_row-2_link" to="/account">
+                Log in
+              </Link>
+            </span>
           </div>
         </div>
 
-
         <div className="form-container">
-
           <div onSubmit={this.getSignUpInf} className="form-section left">
-
             <div className="field-container">
-              <h2><span className="field-container_thin"> SIGN UP </span>WITH EMAIL</h2>
+              <h2>
+                <span className="field-container_thin"> SIGN UP </span>WITH
+                EMAIL
+              </h2>
             </div>
             <section>
               <form className="field-container input-group">
@@ -168,9 +164,11 @@ class SignUpForm extends Component {
                   name="email"
                   className="field-container_login-input"
                   // value="username"
-                  onChange={this.setEmail} />
-                <div className="inline-error" id='customer-email-error'>Email address not Valid!</div>
-
+                  onChange={this.setEmail}
+                />
+                <div className="inline-error" id="customer-email-error">
+                  Email address not Valid!
+                </div>
 
                 <label className="field-container_form-label">NAME</label>
                 <input
@@ -178,9 +176,11 @@ class SignUpForm extends Component {
                   name="name"
                   className="field-container_login-input"
                   // value="password"
-                  onChange={this.setName} />
-                <div className="inline-error" id='customer-name-error'>Name not Valid!</div>
-
+                  onChange={this.setName}
+                />
+                <div className="inline-error" id="customer-name-error">
+                  Name not Valid!
+                </div>
 
                 <label className="field-container_form-label">PHONE</label>
                 <input
@@ -188,9 +188,11 @@ class SignUpForm extends Component {
                   name="phone"
                   className="field-container_login-input"
                   // value="password"
-                  onChange={this.setPhoneNumber} />
-                <div className="inline-error" id='customer-phone-error'>Phone number not Valid!</div>
-
+                  onChange={this.setPhoneNumber}
+                />
+                <div className="inline-error" id="customer-phone-error">
+                  Phone number not Valid!
+                </div>
 
                 <label className="field-container_form-label">PASSWORD</label>
                 <input
@@ -198,39 +200,44 @@ class SignUpForm extends Component {
                   name="password"
                   className="field-container_login-input"
                   // value="password"
-                  onChange={this.setPassword} />
-                <div className="inline-error" id='customer-password-error'>Password must include number, lowercase, uppercase and special characters</div>
+                  onChange={this.setPassword}
+                />
+                <div className="inline-error" id="customer-password-error">
+                  Password must include number, lowercase, uppercase and special
+                  characters
+                </div>
 
-
-                <label className="field-container_form-label">CONFIRM PASSWORD</label>
+                <label className="field-container_form-label">
+                  CONFIRM PASSWORD
+                </label>
                 <input
                   type="password"
                   name="re-password"
                   className="field-container_login-input"
                   // value="password"
-                  onChange={this.confirmPassword} />
-                <div className="inline-error" id='customer-re-password-error'>Password not Valid!</div>
-
+                  onChange={this.confirmPassword}
+                />
+                <div className="inline-error" id="customer-re-password-error">
+                  Password not Valid!
+                </div>
 
                 <button className="login-btn">LOG IN</button>
-
-
               </form>
-              <div className="field-container">
-              </div>
+              <div className="field-container"></div>
             </section>
             <br />
-
           </div>
 
           <div className="form-divider">
             <div>OR</div>
           </div>
 
-
           <div className="form-section right">
             <div className="field-container">
-              <h2><span className="field-container_thin">LOG IN </span>WITH SOCIAL MEDIA</h2>
+              <h2>
+                <span className="field-container_thin">LOG IN </span>WITH SOCIAL
+                MEDIA
+              </h2>
             </div>
 
             {/* <div>
@@ -238,31 +245,43 @@ class SignUpForm extends Component {
                                 </div> */}
             <br />
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: "column", justifyContent: "space-around", alignItems: "center" }} >
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                flexDirection: "column",
+                justifyContent: "space-around",
+                alignItems: "center",
+              }}
+            >
               <Wrapper>
-                <BtnFacebook style={{ width: "400px", height: "60px", fontSize: "1.5rem" }}>
+                <BtnFacebook
+                  style={{ width: "400px", height: "60px", fontSize: "1.5rem" }}
+                >
                   &nbsp;&nbsp;Sign In with Facebook
-                                        </BtnFacebook >
+                </BtnFacebook>
                 <br />
-                <BtnGoogle style={{ width: "400px", height: "60px", fontSize: "1.5rem" }}>
+                <BtnGoogle
+                  style={{ width: "400px", height: "60px", fontSize: "1.5rem" }}
+                >
                   &nbsp;&nbsp;Sign In with Google
-                                        </BtnGoogle >
+                </BtnGoogle>
                 <br />
-                <BtnPaypal style={{ width: "400px", height: "60px", fontSize: "1.5rem" }}>
+                <BtnPaypal
+                  style={{ width: "400px", height: "60px", fontSize: "1.5rem" }}
+                >
                   &nbsp;&nbsp;Sign In with Paypal
-                                        </BtnPaypal >
+                </BtnPaypal>
               </Wrapper>
             </div>
-
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   const { SignUpForm } = state;
 
   return {
@@ -270,15 +289,14 @@ function mapStateToProps (state) {
     name: SignUpForm.name,
     phoneNumber: SignUpForm.phoneNumber,
     password: SignUpForm.password,
-
-  }
-
+  };
 }
 
 const mapActionsToProps = {
+  getSignUpInf,
+};
 
-  getSignUpInf
-
-}
-
-export default connect(mapStateToProps, mapActionsToProps)(withRouter(SignUpForm));
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withRouter(SignUpForm));

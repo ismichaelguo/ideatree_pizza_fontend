@@ -1,0 +1,69 @@
+@import "../../style_config/config";
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: #0b9441;
+  height: 4rem;
+  overflow: hidden;
+  transition: all 0.5s ease-in;
+
+
+  span:nth-child(1) {
+    width: 8rem;
+    text-align: center;
+  }
+  span:nth-child(2) {
+    width: 15rem;
+    text-align: center;
+  }
+  span:nth-child(3) {
+    width: 8rem;
+    text-align: center;
+  }
+
+  span:nth-child(4) {
+    width: 8rem;
+    text-align: center;
+    cursor: pointer;
+
+  }
+
+  & div {
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+
+    span:nth-child(1) {
+      width: 3rem;
+      text-align: center;
+      cursor: pointer;
+
+      & i{
+          pointer-events: none;
+      }
+    }
+    span:nth-child(2) {
+      width: 3rem;
+      text-align: center;
+      cursor: pointer;
+
+    }
+  }
+}
+
+.detail {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  // height:0;
+  font-size: 1.1rem;
+  background-color: $red;
+  transition: all 1s ease-in;
+
+
+}
