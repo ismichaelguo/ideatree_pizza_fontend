@@ -2,6 +2,8 @@ import React from 'react';
 import './admin-address-page.scss';
 import { Link } from 'react-router-dom';
 import axiosInstance from "../../api/server";
+import 'font-awesome/css/font-awesome.min.css';
+import AddressItem from '../../components/address-item/AddressItem';
 
 class AdminAddressPage extends React.Component {
     constructor(props) {
@@ -286,13 +288,13 @@ class AdminAddressPage extends React.Component {
                             <span>Operation</span>
                         </div>
                     </div>
-                    {/* <div className="admin-address-page__items">
+                    <div className="admin-address-page__items">
                         {this.state.addresses.map((address => (
                             <AddressItem key={address._id} address={address} removeAddress={this.removeaddress}
                                 fetchData={this.fetchData} currentPage={this.state.currentPage}
                                 pageSize={this.state.pageSize} />
                         )))}
-                    </div> */}
+                    </div>
 
                 </div>
                 <ul className="admin-address-page__pagination">
