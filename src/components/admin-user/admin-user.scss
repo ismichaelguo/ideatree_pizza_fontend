@@ -49,7 +49,7 @@
       .icon {
         cursor: pointer;
         font-size: 2rem;
-        text-align: center;
+
         @include iphone() {
           font-size: 1.5rem;
         }
