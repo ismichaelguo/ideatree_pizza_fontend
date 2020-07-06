@@ -1,0 +1,145 @@
+@import "../../style_config/config";
+
+.admin-user-page {
+  background: url(../../asset/Images/menuPageBackground.jpeg);
+  min-height: 90vh;
+  padding: 1rem 0;
+  width: 100%;
+  color: $white;
+  font-size: 1.5rem;
+  @include ipad() {
+    font-size: 1.3rem;
+  }
+  @include iphone() {
+    font-size: 1rem;
+  }
+  .table-wrap {
+    width: 80vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    font-family: $Abril_Fatface;
+
+    h3 {
+      margin-top: 3rem;
+    }
+    .table-title {
+      display: flex;
+      width: 100%;
+      border-bottom: solid 1px $white;
+      margin: 2rem 0 1rem 0;
+      span {
+        width: 40%;
+      }
+    }
+    .table-content {
+      display: flex;
+      width: 100%;
+      border-bottom: solid 1px $white;
+      padding: 1rem 0 1rem 0;
+      @include ipad() {
+        margin: 2rem 0 1rem 0;
+      }
+      span {
+        width: 40%;
+      }
+      .icon {
+        cursor: pointer;
+        font-size: 2rem;
+
+        @include iphone() {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .table-pagination {
+      width: 50%;
+      margin: 7rem auto 0;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+
+      li {
+        border: 0.5px solid grey;
+        background-color: $white;
+        padding: 1rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: black;
+        cursor: pointer;
+        &:first-child {
+          border-top-left-radius: 6px;
+          border-bottom-left-radius: 6px;
+        }
+        &:last-child {
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+        }
+        &:hover {
+          background-color: $lightgrey;
+        }
+      }
+      .cursor-disabled {
+        cursor: not-allowed;
+        color: $lightgrey;
+      }
+      .active {
+        background-color: $lightgrey;
+      }
+    }
+
+    .popup-window {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30%;
+      @include ipad() {
+        width: 45%;
+      }
+      @include iphone() {
+        width: 60%;
+      }
+      padding: 3rem;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+      background: $white;
+      background: #006991;
+      border-radius: 1rem;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.5s;
+      .closeIcon {
+        cursor: pointer;
+        position: absolute;
+        top: 2%;
+        right: 2%;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        .button {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 2rem;
+          button {
+            margin-left: 0.5rem;
+            width: 4rem;
+            height: 2.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: $Abril_Fatface;
+          }
+        }
+      }
+    }
+    .show {
+      visibility: visible;
+      opacity: 1;
+      transition: all 0.5s;
+    }
+  }
+}
