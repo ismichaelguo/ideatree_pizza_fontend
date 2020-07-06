@@ -1,0 +1,38 @@
+@import "../../style_config/config";
+
+.address-item {
+    &-container {
+     border-bottom: 1px solid $lightgrey;
+    }
+      display: flex;
+      width: 100%;
+      min-height: 70px;
+      font-size: 1.3rem;
+      align-items: center;
+      justify-content: space-evenly;
+      @include iphone() {
+        font-size: 0.7rem;
+      }
+    
+    &__data
+    {
+        width:14%;
+        text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+       
+    }
+    &__operator {
+        cursor: pointer;
+      }
+
+}
+.details-dropdown {
+    font-size: 1.3rem;
+    line-height: 1.4rem;
+    text-align: center;
+    margin-bottom: 0.8rem;
+    @include iphone() {
+        font-size: 0.7rem;
+      }
+  }

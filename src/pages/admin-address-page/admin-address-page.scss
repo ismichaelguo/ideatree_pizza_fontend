@@ -80,7 +80,14 @@
             text-transform: capitalize;
             width: 14%;
             text-align: center;
+            @include iphone() {
+              font-size: 0.7rem;
+            }
         }
+    }
+    &__items {
+      max-height: 52vh;
+      min-width: 100%;
     }
     &__pagination {
       width: 50%;

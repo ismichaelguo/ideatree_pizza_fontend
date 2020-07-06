@@ -17,19 +17,26 @@ class AddressItem extends React.Component {
     }
 
     render() {
+        const { _id, unit, streetNum, suburb, postcode,streetName } = this.props.address;
         return (
             <div className="address-item-container">
                 <div className="address-item">
-                    <span className="address-item__id">123</span>
-                    <span className="address-item__unit">123</span>
-                    <span className="address-item__street-number">123</span>
-                    <span className="address-item__street-name" > <i className="fa fa-search-plus"></i></span>
-                    <span className="address-item__suburb">123</span>
-                    <span className="address-item__suburb">123</span>
-                    <span className="address-item__operators">
-                        <span className="address-item__remove" ><i className="fa fa-trash"></i></span>
+                    <span className="address-item__data">{_id.slice(-5)}</span>
+                    <span className="address-item__data">{unit}</span>
+                    <span className="address-item__data">{streetNum}</span>
+                    <span className="address-item__data"> <span className="address-item__operator" onClick={this.detailClick}><i className="fa fa-search-plus"></i></span></span>
+                    <span className="address-item__data">{suburb}</span>
+                    <span className="address-item__data">{postcode}</span>
+                    <span className="address-item__data">
+                        <span className="address-item__operator" onClick={()=>{this.props.removeAddress(_id)}} ><i className="fa fa-trash"></i></span>
                     </span>
                 </div>
+                {this.state.dropdown ?
+                    <div className="details-dropdown">
+                        <p>{streetName}</p>
+                    </div>
+                    : null
+                }
             </div>
         )
     }

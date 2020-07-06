@@ -23,6 +23,16 @@ class AdminAddressPage extends React.Component {
             isLastBtnActive: "",
         }
     }
+    removeAddress=(id)=>{
+        axiosInstance({
+            url: `/address/${id}`,
+            method: "DELETE",
+          }).then(res => {
+            console.log(`ID: ${id} delete success.`);
+            this.fetchData(this.state.currentPage, this.state.PAGE_SIZE);
+          }).catch(err => console.log('err', err))
+
+    }
     fetchData = (currentPage, pageSize) => {
         axiosInstance({
             url: `/address/${currentPage}/${pageSize}`,
@@ -266,31 +276,31 @@ class AdminAddressPage extends React.Component {
                         </div>
                     </header>
                     <div className="admin-address-page__header">
-                        <div className="admin-address-page__header-item">
-                            <span>Address ID</span>
-                        </div>
-                        <div className="admin-address-page__header-item">
-                            <span>Unit</span>
-                        </div>
-                        <div className="admin-address-page__header-item">
-                            <span>StreetNumber</span>
-                        </div>
-                        <div className="admin-address-page__header-item">
-                            <span>StreetName</span>
-                        </div>
-                        <div className="admin-address-page__header-item">
-                            <span>Suburb</span>
-                        </div>
-                        <div className="admin-address-page__header-item">
-                            <span>Postcode</span>
-                        </div>
-                        <div className="admin-address-page__header-item">
-                            <span>Operation</span>
-                        </div>
+                        <span className="admin-address-page__header-item">
+                            Address ID
+                        </span>
+                        <span className="admin-address-page__header-item">
+                            Unit
+                        </span>
+                        <span className="admin-address-page__header-item">
+                           Street Number
+                        </span>
+                        <span className="admin-address-page__header-item">
+                            Street Name
+                        </span>
+                        <span className="admin-address-page__header-item">
+                            Suburb
+                        </span>
+                        <span className="admin-address-page__header-item">
+                            Postcode
+                        </span>
+                        <span className="admin-address-page__header-item">
+                            Operation
+                        </span>
                     </div>
                     <div className="admin-address-page__items">
                         {this.state.addresses.map((address => (
-                            <AddressItem key={address._id} address={address} removeAddress={this.removeaddress}
+                            <AddressItem key={address._id} address={address} removeAddress={this.removeAddress}
                                 fetchData={this.fetchData} currentPage={this.state.currentPage}
                                 pageSize={this.state.pageSize} />
                         )))}
