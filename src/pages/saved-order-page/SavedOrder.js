@@ -16,12 +16,13 @@ class SavedOrder extends React.Component {
   componentDidMount() {
     if (this.props.userName) {
       console.log(this.props.userName);
+      //get user id by logged in username from redux 
       const id = window.sessionStorage.getItem(this.props.userName);
       axiosInstance({
         url: `/user/order/${id}`,
         method: "GET",
-      })
-        .then((res) => res.data.orders)
+        //get order history from response and store into 
+      }).then((res) => res.data.orders)
         .then((data) => {
           this.setState({
             pastOrders: data,

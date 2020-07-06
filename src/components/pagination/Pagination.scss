@@ -1,0 +1,43 @@
+@import "../../style_config/config";
+
+.pagination {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  color: $blue;
+  cursor: pointer;
+  margin-top: 3rem;
+
+  & li {
+    border: 0.5px solid grey;
+    background-color: $white;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    &:first-child {
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    &:hover {
+      background-color: $lightgrey;
+    }
+
+    &.noMore {
+      color: #b5b5b5 !important;
+      cursor: not-allowed !important;
+    }
+  }
+
+  .activePage {
+    background-color: lighten($blue, 0.5) !important;
+    color:white
+  }
+}
