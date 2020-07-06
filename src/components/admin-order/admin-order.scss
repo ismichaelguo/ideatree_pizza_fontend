@@ -4,6 +4,7 @@
   background: url(../../asset/Images/menuPageBackground.jpeg);
   min-height: 90vh;
   padding: 1rem 0;
+  width: 100%;
   &__container {
     width: 80%;
     display: flex;
@@ -115,10 +116,10 @@
         }
       }
       &.disabled {
-        cursor: not-allowed;
+        pointer-events: none;
+        text-decoration: line-through;
         a {
           color: $greyV2 !important;
-          cursor: not-allowed;
         }
         &:hover {
           background-color: $white;

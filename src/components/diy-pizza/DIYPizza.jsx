@@ -4,18 +4,16 @@ import Combination from "./Combination";
 import remove from "../../asset/Images/Build-Own-Pizza/remove.png";
 import diyImage from "../../asset/Images/Build-Own-Pizza/build_own_pizza.png";
 
-import PIZZA_SELECTION_DATA from "./diy-pizza-data";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-import { getToppingData, deleteTopping } from "../../redux/actions/index";
+import { deleteTopping, loadToppingData } from "../../redux/actions/index";
 import { addItem } from "../../redux/actions/cart/cartActions";
 
 class DIYPizza extends React.Component {
   componentDidMount() {
-    const { getToppingData } = this.props;
-    const toppingData = PIZZA_SELECTION_DATA;
-    getToppingData(toppingData);
+    const { loadToppingData } = this.props;
+    loadToppingData();
   }
 
   render() {
@@ -122,9 +120,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapActionsToProps = {
-  getToppingData,
   deleteTopping,
   addItem,
+  loadToppingData,
 };
 
 export default connect(

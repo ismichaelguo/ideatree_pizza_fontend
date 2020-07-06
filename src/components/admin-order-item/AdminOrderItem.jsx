@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios';
-import './order-item.scss';
+import axiosInstance from "../../api/axiosInstance";
+import './admin-order-item.scss';
 
-class OrderItem extends React.Component {
+class AdminOrderItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,19 +17,21 @@ class OrderItem extends React.Component {
       dropdown: !this.state.dropdown
     })
   }
-
   handleEditClick = (id) => {
     this.setState({
       update: !this.state.update
     })
-    axios.get(`http://localhost:8080/order/${id}`)
-      .then(res => {
-        console.log('update res', res)
-        this.setState({
-          currentOrder: res.data
-        })
+    axiosInstance({
+      url: `/order/${id}`,
+      method: "GET",
+    }).then(res => {
+      console.log('update res', res)
+      this.setState({
+        currentOrder: res.data
       })
+    }).catch(err => console.log('err', err))
   }
+
   handleTimeChange = (e) => {
     let prevOrder = this.state.currentOrder;
     this.setState({
@@ -58,16 +60,23 @@ class OrderItem extends React.Component {
     })
   }
 
-  handleSubmit = (id) => {
+  handleCloseBtn = () => {
     this.setState({
       update: !this.state.update
     })
-    console.log('id', id)
-    axios({
-      "method": "PUT",
-      "url": `http://localhost:8080/order/${id}`,
-      "header": { 'Content-type': 'application/json' },
-      "data": {
+  }
+
+  handleSubmit = (id) => {
+    // update order and get paginate order again
+    this.setState({
+      update: !this.state.update
+    })
+    // console.log('id', id)
+    axiosInstance({
+      url: `/order/${id}`,
+      method: "PUT",
+      header: { 'Content-type': 'application/json' },
+      data: {
         "orderTime": this.state.currentOrder.orderTime,
         "DeliverPickupTime": this.state.currentOrder.DeliverPickupTime,
         "orderItems": this.state.currentOrder.orderItems,
@@ -78,7 +87,7 @@ class OrderItem extends React.Component {
     }).then(res => {
       console.log('update res:', res)
       this.props.fetchData(this.props.currentPage, this.props.pageSize)
-    }).catch(err => console.log('update err:', err))
+    }).catch(err => console.log('err', err))
   }
 
   render () {
@@ -106,23 +115,27 @@ class OrderItem extends React.Component {
           : null
         }
         {this.state.update ? (
-          <div className="details-update" >
-            <p>Order ID: <input type="text" name="orderID" value={_id} disabled /></p>
-            <p>Deliver/PickupTime:
+          <div className="details-update">
+            <div className="details-update__relative">
+              <p className='close-btn'><i className="fa fa-times-circle" onClick={this.handleCloseBtn}></i></p>
+              <p className="clear"></p>
+              <p>Order ID: <input type="text" name="orderID" value={_id} disabled /></p>
+              <p>Deliver/PickupTime:
               <input type="text" name="DeliverPickupTime" onChange={this.handleTimeChange}
-                value={this.state.currentOrder.DeliverPickupTime} />
-            </p>
-            {/* <p>orderItems: <input type="text" name="orderItems" value="" /></p>
+                  value={this.state.currentOrder.DeliverPickupTime} />
+              </p>
+              {/* <p>orderItems: <input type="text" name="orderItems" value="" /></p>
             <p>totalPrice: <input type="text" name="totalPrice" value="" /></p> */}
-            <p>address:
+              <p>address:
               <input type="text" name="address" onChange={this.handleAddressChange}
-                value={this.state.currentOrder.address} />
-            </p>
-            <p>type:
+                  value={this.state.currentOrder.address} />
+              </p>
+              <p>type:
                <input type="text" name="type" onChange={this.handleTypeChange}
-                value={this.state.currentOrder.type} />
-            </p>
-            <button type="submit" onClick={() => this.handleSubmit(_id)}>Submit</button>
+                  value={this.state.currentOrder.type} />
+              </p>
+              <button type="submit" onClick={() => this.handleSubmit(_id)}>Submit</button>
+            </div>
           </div>
         ) : null}
       </div>
@@ -131,4 +144,4 @@ class OrderItem extends React.Component {
 
 }
 
-export default OrderItem;
+export default AdminOrderItem;

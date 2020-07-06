@@ -67,6 +67,7 @@
   font-family: $Abril_Fatface;
   font-size: 1.5rem;
   background: url("../../asset/Images/menuPageBackground.jpeg");
+  background-color: none !important;
 
   &-box {
     width: 1024px;
@@ -115,3 +116,5 @@
     padding: 10px 0px;
   }
 }
+
+

@@ -6,10 +6,9 @@ import {
   getPassword,
   getLoginInf,
 } from "../../redux/actions/index";
-import axios from "axios";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import axiosInstance from "../../api/server";
+import axiosInstance from "../../api/axiosInstance";
 
 const Wrapper = styled.div`
   @media only screen and (max-width: 399px) {
@@ -77,10 +76,11 @@ class LoginForm extends Component {
     });
   };
 
-  getLoginInf = (e, props) => {
+  getLoginInf = (e) => {
     e.preventDefault();
     console.log("ax", axiosInstance);
     if (
+      //only if the user input the username and password
       this.props.userName !== undefined &&
       this.props.logPassword !== undefined
     ) {
@@ -95,23 +95,19 @@ class LoginForm extends Component {
       })
         .then((res) => res.data)
         .then((data) => {
-          sessionStorage.setItem(data.user, data.id);
+          //store order history, user id into session storage, store token into local storage
+          window.sessionStorage.setItem("OrderHistory", data.order);
+          window.sessionStorage.setItem(data.user, data.id);
           localStorage.setItem("Authorization", `Bearer ${data.token}`);
+          //log in status -> true when request successful
           if (data !== null) {
             this.props.getLoginInf({
               status: !this.props.status,
             });
-            const { cartItems } = this.props;
 
-            if (cartItems.length !== 0) {
-              const HISTORY = this.props.history;
-              alert("Log in successful!");
-              HISTORY.replace("/menu/detail/:id/order-type");
-            } else {
-              const HISTORY = this.props.history;
-              alert("Log in successful!");
-              HISTORY.replace("/menu");
-            }
+            const HISTORY = this.props.history;
+            alert("Log in successful!");
+            HISTORY.replace("/menu/detail/:id/order-type");
           } else {
             alert("Invalid username or password!");
           }
@@ -124,6 +120,7 @@ class LoginForm extends Component {
   };
 
   componentDidMount() {
+    //post request to store user inf to mongodb after sign up successful
     if (this.props.name) {
       axiosInstance({
         url: "/user/signup",

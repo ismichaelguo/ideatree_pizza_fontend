@@ -3,12 +3,13 @@ import $ from 'jquery';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
-import OrderItem from '../../components/order-item/OrderItem';
+import OrderItem from '../admin-order-item/AdminOrderItem';
 import { sumPrice } from '../../redux/actions/cart/cartUtils';
-import axiosInstance from "../../api/server";
-import './admin-order-page.scss';
+import axiosInstance from "../../api/axiosInstance";
+import AdminNav from '../admin-nav/AdminNav';
+import './admin-order.scss';
 
-class AdminOrderPage extends React.Component {
+class AdminOrder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,8 +21,8 @@ class AdminOrderPage extends React.Component {
       pageInterval: 3,
       totalItems: 0,
       totalPages: 0,
-      isPrevBtnActive: 'disabled',
-      isNextBtnActive: '',
+      isFirstBtnActive: 'disabled',
+      isLastBtnActive: '',
     }
   }
 
@@ -58,6 +59,8 @@ class AdminOrderPage extends React.Component {
     $('ul li#' + this.state.currentPage).addClass('active');
   }
   handleNumberClick = (event) => {
+    // handle pageID click
+    event.preventDefault();
     let pageID = Number(event.target.id);
     this.fetchData(pageID, this.state.pageSize)
     this.setState({
@@ -65,63 +68,68 @@ class AdminOrderPage extends React.Component {
     });
     $("ul li.active").removeClass('active');
     $('ul li#' + pageID).addClass('active');
-    this.setPrevAndNextBtnClass(pageID);
+    this.setFirstAndLastBtnState(pageID);
   }
-  setPrevAndNextBtnClass = (pageID) => {
+  setFirstAndLastBtnState = (pageID) => {
+    // use to determine whether disable first or last button
     let totalPages = this.state.totalPages;
-    this.setState({ isNextBtnActive: 'disabled' });
-    this.setState({ isPrevBtnActive: 'disabled' });
+    this.setState({ isLastBtnActive: 'disabled' });
+    this.setState({ isFirstBtnActive: 'disabled' });
     if (totalPages === pageID && totalPages > 1) {
-      this.setState({ isPrevBtnActive: '' });
+      this.setState({ isFirstBtnActive: '' });
     }
     else if (pageID === 1 && totalPages > 1) {
-      this.setState({ isNextBtnActive: '' });
+      this.setState({ isLastBtnActive: '' });
     }
     else if (totalPages > 1) {
-      this.setState({ isNextBtnActive: '' });
-      this.setState({ isPrevBtnActive: '' });
+      this.setState({ isLastBtnActive: '' });
+      this.setState({ isFirstBtnActive: '' });
     }
   }
-  btnIncrementClick = () => {
+  btnIncrementClick = (event) => {
+    // increase by the page interval, symbol is `...`
+    event.preventDefault();
     this.setState({ upperPageBound: this.state.upperPageBound + this.state.pageInterval });
     this.setState({ lowerPageBound: this.state.lowerPageBound + this.state.pageInterval });
     let pageID = this.state.upperPageBound + 1;
     this.fetchData(pageID, this.state.pageSize)
     this.setState({ currentPage: pageID });
-    this.setPrevAndNextBtnClass(pageID);
+    this.setFirstAndLastBtnState(pageID);
   }
-  btnDecrementClick = () => {
+  btnDecrementClick = (event) => {
+    // decrease by the page interval, symbol is `...`
+    event.preventDefault();
     this.setState({ upperPageBound: this.state.upperPageBound - this.state.pageInterval });
     this.setState({ lowerPageBound: this.state.lowerPageBound - this.state.pageInterval });
     let pageID = this.state.upperPageBound - this.state.pageInterval;
     this.fetchData(pageID, this.state.pageSize)
     this.setState({ currentPage: pageID });
-    this.setPrevAndNextBtnClass(pageID);
+    this.setFirstAndLastBtnState(pageID);
   }
-  btnPrevClick = () => {
-    if ((this.state.currentPage - 1) % this.state.pageInterval === 0) {
-      this.setState({ upperPageBound: this.state.upperPageBound - this.state.pageInterval });
-      this.setState({ lowerPageBound: this.state.lowerPageBound - this.state.pageInterval });
-    }
-    let pageID = this.state.currentPage - 1;
+  btnFirstClick = (event) => {
+    // go the the first pageID
+    event.preventDefault();
+    let pageID = 1 // this.state.currentPage - 1;
+    this.setState({ upperPageBound: this.state.pageInterval });
+    this.setState({ lowerPageBound: 0 });
     this.fetchData(pageID, this.state.pageSize)
     this.setState({ currentPage: pageID });
-    this.setPrevAndNextBtnClass(pageID);
+    this.setFirstAndLastBtnState(pageID);
   }
-  btnNextClick = () => {
-    if ((this.state.currentPage + 1) > this.state.upperPageBound) {
-      this.setState({ upperPageBound: this.state.upperPageBound + this.state.pageInterval });
-      this.setState({ lowerPageBound: this.state.lowerPageBound + this.state.pageInterval });
-    }
-    let pageID = this.state.currentPage + 1;
+  btnLastClick = (event) => {
+    // go to the last pageID
+    event.preventDefault();
+    let pageID = this.state.totalPages // this.state.currentPage + 1;
+    this.setState({ upperPageBound: this.state.totalPages });
+    this.setState({ lowerPageBound: this.state.totalPages - this.state.pageInterval });
     this.fetchData(pageID, this.state.pageSize)
     this.setState({ currentPage: pageID });
-    this.setPrevAndNextBtnClass(pageID);
+    this.setFirstAndLastBtnState(pageID);
   }
 
   render () {
     // console.log('orders', this.state.orders)
-    const { currentPage, upperPageBound, lowerPageBound, isPrevBtnActive, isNextBtnActive } = this.state;
+    const { currentPage, upperPageBound, lowerPageBound, isFirstBtnActive, isLastBtnActive } = this.state;
     // Logic for displaying page numbers
     const pageNumbers = [];
     for (let i = 1; i <= this.state.totalPages; i++) {
@@ -148,19 +156,13 @@ class AdminOrderPage extends React.Component {
     if (lowerPageBound >= 1) {
       pageDecrementBtn = <li className=''><a href='#' onClick={this.btnDecrementClick}>&hellip;</a></li>
     }
-    const renderPrevBtn = <li className={isPrevBtnActive}><a href='#' id="btnPrev" onClick={this.btnPrevClick}>Prev</a></li>;
-    const renderNextBtn = <li className={isNextBtnActive}><a href='#' id="btnNext" onClick={this.btnNextClick}>Next</a></li>;
+    const renderFirstBtn = <li className={isFirstBtnActive}><a href='#' id="btnPrev" onClick={this.btnFirstClick}>First</a></li>;
+    const renderLastBtn = <li className={isLastBtnActive}><a href='#' id="btnNext" onClick={this.btnLastClick}>Last</a></li>;
 
     return (
       <div className="admin-order-page">
+        <AdminNav />
         <div className="admin-order-page__container">
-          <header className='banner'>
-            <Link to='' className="banner__logo-image">
-            </Link>
-            <div className="banner__description">
-              Admin-Order
-            </div>
-          </header>
           <div className="admin-order-page__header">
             <div className="admin-order-page__header-item">
               <span>Order ID</span>
@@ -190,11 +192,11 @@ class AdminOrderPage extends React.Component {
           </div>
         </div>
         <ul className="admin-order-page__pagination">
-          {renderPrevBtn}
+          {renderFirstBtn}
           {pageDecrementBtn}
           {renderPageNumbers}
           {pageIncrementBtn}
-          {renderNextBtn}
+          {renderLastBtn}
         </ul>
       </div>
     );
@@ -214,4 +216,4 @@ const mapState = (state) => ({
 });
 
 
-export default connect(mapState, null)(AdminOrderPage);
+export default connect(mapState, null)(AdminOrder);

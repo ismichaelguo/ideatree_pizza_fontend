@@ -47,6 +47,17 @@
   margin-left: -14rem;
   z-index: 1000;
   background-color: $blue;
+  padding: 1rem;
+  border-radius: 10px;
+  &__relative {
+    position: relative;
+  }
+  .close-btn {
+    position: absolute;
+    top: -2rem;
+    right: 0.1rem;
+    cursor: pointer;
+  }
   p,
   button {
     margin: 1rem 0.5rem;

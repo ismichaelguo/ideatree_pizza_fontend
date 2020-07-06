@@ -25,7 +25,7 @@ export default function SavedOrderNone (props){
         <Link to={`/menu/detail/${id}/order-type/pick-up`}  className="type-container__type pick-up">
           Pick up
         </Link>
-        <Link className="btn-container">
+        <Link to={`/menu/detail/${id}/order-type`} className="btn-container">
         previous
         </Link>
       </div>       
