@@ -13,14 +13,16 @@ class ProductItem extends React.Component {
     this.setState({
       dropDown: !this.state.dropDown,
     });
+
   };
   handleEditClick = (e) => {
     const index = e.target.id;
     this.props.handleEditClick(index);
   };
 
-  removeItem = () => {
-    this.props.removeItem();
+  removeItem = (e) => {
+    const itemId = e.target.id; 
+    this.props.removeItem(itemId);
   };
 
   render() {
@@ -39,7 +41,7 @@ class ProductItem extends React.Component {
             <span onClick={this.handleEditClick} id={this.props.index}>
               <i className="fa fa-edit"></i>
             </span>
-            <span onClick={this.removeItem}>
+            <span onClick={this.removeItem} id = {item.id}>
               <i className="fa fa-trash"></i>
             </span>
           </div>

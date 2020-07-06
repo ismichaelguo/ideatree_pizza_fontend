@@ -10,16 +10,24 @@ class Pagination extends React.Component {
       pageSize: 1,
       displayedPage: 3,
       startPage: 1,
-      totalPage: 1,
     };
   }
 
   pageClick = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log("target1", e.target);
-    const { displayedPage } = this.state;
     let currentPage = e.target.innerHTML;
 
+    this.getStartPage(currentPage);
+
+    this.setState({currentPage},()=>{
+      this.props.onGetCurrentPage(currentPage)
+    })
+
+  };
+
+  getStartPage=(currentPage)=>{
+    const {displayedPage} = this.state;
     if (currentPage >= displayedPage) {
       this.setState({ startPage: currentPage - 1 });
     }
@@ -35,29 +43,17 @@ class Pagination extends React.Component {
         startPage: 1,
       });
     }
-
-    this.setState({currentPage},()=>{
-      this.props.onGetCurrentPage(currentPage)
-    })
-
-  };
+  }
 
   prePageHandler = (e) => {
     e.preventDefault();
 
-    let { currentPage,displayedPage, startPage } = this.state;
+    let { currentPage} = this.state;
     //minimum page should be 1
     if (currentPage - 1 !== 0) {
       let prePage = currentPage - 1;
-      this.setState({ currentPage:prePage },()=>{
-        //current < 3, start page =1
-        if(currentPage<=displayedPage){
-          this.setState({startPage:1})
-        }else{
-          this.setState({startPage: startPage+1})
-        }
-      });
-      
+      this.setState({ currentPage:prePage },this.getStartPage(prePage)
+      );
       this.props.onGetPrevPage(prePage);
     }
   };
@@ -65,18 +61,14 @@ class Pagination extends React.Component {
   nextPageHandler = (e) => {
     e.preventDefault();
     console.log("target", e.target);
-    let { currentPage, totalPage,displayedPage ,startPage} = this.state;
+    const totalPage = this.props.total
+    let { currentPage} = this.state;
     //the max page should be 8
     if (currentPage + 1 !== totalPage+1) {
       let nextPage = parseInt(currentPage) + 1;
-      this.setState({ currentPage:nextPage },()=>{
-        //current page > 5,start page should be 5, displayed pages are 567, last page is firmed. 
-        if(currentPage>totalPage-displayedPage){
-          this.setState({startPage:totalPage-displayedPage})
-        }else{
-          this.setState({startPage:startPage+1})
-        }
-      });
+      console.log("nextPage",nextPage)
+      this.setState({ currentPage:nextPage },this.getStartPage(nextPage)
+      );
       this.props.onGetNextPage(nextPage);
     }
   };
@@ -182,14 +174,13 @@ class Pagination extends React.Component {
     return pages;
   };
 
-  componentDidMount() {
-    this.setState({
-      totalPage: this.props.total,
-    });
-  }
 
   render() {
     console.log("pag-current", this.state.currentPage);
+    console.log("pag-start", this.state.startPage);
+
+
+
     return (
       <Fragment>
         <ul className="pagination">{this.createPage()}</ul>
