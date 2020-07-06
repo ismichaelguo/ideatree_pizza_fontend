@@ -39,7 +39,7 @@ class Detail extends React.Component {
     };
 
     return (
-      <div className="detail">
+      <div className="itemDetail">
         <div className="detail-header">
           <Link to="/menu" className="detail-menu">
             MENU

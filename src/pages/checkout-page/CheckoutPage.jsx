@@ -124,18 +124,20 @@ const handlePay = (props) => {
       window.sessionStorage.setItem("OrderId", res.data.id);
     })
     .catch((err) => console.log("failed to generate order.", err));
-  const userId = window.sessionStorage.getItem(this.props.logPassword);
-  axiosInstance({
-    method: "PUT",
-    url: `/user/${userId}`,
-    header: { "Content-type": "application/json" },
-    data: {
-      //update order id into user database
-      order: window.sessionStorage.getItem("OrderId"),
-    },
-  })
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
+  const userId = window.sessionStorage.getItem(props.userName);
+  if(userId!==undefined){
+    axiosInstance({
+      method: "PUT",
+      url: `/user/${userId}`,
+      header: { "Content-type": "application/json" },
+      data: {
+        //update order id into user database
+        order: window.sessionStorage.getItem("OrderId"),
+      },
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }
 
   genPastOrder();
   clearStoreHistory();
@@ -157,7 +159,7 @@ const mapState = (state) => ({
   pickUpAddress: state.PickUpForm.store.address,
   pickUpSuburb: state.PickUpForm.store.suburb,
   pickUpPCode: state.PickUpForm.store.postcode,
-  logPassword: state.loginInf.logPassword,
+  userName: state.loginInf.userName,
 });
 
 const mapAction = { genPastOrder, clearStoreHistory, clearDeliveryForm };
