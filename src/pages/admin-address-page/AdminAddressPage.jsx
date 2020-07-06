@@ -295,7 +295,7 @@ class AdminAddressPage extends React.Component {
                             Postcode
                         </span>
                         <span className="admin-address-page__header-item">
-                            Operation
+                            Operations
                         </span>
                     </div>
                     <div className="admin-address-page__items">
