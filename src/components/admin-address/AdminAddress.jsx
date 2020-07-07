@@ -1,9 +1,9 @@
 import React from 'react';
-import './admin-address-page.scss';
-import { Link } from 'react-router-dom';
-import axiosInstance from "../../api/server";
+import './admin-address.scss';
 import 'font-awesome/css/font-awesome.min.css';
-import AddressItem from '../../components/address-item/AddressItem';
+import AddressItem from '../admin-address-item/AdminAddressItem';
+import axiosInstance from "../../api/axiosInstance";
+import AdminNav from '../admin-nav/AdminNav';
 
 class AdminAddressPage extends React.Component {
     constructor(props) {
@@ -258,6 +258,8 @@ class AdminAddressPage extends React.Component {
                         <li key={number} id={number}><a href='#' id={number} onClick={this.btnNumberClick}>{number}</a></li>
                     )
                 }
+            }else{
+                return null;
             }
         });
 
@@ -267,14 +269,8 @@ class AdminAddressPage extends React.Component {
         const renderLastBtn = <li className={isLastBtnActive}><a href='#' id="btnLast" onClick={this.btnLastClick}>Last</a></li>;
         return (
             <div className="admin-address-page">
+                <AdminNav />
                 <div className="admin-address-page__container">
-                    <header className='banner'>
-                        <Link to='' className="banner__logo-image">
-                        </Link>
-                        <div className="banner__description">
-                            Admin-Address
-                        </div>
-                    </header>
                     <div className="admin-address-page__header">
                         <span className="admin-address-page__header-item">
                             Address ID
@@ -302,7 +298,7 @@ class AdminAddressPage extends React.Component {
                         {this.state.addresses.map((address => (
                             <AddressItem key={address._id} address={address} removeAddress={this.removeAddress}
                                 fetchData={this.fetchData} currentPage={this.state.currentPage}
-                                pageSize={this.state.pageSize} />
+                                PAGE_SIZE={this.state.PAGE_SIZE} />
                         )))}
                     </div>
 

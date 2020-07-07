@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import "./admin-nav.scss";
 
-function AdminOrderNav () {
+function AdminNav () {
   return (
     <div className="admin-page-nav">
       <div className="admin-page-nav__container">
@@ -35,10 +35,17 @@ function AdminOrderNav () {
           >
             Order
               </NavLink>
+              <NavLink
+            to="/admin/address"
+            className="menu-link"
+            activeClassName="address--active"
+          >
+            Address
+              </NavLink>
         </nav>
       </div>
     </div>
   )
 }
 
-export default AdminOrderNav;
+export default AdminNav;

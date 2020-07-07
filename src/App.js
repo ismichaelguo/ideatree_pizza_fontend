@@ -17,13 +17,11 @@ import SavedOrderNone from './pages/saved-order-page/SavedOrderNone';
 import SavedOrder from './pages/saved-order-page/SavedOrder';
 import Footer from './components/footer/Footer';
 import SignUp from './pages/sign-up-page/SignUp';
-import AdminOrderPage from './pages/admin-order-page/AdminOrderPage';
-import AdminAddressPage from "./pages/admin-address-page/AdminAddressPage";
-// import AdminOrderPage from './pages/admin-order-page/AdminOrderPage';
 import AdminPage from './pages/admin-page/AdminPage';
 import AdminProducts from "./components/admin-products/AdminProducts";
 import AdminUser from "./components/admin-user/AdminUser";
 import AdminOrder from "./components/admin-order/AdminOrder";
+import AdminAddress from "./components/admin-address/AdminAddress";
 import "./App.css";
 
 
@@ -52,12 +50,12 @@ function App (props) {
           <Route exact path='/menu/detail/:id/order-type/saved-order' component={SavedOrder} />
           <Route exact={true} path='/receipt' component={ReceiptPage} />
           <Route exact={true} path='/account/sign-up' component={SignUp} />
-          <Route exact path='/admin/address' component={AdminAddressPage} />
           {/* TODO: change admin homepage */}
           <Route exact path='/admin' component={AdminUser} />
           <Route path="/admin/product" component={AdminProducts} />
           <Route path="/admin/orders" component={AdminOrder} />
           <Route path="/admin/user" component={AdminUser} />
+          <Route path="/admin/address" component={AdminAddress} />
         </Switch>
       </div>
       <Footer />
