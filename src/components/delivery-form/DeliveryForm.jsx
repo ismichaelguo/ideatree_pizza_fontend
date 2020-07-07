@@ -5,7 +5,7 @@ import { BsClockHistory } from 'react-icons/bs';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { changeUnit, changeStreetNum, changeStreetName, changeSuburb, changePostcode, changeRememberAddress, changeDeliveryNow, changeTime } from '../../redux/actions/index';
-import axios from 'axios';
+import axiosInstance from "../../api/axiosInstance";
 
 class DeliveryForm extends React.Component {
 
@@ -19,37 +19,34 @@ class DeliveryForm extends React.Component {
     const suburb = document.getElementById('customer-suburb');
     const postcode = document.getElementById('customer-postcode');
 
-    if (userId!=null) {
-      axios({
-        'method': 'GET',
-        'url': `http://localhost:8080/address/${userId}`
+    if (userId != null) {
+      axiosInstance({
+        url: `/address/${userId}`,
+        method: "GET",
       }).then(res => {
         console.log(res.data);
-
         if (res.data[res.data.length - 1].unit) {
           unit.value = res.data[res.data.length - 1].unit;
           changeUnit({ unit: res.data[res.data.length - 1].unit });
         }
         if (res.data[res.data.length - 1].streetNum) {
           streetNum.value = res.data[res.data.length - 1].streetNum;
-          changeStreetNum({streetNum:res.data[res.data.length - 1].streetNum});
+          changeStreetNum({ streetNum: res.data[res.data.length - 1].streetNum });
         }
         if (res.data[res.data.length - 1].streetName) {
           streetName.value = res.data[res.data.length - 1].streetName;
-          changeStreetName({streetName:res.data[res.data.length - 1].streetName});
+          changeStreetName({ streetName: res.data[res.data.length - 1].streetName });
         }
         if (res.data[res.data.length - 1].suburb) {
           suburb.value = res.data[res.data.length - 1].suburb;
-          changeSuburb({suburb:res.data[res.data.length - 1].suburb});
+          changeSuburb({ suburb: res.data[res.data.length - 1].suburb });
         }
         if (res.data[res.data.length - 1].postcode) {
           postcode.value = res.data[res.data.length - 1].postcode;
-          changePostcode({postcode:res.data[res.data.length - 1].postcode});
+          changePostcode({ postcode: res.data[res.data.length - 1].postcode });
         }
 
-      }).catch(err => {
-        console.log("err", err);
-      });
+      }).catch(err => console.log('err', err));
     }
 
   }
@@ -148,11 +145,11 @@ class DeliveryForm extends React.Component {
   }
 
   handleSubmit = (e) => {
-    
+
     const streetNumError = document.getElementById('customer-street-num-error');
     const streetNameError = document.getElementById('customer-street-name-error');
     const streetSurburbError = document.getElementById('customer-suburb-error');
-    const { streetNum, streetName, suburb, time, rememberAddress,userName } = this.props;
+    const { streetNum, streetName, suburb, time, rememberAddress, userName } = this.props;
     const userId = sessionStorage.getItem(userName);
     if (streetNum === '') {
       streetNumError.style.display = "block";
@@ -178,12 +175,13 @@ class DeliveryForm extends React.Component {
       streetNameError.style.display = "none";
       streetSurburbError.style.display = "none";
       console.log(this.props);
-      if (rememberAddress&&userId) {
-        axios({
-          'method': 'POST',
-          'url': 'http://localhost:8080/address',
-          'header': { 'Content-type': 'application/json' },
-          'data': {
+      if (rememberAddress && userId) {
+
+        axiosInstance({
+          url: `/address`,
+          method: "POST",
+          header: { 'Content-type': 'application/json' },
+          data: {
             "userId": userId,
             "unit": parseInt(this.props.unit, 10),
             "streetNum": parseInt(this.props.streetNum, 10),
@@ -191,7 +189,10 @@ class DeliveryForm extends React.Component {
             "suburb": this.props.suburb,
             "postcode": parseInt(this.props.postcode, 10),
           },
-        }).then(res => console.log(res.data)).catch(err => console.log("err", err));
+        }).then(res => {
+          console.log(res.data);
+        }).catch(err => console.log('err', err));
+
       }
 
     }
@@ -212,38 +213,38 @@ class DeliveryForm extends React.Component {
         <section className='delivery-form__line4'>
           <label className="form-label">Time</label>
           <div >
-            <select className='form-control' name='timeDrapDownList' onChange={this.handleTime}>
+            <select className='deliveryForm-control' name='timeDrapDownList' onChange={this.handleTime}>
             </select>
           </div>
         </section>
 
         <section className='delivery-form__line1'>
           <div className='delivery-form__line1__unit'>
-            <label className="form-label" >Unit Number</label>
-            <input id="customer-unit" className="form-control" type="text" placeholder="Optional" onChange={this.handleUnitChange}></input>
+            <label className="deliveryForm-label" >Unit Number</label>
+            <input id="customer-unit" className="deliveryForm-control" type="text" placeholder="Optional" onChange={this.handleUnitChange}></input>
           </div>
           <div className='delivery-form__line1__street-num'>
-            <label className="form-label">Street Number</label>
-            <input id="customer-street-num" className="form-control" type="text" onChange={this.handleStreetNumChange}></input>
-            <div className="inline-error" id='customer-street-num-error'>Please enter your street number</div>
+            <label className="deliveryForm-label">Street Number</label>
+            <input id="customer-street-num" className="deliveryForm-control" type="text" onChange={this.handleStreetNumChange}></input>
+            <div className="deliveryForm-inline-error" id='customer-street-num-error'>Please enter your street number</div>
           </div>
         </section>
 
         <section className='delivery-form__line2'>
-          <label className="form-label">Street</label>
-          <input id="customer-street-name" type="text" className="form-control" maxLength='40' onChange={this.handleStreetNameChange}></input>
-          <div className="inline-error" id='customer-street-name-error'>Please enter your street name</div>
+          <label className="deliveryForm-label">Street</label>
+          <input id="customer-street-name" type="text" className="deliveryForm-control" maxLength='40' onChange={this.handleStreetNameChange}></input>
+          <div className="deliveryForm-inline-error" id='customer-street-name-error'>Please enter your street name</div>
         </section>
 
         <section className='delivery-form__line3'>
           <div className='delivery-form__line3__suburb'>
-            <label className="form-label">Suburb</label>
-            <input id="customer-suburb" type="text" className="form-control" maxLength='20' onChange={this.handleSuburbChange}></input>
-            <div className="inline-error" id='customer-suburb-error'>Please enter your suburb</div>
+            <label className="deliveryForm-label">Suburb</label>
+            <input id="customer-suburb" type="text" className="deliveryForm-control" maxLength='20' onChange={this.handleSuburbChange}></input>
+            <div className="deliveryForm-inline-error" id='customer-suburb-error'>Please enter your suburb</div>
           </div>
           <div className='delivery-form__line3__postcode'>
-            <label className="form-label">Postcode</label>
-            <input id="customer-postcode" type="text" className="form-control" placeholder="Optional" onChange={this.handlePostcodeChange}></input>
+            <label className="deliveryForm-label">Postcode</label>
+            <input id="customer-postcode" type="text" className="deliveryForm-control" placeholder="Optional" onChange={this.handlePostcodeChange}></input>
           </div>
         </section>
 
@@ -255,7 +256,7 @@ class DeliveryForm extends React.Component {
 
         <section className="delivery-form__remember-me">
           <input type="checkbox" onChange={this.handleRememberMe} ></input>
-          <label className="form-label">Remember My Delivery Details</label>
+          <label className="deliveryForm-label">Remember My Delivery Details</label>
           <span className="delivery-form__remember-me__more-information" onClick={this.displayInfo}>
             <FaQuestionCircle />
           </span>
@@ -266,7 +267,7 @@ class DeliveryForm extends React.Component {
           <Link to='/receipt' className="delivery-form__buttons__next" onClick={this.handleSubmit}>Next</Link>
         </section>
 
-        <Link to='/' className="log-in">
+        <Link to='/' className="deliveryForm-log-in">
           Registered Member? Log in / Sign up
         </Link>
       </form>

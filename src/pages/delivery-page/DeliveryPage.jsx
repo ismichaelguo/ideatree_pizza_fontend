@@ -17,7 +17,7 @@ const DeliveryPage = (props) => {
                     Delivery Details
                 </div>
             </header>
-            <section id='body'>
+            <section>
                 <DeliveryForm props={props}/>
             </section>
         </section>

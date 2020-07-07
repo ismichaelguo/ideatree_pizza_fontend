@@ -30,7 +30,7 @@ class AdminAddressPage extends React.Component {
           }).then(res => {
             console.log(`ID: ${id} delete success.`);
             this.fetchData(this.state.currentPage, this.state.PAGE_SIZE);
-          }).catch(err => console.log('err', err))
+          }).catch(err => console.log('err', err));
 
     }
     fetchData = (currentPage, pageSize) => {

@@ -10,14 +10,13 @@ import PickUpPage from "./pages/pick-up-page/PickUpPage";
 import CheckoutPage from './pages/checkout-page/CheckoutPage';
 import ThanksPage from './pages/thanks-page/ThanksPage';
 import ReceiptPage from './pages/receipt_page/ReceiptPage';
-import { BrowserRouter, Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import DIYPizzaPage from "./pages/diy-pizza-page/DIYPizzaPage"
 import SelectOrderType from './pages/order-type-page/SelectOrderType'
 import SavedOrderNone from './pages/saved-order-page/SavedOrderNone';
 import SavedOrder from './pages/saved-order-page/SavedOrder';
 import Footer from './components/footer/Footer';
 import SignUp from './pages/sign-up-page/SignUp';
-import AdminPage from './pages/admin-page/AdminPage';
 import AdminProducts from "./components/admin-products/AdminProducts";
 import AdminUser from "./components/admin-user/AdminUser";
 import AdminOrder from "./components/admin-order/AdminOrder";
