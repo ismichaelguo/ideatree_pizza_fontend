@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-// import MainNav from "../../components/main-nav/MainNav";
 import CheckoutItem from "../../components/checkout-item/CheckoutItem";
 import { genPastOrder } from "../../redux/actions/cart/cartActions";
 import { clearDeliveryForm } from "../../redux/actions/DeliveryForm";
@@ -25,6 +24,7 @@ const CheckOutPage = (props) => {
     pickUpSuburb,
     pickUpPCode,
   } = props;
+
   return (
     <div className="checkout-page">
       <div className="checkout-page__container">
@@ -63,10 +63,10 @@ const CheckOutPage = (props) => {
                 deliveryTime
                   ? `${unit} ${streetNum} ${streetName} ${suburb} ${postcode}`
                   : `${pickUpAddress} ${pickUpSuburb} ${pickUpPCode}`
-              }`}</p>
+                }`}</p>
               <p>{`Time: ${
                 deliveryTime ? `${deliveryTime}` : `${pickUpTime}`
-              }`}</p>
+                }`}</p>
             </>
           )}
         </div>
@@ -125,7 +125,8 @@ const handlePay = (props) => {
     })
     .catch((err) => console.log("failed to generate order.", err));
   const userId = window.sessionStorage.getItem(props.userName);
-  if(userId!==undefined){
+
+  if (userId !== undefined) {
     axiosInstance({
       method: "PUT",
       url: `/user/${userId}`,
@@ -138,7 +139,6 @@ const handlePay = (props) => {
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   }
-
   genPastOrder();
   clearStoreHistory();
   clearDeliveryForm();

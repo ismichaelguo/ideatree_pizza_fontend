@@ -111,14 +111,15 @@
       }
       &.active {
         background-color: lighten($blue, 0.5);
-        a {
+        span {
           color: $white !important;
         }
       }
       &.disabled {
-        pointer-events: none;
+        cursor: not-allowed;
         text-decoration: line-through;
-        a {
+        span {
+          cursor: not-allowed !important;
           color: $greyV2 !important;
         }
         &:hover {
@@ -129,11 +130,10 @@
         font-size: 1rem;
         font-weight: normal;
       }
-      a {
+      span {
         color: $blue;
-        &:active,
-        &:visited {
-          color: $blue;
+        &:hover {
+          cursor: pointer;
         }
       }
     }
