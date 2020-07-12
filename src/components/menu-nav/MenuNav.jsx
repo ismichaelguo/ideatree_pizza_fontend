@@ -26,6 +26,21 @@ class MenuNav extends React.Component {
     })
   }
 
+  showSubNav = (filteredFoodItems, hashtag) => {
+    return (
+      filteredFoodItems.map((item) => (
+        <a
+          key={item.id}
+          href={`#${hashtag.split("#")[1]}${item.href}`}
+          className={`menu-sub-navbar__item ${this.state.extended ? 'extended' : ''}`}
+          onClick={this.handleDishClick}
+        >
+          {item.name}
+        </a>
+      ))
+    )
+  }
+
   render () {
     let { hashtag } = this.props;
     if (hashtag.length === 0) {
@@ -84,17 +99,7 @@ class MenuNav extends React.Component {
               >
                 {filteredFood[0].items[0].name}
               </a>
-              {filteredFood[0].items.map((item, idx) => (
-                // iterate over the items in the filteredFood
-                <a
-                  key={idx}
-                  href={`#${hashtag.split("#")[1]}${item.href}`}
-                  className={`menu-sub-navbar__item ${this.state.extended ? 'extended' : ''}`}
-                  onClick={this.handleDishClick}
-                >
-                  {item.name}
-                </a>
-              ))}
+              {this.showSubNav(filteredFood[0].items, hashtag)}
             </nav>
           )}
         </header>

@@ -1,7 +1,5 @@
 import React from 'react';
-import $ from 'jquery';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
 import OrderItem from '../admin-order-item/AdminOrderItem';
 import { sumPrice } from '../../redux/actions/cart/cartUtils';
@@ -54,10 +52,6 @@ class AdminOrder extends React.Component {
     }).catch(err => console.log('err', err))
   }
 
-  componentDidUpdate () {
-    $("ul li.active").removeClass('active');
-    $('ul li#' + this.state.currentPage).addClass('active');
-  }
   handleNumberClick = (event) => {
     // handle pageID click
     event.preventDefault();
@@ -66,8 +60,6 @@ class AdminOrder extends React.Component {
     this.setState({
       currentPage: pageID
     });
-    $("ul li.active").removeClass('active');
-    $('ul li#' + pageID).addClass('active');
     this.setFirstAndLastBtnState(pageID);
   }
   setFirstAndLastBtnState = (pageID) => {
@@ -136,28 +128,24 @@ class AdminOrder extends React.Component {
       pageNumbers.push(i);
     }
     const renderPageNumbers = pageNumbers.map(number => {
-      if (number === 1 && currentPage === 1) {
+      // only display page numbers that are in the lower to upper bound range
+      if ((number < upperPageBound + 1) && number > lowerPageBound) {
         return (
-          <li key={number} className='active' id={number}><a href='#' id={number} onClick={this.handleNumberClick}>{number}</a></li>
-        )
-      }
-      else if ((number < upperPageBound + 1) && number > lowerPageBound) {
-        return (
-          <li key={number} id={number}><a href='#' id={number} onClick={this.handleNumberClick}>{number}</a></li>
+          <li key={number} className={currentPage === number ? `active` : ''} id={number} onClick={this.handleNumberClick}><span id={number}>{number}</span></li>
         )
       }
     });
     // Logic for direction buttons
     let pageIncrementBtn = null;
     if (pageNumbers.length > upperPageBound) {
-      pageIncrementBtn = <li className=''><a href='#' onClick={this.btnIncrementClick}>&hellip;</a></li>
+      pageIncrementBtn = <li className='' onClick={this.btnIncrementClick}><span>&hellip;</span></li>
     }
     let pageDecrementBtn = null;
     if (lowerPageBound >= 1) {
-      pageDecrementBtn = <li className=''><a href='#' onClick={this.btnDecrementClick}>&hellip;</a></li>
+      pageDecrementBtn = <li className='' onClick={this.btnDecrementClick}><span>&hellip;</span></li>
     }
-    const renderFirstBtn = <li className={isFirstBtnActive}><a href='#' id="btnPrev" onClick={this.btnFirstClick}>First</a></li>;
-    const renderLastBtn = <li className={isLastBtnActive}><a href='#' id="btnNext" onClick={this.btnLastClick}>Last</a></li>;
+    const renderFirstBtn = <li className={isFirstBtnActive} onClick={this.btnFirstClick}><span>First</span></li>;
+    const renderLastBtn = <li className={isLastBtnActive} onClick={this.btnLastClick}><span>Last</span></li>;
 
     return (
       <div className="admin-order-page">
