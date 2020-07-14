@@ -1,20 +1,19 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./admin-product-card.scss";
 import ProductItem from "./ProductItem";
 
 class AdminProductCard extends React.Component {
   constructor() {
     super();
+    //determine whether open the editor
     this.state = {
       dropDown: false,
     };
   }
 
   render() {
-    console.log("products", this.props.product);
     const product = this.props.product;
     const items = this.props.product.items;
-    console.log("functions", this.props);
 
     return (
       <div className="cardContainer">

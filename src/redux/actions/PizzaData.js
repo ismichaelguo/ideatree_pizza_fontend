@@ -1,9 +1,6 @@
-const axios = require('axios');
-
 export const loadPizzaData = () => (dispatch) => {
   dispatch(handlePizzaDataRequested());
-  fetch('http://localhost:8080/products',
-  {method:"GET"})
+  fetch("http://localhost:8080/products", { method: "GET" })
     .then((res) => res.json())
     .then((res) => dispatch(handlePizzaDataSucceeded(res)))
     .catch((err) => dispatch(handlePizzaDataFailed(err)));

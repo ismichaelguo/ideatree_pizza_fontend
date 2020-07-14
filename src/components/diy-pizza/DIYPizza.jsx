@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./DIYPizza.scss";
 import Combination from "./Combination";
 import remove from "../../asset/Images/Build-Own-Pizza/remove.png";
