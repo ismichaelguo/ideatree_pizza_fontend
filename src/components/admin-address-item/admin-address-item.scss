@@ -1,0 +1,93 @@
+@import "../../style_config/config";
+
+.address-item {
+    &-container {
+        border-bottom: 1px solid $lightgrey;
+    }
+
+    display: flex;
+    width: 100%;
+    min-height: 70px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @include iphone {
+        font-size: 0.7rem;
+    }
+
+
+    &__data {
+        width: 14%;
+        text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    &__operator {
+        cursor: pointer;
+    }
+}
+
+.details-dropdown {
+    font-size: 1.3rem;
+    line-height: 1.4rem;
+    text-align: center;
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+
+    @include iphone {
+        font-size: 0.7rem;
+    }
+}
+
+.details-editor {
+    z-index: 10;
+    position: absolute;
+    top: 25%;
+    left: 33.5%;
+    width: 33%;
+    background-color: $blue;
+    padding: 0.5rem 1rem 1rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px black;
+    
+    @include iphone() {
+      top: 10%;
+      left: 1%;
+      width: 98%;
+    }
+
+    &__close-btn {
+        position: absolute;
+        font-size: 2rem;
+        right: 0%;
+        cursor: pointer;
+
+        &-container {
+            position: relative;
+            margin-bottom: 1.5em;
+        }
+    }
+
+    & button {
+        // width: 60% !important;
+        margin-top: 1rem !important;
+
+        @include button_type;
+    }
+}
+
+.form-label {
+    position: relative;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.form-control {
+    position: relative;
+    display: block;
+    margin-bottom: 0.5em;
+}

@@ -1,0 +1,100 @@
+@import "../../style_config/config";
+
+.admin-address-page {
+    background: url(../../asset/Images/menuPageBackground.jpeg);
+    min-height: 90vh;
+    padding: 1rem 0;
+
+    &__container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        font-family: $Fredericka;
+        font-size: 1.5rem;
+        color: $white;
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+
+        @include iphone {
+            font-size: 1rem;
+        }
+    }
+
+    &__header {
+        width: 100%;
+        padding: 1.5rem 0 1rem 0;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        border-bottom: 1px solid darkgrey;
+
+        &-item {
+            text-transform: capitalize;
+            width: 14%;
+            text-align: center;
+            font-weight: bold;
+            @include iphone() {
+              font-size: 0.7rem;
+            }
+        }
+    }
+    &__items {
+      max-height: 52vh;
+      min-width: 100%;
+    }
+    &__pagination {
+      width: 50%;
+      margin: 1.5rem auto 0;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      li {
+        border: 0.5px solid grey;
+        background-color: $white;
+        padding: 1rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        &:first-child {
+          border-top-left-radius: 6px;
+          border-bottom-left-radius: 6px;
+        }
+        &:last-child {
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+        }
+        &:hover {
+          background-color: $lightgrey;
+        }
+        &.chosen {
+          background-color: lighten($blue, 0.5);
+          a {
+            color: $white !important;
+          }
+        }
+        &.disabled {
+          cursor: not-allowed;
+          pointer-events: none;
+          a {
+            color: $greyV2 !important;
+            cursor: not-allowed;
+          }
+          &:hover {
+            background-color: $white;
+          }
+        }
+        @include iphone() {
+          font-size: 1rem;
+          font-weight: normal;
+        }
+        a {
+          color: $blue;
+          &:active,
+          &:visited {
+            color: $blue;
+          }
+        }
+      }
+    }
+}
