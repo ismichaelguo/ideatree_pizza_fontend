@@ -56,6 +56,7 @@
         padding: 1rem;
         font-size: 1.2rem;
         font-weight: bold;
+        cursor: pointer;
         &:first-child {
           border-top-left-radius: 6px;
           border-bottom-left-radius: 6px;
@@ -69,14 +70,14 @@
         }
         &.chosen {
           background-color: lighten($blue, 0.5);
-          a {
+          span {
             color: $white !important;
           }
         }
         &.disabled {
           cursor: not-allowed;
           pointer-events: none;
-          a {
+          span {
             color: $greyV2 !important;
             cursor: not-allowed;
           }
@@ -88,7 +89,7 @@
           font-size: 1rem;
           font-weight: normal;
         }
-        a {
+        span {
           color: $blue;
           &:active,
           &:visited {
