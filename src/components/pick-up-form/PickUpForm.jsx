@@ -39,7 +39,7 @@ class PickUpForm extends React.Component {
         const { storesData } = this.props;
 
         if (storesData.length === 0) {
-            console.log('null');
+            
             return null;
 
         }
@@ -89,8 +89,6 @@ class PickUpForm extends React.Component {
         const { changePickUpTime } = this.props;
 
         if (e.target.value === 'later') {
-            //const { changeDeliveryNow } = this.props;
-            //changeDeliveryNow({ deliverNow: false });
             orderTime.style.display = 'block';
             orderTime.style.animation = "displayOrderTime 1s";
 
@@ -221,9 +219,9 @@ class PickUpForm extends React.Component {
                 </section>
 
                 <section className='pick-up-form__line1'>
-                    <label className="form-label">Time</label>
+                    <label className="pick-up-form-label">Time</label>
                     <div >
-                        <select className='form-control' name='timeDrapDownList' onChange={this.handleTime}>
+                        <select className='pick-up-form-control' name='timeDrapDownList' onChange={this.handleTime}>
                         </select>
                     </div>
                 </section>
@@ -242,10 +240,10 @@ class PickUpForm extends React.Component {
                 </section>
 
                 <section className='pick-up-form__line2'>
-                    <label className="form-label">Postcode, Suburb or Store <span className="pick-up-form__line2__more-information" onClick={this.displayInfo}>
+                    <label className="pick-up-form-label">Postcode, Suburb or Store <span className="pick-up-form__line2__more-information" onClick={this.displayInfo}>
                         <FaQuestionCircle />
                     </span></label>
-                    <input id="customer-input" className="form-control" type="text" onChange={this.handleInput}></input>
+                    <input id="customer-input" className="pick-up-form-control" type="text" onChange={this.handleInput}></input>
                     <ul className='pick-up-form__line2__results'> {this.setUp()}</ul>
 
                 </section>
@@ -253,9 +251,7 @@ class PickUpForm extends React.Component {
                 <section className="pick-up-form__buttons">
                     <Link to='/' className="pick-up-form__buttons__back" onClick={this.handleBack} >Back</Link>
                 </section>
-                <Link to='/' className="log-in">
-                    Registered Member? Log in / Sign up
-                </Link>
+                
             </form>
         )
     }

@@ -332,7 +332,7 @@
 
 
 
-.form-label {
+.pick-up-form-label {
     font-size: 18px;
     line-height: 1.1em;
     margin: 0;
@@ -345,7 +345,7 @@
     }
 }
 
-.form-control {
+.pick-up-form-control {
     font-size: 16px;
     padding: 2px 0 0 4px;
     width: 100%;
@@ -368,13 +368,4 @@
     }
 }
 
-.log-in {
-    color: $white;
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-decoration: none;
-    padding-top: 5rem;
-    margin-bottom: 5rem;
-    text-transform: none;
-    align-items: center;
-}
+

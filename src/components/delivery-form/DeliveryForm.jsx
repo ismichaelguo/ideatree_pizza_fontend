@@ -24,7 +24,7 @@ class DeliveryForm extends React.Component {
         url: `/address/${userId}`,
         method: "GET",
       }).then(res => {
-        console.log(res.data);
+        //console.log(res.data);
         if (res.data[res.data.length - 1].unit) {
           unit.value = res.data[res.data.length - 1].unit;
           changeUnit({ unit: res.data[res.data.length - 1].unit });
@@ -174,7 +174,7 @@ class DeliveryForm extends React.Component {
       streetNumError.style.display = "none";
       streetNameError.style.display = "none";
       streetSurburbError.style.display = "none";
-      console.log(this.props);
+      //console.log(this.props);
       if (rememberAddress && userId) {
 
         axiosInstance({
@@ -190,7 +190,7 @@ class DeliveryForm extends React.Component {
             "postcode": parseInt(this.props.postcode, 10),
           },
         }).then(res => {
-          console.log(res.data);
+          //console.log(res.data);
         }).catch(err => console.log('err', err));
 
       }
@@ -211,7 +211,7 @@ class DeliveryForm extends React.Component {
         </section>
 
         <section className='delivery-form__line4'>
-          <label className="form-label">Time</label>
+          <label className="deliveryForm-label">Time</label>
           <div >
             <select className='deliveryForm-control' name='timeDrapDownList' onChange={this.handleTime}>
             </select>
@@ -267,9 +267,6 @@ class DeliveryForm extends React.Component {
           <Link to='/receipt' className="delivery-form__buttons__next" onClick={this.handleSubmit}>Next</Link>
         </section>
 
-        <Link to='/' className="deliveryForm-log-in">
-          Registered Member? Log in / Sign up
-        </Link>
       </form>
     )
   }
