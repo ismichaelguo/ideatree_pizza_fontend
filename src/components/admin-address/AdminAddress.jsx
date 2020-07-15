@@ -28,7 +28,7 @@ class AdminAddressPage extends React.Component {
             url: `/address/${id}`,
             method: "DELETE",
           }).then(res => {
-            console.log(`ID: ${id} delete success.`);
+            //console.log(`ID: ${id} delete success.`);
             this.fetchData(this.state.currentPage, this.state.PAGE_SIZE);
           }).catch(err => console.log('err', err));
 
@@ -46,8 +46,6 @@ class AdminAddressPage extends React.Component {
                     pageInterval: newTotalPages,
                     upperPageBound: newTotalPages,
                     lowerPageBound: 1,
-                }, () => {
-                    console.log("Reset pageInterval and upperPageBound to:", this.state.pageInterval);
                 });
             }
 
@@ -103,10 +101,6 @@ class AdminAddressPage extends React.Component {
                     this.setState({
                         upperPageBound: upperPageBound + 1,
                         lowerPageBound: upperPageBound + 1 - pageInterval + 1,
-                    }, () => {
-                        console.log("upperPageBound:", this.state.upperPageBound);
-                        console.log("Currentpage:", this.state.currentPage);
-                        console.log("lowerPageBound:", this.state.lowerPageBound);
                     });
                 }
                 break;
@@ -115,10 +109,6 @@ class AdminAddressPage extends React.Component {
                     this.setState({
                         lowerPageBound: lowerPageBound - 1,
                         upperPageBound: lowerPageBound - 1 + pageInterval - 1,
-                    }, () => {
-                        console.log("upperPageBound:", this.state.upperPageBound);
-                        console.log("Currentpage:", this.state.currentPage);
-                        console.log("lowerPageBound:", this.state.lowerPageBound);
                     });
                 }
                 break;
@@ -126,20 +116,12 @@ class AdminAddressPage extends React.Component {
                 this.setState({
                     lowerPageBound: 1,
                     upperPageBound: 1 + pageInterval - 1,
-                }, () => {
-                    console.log("upperPageBound:", this.state.upperPageBound);
-                    console.log("Currentpage:", this.state.currentPage);
-                    console.log("lowerPageBound:", this.state.lowerPageBound);
                 });
                 break;
             case "Last":
                 this.setState({
                     upperPageBound: totalPages,
                     lowerPageBound: totalPages - pageInterval + 1,
-                }, () => {
-                    console.log("upperPageBound:", this.state.upperPageBound);
-                    console.log("Currentpage:", this.state.currentPage);
-                    console.log("lowerPageBound:", this.state.lowerPageBound);
                 });
                 break;
 
@@ -152,7 +134,6 @@ class AdminAddressPage extends React.Component {
         this.fetchData(currentPage - 1, PAGE_SIZE);
         this.setState({ currentPage: currentPage - 1 }, () => {
             this.changeDirectionBtnStatus();
-            console.log("Currentpage:", this.state.currentPage);
             const operation = "Prev";
             this.changePageBound(operation);
         });
@@ -164,7 +145,6 @@ class AdminAddressPage extends React.Component {
         this.fetchData(currentPage + 1, PAGE_SIZE);
         this.setState({ currentPage: currentPage + 1 }, () => {
             this.changeDirectionBtnStatus();
-            console.log("Currentpage:", this.state.currentPage);
             const operation = "Next";
             this.changePageBound(operation);
         });
@@ -218,7 +198,6 @@ class AdminAddressPage extends React.Component {
             case 2:
             case totalPages-1:
                 this.setState({ currentPage: number }, () => {
-                    console.log("Currentpage:", this.state.currentPage);
                     this.changeDirectionBtnStatus();
                 });
                 
@@ -230,7 +209,6 @@ class AdminAddressPage extends React.Component {
                     upperPageBound:number+gap,
                     lowerPageBound:number-gap,      
                  }, () => {
-                    console.log("Currentpage:", this.state.currentPage);
                     this.changeDirectionBtnStatus();
                 });
 
@@ -248,25 +226,18 @@ class AdminAddressPage extends React.Component {
         }
         const renderPageNumbers = pageNumbers.map(number => {
             if (number >= lowerPageBound && number <= upperPageBound) {
-                if (number === currentPage) {
-                    return (
-                        <li key={number} id={number} className='chosen'><a href='#' id={number} onClick={this.btnNumberClick}>{number}</a></li>
-                    )
 
-                } else {
-                    return (
-                        <li key={number} id={number}><a href='#' id={number} onClick={this.btnNumberClick}>{number}</a></li>
-                    )
-                }
+                    return    (<li key={number} id={number} className={number === currentPage?"chosen":""} onClick={this.btnNumberClick}><span id={number} >{number}</span></li>);
+            
             }else{
                 return null;
             }
         });
 
-        const renderPrevBtn = <li className={isPrevBtnActive}><a href='#' id="btnPrev" onClick={this.btnPrevClick}>Prev</a></li>;
-        const renderNextBtn = <li className={isNextBtnActive}><a href='#' id="btnNext" onClick={this.btnNextClick}>Next</a></li>;
-        const renderFirstBtn = <li className={isFirstBtnActive}><a href='#' id="btnFirst" onClick={this.btnFirstClick}>First</a></li>;
-        const renderLastBtn = <li className={isLastBtnActive}><a href='#' id="btnLast" onClick={this.btnLastClick}>Last</a></li>;
+        const renderPrevBtn = <li className={isPrevBtnActive}><span id="btnPrev" onClick={this.btnPrevClick}>Prev</span></li>;
+        const renderNextBtn = <li className={isNextBtnActive}><span href='#' id="btnNext" onClick={this.btnNextClick}>Next</span></li>;
+        const renderFirstBtn = <li className={isFirstBtnActive}><span href='#' id="btnFirst" onClick={this.btnFirstClick}>First</span></li>;
+        const renderLastBtn = <li className={isLastBtnActive}><span href='#' id="btnLast" onClick={this.btnLastClick}>Last</span></li>;
         return (
             <div className="admin-address-page">
                 <AdminNav />
