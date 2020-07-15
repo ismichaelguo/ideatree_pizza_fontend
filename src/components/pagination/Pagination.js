@@ -14,20 +14,18 @@ class Pagination extends React.Component {
   }
 
   pageClick = (e) => {
-    // e.preventDefault();
     console.log("target1", e.target);
     let currentPage = e.target.innerHTML;
 
     this.getStartPage(currentPage);
 
-    this.setState({currentPage},()=>{
-      this.props.onGetCurrentPage(currentPage)
-    })
-
+    this.setState({ currentPage }, () => {
+      this.props.onGetCurrentPage(currentPage);
+    });
   };
 
-  getStartPage=(currentPage)=>{
-    const {displayedPage} = this.state;
+  getStartPage = (currentPage) => {
+    const { displayedPage } = this.state;
     if (currentPage >= displayedPage) {
       this.setState({ startPage: currentPage - 1 });
     }
@@ -43,17 +41,16 @@ class Pagination extends React.Component {
         startPage: 1,
       });
     }
-  }
+  };
 
   prePageHandler = (e) => {
     e.preventDefault();
 
-    let { currentPage} = this.state;
+    let { currentPage } = this.state;
     //minimum page should be 1
     if (currentPage - 1 !== 0) {
       let prePage = currentPage - 1;
-      this.setState({ currentPage:prePage },this.getStartPage(prePage)
-      );
+      this.setState({ currentPage: prePage }, this.getStartPage(prePage));
       this.props.onGetPrevPage(prePage);
     }
   };
@@ -61,20 +58,19 @@ class Pagination extends React.Component {
   nextPageHandler = (e) => {
     e.preventDefault();
     console.log("target", e.target);
-    const totalPage = this.props.total
-    let { currentPage} = this.state;
+    const totalPage = this.props.total;
+    let { currentPage } = this.state;
     //the max page should be 8
-    if (currentPage + 1 !== totalPage+1) {
+    if (currentPage + 1 !== totalPage + 1) {
       let nextPage = parseInt(currentPage) + 1;
-      console.log("nextPage",nextPage)
-      this.setState({ currentPage:nextPage },this.getStartPage(nextPage)
-      );
+      console.log("nextPage", nextPage);
+      this.setState({ currentPage: nextPage }, this.getStartPage(nextPage));
       this.props.onGetNextPage(nextPage);
     }
   };
 
   createPage = () => {
-    const totalPage = this.props.total
+    const totalPage = this.props.total;
     const { currentPage, displayedPage, startPage } = this.state;
     let pages = [];
     const current = parseInt(currentPage);
@@ -174,12 +170,9 @@ class Pagination extends React.Component {
     return pages;
   };
 
-
   render() {
     console.log("pag-current", this.state.currentPage);
     console.log("pag-start", this.state.startPage);
-
-
 
     return (
       <Fragment>

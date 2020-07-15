@@ -1,6 +1,6 @@
 @import "../../style_config/config";
 
-.thanks-page {
+.pageContainer{
   font-family: $Fredericka;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
   margin: 0;
   background: url("../../asset/Images/order-type-page/background-image.jpeg") repeat;
 
-  .banner {
+  &__banner {
     width: 80%;
     display: flex;
     flex-grow: 1;
@@ -33,7 +33,7 @@
       }
     }
 
-    &_description {
+    & div{
       display: block;
       color: $white;
       z-index: 13;

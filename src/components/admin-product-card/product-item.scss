@@ -11,7 +11,6 @@
   overflow: hidden;
   transition: all 0.5s ease-in;
 
-
   span:nth-child(1) {
     width: 8rem;
     text-align: center;
@@ -29,7 +28,6 @@
     width: 8rem;
     text-align: center;
     cursor: pointer;
-
   }
 
   & div {
@@ -42,8 +40,8 @@
       text-align: center;
       cursor: pointer;
 
-      & i{
-          pointer-events: none;
+      & i {
+        pointer-events: none;
       }
     }
     span:nth-child(2) {
@@ -51,10 +49,9 @@
       text-align: center;
       cursor: pointer;
 
-      & i{
+      & i {
         pointer-events: none;
-    }
-
+      }
     }
   }
 }
@@ -68,6 +65,4 @@
   font-size: 1.1rem;
   background-color: $red;
   transition: all 1s ease-in;
-
-
 }

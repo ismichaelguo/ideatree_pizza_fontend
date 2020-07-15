@@ -193,12 +193,11 @@ class AdminProducts extends React.Component {
 
   render() {
     const productList = this.state.products;
-    const item = this.state.products[0] ? this.state.products[0].items : null;
     console.log("currentProduct", this.state.currentProduct);
 
     return (
       <Fragment>
-        <div className={"product-container"}>
+        <div className="product-container">
           <AdminNav />
           <div className={this.state.showEditor ? "disable" : null}>
             {productList.map((item) => {

@@ -31,8 +31,9 @@
         position: absolute;
         color: transparent;
         text-align: center;
-        background: -webkit-linear-gradient(left, #03a9f4, #ffeb3b, #03a9f4);
+        background: -webkit-linear-gradient(left, #03a9f4, #ffeb3b, #0bc0c8);
         background-clip: text;
+        
         clip-path: circle(80px at 0% 50%);
         animation: light 5s infinite;
 

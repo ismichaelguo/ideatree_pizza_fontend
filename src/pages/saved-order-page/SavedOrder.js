@@ -16,13 +16,14 @@ class SavedOrder extends React.Component {
   componentDidMount() {
     if (this.props.userName) {
       console.log(this.props.userName);
-      //get user id by logged in username from redux 
+      //get user id by logged in username from redux
       const id = window.sessionStorage.getItem(this.props.userName);
       axiosInstance({
-        url: `/user/order/${id}`,
+        url: `/user/detail/orders/${id}`,
         method: "GET",
-        //get order history from response and store into 
-      }).then((res) => res.data.orders)
+        //get order history from response and store into
+      })
+        .then((res) => res.data.orders)
         .then((data) => {
           this.setState({
             pastOrders: data,
@@ -32,15 +33,14 @@ class SavedOrder extends React.Component {
   }
 
   render() {
-    // const {pastOrders} = this.props;
-    console.log("price", this.state.pastOrders);
+    console.log("past", this.state.pastOrders);
     return (
-      <section className="order-type-container">
-        <header className="banner">
-          <Link to="/" className="banner_logo-image"></Link>
-          <div className="banner_description">Saved Orders</div>
+      <section className="pageContainer">
+        <header className="pageContainer__banner">
+          <Link to="/menu"></Link>
+          <div>Saved Orders</div>
         </header>
-        <div className="order-type-container__body">
+        <div className="pageContainer__body">
           {this.state.pastOrders.map((item) => (
             <PastOrderCard
               key={item._id}

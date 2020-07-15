@@ -1,24 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './thanks-page.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./thanks-page.scss";
 
 const ThanksPage = (props) => {
   return (
     <>
-      <div className='thanks-page'>
-        <header className="banner">
-          <Link to='/' className="banner_logo-image">
-          </Link>
-          <div className="banner_description">
-            Thanks
-        </div>
+      <div className="pageContainer">
+        <header className="pageContainer__banner">
+          <Link to="/"></Link>
+          <div>Thanks</div>
         </header>
-        <div className="thanks-page__content">
+        <div className="pageContainer__content">
           <p>Thanks for your ordering!</p>
         </div>
       </div>
     </>
   );
-}
+};
 
 export default ThanksPage;
