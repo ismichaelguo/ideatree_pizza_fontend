@@ -133,6 +133,8 @@ class AdminOrder extends React.Component {
         return (
           <li key={number} className={currentPage === number ? `active` : ''} id={number} onClick={this.handleNumberClick}><span id={number}>{number}</span></li>
         )
+      }else{
+        return null;
       }
     });
     // Logic for direction buttons
