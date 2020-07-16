@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Redirect } from "react-router";
 const axiosInstance = axios.create({
-  baseURL: process.env.BACKEND || "http://localhost:8080",
+  baseURL: "https://idea-pizza-backend.herokuapp.com/",
   timeout: 5000,
   headers: { withCredentials: "true" },
   // data:{}
