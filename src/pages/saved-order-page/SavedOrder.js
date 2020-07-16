@@ -19,7 +19,7 @@ class SavedOrder extends React.Component {
       //get user id by logged in username from redux
       const id = window.sessionStorage.getItem(this.props.userName);
       axiosInstance({
-        url: `/user/detail/orders/${id}`,
+        url: `/userorders/${id}`,
         method: "GET",
         //get order history from response and store into
       })
