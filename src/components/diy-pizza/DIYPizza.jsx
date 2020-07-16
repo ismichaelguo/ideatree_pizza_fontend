@@ -30,7 +30,6 @@ class DIYPizza extends React.Component {
     let foodName, foodPrice, imgDetail, imgAlt;
     pizzaData.forEach((item) => {
       for (let food of item.items) {
-        // console.log(food.id)
         if (food.id === 17) {
           foodName = food.name;
           imgDetail = food.imgSrc;

@@ -31,20 +31,20 @@
         position: absolute;
         color: transparent;
         text-align: center;
-        background: -webkit-linear-gradient(left, #03a9f4, #ffeb3b, #03a9f4);
+        background: linear-gradient(to left, #03a9f4, #ffeb3b, #03a9f4);
         background-clip: text;
-        clip-path: circle(80px at 0% 50%);
+        clip-path: circle(80px at 0%);
         animation: light 5s infinite;
 
         @keyframes light {
           0% {
-            clip-path: circle(80px at 0% 50%);
+            clip-path: circle(80px at 0%);
           }
           50% {
-            clip-path: circle(80px at 100% 50%);
+            clip-path: circle(80px at 100%);
           }
           100% {
-            clip-path: circle(80px at 0% 50%);
+            clip-path: circle(80px at 0%);
           }
         }
       }
