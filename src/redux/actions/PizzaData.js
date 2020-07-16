@@ -1,6 +1,6 @@
 export const loadPizzaData = () => (dispatch) => {
   dispatch(handlePizzaDataRequested());
-  fetch(process.env.BACKEND+"/products", { method: "GET" })
+  fetch("https://idea-pizza-backend.herokuapp.com/products", { method: "GET" })
     .then((res) => res.json())
     .then((res) => dispatch(handlePizzaDataSucceeded(res)))
     .catch((err) => dispatch(handlePizzaDataFailed(err)));
