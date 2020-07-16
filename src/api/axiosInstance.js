@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Redirect } from "react-router";
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: process.env.BACKEND || "http://localhost:8080",
   timeout: 5000,
   headers: { withCredentials: "true" },
   // data:{}
