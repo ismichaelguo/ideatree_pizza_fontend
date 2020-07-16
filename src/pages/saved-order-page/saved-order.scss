@@ -1,7 +1,7 @@
 @import "../../style_config/config";
 @import url("https://use.typekit.net/dkq4bqr.css");
 
-.order-type-container {
+.pageContainer {
   font-family: $Fredericka;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   background: url("../../asset/Images/order-type-page/background-image.jpeg")
     repeat;
 
-  .banner {
+  &__banner {
     width: 80%;
     display: flex;
     flex-grow: 1;
@@ -23,7 +23,7 @@
     padding-top: 5px;
     z-index: 12;
 
-    &_logo-image {
+    & a {
       background: url("../../asset/Images/order-type-page/domino-logo.svg")
         no-repeat;
       width: 110px;
@@ -36,7 +36,7 @@
       }
     }
 
-    &_description {
+    & div {
       display: block;
       color: white;
       z-index: 13;

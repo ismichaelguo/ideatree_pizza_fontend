@@ -12,25 +12,20 @@ import "./menu-page.scss";
 class MenuPage extends React.Component {
 
   componentDidMount () {
-    // console.log("data",this.props.pizzaData);
-    // console.log("data2",FOOD_ITEM_DATA);
     const { loadPizzaData } = this.props;
     loadPizzaData();
   }
 
   getPizzaData = () => {
-    console.log("pizza0000000",this.props.pizzaData)
 
     const foodItemArr = this.props.pizzaData;
     const pathname = this.props.location.pathname;
     const hashtag = this.props.location.hash || "#PIZZAS";
-    console.log("pizza!!!!!!!",foodItemArr)
 
     let filteredFoodArr = foodItemArr.filter((food) =>
       food.locationID.startsWith(hashtag.split("#")[1])
 
     );
-    console.log("pizza", filteredFoodArr)
     if (filteredFoodArr.length === 0) {
       return null;
     } else {

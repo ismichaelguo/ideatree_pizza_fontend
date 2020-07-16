@@ -1,6 +1,6 @@
 @import "../../style_config/config";
 
-.detail-header {
+.itemHeader {
   width: 100%;
   height: 48px;
   margin-top: 70px;
@@ -11,10 +11,10 @@
   padding: 15px 0;
   position: fixed;
   @include iphone() {
-    width:100%;
+    width: 100%;
   }
 
-  .detail-menu {
+  &__menu {
     left: -31%;
     text-decoration: none;
     font-size: 16px;
@@ -24,9 +24,9 @@
     position: relative;
     display: flex;
     text-transform: uppercase;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     z-index: 500;
-    &::before{
+    &::before {
       content: "";
       position: absolute;
       top: 25%;
@@ -45,13 +45,13 @@
   }
 }
 
-.detail-picture {
+.itemPicture {
   background: url("../../asset/Images/menuPageBackground.jpeg");
   padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  .detail-picture-pizza {
+  &__pizza {
     height: 450px;
     margin-top: 15rem;
     @include iphone() {
@@ -61,7 +61,7 @@
   }
 }
 
-.detail-info {
+.itemInfo {
   margin: 1.5rem 0 3rem 0;
   color: $white;
   font-family: $Abril_Fatface;
@@ -69,36 +69,36 @@
   background: url("../../asset/Images/menuPageBackground.jpeg");
   background-color: none !important;
 
-  &-box {
+  &__box {
     width: 1024px;
     margin: 0px auto;
     width: 45%;
 
-    .detail-title {
+    & h1 {
       font-size: 20px;
       padding: 10px 0px;
       line-height: 42px;
       border-bottom: dotted 1px $white;
-      .detail-kjs {
+      & span {
         float: right;
         @include iphone() {
           font-size: 1rem;
         }
-      } 
+      }
     }
-      @include ipad() {
-        width: 40rem;
-        display: block;
+    @include ipad() {
+      width: 40rem;
+      display: block;
     }
-      @include iphone() {
-        width: 30rem;
-  }
+    @include iphone() {
+      width: 30rem;
+    }
 
-    .detail-description {
+    & p {
       padding: 5px;
     }
 
-    .detail-button {
+    & button {
       @include button_type;
       margin: 30px auto;
       height: 4rem;
@@ -116,5 +116,3 @@
     padding: 10px 0px;
   }
 }
-
-

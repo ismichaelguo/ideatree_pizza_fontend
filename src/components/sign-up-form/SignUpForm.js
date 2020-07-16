@@ -4,60 +4,11 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { getSignUpInf } from "../../redux/actions/index";
-import axios from "axios";
 
-const Wrapper = styled.div`
-  @media only screen and (max-width: 399px) {
-    width: 10%;
-  }
-`;
-
-const BtnFacebook = styled.button`
-  width: 300px;
-  height: 40px;
-  border-radius: 15px;
-  background: #3b5998;
-  color: white;
-  border: 0px transparent;
-  text-align: center;
-  margin: 10px;
-  display: inline-block;
-
-  &:hover {
-    background: #3b5998;
-    opacity: 0.6;
-  }
-`;
-const BtnGoogle = styled.button`
-  margin: 10px;
-  width: 300px;
-  height: 40px;
-  border-radius: 15px;
-  background: #db3236;
-  color: white;
-  border: 0px transparent;
-  text-align: center;
-
-  &:hover {
-    background: #3b5998;
-    opacity: 0.6;
-  }
-`;
-const BtnPaypal = styled.button`
-  margin: 10px;
-  width: 300px;
-  height: 40px;
-  border-radius: 15px;
-  background: #1b9ef5;
-  color: white;
-  border: 0px transparent;
-  text-align: center;
-
-  &:hover {
-    background: #3b5998;
-    opacity: 0.6;
-  }
-`;
+const Wrapper = styled.div``;
+const BtnFacebook = styled.button``;
+const BtnGoogle = styled.button``;
+const BtnPaypal = styled.button``;
 
 class SignUpForm extends Component {
   getSignUpInf = (e) => {
@@ -131,7 +82,6 @@ class SignUpForm extends Component {
   };
 
   render() {
-
     return (
       <div className="login-form">
         <div className="form-header">
@@ -245,31 +195,17 @@ class SignUpForm extends Component {
                                 </div> */}
             <br />
 
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                flexDirection: "column",
-                justifyContent: "space-around",
-                alignItems: "center",
-              }}
-            >
+            <div className="socialMedias">
               <Wrapper>
-                <BtnFacebook
-                  style={{ width: "400px", height: "60px", fontSize: "1.5rem" }}
-                >
+                <BtnFacebook className="socialMedias__fb">
                   &nbsp;&nbsp;Sign In with Facebook
                 </BtnFacebook>
                 <br />
-                <BtnGoogle
-                  style={{ width: "400px", height: "60px", fontSize: "1.5rem" }}
-                >
+                <BtnGoogle className="socialMedias__google">
                   &nbsp;&nbsp;Sign In with Google
                 </BtnGoogle>
                 <br />
-                <BtnPaypal
-                  style={{ width: "400px", height: "60px", fontSize: "1.5rem" }}
-                >
+                <BtnPaypal className="socialMedias__payPal">
                   &nbsp;&nbsp;Sign In with Paypal
                 </BtnPaypal>
               </Wrapper>

@@ -13,7 +13,6 @@ class ProductItem extends React.Component {
     this.setState({
       dropDown: !this.state.dropDown,
     });
-
   };
   handleEditClick = (e) => {
     const index = e.target.id;
@@ -21,12 +20,11 @@ class ProductItem extends React.Component {
   };
 
   removeItem = (e) => {
-    const itemId = e.target.id; 
+    const itemId = e.target.id;
     this.props.removeItem(itemId);
   };
 
   render() {
-
     const item = this.props.item;
     return (
       <Fragment key={item.id}>
@@ -41,7 +39,7 @@ class ProductItem extends React.Component {
             <span onClick={this.handleEditClick} id={this.props.index}>
               <i className="fa fa-edit"></i>
             </span>
-            <span onClick={this.removeItem} id = {item.id}>
+            <span onClick={this.removeItem} id={item.id}>
               <i className="fa fa-trash"></i>
             </span>
           </div>

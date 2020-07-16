@@ -1,73 +1,66 @@
-@import '../../style_config/config'; 
+@import "../../style_config/config";
 
-.product-container{
-    background: url('../../asset/Images/order-type-page/background-image.jpeg') repeat;
+.product-container {
+  background: url("../../asset/Images/order-type-page/background-image.jpeg")
+    repeat;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .disable {
+    opacity: 0;
+  }
+
+  &__Editor {
+    width: 70%;
+    height: 50vh;
     display: flex;
-    flex-direction: column;
-    position: relative;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    color: white;
+    background-color: $blue;
+    box-shadow: 0 0 2px 2px black;
+    border-radius: 20px;
+    opacity: 0.95;
+    & div {
+      font-family: $Fredericka;
+      width: 100%;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3rem;
+      position: relative;
 
-    .disable{
-        opacity: 0;
-    }
-
-    &__Editor{
-        width:70%;
-        height: 60vh;
-        display: flex;
-
-        align-items: center;
-       
+      .close-btn {
         position: absolute;
-        top:30%;
-        left:15%;
-        color: white;
-        background-color: $blue;
-        box-shadow: 0 0 2px 2px black;
-        border-radius: 20px;
-        opacity: 0.95;
-        & div{
-            font-family: $Fredericka;
-            width: 100%;
-            font-weight: bold;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.3rem;
-            position: relative;
+        font-size: 3rem;
+        top: -10%;
+        right: 2%;
+      }
 
-            .close-btn{
-                position: absolute;
-                font-size: 3rem;
-                top:-14%;
-                right:2%;
+      & input {
+        width: 60%;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
 
-            }
-
-            & input{
-                width: 60%;
-                padding-top: 0.5rem;
-                padding-bottom: 0.5rem;
-                font-size: 1rem;
-                margin-bottom: 0.5rem;
-            }
-    
-            & button{
-                width: 60% !important;
-                margin-top: 1rem !important;
-                @include button_type
-                
-            }
-
-        }
-        
+      & button {
+        width: 60% !important;
+        margin-top: 2rem !important;
+        @include button_type;
+      }
     }
+  }
 
-    &__pagination{
-        display: flex;
-        justify-content: center;
-        margin-bottom: 3rem;
-    }
-
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
 }
-

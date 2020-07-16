@@ -1,8 +1,7 @@
 @import "../../style_config/config";
 @import url("https://use.typekit.net/dkq4bqr.css");
 
-.order-type-container {
-    
+.pageContainer {
   font-family: $Fredericka;
   display: flex;
   flex-direction: column;
@@ -12,7 +11,7 @@
   background: url("../../asset/Images/order-type-page/background-image.jpeg")
     repeat;
 
-  .banner {
+  &__banner {
     width: 80%;
     display: flex;
     flex-grow: 1;
@@ -24,7 +23,7 @@
     padding-top: 5px;
     z-index: 12;
 
-    &_logo-image {
+    & a {
       background: url("../../asset/Images/order-type-page/domino-logo.svg")
         no-repeat;
       width: 110px;
@@ -37,7 +36,7 @@
       }
     }
 
-    &_description {
+    & div {
       display: block;
       color: white;
       z-index: 13;
@@ -60,119 +59,92 @@
     }
   }
 
-  .type-container{
-      width: 90%;
-      height: 70vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: middle;
-      align-items: center;
-      text-align: center;
+  &__message {
+    width: 90%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: middle;
+    align-items: center;
+    text-align: center;
+    font-size: 1.1rem;
+
+    & p {
+      color: $white;
+      font-family: $Abril_Fatface;
       font-size: 1.1rem;
-
-      &__message{
-        color:$white;
-        font-family: $Abril_Fatface;
-        font-size: 1.1rem;
-        padding-bottom:1rem;
-        
-      }
-
-      &__type{
-          width: 500px;
-          padding:1.5rem;
-          font-size: 2rem;
-          margin-bottom: 3rem;
-          @include iphone(){
-              width:90%;
-          }
-
-
-      }
-
-      .delivery{
-          background-color:#006991;
-          border-color: #005778;
-          color:$white;
-          transition: all 50ms ease;
-          margin-top:2rem;
-
-          &:hover{
-              background-color:#005778;
-          }
-      }
-
-      .pick-up{
-        background-color:$red;
-        border-color: $redV2;
-        color:$white;
-        transition: all 50ms ease;
-
-        &:hover{
-            background-color:$redV2;
-        }
+      padding-bottom: 1rem;
     }
 
-    .btn-container{
-        font-size: 120%;
-        color: #ffffff;
-        background-color: #595959;
-        border-color: #595959;
-        padding: 6px 10px 6px 15px;
-        position: relative;
-        border-radius: 3px;
-        border: 1px solid transparent;
-        white-space: normal;
-        display: inline-block;
-        margin-bottom: 0;
-        text-align: center;
-        vertical-align: middle;
-        cursor: pointer;
-        background-image: none;
-        text-transform:uppercase ;
-        font-family: $Abril_Fatface;
-
-
-
-        &::after{
-            content: " ";
-            width: 0;
-            height: 0;
-            position: absolute;
-            left: 0px;
-            top: 50%;
-            margin-top: -6px;
-            border: 6px solid transparent;
-            border-right: 6px solid #ffffff;
-            box-sizing: border-box;
-            display: table;
-            }
-
-
-
-
-
-        &:hover{
-
-            background-color: #272626;
-        }
-    
-
+    &__type {
+      width: 500px;
+      padding: 1.5rem;
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      @include iphone() {
+        width: 90%;
+      }
     }
 
+    .delivery {
+      background-color: #006991;
+      border-color: #005778;
+      color: $white;
+      transition: all 50ms ease;
+      margin-top: 2rem;
 
+      &:hover {
+        background-color: #005778;
+      }
+    }
 
+    .pick-up {
+      background-color: $red;
+      border-color: $redV2;
+      color: $white;
+      transition: all 50ms ease;
 
+      &:hover {
+        background-color: $redV2;
+      }
+    }
 
-  }
+    .btn-container {
+      font-size: 120%;
+      color: #ffffff;
+      background-color: #595959;
+      border-color: #595959;
+      padding: 6px 10px 6px 15px;
+      position: relative;
+      border-radius: 3px;
+      border: 1px solid transparent;
+      white-space: normal;
+      display: inline-block;
+      margin-bottom: 0;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      background-image: none;
+      text-transform: uppercase;
+      font-family: $Abril_Fatface;
 
-  .page-footer {
-    flex-grow: 1;
-    // background: url("../../asset/Images/order-type-page/background-image.jpeg") !important;
-    background-color: black;
-    width: 100%;
-    &footer_links:visited {
-    color: white;
+      &::after {
+        content: " ";
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        margin-top: -6px;
+        border: 6px solid transparent;
+        border-right: 6px solid #ffffff;
+        box-sizing: border-box;
+        display: table;
+      }
+
+      &:hover {
+        background-color: #272626;
+      }
     }
   }
 }

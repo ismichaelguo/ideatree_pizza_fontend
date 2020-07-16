@@ -12,7 +12,6 @@
     "axios": "^0.19.2",
     "crypto-js": "^4.0.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -24,6 +23,7 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.1"
   },
@@ -31,8 +31,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "aws s3 sync build/ s3://idea-pizza --acl public-read"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

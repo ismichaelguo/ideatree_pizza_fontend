@@ -2,25 +2,23 @@ import React from "react";
 import "./detail.scss";
 import "./detail.scss";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
-import { addItem } from '../../redux/actions/cart/cartActions';
-import { loadPizzaData } from '../../redux/actions/index';
+import { connect } from "react-redux";
+import { addItem } from "../../redux/actions/cart/cartActions";
+import { loadPizzaData } from "../../redux/actions/index";
 
 class Detail extends React.Component {
-
-  componentDidMount () {
-    const { loadPizzaData } = this.props
+  componentDidMount() {
+    const { loadPizzaData } = this.props;
     loadPizzaData();
-
   }
 
-  render () {
-    const { id } = this.props.props.match.params // this is a string type `id`
+  render() {
+    const { id } = this.props.props.match.params; // this is a string type `id`
     // console.log('this.props.props.match.params.id', typeof this.props.props.match.params.id)
     // console.log("pizza-data", this.props.pizzaData)
 
     let foodName, foodDes, foodPrice, foodCal, imgDetail, imgAlt;
-    this.props.pizzaData.forEach(item => {
+    this.props.pizzaData.forEach((item) => {
       for (let food of item.items) {
         // console.log(food.id, +props.foodId)
         if (food.id === +id) {
@@ -32,57 +30,59 @@ class Detail extends React.Component {
           imgAlt = food.imgAlt;
         }
       }
-    })
+    });
     let curItem = {
       id: parseInt(id),
-      foodName, foodPrice, imgDetail, imgAlt
+      foodName,
+      foodPrice,
+      imgDetail,
+      imgAlt,
     };
 
     return (
-      <div className="itemDetail">
-        <div className="detail-header">
-          <Link to="/menu" className="detail-menu">
+      <div>
+        <div className="itemHeader">
+          <Link to="/menu" className="itemHeader__menu">
             MENU
           </Link>
         </div>
-        <div className="detail-picture">
-          <img
-            src={imgDetail}
-            alt={imgAlt}
-            className="detail-picture-pizza"
-          />
+        <div className="itemPicture">
+          <img src={imgDetail} alt={imgAlt} className="itemPicture__pizza" />
           <img src="" alt="" />
         </div>
-        <div className="detail-info">
-          <div className="detail-info-box">
-            <h1 className="detail-title">
-              {foodName}<span className="detail-kjs">{foodCal}kj^</span>
+        <div className="itemInfo">
+          <div className="itemInfo__box">
+            <h1>
+              {foodName}
+              <span>{foodCal}kj^</span>
             </h1>
-            <p className="detail-description">
-              {foodDes}
-            </p>
+            <p>{foodDes}</p>
             <Link to={`/menu/detail/${id}/order-type`}>
-              <button className="detail-button" onClick={() => this.props.addItem({ item: curItem })}>
-                ORDER NOW</button>
-            </Link> 
+              <button
+              
+                onClick={() => this.props.addItem({ item: curItem })}
+              >
+                ORDER NOW
+              </button>
+            </Link>
             <Link to="">Nutritional Info</Link>
             <Link to="">Additive&Allergen Info</Link>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    pizzaData: state.pizzaData.pizzaData
-  }
-}
+    pizzaData: state.pizzaData.pizzaData,
+  };
+};
 
 const mapActionsToProps = {
   loadPizzaData,
   addItem,
-}
+};
 
 export default connect(mapStateToProps, mapActionsToProps)(Detail);
