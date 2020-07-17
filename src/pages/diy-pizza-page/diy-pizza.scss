@@ -18,6 +18,7 @@
     justify-content: space-evenly;
     align-items: center;
     position: fixed;
+    z-index: -1;
     .menu {
       left: -30%;
       font-size: 1.5rem;
@@ -28,8 +29,11 @@
       display: flex;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      background:none;
-      border:none;
+      background: none;
+      border: none;
+      @include iphone(){
+        font-size: 1rem;
+      }
       &::before {
         content: "";
         position: absolute;

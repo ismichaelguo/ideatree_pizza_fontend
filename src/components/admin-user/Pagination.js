@@ -48,7 +48,7 @@ export default function Pagination(props) {
   });
 
   return (
-    <div className="table-pagination">
+    <div className="admin-user-page__table-pagination">
       {checkFirstPage(currentPage)}
       {checkUniqPage}
       {checkLastPage(currentPage)}

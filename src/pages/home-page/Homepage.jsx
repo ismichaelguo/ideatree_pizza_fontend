@@ -35,7 +35,7 @@ class Homepage extends React.Component {
 
   render() {
     return (
-      <div className="homepage-container">
+      <div className="homepage__container">
         <div className="homepage__slogan">
           <h2>Get it while it's hot!</h2>
           <p>{this.state.text}</p>

@@ -9,12 +9,12 @@ export default function ShowTopping(props) {
   let id = selection.selectionId;
   const dispatch = useDispatch();
 
-  return <div className="selectionDetail">{get_context(id)}</div>;
+  return <div className="topping-selection">{get_context(id)}</div>;
 
   function get_context(id) {
     if (id === 1) {
       return (
-        <div className="expandDetail">
+        <div className="topping-expand">
           {selection.item.map((crust) => (
             <div className="imgBox" key={crust.id}>
               <img
@@ -30,7 +30,7 @@ export default function ShowTopping(props) {
       );
     } else if (id === 2) {
       return (
-        <div className="expandDetail">
+        <div className="topping-expand">
           {selection.item.map((sauce, index) => (
             <div className="imgBox" key={index}>
               <img
@@ -46,7 +46,7 @@ export default function ShowTopping(props) {
       );
     } else if (id === 3) {
       return (
-        <div className="expandDetail">
+        <div className="topping-expand">
           {selection.item.map((cheese, index) => (
             <div className="imgBox" key={index}>
               <img
@@ -62,7 +62,7 @@ export default function ShowTopping(props) {
       );
     } else {
       return (
-        <div className="expandDetail">
+        <div className="topping-expand">
           {selection.item.map((toppings, index) => (
             <div className="imgBox" key={index}>
               <img

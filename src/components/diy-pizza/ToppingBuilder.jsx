@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +7,7 @@ import "./DIYPizza.scss";
 
 import ShowTopping from "./ShowTopping";
 
-export default function Combination({ selection }) {
+export default function ToppingBuilder({ selection }) {
   const [expand, setExpand] = useState(false);
   const expandBox = useRef();
   const expandDetail = () => {
@@ -16,7 +16,7 @@ export default function Combination({ selection }) {
   };
   return (
     <div
-      className="toppingsBuilder"
+      className="topping-builder__container"
       ref={expandBox}
       key={selection.selectionId}
     >

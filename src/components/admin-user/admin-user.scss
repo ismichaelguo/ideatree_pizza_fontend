@@ -13,7 +13,7 @@
   @include iphone() {
     font-size: 1rem;
   }
-  .table-wrap {
+  &__table {
     width: 80vw;
     position: relative;
     display: flex;
@@ -26,42 +26,47 @@
     h3 {
       margin-top: 3rem;
     }
-    .table-title {
+    &-title {
       display: flex;
       width: 100%;
       border-bottom: solid 1px $white;
       margin: 2rem 0 1rem 0;
       span {
         width: 40%;
+        text-align: center;
       }
     }
-    .table-content {
+    &-content {
       display: flex;
       width: 100%;
       border-bottom: solid 1px $white;
       padding: 1rem 0 1rem 0;
+
       @include ipad() {
         margin: 2rem 0 1rem 0;
       }
+      @include iphone() {
+        font-size: 0.85rem;
+      }
       span {
         width: 40%;
+        text-align: center;
       }
       .icon {
         cursor: pointer;
-        font-size: 2rem;
-
-        @include iphone() {
-          font-size: 1.5rem;
-        }
+        font-size: 1.5rem;
       }
     }
 
-    .table-pagination {
+    &-pagination {
       width: 50%;
       margin: 7rem auto 0;
       display: flex;
       justify-content: center;
       list-style: none;
+      @include iphone() {
+        margin: 2rem auto 0;
+      }
 
       li {
         border: 0.5px solid grey;
@@ -71,6 +76,9 @@
         font-weight: bold;
         color: black;
         cursor: pointer;
+        @include iphone() {
+          font-size: 0.8rem;
+        }
         &:first-child {
           border-top-left-radius: 6px;
           border-bottom-left-radius: 6px;

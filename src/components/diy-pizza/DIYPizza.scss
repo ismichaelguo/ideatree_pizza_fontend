@@ -1,6 +1,6 @@
 @import "../../style_config/config";
 
-.diy-pizza-container {
+.diy-pizza-page__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,17 +8,17 @@
   margin-top: 5rem;
   width: 100%;
 
-  .diy-pizza-title {
+  .diy-pizza-page__title {
     display: flex;
     justify-content: space-between;
     width: 70%;
-    font-size: 1.8rem;
     border-bottom: 1px dotted $white;
     padding-bottom: 1rem;
     margin-bottom: 3rem;
 
     @include iphone() {
-      h2 {
+      width: 90%;
+      h3 {
         font-size: 1.5rem;
       }
     }
@@ -27,25 +27,30 @@
     height: 30%;
     width: 30%;
     @include iphone() {
-      width: 50%;
+      width: 70%;
     }
   }
-  .heading {
+  h3 {
     display: flex;
     justify-content: flex-start;
     margin: 2rem 0 1rem 0;
     font-size: 3rem;
     width: 70%;
     @include iphone() {
+      width: 90%;
       font-size: 1.5rem;
     }
   }
-  .customize-toppings {
+  .topping-container {
     width: 70%;
     background: rgba(0, 0, 0, 0.8);
     margin-bottom: 3rem;
     font-size: 1.5rem;
 
+    @include iphone() {
+      width: 90%;
+      font-size: 1rem;
+    }
     h4 {
       padding: 1.5rem;
       @include iphone() {
@@ -55,11 +60,14 @@
     .current-toppings {
       display: flex;
       flex-wrap: wrap;
-      .current-toppings-container {
+      &__container {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 1.5rem;
+        @include iphone() {
+          margin: 0.8rem;
+        }
         .remove {
           height: 2rem;
           width: 2rem;
@@ -67,19 +75,29 @@
           left: 47%;
           top: 12%;
           cursor: pointer;
+          @include iphone() {
+            height: 1.5rem;
+            width: 1.5rem;
+            left: 40%;
+            top: 10%;
+          }
         }
         img {
           height: 4rem;
           width: 7rem;
+          @include iphone() {
+            height: 4rem;
+            width: 5.5rem;
+          }
         }
       }
     }
 
-    .add-toppings {
+    .topping-builder {
       h4 {
         padding: 1.5rem;
       }
-      .toppingsBuilder {
+      &__container {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -130,13 +148,13 @@
           }
         }
 
-        .selectionDetail {
+        .topping-selection {
           height: 0;
           opacity: 0;
           transition: all 0.5s;
         }
 
-        .expandDetail {
+        .topping-expand {
           box-shadow: none;
           border: none;
           margin-left: 1rem;
@@ -155,15 +173,16 @@
         }
       }
       .active {
-        .selectionDetail {
+        .topping-selection {
           height: 35vh;
           opacity: 1;
           transition: all 0.5s;
+
           @include ipad() {
             height: 60vh;
           }
         }
-        .expandDetail {
+        .topping-expand {
           display: flex;
           flex-wrap: wrap;
           height: 35vh;
@@ -173,7 +192,6 @@
             height: 45vh;
           }
           @include iphone() {
-            flex-wrap: wrap;
             font-size: 1rem;
           }
 
@@ -181,7 +199,7 @@
             display: flex;
             flex-direction: column;
             @include iphone() {
-              margin: 0.3rem;
+              margin: 0.4rem;
             }
             img {
               margin: 1.3rem;
