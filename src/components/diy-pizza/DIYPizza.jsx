@@ -1,6 +1,6 @@
 import React from "react";
 import "./DIYPizza.scss";
-import Combination from "./Combination";
+import ToppingBuilder from "./ToppingBuilder";
 import remove from "../../asset/Images/Build-Own-Pizza/remove.png";
 import diyImage from "../../asset/Images/Build-Own-Pizza/build_own_pizza.png";
 
@@ -30,7 +30,6 @@ class DIYPizza extends React.Component {
     let foodName, foodPrice, imgDetail, imgAlt;
     pizzaData.forEach((item) => {
       for (let food of item.items) {
-        // console.log(food.id)
         if (food.id === 17) {
           foodName = food.name;
           imgDetail = food.imgSrc;
@@ -58,18 +57,17 @@ class DIYPizza extends React.Component {
     };
 
     return (
-      <div className="diy-pizza-container">
-        <div className="diy-pizza-title">
-          <h2>Build Your Own Pizza</h2>
+      <div className="diy-pizza-page__container">
+        <div className="diy-pizza-page__title">
+          <h3>Build Your Own Pizza</h3>
         </div>
-        <div className="diy-pizza-box1"></div>
         <img src={diyImage} alt="diyPizza" className="image" />
-        <div className="heading">Customize Toppings</div>
-        <div className="customize-toppings">
+        <h3>Customize Toppings</h3>
+        <div className="topping-container">
           <h4>Current Toppings</h4>
           <div className="current-toppings">
             {currentSelection.map((item) => (
-              <div className="current-toppings-container" key={item.id}>
+              <div className="current-toppings__container" key={item.id}>
                 <img
                   className="remove"
                   src={remove}
@@ -82,10 +80,13 @@ class DIYPizza extends React.Component {
               </div>
             ))}
           </div>
-          <div className="add-toppings">
+          <div className="topping-builder">
             <h4>Add Toppings (click to add)</h4>
             {toppingData.map((selection) => (
-              <Combination selection={selection} key={selection.selectionId} />
+              <ToppingBuilder
+                selection={selection}
+                key={selection.selectionId}
+              />
             ))}
           </div>
         </div>

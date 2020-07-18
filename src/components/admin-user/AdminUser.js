@@ -48,7 +48,7 @@ class AdminUser extends React.Component {
     return (
       <div className="admin-user-page">
         <AdminNav />
-        <div className="table-wrap">
+        <div className="admin-user-page__table">
           <Title />
           <UserInfo
             users={users}

@@ -1,6 +1,6 @@
 @import "../../style_config/config";
 
-.homepage-container {
+.homepage__container {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -17,9 +17,13 @@
     line-height: 5rem;
     h2 {
       font: {
-        size: 50px;
+        size: 4rem;
         family: $Fredericka;
       }
+      @include iphone() {
+        font-size: 3rem;
+      }
+
       color: white;
       position: relative;
       display: flex;
@@ -31,29 +35,32 @@
         position: absolute;
         color: transparent;
         text-align: center;
-        background: -webkit-linear-gradient(left, #03a9f4, #ffeb3b, #0bc0c8);
+        background: linear-gradient(to left, #03a9f4, #ffeb3b, #03a9f4);
         background-clip: text;
-        
-        clip-path: circle(80px at 0% 50%);
+        clip-path: circle(50px at 0%);
         animation: light 5s infinite;
 
         @keyframes light {
           0% {
-            clip-path: circle(80px at 0% 50%);
+            clip-path: circle(50px at 0%);
           }
           50% {
-            clip-path: circle(80px at 100% 50%);
+            clip-path: circle(50px at 100%);
           }
           100% {
-            clip-path: circle(80px at 0% 50%);
+            clip-path: circle(50px at 0%);
           }
         }
       }
     }
     p {
       font-family: $Abril_Fatface;
-      font-size: 30px;
+      font-size: 2.5rem;
       color: $yellow;
+
+      @include iphone() {
+        font-size: 1.5rem;
+      }
     }
 
     button {
@@ -67,6 +74,9 @@
       border: 1px solid $yellow;
       margin-top: 2rem;
       transition: all 0.5s;
+      @include iphone() {
+        font-size: 1.2rem;
+      }
       &:hover {
         transform: scale(1.2);
       }

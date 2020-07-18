@@ -5,7 +5,7 @@ export default function UserInfo() {
   return (
     <>
       <h3>Admin User</h3>
-      <div className="table-title">
+      <div className="admin-user-page__table-title">
         <span>Name</span>
         <span>Email</span>
         <span>Phone</span>

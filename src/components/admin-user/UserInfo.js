@@ -30,7 +30,7 @@ export default function UserInfo(props) {
   return (
     <>
       {users.map((user) => (
-        <div className="table-content" key={user._id}>
+        <div className="admin-user-page__table-content" key={user._id}>
           <span>{user.name}</span>
           <span>{user.email}</span>
           <span>{user.phone}</span>
