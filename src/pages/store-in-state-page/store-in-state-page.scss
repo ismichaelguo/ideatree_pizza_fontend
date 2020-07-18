@@ -1,0 +1,17 @@
+@import "../../style_config/config";
+
+.store-in-state-page {
+    display: flex;
+    flex-direction: column;
+    background-color:$white;
+    &__nav {
+      @include main-nav_type;
+      
+    }
+    &__content {
+      margin-top: 0px;
+    }
+}
+
+
+

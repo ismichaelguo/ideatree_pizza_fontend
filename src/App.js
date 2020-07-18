@@ -21,6 +21,8 @@ import AdminProducts from "./components/admin-products/AdminProducts";
 import AdminUser from "./components/admin-user/AdminUser";
 import AdminOrder from "./components/admin-order/AdminOrder";
 import AdminAddress from "./components/admin-address/AdminAddress";
+import MapsPage from "./pages/maps-page/MapsPage";
+import StoreInStatePage from "./pages/store-in-state-page/StoreInStatePage";
 import "./App.css";
 
 
@@ -49,6 +51,9 @@ function App (props) {
           <Route exact path='/menu/detail/:id/order-type/saved-order' component={SavedOrder} />
           <Route exact={true} path='/receipt' component={ReceiptPage} />
           <Route exact={true} path='/account/sign-up' component={SignUp} />
+          <Route exact={true} path='/maps' component={MapsPage} />
+          <Route exact={true} path='/maps/:inMap' component={MapsPage} />
+          <Route exact={true} path='/store-in-state/:id/:state' component={StoreInStatePage} />
           {/* TODO: change admin homepage */}
           <Route exact path='/admin' component={AdminUser} />
           <Route path="/admin/product" component={AdminProducts} />

@@ -1,0 +1,171 @@
+@import "../../style_config/config";
+.store{
+    &-searchbox{  
+        background-color: white;
+        background:url('../../asset/Images/menuPageBackground.jpeg');
+        opacity: 0.9;
+        @include iphone() {
+            width:100%;
+        }
+        @include ipad() {
+            width:100%;
+        }
+    }
+    &-searchbox-box{
+        width:80rem;
+        height: 40rem;
+        border: solid 0.1rem transparent;
+        margin: 0rem auto;
+        color: $white;
+        font-family: $Fredericka;
+        font-size: 3rem;
+        @include iphone() {
+            width:100%;
+            height: 30rem;
+        }
+        @include ipad() {
+            width:100%;
+        }
+    }
+
+    &-searchbox-title{
+        display: flex;
+        justify-content: center;
+        margin-top: 10%; 
+        @include iphone() {
+            width:100%;
+            margin-top: 30%;
+            font-size: 2rem;
+        } 
+        @include ipad() {
+            width:100%;
+            margin-top: 20%;
+        }     
+    }
+
+    &-explore{
+        width:92rem;
+        border: solid 0.1rem black;
+        box-shadow: 0 0 10px #999;
+        margin: 0.5rem auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        &-title{
+            width:80rem;
+            font-size: 2rem;
+            margin: 1rem 1rem -3rem 1rem;
+            height: 7rem;
+            font-family: $Abril_Fatface;
+            @include iphone() {
+                width:100%;
+                margin-top: 3rem;
+              }
+        }
+        &-city1{
+            color:black;
+        }
+        &-city{
+            color: black;
+            font-size: 1.3rem;
+            width: 24rem;
+            height: 7rem;
+            border: solid 0.1rem transparent;  
+            margin: 3rem 3.3rem; 
+            font-family: $Abril_Fatface;
+            span {
+                color: black;
+                display: block;
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+        }
+        @include iphone() {
+            width:100%;
+        }
+        @include ipad() {
+            width:100%;
+        }
+    }
+}
+
+input{
+    width: 40rem;
+    height: 3.5rem;
+    margin: 3rem 20rem 0;
+    // border-radius: 5%;
+    @include ipad() {
+        width: 40rem;
+        margin-left: 12rem;
+    }
+    @include iphone() {
+        width:100%;
+        margin: 4rem 2.7rem auto;
+        width: 25rem;
+    }
+}
+
+.store-terms{
+    background-color: $grey;
+}
+.store-text{
+    width:80rem;
+    height: 43rem;
+    border: solid 0.1rem transparent;
+    margin: 0rem auto;
+    
+    @include iphone() {
+        width:100%;
+        overflow-y: scroll; 
+    }
+    &-content{
+        margin-top: 2rem;
+        color:$white;
+        font-family: Abril_Fatface;
+        font-size: 1.5rem;
+        @include iphone() {
+            width:100%;
+        }
+    }
+}
+
+.store-card {
+    margin-top: 2px;
+    box-shadow: 5px 5px 5px black;
+    position: relative;
+    left: 20rem;
+    font-size: 12px;
+    width: 40rem;
+    height: 6rem;
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    color: black;
+    padding: 0 10px;
+    .left{
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .name {
+            display: block;
+            font-weight: 600;
+            padding: 5px 0 10px;
+        }
+    }
+    .right {
+        flex:1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .btn_select {
+            border: none;
+            color: red;
+            font-weight: 600;
+        }
+    }
+    @include ipad() {
+        width: 40rem;
+        margin-left: -8rem;
+    }
+}
