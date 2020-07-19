@@ -7,11 +7,11 @@ const StorePage = (props) => {
   // console.log(props.location.pathname);
   const pathname = props.location.pathname;
   return (
-    <div className="store-page">
-      <section className="store-page__nav">
+    <div className="storePage">
+      <section className="storePage__nav">
         <MainNav pathname={pathname} />
       </section>
-      <section className="store-page__content">
+      <section className="storePage__content">
         <Store />
       </section>
     </div>

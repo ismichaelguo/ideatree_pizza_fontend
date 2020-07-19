@@ -8,7 +8,6 @@ import { changePickUpTime, changeStoresData, changeInputType, changeStore } from
 import axios from 'axios';
 
 class PickUpForm extends React.Component {
-
     constructor(props) {
         super(props);
         const { changeInputType, changePickUpTime,changeStoresData} = this.props;
@@ -20,6 +19,7 @@ class PickUpForm extends React.Component {
         'url': 'http://localhost:8080/stores',
         }).then(
         res => {
+            // fanhuishuju
                let tempStoresData = [];
                 for (let i = 0; i < res.data.length; i++) {
                     for (let j = 0; j < res.data[i].cities.length; j++) {

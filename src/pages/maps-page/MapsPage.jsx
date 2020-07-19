@@ -9,11 +9,11 @@ const MapsPage = (props) => {
   const inMapId = props.match.params.id;
   const inMap = props.match.params.inMap;
   return (
-    <div className="map-page">
-      <section className="map-page__nav">
+    <div className="mapPage">
+      <section className="mapPage__nav">
         <MainNav pathname={pathname} />
       </section>
-      <section className="map-page__content">
+      <section className="mapPage__content">
         <Map inMapId={inMapId} inMap={inMap}/>
       </section>
     </div>
