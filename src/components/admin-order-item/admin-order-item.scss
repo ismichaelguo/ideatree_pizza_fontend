@@ -1,13 +1,14 @@
 @import "../../style_config/config";
 
 .order-item {
-  &-container {
-    border-bottom: 1px solid $lightgrey;
+  &__container {
+    // border-bottom: 1px solid $lightgrey;
   }
   display: flex;
   min-width: 100%;
-  min-height: 70px;
-
+  min-height: 50px;
+  background-color: $green;
+  margin-bottom: 0.5rem;
   font-size: 1.3rem;
   align-items: center;
   @include iphone() {
@@ -34,45 +35,48 @@
   }
 }
 
-.details-dropdown {
-  font-size: 1.1rem;
-  line-height: 1.4rem;
-}
-
-.details-update {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -10rem;
-  margin-left: -14rem;
-  z-index: 1000;
-  background-color: $blue;
-  padding: 1rem;
-  border-radius: 10px;
-  &__relative {
-    position: relative;
+.order-details {
+  &__dropdown {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    background-color: $green;
+    margin: -0.5rem 0 0.5rem 0;
   }
-  .close-btn {
+  &__update {
     position: absolute;
-    top: -2rem;
-    right: 0.1rem;
-    cursor: pointer;
-  }
-  p,
-  button {
-    margin: 1rem 0.5rem;
-  }
-  button {
-    font-family: $Abril_Fatface;
-    padding: 0.5rem 1rem;
-    border: 1px solid $blue;
-    border-radius: 5px;
-    cursor: pointer;
-    &:hover {
-      background-color: $lightgrey;
+    top: 50%;
+    left: 50%;
+    margin-top: -10rem;
+    margin-left: -14rem;
+    z-index: 1000;
+    background-color: $blue;
+    padding: 1rem;
+    border-radius: 10px;
+    &__relative {
+      position: relative;
     }
-  }
-  input {
-    margin-left: 0.5rem;
+    .close-btn {
+      position: absolute;
+      top: -2rem;
+      right: 0.1rem;
+      cursor: pointer;
+    }
+    p,
+    button {
+      margin: 1rem 0.5rem;
+    }
+    button {
+      font-family: $Abril_Fatface;
+      padding: 0.5rem 1rem;
+      border: 1px solid $blue;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: $lightgrey;
+      }
+    }
+    input {
+      margin-left: 0.5rem;
+    }
   }
 }
