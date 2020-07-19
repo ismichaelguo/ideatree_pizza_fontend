@@ -28,9 +28,8 @@ class MenuNav extends React.Component {
 
   showSubNav = (filteredFoodItems, hashtag) => {
     return (
-      filteredFoodItems.map((item) => (
-        <a
-          key={item.id}
+      filteredFoodItems.map((item, idx) => (
+        <a key={idx}
           href={`#${hashtag.split("#")[1]}${item.href}`}
           className={`menu-sub-navbar__item ${this.state.extended ? 'extended' : ''}`}
           onClick={this.handleDishClick}
