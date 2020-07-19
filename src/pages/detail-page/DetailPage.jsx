@@ -12,11 +12,11 @@ const DetailPage = (props) => {
   const pathname = props.location.pathname;
   
   return (
-    <div className="detail-page">
-      <section className="detail-page__nav">
+    <div className="detailPage">
+      <section className="detailPage__nav">
         <MainNav pathname={pathname} />
       </section>
-      <section className="detail-page__content">
+      <section className="detailPage__content">
         <Detail props={props} />
       </section>
     </div>

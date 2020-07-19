@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Geocode from "react-geocode";
 import "./map.scss";
-import phone from "./phone.svg";
-import clock from "./clock.svg";
-import place from "./place.svg";
+import phone from "../../asset/Images/map/phone.svg";
+import clock from "../../asset/Images/map/clock.svg";
+import place from "../../asset/Images/map/place.svg";
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { Link } from "react-router-dom";
 
@@ -11,7 +11,6 @@ const mapStyles = {
     width: "100%",
     height: "50rem",
 };
-
 
 export class GMap extends Component {
     constructor(props) {
@@ -48,35 +47,24 @@ export class GMap extends Component {
         );
     }
 
-
     onMarkerClick = (props, marker, e) =>
         this.setState({
             selectedPlace: props,
             activeMarker: marker,
-            // showingInfoWindow: true
         });
-
-    // onMapClicked = (props) => {
-    //     if (this.state.showingInfoWindow) {
-    //         this.setState({
-    //             // showingInfoWindow: false,
-    //             activeMarker: null
-    //         })
-    //     }
-    // };
 
     render() {
             return (
                 <div>
-                    <div className="map-header">
-                        <Link to="/stores" className="map_back">BACK</Link>
+                    <div className="mapHeader">
+                        <Link to="/stores" className="mapHeader__back">BACK</Link>
                     </div>
-                    <div className="map">
-                        <div className="map-description">
-                            <h1>{this.props.inMap.split(',')[1]}</h1>
-                            <p><img src={place} />{" "}<span className="map-description-content">{this.props.inMap.split(',')[0]}</span></p>
-                            <p><img src={phone} />{" "}<span className="map-description-content">{this.props.inMap.split(',')[2]}</span></p>
-                            <p><img src={clock} />{" "}<span className="map-description-content">TRADING HOURS</span></p>
+                    <div className="mapShow">
+                        <div className="mapShow__description">
+                            <h1>{this.props.inMap.split(',')[1]}</h1><br/><br/>
+                            <img src={place} />{" "}<span className="mapShow__content">{this.props.inMap.split(',')[0]}</span><br/><br/>
+                            <img src={phone} />{" "}<span className="mapShow__content">{this.props.inMap.split(',')[2]}</span><br/><br/>
+                            <img src={clock} />{" "}<span className="mapShow__content">TRADING HOURS</span>
                             <table>
                                 <tr>
                                     <td>MONDAY</td>
@@ -120,11 +108,9 @@ export class GMap extends Component {
                                 lng: this.state.lng
                             }}
                             style={mapStyles}
-                            zoom={16}
-                        // onClick={this.onMapClicked}
+                            zoom={17}
                         >
                             <Marker
-                                // onClick={this.onMarkerClick}
                                 position={{ lat: this.state.lat, lng: this.state.lng }} />
                         </Map>
 

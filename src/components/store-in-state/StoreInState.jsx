@@ -12,20 +12,16 @@ function StoreInState(props) {
         storesList.push(...item.stores)
     })
 
-    // const cityID = props.cityID;
-    
-
-
     return (
         <div>
-            <div className="store-in-state-header">
-                <Link to="/stores" className="store-in-state_back">BACK</Link>
+            <div className="storeInStateHeader">
+                <Link to="/stores" className="storeInStateHeader__back">BACK</Link>
             </div>
 
-            <div className="store-in-state-detail">
+            <div className="storeInStateDetail">
                     <span>PizzaHub's STORES IN {props.state}</span>
 
-                    <section className="store-in-state-list">
+                    <section className="storeInStateDetail__list">
                         {storesList.map(item => (<StoreCard 
                             key={item.id}
                             id={item.id}

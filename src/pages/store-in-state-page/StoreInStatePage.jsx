@@ -8,11 +8,11 @@ const StoreInStatePage = (props) => {
   const stateId = props.match.params.id;
   const state = props.match.params.state;
   return (
-    <div className="store-in-state-page">
-      <section className="store-in-state-page__nav">
+    <div className="storeInStatePage">
+      <section className="storeInStatePage__nav">
         <MainNav pathname={pathname} />
       </section>
-      <section className="store-in-state-page__content">
+      <section className="storeInStatePage__content">
         <StoreInState stateId={stateId} state={state}/>
       </section>
     </div>
