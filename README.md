@@ -1,68 +1,97 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+ <img width=150px height=150px src="./public/pizza.png" alt="Pizza logo"></a>
+</p>
 
-## Available Scripts
+<h3 align="center">Online Pizza Order Website</h3>
 
-In the project directory, you can run:
+<div align="center">
 
-### `npm start`
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+</div>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+<p align="center"> 🍕 A fully-functional online pizza ordering website built with <b>React.js</b>, <b>Koa.js</b> and <b>MongoDB</b>, containing customer page for customers and admin page for administrators.
+</p>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📝 Table of Contents
 
-### `npm run build`
+- [About](#about)
+- [Demo](#demo)
+- [How it works](#working)
+- [Getting Started](#getStart)
+- [Authors](#authors)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧐 About <a id = "about"></a>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+An online pizza order website (like Domino Pizza) with the functionalities allowing customers to register, login, logout, select items and checkout and administrators to review orders.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🎥 Demo <a id = "demo"></a>
 
-### `npm run eject`
+### Demo Website:
+- frontend: https://idea-tree-pizza-frontend.vercel.app/
+- backend: https://idea-pizza-backend.herokuapp.com/
+- Demo Username: Allen123@gmail.com
+- Demo Passwords: Allen123@
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 📀 Select a Pizza
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="./public/select.png" width="80%"/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 💿 Login or Register 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img src="./public/customer-login.png" width="80%"/>
+<img src="./public/register.png" width="80%"/>
 
-## Learn More
+### 💽 Fill up Address
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="./public/delivery-info.png" width="80%"/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 💿 Checkout orders
 
-### Code Splitting
+<img src="./public/receipt.png" width="80%"/>
+<img src="./public/checkout.png" width="80%"/>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## 💭 How it works <a id = "working"></a>
 
-### Analyzing the Bundle Size
+- Built readable, maintainable, reusable front-end components via `React.js`, `Redux` and `React-Hooks`.
+- Used `React-Router` to ensure the Single-Page Application.
+- Used `Redux` and `React-Redux`as the state management tool to maintain global persistent states and avoid long props chain.
+- Built a `Koa.js` based backend to offer RESTful APIs functionalities and interact with the MongoDB for storing data of users and orders.
+- Used `Swagger` to build API documentation and debugging page
+- Implemented the JWT token-based Authentication to verify the user identity.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## 🏁 Getting Started <a id = "getStart"></a>
+These instructions will guide you to set up the project and run on your local machine for development and testing purposes.
 
-### Making a Progressive Web App
+### 🔧 Prerequisites
+What things you need to install the software and how to install them.
+```
+Node
+React
+MongoDB
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### ⚙️  Setup [MongoDB](https://www.mongodb.com/)
 
-### Advanced Configuration
+Change the secret key of your own MongoDB
+At **/server/config/config.env**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+MONGO_URI={YOUR_MONGODB_CONNECT_KEY}
+```
 
-### Deployment
+### ⛏️ Installing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+At root folder
+```
+npm install
+npm start
+```
+[Backend repo](https://bitbucket.org/Michael_Guo11/idea_tree_pizza_backend/src/master/)
 
-### `npm run build` fails to minify
+## ✍️ Authors <a id = "authors"></a>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [@Allen Xiao](https://github.com/pengfei123xiao)

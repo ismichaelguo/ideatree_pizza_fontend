@@ -1,0 +1,14 @@
+@import "../../style_config/config";
+
+.storePage {
+    display: flex;
+    flex-direction: column;
+    background-color:$white;
+    &__nav {
+      @include main-nav_type;
+      
+    }
+    &__content {
+      margin-top: -70px;
+    }
+}

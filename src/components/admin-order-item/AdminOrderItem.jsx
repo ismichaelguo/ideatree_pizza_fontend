@@ -94,7 +94,7 @@ class AdminOrderItem extends React.Component {
     const { _id, DeliverPickupTime, address, orderItems, orderTime, totalPrice, type } = this.props.order;
 
     return (
-      <div className="order-item-container">
+      <div className="order-item__container">
         <div className="order-item">
           <span className="order-item__id">{_id.slice(-5)}</span>
           <span className="order-item__order-time">{orderTime}</span>
@@ -107,7 +107,7 @@ class AdminOrderItem extends React.Component {
           </span>
         </div>
         {this.state.dropdown ?
-          <div className="details-dropdown">
+          <div className="order-details__dropdown">
             <p>OrderItems: {orderItems.map((item) => <span>{item.foodName} × {item.quantity}; </span>)}</p>
             <p>Deliver/PickupTime: {DeliverPickupTime}</p>
             <p>Address: {address}</p>
@@ -115,8 +115,8 @@ class AdminOrderItem extends React.Component {
           : null
         }
         {this.state.update ? (
-          <div className="details-update">
-            <div className="details-update__relative">
+          <div className="order-details__update">
+            <div className="order-details__update__relative">
               <p className='close-btn'><i className="fa fa-times-circle" onClick={this.handleCloseBtn}></i></p>
               <p className="clear"></p>
               <p>Order ID: <input type="text" name="orderID" value={_id} disabled /></p>

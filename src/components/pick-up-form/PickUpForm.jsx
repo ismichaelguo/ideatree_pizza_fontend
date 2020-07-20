@@ -5,22 +5,21 @@ import { BsClockHistory } from 'react-icons/bs';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { changePickUpTime, changeStoresData, changeInputType, changeStore } from '../../redux/actions/index';
-import axiosInstance from '../../api/axiosInstance';
-
+import axios from 'axios';
 
 class PickUpForm extends React.Component {
-
     constructor(props) {
         super(props);
         const { changeInputType, changePickUpTime,changeStoresData} = this.props;
         changeInputType({ inputType: 'postcode' });
         changePickUpTime({ pickUpTime: '' });
 
-        axiosInstance({
+        axios({
         'method': 'GET',
-        'url': '/stores',
+        'url': 'http://localhost:8080/stores',
         }).then(
         res => {
+            // fanhuishuju
                let tempStoresData = [];
                 for (let i = 0; i < res.data.length; i++) {
                     for (let j = 0; j < res.data[i].cities.length; j++) {

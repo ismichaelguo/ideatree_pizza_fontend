@@ -70,7 +70,11 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    border-bottom: 1px solid darkgrey;
+    background-color: $blue;
+    margin: 1rem 0;
+    @include ipad() {
+      font-size: 1.2rem;
+    }
 
     &-item {
       text-transform: capitalize;
